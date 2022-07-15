@@ -9,6 +9,7 @@
 body{
     background-color: #262330;
     color: var(--color_white);
+    height: 150vh;
 }
 header{
     background-color: #00000036;
@@ -83,29 +84,30 @@ header{
     margin: 0px auto 15px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 15px;
+    gap: 20px;
 }
 .card{
     border-radius: 10px;
     background-color: var(--color_rocket);
+    position: relative;
+    border: 2px solid var(--color_rocket);
 }
-.card .card_thumb img{
+.card_thumb img{
     width: 100%;
-    height: auto;
     cursor: pointer;
     border-radius: 10px 10px 0px 0px;
 }
-.card .card_title, .card_info{
+.card .card_title,.card_info{
     padding: 24px;
 }
 .card .card_info{
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
-.card .card_info .card_duration{
+.card_info .card_duration{
     padding: 5px 0px 5px 5px;
 }
-.card .card_info .card_price{
+.card_info .card_price{
     background-color: var(--color_rocket);
     filter:brightness(80%);
     padding: 5px 20px;
@@ -139,17 +141,17 @@ header{
     position:relative;
     border-radius: 10px;
 }
-.modal_overlay .modal .close_modal{
+.modal .close_modal{
     position: absolute; right:10px; top: 10px;
     
 }
-.modal_overlay .modal .close_modal .material-icons{
+.close_modal .material-icons{
     color: #000000;
     font-size: 24px;
     font-weight: bold; 
     cursor: pointer;
 }
-.modal_overlay .modal .close_modal .material-icons:hover{
+.material-icons:hover{
     color:#be4141;
     transition: 250ms;
 }
@@ -161,4 +163,21 @@ header{
     height: 92%;
     position: absolute; bottom: -1px;
     border-radius: 10px;
+}
+
+/* FEATURED */
+.card .featured{
+    color: #00000000
+}
+.card .featured.active{
+    background-color: #fad73cfb;
+    max-width: fit-content;
+    padding: 3px 10px;
+    border-radius: 5px 0px 5px 0px;
+    color: #303030;
+    position: absolute; top:0px; left: 0px;
+    transition: 0.5s;
+}
+.card.card_featured{
+    border: 2px solid #fad73cfb;
 }
