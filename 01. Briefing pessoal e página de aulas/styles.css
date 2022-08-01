@@ -1,7 +1,7 @@
-/* INDEX PAGE*/
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap'); /*FONTE */
+/* PÁGINA INICIAL */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
 :root{
-    --color_white: rgb(255, 255, 255);
+    --color_white: #ffffff;
     --color_rocket: #7159c1;
 }
 * { margin:0; padding:0; border:0; box-sizing: border-box;}
@@ -9,7 +9,7 @@
 body{
     background-color: #262330;
     color: var(--color_white);
-    height: 150vh;
+    min-height: 110vh;
 }
 header{
     background-color: #00000036;
@@ -19,22 +19,27 @@ header{
     padding: 32px 0px;
     text-align: center;
 }
-.links a{
-    font-size: 20px;
+.links li{
+    max-width: fit-content;
+    display: inline-block;
+    margin: 0px 24px;
+}
+li a{
+    font-size: 24px;
     color:#9e9e9e;
-    margin: 0px 30px;
     text-decoration: none;
     font-family: 'Open Sans', sans-serif;
+    transition: color 0.25s;
 }
-.links a:hover{
+.links li a:hover{
     color: var(--color_white);
-    transition: color 250ms;
 }
 
 #wrapper{
     max-width: 1000px;
     text-align: center;
-    margin: 30px auto 0px;
+    margin: 32px auto 0px;
+    padding: 0px 24px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 #wrapper figure{
@@ -47,137 +52,178 @@ header{
     border: 3px solid #ccbdf094;
 }
 #wrapper h2{
-    font-size: 32px;;
+    font-size: 30px;;
     opacity: 100%;
     font-weight: bold;
-    margin: 15px 0px 0px;
+    margin: 16px 0px 0px;
 }
 #wrapper h3{
-    font-size: 20px;;
+    font-size: 20px;
     opacity: 90%;
     font-weight: 300;
-    margin: 5px 0px 0px;
+    margin: 8px 0px 0px;
 }
 #wrapper p{
     font-size: 17px;
     font-weight: 200;
     max-width: 500px;
     line-height: 20px;
-    margin: 22px auto 0px;
+    margin: 24px auto 0px;
 }
-#links_footer a{
-    border-bottom: 1px solid #956df1;
-    font-size: 15px;
+#links-footer{
+    text-align: center;
+    padding: 32px 0px ;
+}
+#links-footer ul{
+    display: flex;
+    gap: 32px;
+    list-style-type: none;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#links-footer a{
+    font-size: 16px;
+    color:#9e9e9e;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    transition: color 0.2s;
+    position: relative;
+    margin:0;
+}
+#links-footer a::after{
+    content: "";
+    width: 0%;
+    height: 2px;
+    background-color:#ffffff ;
+    position: absolute; bottom:-4px; left:0px;
+    transition: width 0.25s;
+}
+#links-footer a:hover::after{
+    width: 100%;
+}
+#links-footer a:hover{
+    color:var(--color_white); 
 }
 
-/* CARDS */
-.title p{
+
+/* PÁGINA DE AULAS */
+.title h1{
     font-family: 'Open Sans', sans-serif;
-    font-size: 25px;
+    font-size: 24px;
     text-align: center;
-    padding: 25px 0px;
+    padding: 32px 0px;
     font-weight: bold;
 }
 .cards{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    max-width: 800px;
-    margin: 0px auto 15px;
+    max-width: 850px;
+    margin: 0px auto 32px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
+    gap: 24px;
+    padding: 0px 24px;
 }
 .card{
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
     background-color: var(--color_rocket);
     position: relative;
     border: 2px solid var(--color_rocket);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.342);
 }
-.card_thumb img{
+.card-thumb img{
+    grid-row: 1;
     width: 100%;
     cursor: pointer;
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 8px 8px 0px 0px;
 }
-.card .card_title,.card_info{
+.card .card-title,.card-info{
     padding: 24px;
 }
-.card .card_info{
+.card .card-info{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin-top: auto;
 }
-.card_info .card_duration{
-    padding: 5px 0px 5px 5px;
+.card-info .card-duration{
+    padding: 4px 0px 4px 4px;
 }
-.card_info .card_price{
+.card-info .card-price{
     background-color: var(--color_rocket);
     filter:brightness(80%);
-    padding: 5px 20px;
-    border-radius: 15px;
+    padding: 4px 24px;
+    border-radius: 16px;
     text-align: center;
 }
-@media (max-width: 590px){
+@media (max-width: 800px){
     .cards{
         grid-template-columns: 1fr 1fr;
     }
 }
-@media (max-width: 390px){
+@media (max-width: 550px){
     .cards{
         grid-template-columns: 1fr;
     }
 }
 
-/* MODAL OVERLAY */
-.modal_overlay{
+/* PÁGINA DE AULAS - MODAL*/
+.modal-overlay{
     background-color: #000000af;
     width: 100vw;
     height: 100vh;
     position: fixed; top:0px;
     visibility: hidden;
 }
-.modal_overlay .modal{
+.modal-overlay .modal{
     background-color: #cfcfcf;
     width: 85vw;
     height: 90vh;
     margin:5vh auto;
     position:relative;
-    border-radius: 10px;
+    border-radius: 8px;
 }
-.modal .close_modal{
-    position: absolute; right:10px; top: 10px;
-    
+.modal .close-modal{
+    position: absolute; right:16px; top: 16px;
 }
-.close_modal .material-icons{
+.close-modal .material-icons{
     color: #000000;
     font-size: 24px;
     font-weight: bold; 
     cursor: pointer;
+    transition: color 0.25s;
 }
 .material-icons:hover{
     color:#be4141;
-    transition: 250ms;
 }
-.modal_overlay.active{
+.modal-overlay.active{
     visibility:visible;
 }
-.modal_overlay .modal iframe{
+.modal-overlay .modal iframe{
     width: 100%;
-    height: 92%;
+    height: 91%;
     position: absolute; bottom: -1px;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
-/* FEATURED */
+/* PÁGINA DE AULAS - FEATURED*/
+.card{
+    transition: border-color 0.25s;
+    border: 2px solid #fad73c00;
+    transition: border-color 0.25s;
+}
+.card:hover{
+    border-color: #fad73cfb;
+}
 .card .featured{
-    color: #00000000
-}
-.card .featured.active{
-    background-color: #fad73cfb;
     max-width: fit-content;
-    padding: 3px 10px;
+    padding: 4px 8px;
     border-radius: 5px 0px 5px 0px;
-    color: #303030;
+    color: #30303000;
     position: absolute; top:0px; left: 0px;
-    transition: 0.5s;
+    transition: background-color 0.25s , color 0.25s;
 }
-.card.card_featured{
-    border: 2px solid #fad73cfb;
+.card:hover .featured{
+    background-color: #fad73cfb;
+    color: #303030;
 }
