@@ -7,15 +7,21 @@
     </head>
     <body>
         <main>
+            <!-- Título da seção -->
             <h1>Conversor de Unidades</h1>
-            <div class="flex" id="unittype">
-                <h2>Tipo de unidade</h2>
-                <select class="selecttype">
+            <!-- Título da seção -->
+
+            <!-- Seleção do tipo de unidade de medida -->
+            <div class="flex" id="unit-type">
+                <label>Tipo de unidade: </label><select class="selecttype"></label>
                     <option value="0">Massa</option>
                     <option value="1">Comprimento</option>
                     <option value="2">Tempo</option>
                 </select>
             </div>
+            <!-- Seleção do tipo de unidade de medida -->
+
+            <!-- Área de conversão das unidades -->
             <section class="flex" id="converter">
                 <div class="initial">
                     <input class="inputs" id="initial" type="number">
@@ -43,6 +49,7 @@
                     </select>
                 </div>
             </section>
+            <!-- Área de conversão das unidades -->
         </main>
         <script src="script.js" ></script>
     </body>
