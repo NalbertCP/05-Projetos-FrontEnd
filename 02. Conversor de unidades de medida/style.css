@@ -26,7 +26,7 @@ main .flex{
     flex-wrap: wrap;
     margin: 50px 0px;
 }
-main #unittype{
+main #unit-type{
     align-items: center;
     justify-content: center;
     gap: 20px;
@@ -34,14 +34,14 @@ main #unittype{
 main #converter{
     justify-content: space-around;
 }
-#unittype h2{
+#unit-type label{
     font-size: 20px;
     font-weight:400;
     color: #5c5c5c;
     border-bottom: 2px solid #ecc207;
     padding: 0px 0px 10px;
 }
-#unittype select{
+#unit-type select{
     padding: 13px 10px;
     background-color: #eeeded;
     border-radius: 5px;
