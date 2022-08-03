@@ -4,6 +4,7 @@ body {
     background-color: #f7f7f7;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
 main {
     padding: 40px;
     max-width: 650px;
@@ -14,6 +15,7 @@ main {
     margin: 10vh auto;
     border-radius: 10px;
 }
+
 main h1{
     font-size: 25px;
     color: #5c5c5c;
@@ -21,19 +23,23 @@ main h1{
     font-weight: 500;
     border-bottom: 2px solid #ecc207;
 }
+
 main .flex{
     display: flex;
     flex-wrap: wrap;
     margin: 50px 0px;
 }
+
 main #unit-type{
     align-items: center;
     justify-content: center;
     gap: 20px;
 }
+
 main #converter{
     justify-content: space-around;
 }
+
 #unit-type label{
     font-size: 20px;
     font-weight:400;
@@ -41,6 +47,7 @@ main #converter{
     border-bottom: 2px solid #ecc207;
     padding: 0px 0px 10px;
 }
+
 #unit-type select{
     padding: 13px 10px;
     background-color: #eeeded;
@@ -48,16 +55,19 @@ main #converter{
     flex: 0 1 230px;
     border: 2px solid #c2c2c2;
 }
+
 main p{
     font-size: 36px;
     color:#ecc207;
     padding: 15px 0px;
 }
+
 section .initial, .final{
     max-width: 230px;
     border: 2px solid #c2c2c2;
     border-radius: 5px;
 }
+
 section input{
     padding: 15px ;
     outline: none;
@@ -65,6 +75,7 @@ section input{
     width: 100%;
     border-radius: 5px 5px 0px 0px;
 }
+
 section select{
     width: 100%;
     padding: 13px 10px;
@@ -73,6 +84,7 @@ section select{
     border-radius:0px 0px 5px 5px;
     border-top: 2px solid #c2c2c2;
 }
+
 @media (max-width:575px){
     main section{
         flex-direction: column;
