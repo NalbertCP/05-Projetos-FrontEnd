@@ -1,9 +1,11 @@
 /* PÁGINA INICIAL */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+
 :root{
     --color_white: #ffffff;
     --color_rocket: #7159c1;
 }
+
 * { margin:0; padding:0; border:0; box-sizing: border-box;}
 
 body{
@@ -11,19 +13,23 @@ body{
     color: var(--color_white);
     min-height: 110vh;
 }
+
 header{
     background-color: #00000036;
     border-bottom: 2px solid #fffefe41;
 }
+
 .links{
     padding: 32px 0px;
     text-align: center;
 }
+
 .links li{
     max-width: fit-content;
     display: inline-block;
     margin: 0px 24px;
 }
+
 li a{
     font-size: 24px;
     color:#9e9e9e;
@@ -31,6 +37,7 @@ li a{
     font-family: 'Open Sans', sans-serif;
     transition: color 0.25s;
 }
+
 .links li a:hover{
     color: var(--color_white);
 }
@@ -42,27 +49,32 @@ li a{
     padding: 0px 24px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
 #wrapper figure{
     max-width: 250px;
     margin:0px auto;
 }
+
 #wrapper figure img{
     max-width: 100%;
     border-radius: 50%;
     border: 3px solid #ccbdf094;
 }
+
 #wrapper h2{
     font-size: 30px;;
     opacity: 100%;
     font-weight: bold;
     margin: 16px 0px 0px;
 }
+
 #wrapper h3{
     font-size: 20px;
     opacity: 90%;
     font-weight: 300;
     margin: 8px 0px 0px;
 }
+
 #wrapper p{
     font-size: 17px;
     font-weight: 200;
@@ -70,10 +82,12 @@ li a{
     line-height: 20px;
     margin: 24px auto 0px;
 }
+
 #links-footer{
     text-align: center;
     padding: 32px 0px ;
 }
+
 #links-footer ul{
     display: flex;
     gap: 32px;
@@ -81,6 +95,7 @@ li a{
     justify-content: center;
     flex-wrap: wrap;
 }
+
 #links-footer a{
     font-size: 16px;
     color:#9e9e9e;
@@ -90,6 +105,7 @@ li a{
     position: relative;
     margin:0;
 }
+
 #links-footer a::after{
     content: "";
     width: 0%;
@@ -98,13 +114,14 @@ li a{
     position: absolute; bottom:-4px; left:0px;
     transition: width 0.25s;
 }
+
 #links-footer a:hover::after{
     width: 100%;
 }
+
 #links-footer a:hover{
     color:var(--color_white); 
 }
-
 
 /* PÁGINA DE AULAS */
 .title h1{
@@ -114,6 +131,7 @@ li a{
     padding: 32px 0px;
     font-weight: bold;
 }
+
 .cards{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     max-width: 850px;
@@ -123,6 +141,7 @@ li a{
     gap: 24px;
     padding: 0px 24px;
 }
+
 .card{
     display: flex;
     flex-direction: column;
@@ -132,23 +151,28 @@ li a{
     border: 2px solid var(--color_rocket);
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.342);
 }
+
 .card-thumb img{
     grid-row: 1;
     width: 100%;
     cursor: pointer;
     border-radius: 8px 8px 0px 0px;
 }
+
 .card .card-title,.card-info{
     padding: 24px;
 }
+
 .card .card-info{
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-top: auto;
 }
+
 .card-info .card-duration{
     padding: 4px 0px 4px 4px;
 }
+
 .card-info .card-price{
     background-color: var(--color_rocket);
     filter:brightness(80%);
@@ -156,11 +180,13 @@ li a{
     border-radius: 16px;
     text-align: center;
 }
+
 @media (max-width: 800px){
     .cards{
         grid-template-columns: 1fr 1fr;
     }
 }
+
 @media (max-width: 550px){
     .cards{
         grid-template-columns: 1fr;
@@ -175,6 +201,7 @@ li a{
     position: fixed; top:0px;
     visibility: hidden;
 }
+
 .modal-overlay .modal{
     background-color: #cfcfcf;
     width: 85vw;
@@ -183,9 +210,11 @@ li a{
     position:relative;
     border-radius: 8px;
 }
+
 .modal .close-modal{
     position: absolute; right:16px; top: 16px;
 }
+
 .close-modal .material-icons{
     color: #000000;
     font-size: 24px;
@@ -193,12 +222,15 @@ li a{
     cursor: pointer;
     transition: color 0.25s;
 }
+
 .material-icons:hover{
     color:#be4141;
 }
+
 .modal-overlay.active{
     visibility:visible;
 }
+
 .modal-overlay .modal iframe{
     width: 100%;
     height: 91%;
@@ -212,9 +244,11 @@ li a{
     border: 2px solid #fad73c00;
     transition: border-color 0.25s;
 }
+
 .card:hover{
     border-color: #fad73cfb;
 }
+
 .card .featured{
     max-width: fit-content;
     padding: 4px 8px;
@@ -223,6 +257,7 @@ li a{
     position: absolute; top:0px; left: 0px;
     transition: background-color 0.25s , color 0.25s;
 }
+
 .card:hover .featured{
     background-color: #fad73cfb;
     color: #303030;
