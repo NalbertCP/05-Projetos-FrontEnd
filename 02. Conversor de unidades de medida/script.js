@@ -48,13 +48,13 @@ document.querySelector(".selecttype").addEventListener("click",()=>{
     }
 })
 
-// Event listeners
+/*Event listeners*/
 document.querySelector("#initial").addEventListener("keyup", leftright_converter)
 document.querySelector("#final").addEventListener("keyup",rightleft_converter)
 document.querySelector(".iselect").addEventListener("click",leftright_converter)
 document.querySelector(".fselect").addEventListener("click",leftright_converter)
 
-// Funções
+/*Funções*/
 function simbol(units){
     const selectunit = Number(document.querySelector(".selecttype").value)
     const unitsimbol = [...units[selectunit]]
