@@ -5,18 +5,23 @@ body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-main {
+.toCenter-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
     padding: 40px;
     max-width: 650px;
     min-width: 175px;
-    min-height: 500px;
     background-color: #ffff;
     box-shadow: 1px 1px 5px #b4b4b4;
-    margin: 10vh auto;
     border-radius: 10px;
 }
 
-main h1{
+.container h1{
     font-size: 25px;
     color: #5c5c5c;
     padding: 0px 0px 10px;
@@ -24,20 +29,25 @@ main h1{
     border-bottom: 2px solid #ecc207;
 }
 
-main .flex{
+.container .flex{
     display: flex;
     flex-wrap: wrap;
     margin: 50px 0px;
 }
 
-main #unit-type{
+.container #unit-type{
     align-items: center;
     justify-content: center;
     gap: 20px;
 }
 
-main #converter{
+.container #converter{
     justify-content: space-around;
+    font-size: 36px;
+    color:#ecc207;
+    padding: 15px 0px;
+    align-items: center;
+    gap: 8px;
 }
 
 #unit-type label{
@@ -54,12 +64,6 @@ main #converter{
     border-radius: 5px;
     flex: 0 1 230px;
     border: 2px solid #c2c2c2;
-}
-
-main p{
-    font-size: 36px;
-    color:#ecc207;
-    padding: 15px 0px;
 }
 
 section .initial, .final{
@@ -84,9 +88,8 @@ section select{
     border-radius:0px 0px 5px 5px;
     border-top: 2px solid #c2c2c2;
 }
-
 @media (max-width:575px){
-    main section{
+    .container section{
         flex-direction: column;
         align-items: center;
     }
