@@ -9,13 +9,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 24px;
 }
 
 .container {
     padding: 40px;
     max-width: 650px;
-    min-width: 175px;
+    min-width: 200px;
     background-color: #ffff;
     box-shadow: 1px 1px 5px #b4b4b4;
     border-radius: 10px;
@@ -88,9 +89,12 @@ section select{
     border-radius:0px 0px 5px 5px;
     border-top: 2px solid #c2c2c2;
 }
-@media (max-width:575px){
+@media (max-width:650px){
     .container section{
         flex-direction: column;
         align-items: center;
+    }
+    .container h1{
+        text-align: center;
     }
 }
