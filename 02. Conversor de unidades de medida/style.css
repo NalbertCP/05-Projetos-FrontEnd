@@ -1,23 +1,23 @@
 *{margin:0; padding:0; box-sizing: border-box;}
 
 body {
-    background-color: #f7f7f7;
+    background-color: #ebebeb;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .toCenter-content{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    width: 100vw;
     padding: 24px;
+    justify-content: center;
 }
 
 .container {
+    flex-grow: 1;
     padding: 40px;
     max-width: 650px;
     min-width: 200px;
-    background-color: #ffff;
+    background-color: #ffffff;
     box-shadow: 1px 1px 5px #b4b4b4;
     border-radius: 10px;
 }
@@ -89,7 +89,10 @@ section select{
     border-radius:0px 0px 5px 5px;
     border-top: 2px solid #c2c2c2;
 }
-@media (max-width:650px){
+@media (max-width:950px){
+    .container{
+        max-width: 100%;
+    }
     .container section{
         flex-direction: column;
         align-items: center;
