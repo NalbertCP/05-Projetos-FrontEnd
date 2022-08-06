@@ -228,12 +228,12 @@ li a{
 
 
 /* Media queries - Página de aulas*/
-@media (max-width: 800px){
+@media (max-width: 1200px){
     .cards{
         grid-template-columns: 1fr 1fr;
     }
 }
-@media (max-width: 550px){
+@media (max-width: 950px){
     .cards{
         grid-template-columns: 1fr;
     }
