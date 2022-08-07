@@ -4,11 +4,13 @@ const numbers = document.querySelectorAll(".number")
 const operators = document.querySelectorAll(".operator")
 const equal = document.querySelector("#equal")
 const clear = document.querySelector("#clear")
+const backspace = document.querySelector("#backspace")
 
 /*Modal*/
 const modalOverlay = document.querySelector(".modal-overlay")
 const hideModal = document.querySelector(".closemodal")
 const modalWarning = document.querySelector(".text")
+
 
 /*Adicionando números e operadores no display*/
 addNumbers()
@@ -17,6 +19,7 @@ addOperators()
 /*Exbindo o resultado, limpando o display e fechando o modal*/
 equal.addEventListener("click",showResult)
 clear.addEventListener("click",clearDisplay)
+backspace.addEventListener("click",backSpace)
 modalOverlay.addEventListener("click",closeModal)
 
 /* Funções utilizadas */
@@ -28,20 +31,27 @@ function addNumbers (){
 function addOperators(){
     for (let operator of operators){
         operator.addEventListener("click",()=>{
-            console.log(operator.value)
-            display.value += ` ${operator.value} `  
+            if (operator.value == "X"){
+                display.value+= ` * `
+            } else {
+                display.value += ` ${operator.value} `  
+            }
+           
         })
     }
 }
 function showResult(){
     if (display.value == "undefined" || display.value == ""){
         hideModal.classList.add("closemodal")
-        modalWarning.innerHTML = "Por favor, digite uma operação antes de solicitar o resultado"
+        modalWarning.innerHTML = "Por favor, digite uma operação antes de solicitar o resultado."
         display.value=""
         modalOverlay.classList.add("active")
     } else{
         display.value = eval(display.value)
     }
+}
+function backSpace(){
+    display.value = display.value.slice(0,display.value.length-1)
 }
 function clearDisplay(){
     display.value=""
