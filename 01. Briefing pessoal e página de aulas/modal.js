@@ -8,9 +8,7 @@ for (let cardimg of cardsimg){
         showmodal(cardimg)
     })   
 }
-modaloverlay.addEventListener("click",()=>{
-    hidemodal(event)
-})
+modaloverlay.addEventListener("click",hidemodal)
 
 function showmodal (cardimg){
     modaloverlay.classList.add("active")
