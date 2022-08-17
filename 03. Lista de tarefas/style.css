@@ -129,6 +129,10 @@ input[type=text]:focus + label{
     animation: slideTask 0.8s forwards;
 }
 
+.task.delete-task{
+    animation: deleteTask 0.8s forwards;
+}
+
 .task .before{
     content: "";
     height: 60%;
