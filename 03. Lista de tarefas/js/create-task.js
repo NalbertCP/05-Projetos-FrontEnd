@@ -51,7 +51,7 @@ function createButtons(){
 function createTask (){
     const taskName = document.createElement("span")
     taskName.setAttribute("class","task-name")
-    taskName.innerText = input.value
+    taskName.innerHTML = input.value
 
     const before = document.createElement("span")
     before.setAttribute("class","before")
@@ -70,7 +70,7 @@ function createTask (){
 /* Deletando a task ao clicar no botão "trash" */
 function deleteTask(event){
     const taskParent = event.target.parentNode.parentNode
-    taskParent.style.animation = "deleteTask 0.8s forwards"
+    taskParent.classList.add("delete-task")
     setTimeout(()=>{
         taskParent.remove()
     },500)
