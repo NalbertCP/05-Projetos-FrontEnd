@@ -10,7 +10,7 @@ switchModeButton.addEventListener("click",darkMode)
 
 /*Funções*/
 function darkMode(event){
-    //Alterando o ícone do switch do modo escuro
+    //Alterando o ícone do botão "switch mode"
     if (event.target.checked){
         switchModeIcon.innerHTML="light_mode"
     } else{
@@ -20,6 +20,6 @@ function darkMode(event){
     for (let simbol of simbols){
         simbol.classList.toggle("white") 
     }
-    documentBody.classList.toggle("dark-mode") //Alterando as cores settadas do body
-    watch.classList.toggle("dark-mode") // Acrescendo a animação light no display do relógio
+    documentBody.classList.toggle("dark-mode") //Alterando as cores settadas no body
+    watch.classList.toggle("dark-mode") // Acrescentandodo animação light no display do relógio
 }
