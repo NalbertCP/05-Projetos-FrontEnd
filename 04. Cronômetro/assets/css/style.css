@@ -48,7 +48,6 @@ body.dark-mode{
 /* Início - display e botões */
 .stopwatch-container{
     max-width: 500px;
-
     padding: 24px;
     margin: 0 auto;
     flex-direction: column;
