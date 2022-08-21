@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="icon" href="./assets/icon/favicon04.ico" type="image/x-icon">
+        <title>StopWtach</title>
+    </head>
+    <body>
+        <div class="width-1 main-container">
+            <div class="flex stopwatch-container">
+                <div class="width-1 flex stopwatch-header">
+                    <h1>Stopwatch</h1>
+                    <label class="switch-theme" for="checkbox">
+                        <input type="checkbox" name="" id="checkbox">
+                        <span class="flex">
+                            <i class="material-icons">dark_mode</i>
+                        </span>
+                    </label>
+                </div>
+                <div class="flex watch">
+                    <div class="flex">
+                        <p class=" number hour">00</p>
+                        <span>:</span>
+                        <p class="number min">00</p>
+                        <span>:</span>
+                        <p class="number sec">00</p>
+                        <span>.</span>
+                        <p class="number dec">00</p>
+                    </div>
+                </div>
+                <ul class=" flex operating-buttons">
+                    <li>
+                        <button class="flex" value="start" id="start-pause">
+                        <i class="material-icons">play_arrow</i>
+                        <span>Start</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="flex" id="lap-button">
+                            <i class="material-icons">refresh</i>
+                            <span>Lap</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="flex" id="stop-button">
+                            <i class="material-icons">stop</i>
+                            <span>Stop</span>
+                        </button>
+                    </li>
+                </ul>
+                <div class="table-container">
+                    <table class="width-1 lap-table">
+                        <thead>
+                            <tr>
+                                <th>Lap</th>
+                                <th>Lap time</th>
+                                <th>Total time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td># 00</td>
+                                <td>00:00:00.00</td>
+                                <td>00:00:00.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <script src="./assets/js/stopwatch.js"></script>
+        <script src="./assets/js/dark-mode.js" ></script>
+    </body>
+</html>
