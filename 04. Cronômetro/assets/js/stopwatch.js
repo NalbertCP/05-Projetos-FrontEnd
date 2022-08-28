@@ -55,7 +55,7 @@ function stopWatch(){
 }
 function stop(){
     clearInterval(interval)
-    deleteTData()
+    deleteLapsRow()
     const numbers = document.querySelectorAll(".number")
     for (let number of numbers){
         number.innerHTML="00"
@@ -98,7 +98,7 @@ function registerLap(){
     let seconds = (Math.floor(lapTime/100)%60).toLocaleString("pt-br",{minimumIntegerDigits:2})
     let decimals = Math.ceil(lapTime%100).toLocaleString("pt-br",{minimumIntegerDigits:2})
     
-    const lapData = [...createTData()]
+    const lapData = [...createLapsRow()]
     lapData[0].innerHTML = `# ${(cont+1).toLocaleString("pt-br",{minimumIntegerDigits:2})}`
     lapData[1].innerHTML= `${hours}:${minutes}:${seconds}.${decimals}`
     lapData[2].innerHTML = `${hour}:${min}:${sec}.${dec}`
@@ -109,7 +109,7 @@ function registerLap(){
     lapTime = 0
     cont++
 }
-function createTData(){    
+function createLapsRow(){    
     const tdArray = []
     for (let i=0; i<3; i++){
         const td = document.createElement("td")
@@ -117,7 +117,7 @@ function createTData(){
     }
     return tdArray
 }
-function deleteTData(){
+function deleteLapsRow(){
     lapTimeArray = []
     cont = 0
     tBody.querySelectorAll("tr").forEach((value)=>{
