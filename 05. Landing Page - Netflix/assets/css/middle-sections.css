@@ -1,0 +1,213 @@
+/*Início - Enjoy-TV-Section*/
+.television-contaier > img{
+    width: 100%;
+}
+
+.television-contaier > video{
+    position: absolute;
+    width: 74%;
+    left:50%;
+    top:48%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -1;
+}
+
+@media(max-width: 950px){
+    .middle-sections{
+        padding: 64px 48px;
+    }
+    .middle-containers{
+        flex-direction: column;
+    }
+    
+    .content{
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .content > h2{
+        font-size: 36px;
+    }
+
+    .content > p{
+        font-size: 20px;
+    }
+
+    .img-wrapper{
+        max-width: 572px;
+    }
+}
+
+@media(max-width:600px){
+    .content > h2{
+        font-size: 24px;
+    }
+
+    .content > p{
+        font-size: 18px;
+    }
+
+    .middle-sections{
+        padding: 40px 24px;
+        min-width: 330px;
+    }
+
+    .middle-containers{
+        margin: 0px;
+    }
+}
+
+/*Fim - Enjoy-TV-Section*/
+
+/*Início - Download-Shows-Section*/
+.download-shows-container{
+    margin:28px 0px;
+    justify-content: space-between;
+}
+
+.mobile-container{
+    margin: 0px 64px 0px 48px;
+    flex-grow: 1;
+    max-width: 500px;
+    height: 364px;
+    position: relative;
+    background: url("../img/download-section-mobile.jpg") no-repeat center center /cover;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.stranger-things-container{
+    background-color: #000000;
+    padding: 8px;
+    max-width: 332px;
+    border: 2px solid #252525;
+    border-radius: 12px;
+    margin-bottom: 32px;
+}
+
+.stranger-things-container > img:first-child{
+    height: 72px;
+}
+
+.stranger-things-container > img:last-child{
+    height: 56px;
+}
+
+.stranger-things-container > div{
+    margin-left: 16px;
+}
+
+.stranger-things-container span:nth-child(2){
+    color: #3c6ffd;
+}
+
+@media(max-width: 950px){
+    .download-shows-container{
+        flex-direction: column-reverse;
+        margin: 0;
+    }
+
+    .mobile-container{
+        margin:0;
+    }
+}
+
+@media(max-width:600px){
+    .mobile-container{
+        height: 332px;
+    }
+    .stranger-things-container{
+        transform: scale(0.8);
+        margin-bottom: 8px;
+    }
+}
+
+@media(max-width:480px){
+    .mobile-container{
+        height: 256px;
+    }
+
+    
+}
+/*Fim - Download-Shows-Section*/
+
+/*Início - Watch-Everywhere-Section*/
+.everywhere-container{
+    margin:32px 0px;
+}
+
+.media-container{
+    max-width: 556px;
+}
+
+.media-container > img{
+    width: 100%;
+}
+
+.media-container > video{
+    position: absolute;
+    width: 62%;
+    left: 50%;
+    top:34%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -1;
+}
+
+@media (max-width:950px){
+    #watch-everywhere-section{
+        padding: 32px 48px;
+    }
+}
+
+@media (max-width:600px){
+    #watch-everywhere-section{
+        padding: 40px 24px;
+    }
+
+    .everywhere-container{
+        margin:0px;
+    }
+}
+/* Fim - Watch-Everywhere-Section*/
+
+/* Início - Kids-Profile-Section*/
+.kids-profile-container{
+    justify-content: space-between;
+    margin:40px 0px;
+}
+
+.kids-profile-content{
+    max-width: 556px;
+    flex-shrink: 3.5;
+}
+
+.kids-container {
+    max-width: 500px;
+    flex-shrink: 2.5;
+}
+
+.kids-container > img{
+    width: 100%;
+}
+
+@media (max-width:950px){
+    .kids-profile-container{
+        flex-direction: column-reverse;
+        margin: 16px 0px 32px;
+    }
+    
+    .kids-profile-content {
+        max-width: 100%;
+    }
+
+    .kids-container{
+        max-width: 564px;
+    }
+}
+
+@media (max-width:600px){
+    .kids-profile-container{
+        margin: 0px;
+    }
+}
+/* Fim - Kids-Profile-Section*/
