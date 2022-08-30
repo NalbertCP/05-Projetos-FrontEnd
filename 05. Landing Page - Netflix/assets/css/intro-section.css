@@ -1,4 +1,8 @@
-/*Início - Intro-Section*/
+/* Início - Intro-Section*/
+body{
+    --input-height:60px;
+}
+
 #intro-section{
     min-height: 744px;
     position: relative;
@@ -126,12 +130,8 @@ select:focus{
     position: relative;
 }
 
-form > .input-zone{
-    width: 100%;
-}
-
 form input[type=email]{
-    height: 60px;
+    height: var(--input-height);
     padding: 8px 12px 0px;
     font-size: 17px;
     outline: none;
@@ -165,8 +165,8 @@ button .material-icons{
 
 form label{
     position: absolute;
-    top:20px; left: 12px;
-    font-size: 16px;
+    top:calc(var(--input-height)/2 - 10px); left: 12px;
+    font-size:calc(var(--input-height)/4);
     color: #929292;
     transition: all 0.1s;
     pointer-events: none;
@@ -174,7 +174,7 @@ form label{
 
 form input[type=email]:focus + label{
     top:6px;
-    font-size: 12px;
+    font-size:calc((var(--input-height)/4)*0.8);
     font-weight: 500;
 }
 
@@ -225,13 +225,13 @@ form input[type=email]:focus + label{
 }
 
 @media only screen and (max-width:740px){
-    form input[type=email]{
-        height: 48px;
+    body{
+        --input-height:48px;
     }
-    
+
     form label{
         font-size: 14px;
-        top:16px; left: 12px;
+        left: 12px;
     }
 }
 
@@ -295,4 +295,4 @@ form input[type=email]:focus + label{
         min-width: 320px
     }
 }
-/*Fim - Intro-Section*/
+/*Fim - Intro-Section */
