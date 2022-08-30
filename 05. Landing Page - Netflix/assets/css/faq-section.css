@@ -1,0 +1,148 @@
+/* Início - FAQ-Section*/
+#faq-section{
+    padding: 64px;
+    justify-content: center;
+}
+
+#faq-section > .center-container{
+    width: 100%;
+    flex-grow: 1;
+}
+
+.center-container > h2{
+    font-size: 48px;
+    letter-spacing: 2px;
+    margin-bottom: 56px;
+    text-align: center;
+}
+
+.center-container > .give-margin{
+    justify-content: center;
+}
+
+.faq-cards{
+    max-width: 816px;
+    margin: 0 96px 64px;
+}
+
+.faq-cards > .card{
+    width: 100%;
+    background-color: #2e2e2e;
+    margin-bottom: 8px;
+}
+
+.card:last-child{
+    margin-bottom: 0px;
+}
+
+.open-card-button{
+    justify-content: space-between;
+    padding: 21px 32px;
+    border-bottom: 1px solid #000000;
+    cursor: pointer;
+}
+
+.open-card-button > h3{
+    color: white;
+    font-weight: 400;
+    font-size: 26px;
+    pointer-events: none;
+}
+
+.open-card-button > i{
+    display: block;
+    font-size: 28px;
+    transform: rotate(45deg);
+    pointer-events: none;
+    transition: transform 0.15s;
+}
+
+i.rotate{
+    transform: rotate(90deg);
+}
+
+.card-content{
+    max-height: 500px;
+    overflow: hidden;
+    transition: max-height 0.15s;
+}
+
+.content-hidden{
+    max-height: 0px;
+}
+
+.card-content > p{
+    padding: 30px 32px;
+    font-size:26px;
+}
+
+.center-container > .get-started-box{
+    text-align: center;
+    margin: 0 auto 18px;
+    max-width: 670px;
+}
+
+@media only screen and (max-width:950px){
+    .center-container > h2{
+        font-size: 36px;
+        margin-bottom: 24px;
+    }
+    .faq-cards{
+        margin: 0 16px 32px;
+    }
+
+    .open-card-button{
+        padding: 16px 24px;
+    }
+
+    .open-card-button > h3{
+        font-size: 20px;
+    }
+
+    .card-content > p{
+        font-size: 20px;
+        padding: 24px;
+    }
+
+    .center-container .get-started-box > p{
+        margin: 0 auto 18px;
+    }
+}
+
+@media only screen and (max-width:750px){
+    .center-container .get-started-box > p{
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width:600px){
+    #faq-section > .center-container{
+        min-width:330px;
+    }
+
+    .center-container > h2{
+        font-size: 24px;
+    }
+
+    #faq-section{
+        padding: 48px 0px;
+        justify-content: flex-start;
+    }
+
+    .faq-cards{
+        margin: 0 0 32px;
+    }
+
+    .open-card-button > h3{
+        font-size: 18px;
+    }
+
+    .card-content > p{
+        font-size: 18px;
+    }
+
+    .center-container .get-started-box{
+        padding: 0 24px;
+    }
+}
+/* Fim - FAQ-Section*/

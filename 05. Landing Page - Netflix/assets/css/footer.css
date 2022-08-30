@@ -1,0 +1,86 @@
+/* Início - Footer*/
+footer{
+    background-color: #000000;
+    max-width: 100%;
+    padding: 72px 104px 32px;
+}
+
+footer .center-container{
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+footer .center-container > p {
+    margin-bottom: 32px;
+    color: #747474;
+}
+
+.footer-links > ul{
+    list-style-type: none;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+ul > li{
+    width: 24%;
+    font-size: 13px;
+    min-width: 120px;
+    margin: 0px 8px 16px 0px;
+}
+
+li > a{
+    text-decoration: none;
+    color: #747474;
+    transition: color 0.15s, text-decoration 0.15s;
+}
+
+li > a:hover{
+    color: #dfdfdf;
+    text-decoration: underline 1px white;
+}
+
+.footer-label{
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.footer-label i {
+    position: absolute;
+    color: #747474;
+    font-size: 30px;
+    bottom: 12px;
+    left: 10px;
+}
+
+.footer-label select{
+    padding: 14px 16px 14px 40px;
+    border-color: #414141;
+    color: #747474;
+    font-size: 16px;
+}
+
+.footer-label select > option{
+    background-color: #000000;
+    font-size: 16px;  
+}
+
+footer span{
+    font-size: 13px;
+    color: #747474;
+}
+
+@media only screen and (max-width:600px){
+    footer{
+        padding: 48px 56px 32px;
+    }
+}
+
+@media only screen and (max-width:480px){
+    footer{
+        padding: 48px 32px 32px;
+    }
+
+    footer .center-container{
+        min-width: 330px;
+    }
+}
