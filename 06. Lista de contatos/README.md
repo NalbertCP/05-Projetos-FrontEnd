@@ -16,7 +16,7 @@ realmente deletar aquele contato.
 - A página inicial do projeto é a prória lista de contatos na qual cada contato é disposto com seu nome,
 telefone, idade, localidade e foto de perfil.
 
-- A lista em si conta com um filtro de busca, no qual o o usuário digita o nome do contato e clica me confirmar
+- A lista em si conta com um filtro de busca, no qual o o usuário digita o nome do contato e clica em confirmar
 para filtrar os contatos na lista.
 
 <b>Stacks utilizadas</b>
