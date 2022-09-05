@@ -19,7 +19,7 @@ telefone, idade, localidade e foto de perfil.
 - A lista em si conta com um filtro de busca, no qual o o usuário digita o nome do contato e clica me confirmar
 para filtrar os contatos na lista.
 
-# Stacks utilizadas:
+<b>Stacks utilizadas</b>
  - HTML
  - CSS
  - Java Script
