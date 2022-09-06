@@ -25,11 +25,11 @@
             https://assets.nflxext.com/ffe/siteui/vlv3/ac824598-245b-4828-b14f-5cff9074f4d0/21bb26e2-15da-4814-9014-3f4a913250de/BR-en-20220822-popsignuptwoweeks-perspective_alpha_website_large.jpg 1800w
             " src="https://assets.nflxext.com/ffe/siteui/vlv3/ac824598-245b-4828-b14f-5cff9074f4d0/21bb26e2-15da-4814-9014-3f4a913250de/BR-en-20220822-popsignuptwoweeks-perspective_alpha_website_small.jpg"
 	        alt="netflix_banner">
-            <span class="overlay"></span>
+            <span class="w100-h100-absolute overlay"></span>
             <div class="header">
                 <div class="flex center-header">
                     <div class="logo">
-                        <img src="./assets/img/netflix-logo.png" alt="netflix_logo">
+                        <img class="w100" src="./assets/img/netflix-logo.png" alt="netflix_logo">
                     </div>
                     <div class="flex right">
                         <label class="flex" for="select-language">
@@ -43,7 +43,7 @@
                     </div>
                 </div>
             </div>
-            <div class=" flex hero-container">
+            <div class="w100 flex hero-container">
                 <div class="hero">
                     <h1>
                         Unlimited movies, TV
@@ -52,8 +52,8 @@
                     <p>Watch anywhere. Cancel anytime.</p>
                     <div class="get-started-box">
                         <p>Ready to watch? Enter your email to create or restart your membership.</p>
-                        <form class="flex" action="./index.html">
-                            <input name="email" id="email" type="email">
+                        <form class="w100 flex" action="./index.html">
+                            <input class="w100" name="email" id="email" type="email">
                             <label for="email" >Email address</label>
                             <button class="flex" type="submit">
                                 Get Started
@@ -75,8 +75,10 @@
                     </p>
                 </div>
                 <div class="img-wrapper television-contaier">
-                    <img src="./assets/img/enjoy-section-tv.png" alt="background_tv">
-                    <video autoplay loop muted src="./assets/vid/enjoy-section-vid.m4v"></video>
+                    <img class="w100" src="./assets/img/enjoy-section-tv.png" alt="background_tv">
+                    <video autoplay loop muted>
+                        <source src="./assets/vid/enjoy-section-vid.m4v" type="video/mp4" >
+                    </video>
                 </div>
             </div>
         </section>
@@ -109,8 +111,9 @@
                     </p>
                 </div>
                 <div class="img-wrapper media-container">
-                    <img src="./assets/img/everywhere-section-media.png" alt="media_background">
-                    <video autoplay loop muted src="./assets/vid/everywhere-section-vid.m4v">
+                    <img class="w100" src="./assets/img/everywhere-section-media.png" alt="media_background">
+                    <video autoplay loop muted>
+                        <source src="./assets/vid/everywhere-section-vid.m4v" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -118,7 +121,7 @@
         <section class="flex middle-sections" id="profile-kids-section">
             <div class="flex middle-containers kids-profile-container">
                 <div class="img-wrapper kids-container">
-                    <img src="./assets/img/kids-section-banner.png" alt="kids_banner">
+                    <img class="w100" src="./assets/img/kids-section-banner.png" alt="kids_banner">
                 </div>
                 <div class="content kids-profile-content">
                     <h2>Create profiles for kids.</h2>
@@ -131,11 +134,11 @@
             </div>
         </section>
         <section class="flex" id= "faq-section">
-            <div class="center-container">
+            <div class="w100 center-container">
                 <h2>Frequently Asked Questions</h2>
                 <div class="flex give-margin">
                     <div class="faq-cards">
-                        <div class="card">
+                        <div class="w100 card">
                             <div class="flex open-card-button">
                                 <h3>What is Netflix?</h3>
                                 <i class="material-icons">close</i>
@@ -247,8 +250,8 @@
                 </div>
                 <div class="get-started-box">
                     <p>Ready to watch? Enter your email to create or restart your membership.</p>
-                    <form class="flex" action="./index.html">
-                        <input name="email" id="email" type="email">
+                    <form class="w100 flex" action="./index.html">
+                        <input class="w100" name="email" id="email" type="email">
                         <label for="email" >Email address</label>
                         <button class="flex" type="submit">
                             Get Started
