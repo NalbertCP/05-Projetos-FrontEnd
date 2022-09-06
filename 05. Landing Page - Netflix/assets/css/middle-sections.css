@@ -1,7 +1,4 @@
 /*Início - Enjoy-TV-Section*/
-.television-contaier > img{
-    width: 100%;
-}
 
 .television-contaier > video{
     position: absolute;
@@ -140,10 +137,6 @@
     max-width: 556px;
 }
 
-.media-container > img{
-    width: 100%;
-}
-
 .media-container > video{
     position: absolute;
     width: 62%;
@@ -184,10 +177,6 @@
 .kids-container {
     max-width: 500px;
     flex-shrink: 2.5;
-}
-
-.kids-container > img{
-    width: 100%;
 }
 
 @media only screen and (max-width:950px){
