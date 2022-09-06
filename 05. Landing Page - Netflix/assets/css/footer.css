@@ -79,8 +79,4 @@ footer span{
     footer{
         padding: 48px 32px 32px;
     }
-
-    footer .center-container{
-        min-width: 330px;
-    }
 }
