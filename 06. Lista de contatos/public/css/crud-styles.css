@@ -24,9 +24,7 @@
 }
 
 form input{
-    border: none;
     background-color: #ffffff00;
-    outline: none;
     color: #1f1f1f;
     font-size: 17px;
     font-weight: 500;
@@ -46,7 +44,7 @@ input::placeholder{
 
 input[type=submit]{
     background-color: #ab1bcf;
-    border: 1px solid #7e259481;;
+    border: 1px solid #7e259481;
     color: #ffffff;
     padding: 8px;
     border-radius: 4px;
@@ -143,8 +141,7 @@ form input.delete-button{
 }
 
 .form-delete > .delete-button:hover{
-    background-color: #ee7171;
-    
+    background-color: #ee7171;   
 }
 
 @media only screen and (max-width:480px){
