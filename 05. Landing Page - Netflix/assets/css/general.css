@@ -6,9 +6,12 @@
     font-family: 'Roboto', sans-serif;
 }
 
+body{
+    --input-height:60px;
+}
+
 section{
     background-color: #000000;
-    width: 100%;
     border-bottom: 8px solid #252525;
     color: #ffffff;
 }
@@ -22,6 +25,10 @@ section{
 .middle-sections{
     padding: 24px;
     justify-content: center;
+}
+
+.w100{
+    width: 100%;
 }
 
 .middle-containers{
@@ -56,5 +63,11 @@ section{
 
 .content > p{
     font-size: 26px;
+}
+
+@media only screen and (max-width:480px){
+    body{
+        width: fit-content;
+    }
 }
 /*Fim - Estilos gerais*/
