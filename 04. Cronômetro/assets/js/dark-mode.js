@@ -11,11 +11,9 @@ switchModeButton.addEventListener("click",darkMode)
 /*Funções*/
 function darkMode(event){
     //Alterando o ícone do botão "switch mode"
-    if (event.target.checked){
-        switchModeIcon.innerHTML="light_mode"
-    } else{
-        switchModeIcon.innerHTML="dark_mode"
-    }
+    const checked = event.target.checked
+    checked? switchModeIcon.innerHTML="light_mode": switchModeIcon.innerHTML="dark_mode"
+
     //Alterando a cor dos ícones
     for (let simbol of simbols){
         simbol.classList.toggle("white") 
