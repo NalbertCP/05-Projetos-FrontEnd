@@ -1,0 +1,71 @@
+@import url(https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&display=swap);
+
+*{
+    font-family: 'Barlow', sans-serif;
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+}
+
+body{
+    background: linear-gradient(to right bottom,#b951d3, #f7fa57);
+    background-attachment:fixed;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.w-100{
+    width: 100%;
+}
+
+/*Inicio do container geral*/
+.center-container{
+    min-height: 100vh;
+    align-items: flex-start;
+    padding: 16px;
+}
+
+.container{
+    position: relative;
+    max-width: 500px;
+    min-width: 240px;
+    padding: 32px;
+    flex-grow: 1;  
+    background-color: #f1f1f1;
+    box-shadow: 2px 2px 4px #0000006c;
+    border-radius: 8px;
+}
+
+.container h3{
+    color:#ab1bcf;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+}
+/*Fim do container geral*/
+
+/*Media queries*/
+@media only screen and (max-width:950px) {
+    .container{
+        max-width: 100%;
+    } 
+}
+
+@media only screen and (max-width:480px) {
+    .center-container{
+        justify-content: flex-start;
+    }   
+}
+
+/*Animations*/
+@keyframes slide {
+    100%{
+        transform: translateY(0%);
+    }
+}
