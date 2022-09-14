@@ -1,15 +1,16 @@
-#Lista de contatos#
+<h1>Lista de contatos</h1>
 
-# 📋 Descrição
-Projeto Front-End dedicado à criação de uma lista de contatos no modelo CRUD, por meio de uma API Rest. O projeto conta com as seguintes funcionalidades:
+<h2>📋 Descrição</h2>
+<p>Projeto Front-End dedicado à criação de uma lista de contatos no modelo CRUD, por meio de uma API Rest. O projeto conta com as seguintes funcionalidades:
+<br>
+ - Cadastro de novos contatos através da rota /contacts/create
+<br>
+<p>
 
-- Cadastro de novos contatos através da rota /contacts/create
-
-- Visualização dos dados de cada contato individual por meio da rota /contacts/:id-do-contato
-
-- Edição dos dados do contato por meio da rota /contacts/:id-do-contato/edit
-
-- Possibilidade de deletar o contato através da rota /contacts porém com o método DELETE
+<p></p>
+<p> - Visualização dos dados de cada contato individual por meio da rota /contacts/:id-do-contato</p>
+<p> - Edição dos dados do contato por meio da rota /contacts/:id-do-contato/edit</p>
+<p> - Possibilidade de deletar o contato através da rota /contacts porém com o método DELETE</p>
 
 OBS: Antes de confirmar a deleção um modal deve aparecer na tela confirmando se o usuário deseja
 realmente deletar aquele contato.
