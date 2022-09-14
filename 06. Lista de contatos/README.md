@@ -1,4 +1,10 @@
 <h1>📘 Lista de contatos</h1>
+<div class="badges">
+  <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white"/>
+  <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white"/>
+  <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/>
+</div>
+<br>
 <h2>📋 Descrição</h2>
 <p>
   Projeto Front-End dedicado à criação de uma lista de contatos no modelo CRUD, por meio de uma API Rest. O projeto conta com as seguintes funcionalidades:
