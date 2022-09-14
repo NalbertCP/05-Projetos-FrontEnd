@@ -1,5 +1,4 @@
 <h1>📘 Lista de contatos</h1>
-<br>
 
 <h2>📋 Descrição</h2>
 <p>
