@@ -12,7 +12,7 @@
   <br> - Cadastro de novos contatos através da rota /contacts/create
   <br> - Visualização dos dados de cada contato individual por meio da rota /contacts/:id-do-contato
   <br> - Edição dos dados do contato por meio da rota /contacts/:id-do-contato/edit
-  <br> - Possibilidade de deletar o contato através da rota /contacts porém com o método DELET
+  <br> - Possibilidade de deletar o contato através da rota /contacts porém com o método DELETE
   <br>
   <br> <b>OBS: Antes de confirmar a deleção um modal deve aparecer na tela confirmando se o usuário deseja
     realmente deletar aquele contato.</b>
