@@ -1,4 +1,4 @@
-# Lista de contatos
+<h1>Lista de contatos</h1>
 
 Projeto Front-End dedicado à criação de uma lista de contatos no modelo CRUD, por meio de uma API Rest. O projeto conta com as seguintes funcionalidades:
 
@@ -19,10 +19,13 @@ telefone, idade, localidade e foto de perfil.
 - A lista em si conta com um filtro de busca, no qual o o usuário digita o nome do contato e clica em confirmar
 para filtrar os contatos na lista.
 
-<b>Stacks utilizadas</b>
+<h2>Stacks utilizadas</h2>
+<hr>
  - HTML
  - CSS
  - Java Script
  - NodeJS
  - Nunjucks
-
+ 
+<h2>💵 Licença</h2>
+Proibida a utilização dos arquivos para fins diferentes de aprendizado.
