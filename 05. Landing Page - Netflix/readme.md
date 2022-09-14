@@ -5,8 +5,6 @@
   <li>HTML</li>
   <li>CSS</li>
   <li>JavaScript</li>
-  <li>NodeJS</li>
-  <li>Nunjucks</li>
 </ul>
 <h2> 💵 Licença</h2>
 <p><b>O uso de todos os arquivos deste projeto é limitado apenas a fins de estudos.<b></p>
