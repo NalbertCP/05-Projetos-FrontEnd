@@ -1,4 +1,4 @@
-<h1 style="color:#0000ff"> 🎬 Clone de Landing Page - Netflix </h1>
+<h1 style="color=#0000ff"> 🎬 Clone de Landing Page - Netflix </h1>
 <p>Projeto Front-End criado com objetivo de clonar a Landing Page da Netflix.<p>
 <h2> 💻 Stacks utilizadas</h2>
 <ul>
