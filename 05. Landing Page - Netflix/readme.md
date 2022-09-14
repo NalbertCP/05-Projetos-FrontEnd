@@ -1,4 +1,9 @@
-<h1 style="color=#0000ff"> 🎬 Clone de Landing Page - Netflix </h1>
+<h1> 🎬 Clone de Landing Page - Netflix </h1>
+<div>
+  <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white"/>
+  <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white"/>
+  <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/>
+</div>
 <p>Projeto Front-End criado com objetivo de clonar a Landing Page da Netflix.<p>
 <h2> 💻 Stacks utilizadas</h2>
 <ul>
@@ -8,4 +13,3 @@
 </ul>
 <h2> 💵 Licença</h2>
 <p><b>O uso de todos os arquivos deste projeto, incluindo links de medias, é limitado apenas a fins de estudos.<b></p>
-
