@@ -7,5 +7,5 @@
   <li>JavaScript</li>
 </ul>
 <h2> 💵 Licença</h2>
-<p><b>O uso de todos os arquivos deste projeto é limitado apenas a fins de estudos.<b></p>
+<p><b>O uso de todos os arquivos deste projeto, incluindo links de medias, é limitado apenas a fins de estudos.<b></p>
 
