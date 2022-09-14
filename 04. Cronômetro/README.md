@@ -15,7 +15,7 @@ funcionalidades do cronômetro:
   <br>
   <br> - Tabela contendo histórico de voltas, com o seguinte formato: | # Lap | Lap time | Total time |.
   <br>
-  <br><b>O projeto também conta com um botão no modelo switch (ou toggle como preferir) para alterar o tema visual do cronômetro,
+  <br><b>🌑 O projeto também conta com um botão no modelo switch (ou toggle como preferir) para alterar o tema visual do cronômetro,
         sendo eles: Light Mode e Dark Mode.</b>
 <p>
 
