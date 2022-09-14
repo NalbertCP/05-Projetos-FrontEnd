@@ -1,5 +1,4 @@
 <h1>⏱️ Cronômetro</h1>
-<br>
 
 <h2>📋 Descrição</h2>
 <p>
