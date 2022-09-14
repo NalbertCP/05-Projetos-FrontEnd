@@ -1,27 +1,23 @@
 <h1>Lista de contatos</h1>
 
 <h2>📋 Descrição</h2>
-<p>Projeto Front-End dedicado à criação de uma lista de contatos no modelo CRUD, por meio de uma API Rest. O projeto conta com as seguintes funcionalidades:
-<br>
- - Cadastro de novos contatos através da rota /contacts/create
-<br>
+<p>
+  Projeto Front-End dedicado à criação de uma lista de contatos no modelo CRUD, por meio de uma API Rest. O projeto conta com as seguintes funcionalidades:
+  <br> - Cadastro de novos contatos através da rota /contacts/create
+  <br> - Visualização dos dados de cada contato individual por meio da rota /contacts/:id-do-contato
+  <br> - Edição dos dados do contato por meio da rota /contacts/:id-do-contato/edit
+  <br> - Possibilidade de deletar o contato através da rota /contacts porém com o método DELET
+  <br>
+  <b>
+    OBS: Antes de confirmar a deleção um modal deve aparecer na tela confirmando se o usuário deseja
+    realmente deletar aquele contato.
+  </b>
+  <br> - A página inicial do projeto é a prória lista de contatos na qual cada contato é disposto com seu nome, telefone, idade, localidade e foto de perfil.
+  <br> - A lista em si conta com um filtro de busca, no qual o o usuário digita o nome do contato e clica em confirmar para filtrar os contatos na lista.
 <p>
 
-<p></p>
-<p> - Visualização dos dados de cada contato individual por meio da rota /contacts/:id-do-contato</p>
-<p> - Edição dos dados do contato por meio da rota /contacts/:id-do-contato/edit</p>
-<p> - Possibilidade de deletar o contato através da rota /contacts porém com o método DELETE</p>
 
-OBS: Antes de confirmar a deleção um modal deve aparecer na tela confirmando se o usuário deseja
-realmente deletar aquele contato.
-
-- A página inicial do projeto é a prória lista de contatos na qual cada contato é disposto com seu nome,
-telefone, idade, localidade e foto de perfil.
-
-- A lista em si conta com um filtro de busca, no qual o o usuário digita o nome do contato e clica em confirmar
-para filtrar os contatos na lista.
-
-# 💻 Stacks utilizadas
+<h2> 💻 Stacks utilizadas</h2>
 <ul>
  <li>HTML</li>
  <li>CSS</li>
@@ -30,5 +26,5 @@ para filtrar os contatos na lista.
  <li>Nunjucks</li>
 </ul>
  
-# 💵 Licença
-Proibida a utilização dos arquivos para fins diferentes de aprendizado.
+<h2> 💵 Licença</h2>
+<p><b>Proibida a utilização dos arquivos para fins diferentes de aprendizado.<b></p>
