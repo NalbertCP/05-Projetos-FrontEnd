@@ -1,4 +1,5 @@
-<h1>Lista de contatos</h1>
+<h1>📘 Lista de contatos</h1>
+<br>
 
 <h2>📋 Descrição</h2>
 <p>
@@ -23,12 +24,12 @@
 
 <h2> 💻 Stacks utilizadas</h2>
 <ul>
- <li>HTML</li>
- <li>CSS</li>
- <li>JavaScript</li>
- <li>NodeJS</li>
- <li>Nunjucks</li>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JavaScript</li>
+  <li>NodeJS</li>
+  <li>Nunjucks</li>
 </ul>
  
 <h2> 💵 Licença</h2>
-<p><b>Proibida a utilização dos arquivos para fins diferentes de aprendizado.<b></p>
+<p><b>O uso de todos os arquivos deste projeto é limitado apenas a fins de estudos.<b></p>
