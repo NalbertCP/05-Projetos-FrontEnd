@@ -21,6 +21,9 @@
   <br> - Cada contato na lista é está exibido com seu nome, telefone, idade, localidade e foto de perfil.
   <br> - A lista em si conta com um filtro de busca, para filtrar os contatos pelo nome.
 <p>
+<h2> 🎮 Iniciando o projeto</h2>
+<p>Após clonar o repositório deste projeto, navegue até esse diretório pelo seu terminal, baixe as dependências com <b>npm install</b>, inicie o projeot com 
+<b>npm start</b>, e após, abra seu navegador em http://localhost:5000/ para visualizar o projeto</p>
 <h2> 💻 Stacks utilizadas</h2>
 <ul>
   <li>HTML</li>
