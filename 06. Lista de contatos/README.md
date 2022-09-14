@@ -12,7 +12,7 @@
   <br>
   <br> - Possibilidade de deletar o contato através da rota /contacts porém com o método DELET
   <br>
-  <b>OBS: Antes de confirmar a deleção um modal deve aparecer na tela confirmando se o usuário deseja
+  <br> <b>OBS: Antes de confirmar a deleção um modal deve aparecer na tela confirmando se o usuário deseja
     realmente deletar aquele contato.</b>
   <br>
   <br> - A página inicial do projeto é a prória lista de contatos na qual cada contato é disposto com seu nome, telefone, idade, localidade e foto de perfil.
