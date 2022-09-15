@@ -7,7 +7,7 @@
 <br>
 <h2>📋 Descrição</h2>
 <p>
-  Projeto Front-End dedicado à criação de uma cronômetro no modelo hh:mm:ss:cc, onde hh representam as horas, mm representam os minutos, ss representam os segundos e   cc representam os centésimos de segundos. Abaixo seguem as
+  Projeto Front-End dedicado à criação de um cronômetro no modelo hh:mm:ss:cc, onde hh representam as horas, mm representam os minutos, ss representam os segundos e   cc representam os centésimos de segundos. Abaixo seguem as
 funcionalidades do cronômetro:
   <br> - Opção de play para iniciar a contagem;
   <br> - Opção de pause para parar a contagem a qualquer momento;
