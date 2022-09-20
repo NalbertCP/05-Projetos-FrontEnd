@@ -15,10 +15,10 @@
   <br> - Edição dos dados do contato por meio da rota /contacts/:id-do-contato/edit
   <br> - Possibilidade de deletar o contato através da rota /contacts porém com o método DELETE
   <br>
-  <br> <b>OBS: Antes de confirmar a deleção um modal deve aparecer na tela confirmando se o usuário deseja
+  <br> <b>OBS: Antes de confirmar a deleção, um modal deve aparecer na tela confirmando se o usuário deseja
     realmente deletar aquele contato.</b>
   <br>
-  <br> - Cada contato na lista é está exibido com seu nome, telefone, idade, localidade e foto de perfil.
+  <br> - Cada contato na lista será exibido com seu nome, telefone, idade, localidade e foto de perfil.
   <br> - A lista em si conta com um filtro de busca, para filtrar os contatos pelo nome.
 <p>
 <h2> 🎮 Iniciando o projeto</h2>
