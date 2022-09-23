@@ -5,7 +5,13 @@
   <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E">
 </div>
 <br>
-<p>Projeto Front-End criado com objetivo de clonar a Landing Page da Netflix.<p>
+<p>
+  Projeto Front-End criado com objetivo de clonar a Landing Page da Netflix.<br> 
+  Abaixo segue o link da landing page original que inspirou esse projeto.
+<p>
+```md
+[Netflix original landing page] https://www.netflix.com/br-en/
+```
 <h2> 💻 Stacks utilizadas</h2>
 <ul>
   <li>HTML</li>
