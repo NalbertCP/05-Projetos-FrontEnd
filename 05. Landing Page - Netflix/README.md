@@ -9,9 +9,11 @@
   Projeto Front-End criado com objetivo de clonar a Landing Page da Netflix.<br> 
   Abaixo segue o link da landing page original que inspirou esse projeto.
 <p>
+  
 ```md
 [Netflix original landing page] https://www.netflix.com/br-en/
 ```
+  
 <h2> 💻 Stacks utilizadas</h2>
 <ul>
   <li>HTML</li>
@@ -31,9 +33,3 @@ Change the `?username=` value to your GitHub username.
 ```md
 [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=anuraghazra)](https://github.com/anuraghazra/github-readme-stats)
 ```
-
-_Note: Available ranks are S+ (top 1%), S (top 25%), A++ (top 45%), A+ (top 60%), and B+ (everyone).
-The values are calculated by using the [cumulative distribution function](https://en.wikipedia.org/wiki/Cumulative_distribution_function) using commits, contributions, issues, stars, pull requests, followers, and owned repositories.
-The implementation can be investigated at [src/calculateRank.js](./src/calculateRank.js)._
-
-### Hiding individual stats
