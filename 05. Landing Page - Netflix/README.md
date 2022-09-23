@@ -20,3 +20,20 @@
 </ul>
 <h2> 💵 Licença</h2>
 <p><b>O uso de todos os arquivos deste projeto, incluindo links de medias, é limitado apenas a fins de estudos.<b></p>
+
+  
+  # GitHub Stats Card
+
+Copy-paste this into your markdown content, and that's it. Simple!
+
+Change the `?username=` value to your GitHub username.
+
+```md
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=anuraghazra)](https://github.com/anuraghazra/github-readme-stats)
+```
+
+_Note: Available ranks are S+ (top 1%), S (top 25%), A++ (top 45%), A+ (top 60%), and B+ (everyone).
+The values are calculated by using the [cumulative distribution function](https://en.wikipedia.org/wiki/Cumulative_distribution_function) using commits, contributions, issues, stars, pull requests, followers, and owned repositories.
+The implementation can be investigated at [src/calculateRank.js](./src/calculateRank.js)._
+
+### Hiding individual stats
