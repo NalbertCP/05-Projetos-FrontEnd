@@ -6,8 +6,7 @@
 </div>
 <br>
 <p>
-  Projeto Front-End criado com objetivo de clonar a Landing Page da Netflix.<br> 
-  Abaixo segue o link da landing page original que inspirou esse projeto.
+  Projeto Front-End criado com objetivo de clonar a Landing Page da Netflix. Abaixo segue o link da landing page original que inspirou esse projeto.
 <p>
   
 ```md
@@ -22,14 +21,3 @@
 </ul>
 <h2> 💵 Licença</h2>
 <p><b>O uso de todos os arquivos deste projeto, incluindo links de medias, é limitado apenas a fins de estudos.<b></p>
-
-  
-  # GitHub Stats Card
-
-Copy-paste this into your markdown content, and that's it. Simple!
-
-Change the `?username=` value to your GitHub username.
-
-```md
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=anuraghazra)](https://github.com/anuraghazra/github-readme-stats)
-```
