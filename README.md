@@ -30,11 +30,11 @@
 ```md
 [PokeAPI: public API for consume pokemons data] https://pokeapi.co/
 ```
-<p>Como a API original original fornece milhares de dados de mais de 1100 Pokemons, precisei criar um algorítimo que me gerasse um arquivo JSON contendo apenas as informações nescessárias para o projeto, e principalmente com um número bem menor de pokemons para nao sobrecarregar a página.</p>
+<p>Como a API original fornece milhares de dados de mais de 1100 Pokemons, precisei criar um algorítimo que me gerasse um arquivo JSON contendo apenas as informações nescessárias para o projeto, e principalmente com um número bem menor de pokemons para nao sobrecarregar a página.</p>
 
 
 <h2> 🎮 Criando Base de Dados Personalizada</h2>
-<p>Siga o passo a passo abaixo caos queira criar uma base dados com uma quantidade de pokemons diferente da utilizada no projeto.</p>
+<p>Siga o passo a passo abaixo caso queira criar uma base dados com uma quantidade de pokemons diferente da utilizada no projeto.</p>
 
 ```md
 1º Clone este repositório, e com terminal aberto navegue até o diretório deste projeto.
@@ -42,7 +42,7 @@
 1º Inicie o projeto com npm start "nº de pokemons".
 ```
 
-<p><b>>Após seguir o passo a passo acima a base de dados se encontrará na pasta "data-bases". Copie ela para a pasta do projeto Pokedex para que possa ser consumida pelo projeto.</b></p>
+<p><b>>Após seguir o passo a passo acima a base de dados se encontrará na <b>pasta "data-bases"</b>. Copie ela para a <b>pasta raiz do projeto</b> para que possa ser consumida pela pokedex.</b></p>
 
 <h2> 💻 Stacks utilizadas</h2>
 <ul>
