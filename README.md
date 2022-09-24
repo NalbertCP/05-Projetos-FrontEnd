@@ -10,8 +10,7 @@
 <p>
   Projeto criado com objetivo de consumir uma API pública de pokemons e exibi-los em cards de uma só vez em uma pagina web.
   <br>
-  <br>
-  <b>O Design do projeto foi inspirado em uma página de pokedex ja existente, para mais informações segue abaixo o link do projeto original</b>
+  <b>O Design do projeto foi inspirado em uma página de pokedex ja existente, para mais informações segue abaixo o link do projeto original.</b>
 </p>
 
 ```md
