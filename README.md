@@ -19,14 +19,14 @@
 
 <h3>Funcionalides</h3>
 <p> - Visualização de todos os pokemos em cards em uma única página;
-  <br> - Filtragem dos pokemons por nome;
-  <br> - Filtragem dos pokemons por tipo (tipo terrestre, aquático ou aéreo por exemplo);
+  <br> - Filtragem dos pokemons por nome e tipo (tipo terrestre, aquático ou aéreo por exemplo)
   <br> - Ordenar os pokemons de A à Z, Z à A, ordem crescente e ordem decrescente de Id;
-  <br> - Exibição de mais informações ao clicar no card.
+  <br> - Exibição de mais informações de cada pokemon ao clicar em seu respectivo card.
 </p>
 
 <h3>Consumindo API</h3>
 <p> A API pública utilizada para consumir os dados utilizados no projeto se encontra no link abaixo.</p>
+
 ```md
 [PokeAPI: public API for consume pokemons data] https://pokeapi.co/
 ```
