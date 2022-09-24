@@ -6,6 +6,7 @@
   <img src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white">
 </div>
 <br>
+
 <h2>📋 Descrição</h2>
 <p>
   Projeto criado com objetivo de consumir uma API pública de pokemons e exibi-los em cards de uma só vez em uma pagina web.
@@ -42,7 +43,7 @@
 1º Inicie o projeto com (npm start nº de pokemons) ou (node script.js nº de pokemons).
 ```
 
-<p><b>Após seguir o passo a passo acima a base de dados criada, substituirá a base de dados atual (pokemons.json).</b></p>
+<p><b>Após seguir o passo a passo acima, uma nova base de dados será criada e substituirá a base de dados atual (pokemons.json).</b></p>
 
 <h2> 💻 Stacks utilizadas</h2>
 <ul>
@@ -52,5 +53,6 @@
   <li>NodeJS</li>
   <li>Nunjucks</li>
 </ul>
+
 <h2> 💵 Licença</h2>
 <p><b>O uso de todos os arquivos deste projeto é limitado apenas a fins de estudos.<b></p>
