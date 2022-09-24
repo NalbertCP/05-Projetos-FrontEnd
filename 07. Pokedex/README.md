@@ -54,7 +54,6 @@
   <li>CSS</li>
   <li>JavaScript</li>
   <li>NodeJS</li>
-  <li>Nunjucks</li>
 </ul>
 
 <h2> 💵 Licença</h2>
