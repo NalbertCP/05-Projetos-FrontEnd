@@ -37,7 +37,7 @@
 <p>Como a API original fornece milhares de dados de mais de 1100 Pokemons, precisei criar um algorítimo que me gerasse um arquivo JSON contendo apenas as informações nescessárias para o projeto, e principalmente, com um número bem menor de pokemons para nao sobrecarregar a página.</p>
 
 <h2> 🎮 Criando Base de Dados Personalizada</h2>
-<p>Siga o passo a passo abaixo caso queira criar uma base dados com uma quantidade de pokemons diferente da utilizada no projeto.</p>
+<p>Siga o passo a passo abaixo caso queira criar uma base dados com uma quantidade de pokemons diferente da utilizada pelo projeto.</p>
 
 ```md
 1º Clone este repositório, e com terminal aberto navegue até o diretório deste projeto.
