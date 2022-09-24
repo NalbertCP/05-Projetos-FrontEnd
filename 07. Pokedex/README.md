@@ -41,8 +41,8 @@
 
 ```md
 1º Clone este repositório, e com terminal aberto navegue até o diretório deste projeto.
-1º Baixe as dependências do projeto com npm install.
-1º Inicie o projeto com (npm start nº de pokemons) ou (node script.js nº de pokemons).
+2º Baixe as dependências deste projeto com npm install.
+3º Inicie o projeto com (npm start nº de pokemons) ou (node script.js nº de pokemons).
 ```
 
 <img width="500px" src="https://user-images.githubusercontent.com/105606295/192077554-6c733252-55f3-45d8-9180-4eb83be6b6c9.png">
