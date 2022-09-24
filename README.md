@@ -8,11 +8,10 @@
 <br>
 <h2>📋 Descrição</h2>
 <p>
-  O objetivo do projeto consistiu em criar uma pokedex no modelo painel, onde é possível 
-  visualizar todos os pokemons de uma só vez. Para isso, foi nescessário consumir uma API 
-  pública, a qual falarei mais adiante no tópico <b>Consumindo API</b>.<br>
-  <b>O Design do projeto foi inspirado em uma página de pokedex ja existente, para mais informações segue
-  abaixo o link do projeto original</b>
+  O objetivo do projeto consistiu em criar uma pokedex no modelo painel, onde é possível visualizar todos os pokemons de uma só vez. Para isso, foi nescessário  
+  consumir uma API pública, a qual falarei mais adiante no tópico <b>Consumindo API</b>.
+  <br>
+  <b>O Design do projeto foi inspirado em uma página de pokedex ja existente, para mais informações segue abaixo o link do projeto original</b>
 </p>
 
 ```md
