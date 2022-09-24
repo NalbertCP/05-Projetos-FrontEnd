@@ -42,7 +42,7 @@
 1º Inicie o projeto com (npm start nº de pokemons) ou (node script.js nº de pokemons).
 ```
 
-<p><b>>Após seguir o passo a passo acima a base de dados se encontrará na <b>pasta "data-bases"</b>. Copie ela para a <b>pasta raiz do projeto</b> para que possa ser consumida pela pokedex.</b></p>
+<p><b>Após seguir o passo a passo acima a base de dados criada, substituirá a base de dados atual (pokemons.json).</b></p>
 
 <h2> 💻 Stacks utilizadas</h2>
 <ul>
