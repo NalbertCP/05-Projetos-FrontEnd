@@ -33,8 +33,8 @@
 ```md
 [PokeAPI - a public API to consume pokemons data] https://pokeapi.co/
 ```
-<p>Como a API original fornece milhares de dados de mais de 1100 Pokemons, precisei criar um algorítimo que me gerasse um arquivo JSON contendo apenas as informações nescessárias para o projeto, e principalmente, com um número bem menor de pokemons para nao sobrecarregar a página.</p>
 
+<p>Como a API original fornece milhares de dados de mais de 1100 Pokemons, precisei criar um algorítimo que me gerasse um arquivo JSON contendo apenas as informações nescessárias para o projeto, e principalmente, com um número bem menor de pokemons para nao sobrecarregar a página.</p>
 
 <h2> 🎮 Criando Base de Dados Personalizada</h2>
 <p>Siga o passo a passo abaixo caso queira criar uma base dados com uma quantidade de pokemons diferente da utilizada no projeto.</p>
@@ -45,6 +45,7 @@
 1º Inicie o projeto com (npm start nº de pokemons) ou (node script.js nº de pokemons).
 ```
 
+<img width="800px" src="https://user-images.githubusercontent.com/105606295/192077554-6c733252-55f3-45d8-9180-4eb83be6b6c9.png">
 <p><b>Após seguir o passo a passo acima, uma nova base de dados será criada e substituirá a base de dados atual (pokemons.json).</b></p>
 
 <h2> 💻 Stacks utilizadas</h2>
