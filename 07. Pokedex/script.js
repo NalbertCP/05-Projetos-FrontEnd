@@ -5,16 +5,17 @@ const fs = require("fs")
 createPokemonDataBase(process.argv)
 
 async function createPokemonDataBase(nodeArray){
+    if (nodeArray.length > 3) 
+    return console.log("Only one parameter is allowed.")
+    
     let pokemonNames = []
     let dataBase = []
     let totalPokemons = Number(nodeArray[2])
     totalPokemons > 1154? totalPokemons = 1154: ""
 
-    if (!totalPokemons || typeof(totalPokemons)!="number"){
-        console.log("It's nescessary to especify the total of pokemons as a number.")
-        return
-    }
-
+    if (!totalPokemons || typeof(totalPokemons)!="number")
+    return console.log("It's nescessary to especify the total of pokemons as a number.")
+        
     console.log(`Creating a data-base with ${totalPokemons} pokemons...`)
     try{
         pokemonNames =  await createPokemonList(totalPokemons)
@@ -46,8 +47,8 @@ async function searchPokemonData(pokemonNames){
     let dataBase = []
 
     for(let name of pokemonNames){
-    let result =  await (await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)).data
-    const pokemonStat = {
+        let result =  await (await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)).data
+        const pokemonStat = {
             id: result.id,
             name: result.name,
             type:[],
