@@ -19,7 +19,6 @@
 
 <h3>Funcionalides</h3>
 <p>
-  Seguem abaixo as principais funcionalidades do projeto
   <br> - Visualização de todos os pokemos em cards em uma única página.
   <br> - Filtragem dos pokemons por nome.
   <br> - Filtragem dos pokemons por tipo (tipo terrestre, aquático ou aéreo por exemplo).
@@ -28,19 +27,13 @@
 </p>
 
 <h3>Consumindo API</h3>
-<p> A API pública utilizada para consumir os dados utilizados no projeto se encontra no link abaixo.<br>
-    <b>Vale ressaltar que a API possui milhares de dados de aproximademente 1154 pokemons. Visto isso,
-    como eu não precisava de tantas informações e não precisava do tantos pokemons assim, optei por criar 
-    um algorítimo que escreve uma base de dados em JSON com apenas as informações que preciso e com o número
-    de pokemons escolhido por mim, sendo que no projeto em questãp utilizei 200 pokemons</b>
-</p>
+<p> A API pública utilizada para consumir os dados utilizados no projeto se encontra no link abaixo.</p><br>
 
 ```md
 [PokeAPI: public API for consume pokemons data] https://pokeapi.co/
 ```
 
-
-
+<p>Como a API original original fornece milhares de dados de mais de 1100 Pokemons, precisei criar um algorítimo que me gerasse um arquivo JSON contendo apenas as informações nescessárias para o projeto, e principalmente com um número bem menor de pokemons para nao sobrecarregar a página.</p>
 
 
 
