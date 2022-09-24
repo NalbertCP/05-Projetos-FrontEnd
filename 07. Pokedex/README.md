@@ -25,6 +25,8 @@
   <br> - Exibição de mais informações de cada pokemon ao clicar em seu respectivo card.
 </p>
 
+![image](https://user-images.githubusercontent.com/105606295/192077305-30c96162-bcd0-44b6-aa20-641d52e0c613.png)
+
 <h3>Consumindo API</h3>
 <p> A API pública utilizada para consumir os dados utilizados no projeto se encontra no link abaixo.</p>
 
