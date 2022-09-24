@@ -1,4 +1,4 @@
-<h1>📘 Pokedex</h1>
+<h1> <img src="http://i.imgur.com/J9ynKU9.png">Pokedex</h1>
 <div class="badges">
   <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white">
   <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white">
@@ -31,7 +31,7 @@
 ```md
 [PokeAPI - a public API to consume pokemons data] https://pokeapi.co/
 ```
-<p>Como a API original fornece milhares de dados de mais de 1100 Pokemons, precisei criar um algorítimo que me gerasse um arquivo JSON contendo apenas as informações nescessárias para o projeto, e principalmente com um número bem menor de pokemons para nao sobrecarregar a página.</p>
+<p>Como a API original fornece milhares de dados de mais de 1100 Pokemons, precisei criar um algorítimo que me gerasse um arquivo JSON contendo apenas as informações nescessárias para o projeto, e principalmente, com um número bem menor de pokemons para nao sobrecarregar a página.</p>
 
 
 <h2> 🎮 Criando Base de Dados Personalizada</h2>
