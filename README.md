@@ -18,11 +18,11 @@
 ```
 
 <h3>Funcionalides</h3>
-<p> - Visualização de todos os pokemos em cards em uma única página.
-  <br> - Filtragem dos pokemons por nome.
-  <br> - Filtragem dos pokemons por tipo (tipo terrestre, aquático ou aéreo por exemplo).
-  <br> - Ordenar os pokemons de A à Z, Z à A, ordem crescente e ordem decrescente de Id.
-  <br> - Exibição de mais informações ao clicar no card
+<p> - Visualização de todos os pokemos em cards em uma única página;
+  <br> - Filtragem dos pokemons por nome;
+  <br> - Filtragem dos pokemons por tipo (tipo terrestre, aquático ou aéreo por exemplo);
+  <br> - Ordenar os pokemons de A à Z, Z à A, ordem crescente e ordem decrescente de Id;
+  <br> - Exibição de mais informações ao clicar no card.
 </p>
 
 <h3>Consumindo API</h3>
@@ -34,13 +34,15 @@
 
 
 <h2> 🎮 Criando Base de Dados Personalizada</h2>
-<p>Siga o passo a passo abaixo caos queira criar uma base dados com uma quantidade de pokemons diferente da utilizada no projeto</p>
+<p>Siga o passo a passo abaixo caos queira criar uma base dados com uma quantidade de pokemons diferente da utilizada no projeto.</p>
+
 ```md
 1º Clone este repositório, e com terminal aberto navegue até o diretório deste projeto.
 1º Baixe as dependências do projeto com npm install.
 1º Inicie o projeto com npm start "nº de pokemons".
 ```
-<p<b>>Após seguir o passo a passo acima a base de dados se encontrará na pasta "data-bases". Copie ela para a pasta do projeto Pokedex para que possa ser consumida pelo projeto.</b></p>
+
+<p><b>>Após seguir o passo a passo acima a base de dados se encontrará na pasta "data-bases". Copie ela para a pasta do projeto Pokedex para que possa ser consumida pelo projeto.</b></p>
 
 <h2> 💻 Stacks utilizadas</h2>
 <ul>
