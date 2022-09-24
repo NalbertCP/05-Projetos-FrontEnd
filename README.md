@@ -28,7 +28,7 @@
 <p> A API pública utilizada para consumir os dados utilizados no projeto se encontra no link abaixo.</p>
 
 ```md
-[PokeAPI: public API for consume pokemons data] https://pokeapi.co/
+[PokeAPI - a public API to consume pokemons data] https://pokeapi.co/
 ```
 <p>Como a API original fornece milhares de dados de mais de 1100 Pokemons, precisei criar um algorítimo que me gerasse um arquivo JSON contendo apenas as informações nescessárias para o projeto, e principalmente com um número bem menor de pokemons para nao sobrecarregar a página.</p>
 
