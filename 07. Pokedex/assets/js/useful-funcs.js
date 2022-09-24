@@ -30,7 +30,7 @@ export function createPokemonCards(pokemon, types, stats){
     let id = `00${pokemon.id}`.slice(-3)
     let name = pokemon.name
     id = `#${id}`
-    name = name.charAt(0).toUpperCase().concat(name.slice(1))
+    name = `${name.charAt(0).toUpperCase()}${name.slice(1)}`
 
     return`
     <label class="card-label" id="${pokemon.name}" for="card${id.slice(-3)}">
