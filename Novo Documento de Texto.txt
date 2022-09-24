@@ -1,0 +1,7 @@
+[Evento com Edu - Hands ON] - Semantic release e versionamento
+ * O que é semantic release
+ * O que é versionar
+ * Onde é feito o versionamento
+ * comando git o que faz 
+ * Commit o que é 
+ * Versionamento semantico 2.0.0, leitura obrigatória para todo dev
