@@ -1,4 +1,4 @@
-<h1><img width="20px" height="20px" src="http://i.imgur.com/J9ynKU9.png">Pokedex</h1>
+<h1><img width="60px" height="60px" src="http://i.imgur.com/J9ynKU9.png"> Pokedex</h1>
 <div class="badges">
   <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white">
   <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white">
