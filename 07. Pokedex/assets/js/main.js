@@ -8,7 +8,7 @@ let filters = {name:"", type:"Todos", sort:"l-to-h"}
 let nameFilterElement="", typeFilterElement="", sortFilterElement=""
 
 /*Request e consumo dos dados vindos de data.json*/
-fetch("../pokemons.json").then(async(response)=>{
+fetch("./pokemons.json").then(async(response)=>{
     let pokemons = await response.json()
     for (let {type} of pokemons){
         pokemonTypes.push(...type)
