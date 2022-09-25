@@ -13,7 +13,7 @@ window.addEventListener("click",animateCard)
 /*Funções*/
 function animateCard(event){
     cardTarget? setCardAsUnclicked() : ""
-    event.target.className === "card"? setCardAsClicked(event) : ""
+    event.target.classList[1] === "card"? setCardAsClicked(event) : ""
 }
 function setCardAsClicked(event){
     cardTarget = event.target
