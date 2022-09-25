@@ -2,7 +2,7 @@
 let cardTarget = ""
 let form = document.querySelector("form")
 
-/*Cancelando o submit do form de que contém os filtros*/
+/*Cancelando o submit do form que contém os filtros*/
 form.addEventListener("submit",(event)=>{
     event.preventDefault()
 })
