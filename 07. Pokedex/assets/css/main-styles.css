@@ -106,9 +106,6 @@ main > .pokemons-container{
     flex-direction: column;
     width: 100%;
     gap: 16px;
-    transform: translateY(50px);
-    opacity: 0%;
-    animation: not-found 0.5s forwards;
 }
 
 .not-found > span{
@@ -127,23 +124,6 @@ main > .pokemons-container{
     display: none;
 }
 
-input[type=radio]:checked + .card .card-img{
-    transform: translate(24px, -11px);
-    height: 126px;
-    width: 70%;
-}
-
-input[type=radio]:checked + .card .card-info{
-    transform: translateY(-90px);
-    border-radius: 4px 4px 0px 0px;
-}
-
-input[type=radio]:checked + .card .more-info{
-    opacity: 100%;
-    border-radius: 0px 0px 4px 4px;
-    transform: translateY(-108px);
-}
-
 .pokemons-container .card{
     flex-shrink: 0;
     display: flex;
@@ -158,13 +138,7 @@ input[type=radio]:checked + .card .more-info{
     background-color: #eeeeee;
     border-radius: 8px;
     box-shadow: 2px 2px 4px #c9c9c9;
-    cursor: pointer;
-}
-
-.card-label{
-    opacity: 0%;
-    transform: translateY(30px);
-    transition: opacity 0.5s, transform 0.5s;
+    cursor: pointer;   
 }
 
 .show-card{
@@ -184,6 +158,12 @@ input[type=radio]:checked + .card .more-info{
     transition: transform 0.3s, height 0.3s, width 0.3s;
 }
 
+.card-img.move-img{
+    transform: translate(24px, -11px);
+    height: 126px;
+    width: 70%;
+}
+
 .card-img > img{
     width: 80%;
 }
@@ -200,9 +180,20 @@ input[type=radio]:checked + .card .more-info{
     transition: transform 0.3s, border-radius 0.3s;
 }
 
+.card-info.move-info{
+    transform: translateY(-90px);
+    border-radius: 4px 4px 0px 0px;
+}
+
 .more-info{
     opacity: 0%;
     transition: opacity 0.5s, border-radius 0.5s, transform 0.5s; 
+}
+
+.more-info.show{
+    opacity: 100%;
+    border-radius: 0px 0px 4px 4px;
+    transform: translateY(-108px);
 }
 
 .card-info >.card-number{
@@ -280,13 +271,6 @@ input[type=radio]:checked + .card .more-info{
     line-height: 16px;
 }
 /*Fim - Estilos aplicados aos cards da pokedex*/    
-
-@keyframes not-found {
-    100%{
-        transform: translateY(0px) ;
-        opacity: 100%;
-    }
-}
 
 /*Media Queries*/
 @media only screen and (max-width:1100px) {
