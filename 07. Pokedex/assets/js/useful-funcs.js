@@ -33,9 +33,7 @@ export function createPokemonCards(pokemon, types, stats){
     name = `${name.charAt(0).toUpperCase()}${name.slice(1)}`
 
     return`
-    <label class="card-label" id="${pokemon.name}" for="card${id.slice(-3)}">
-        <input type="radio" name="card-click" id="card${id.slice(-3)}">
-        <div class="card">
+        <div id="${pokemon.name}" class="card">
             <div class="w-100 flex card-img">
                 <img src="${pokemon.imgUrl}"
                 alt="${pokemon.name}-img">
@@ -48,8 +46,7 @@ export function createPokemonCards(pokemon, types, stats){
                 </div>
             </div>
             ${stats}
-        </div>
-    </label>`
+        </div>`
 }
 export function createCardsTypes(pokemon){
     let types = ""
@@ -84,7 +81,7 @@ export function notFoundDiv(){
 
 /*Exibindo cards e filtros de forma suave*/
 export function showCards(){
-    const arrayOfCards = document.querySelectorAll(".card-label")
+    const arrayOfCards = document.querySelectorAll(".card")
     for (let i=0; i<arrayOfCards.length; i++){
         setTimeout(()=>{
             arrayOfCards[i].classList.add("show-card")
