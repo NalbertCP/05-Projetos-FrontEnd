@@ -138,10 +138,13 @@ main > .pokemons-container{
     background-color: #eeeeee;
     border-radius: 8px;
     box-shadow: 2px 2px 4px #c9c9c9;
-    cursor: pointer;   
+    cursor: pointer;
+    transform: translateY(50px);
+    opacity: 0%;
+    transition: opacity 0.5s, transform 0.5s;
 }
 
-.show-card{
+.card.show-card{
     opacity: 100%;
     transform: translateY(0px);
 }
