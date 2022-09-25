@@ -8,7 +8,7 @@ export function createFilters(arrayOfTypes){
         <label for="name">Nome:</label>
         <input autocomplete="off" type="text" name="name" id="name">
     </div>
-    <div class="filter">
+    <div class="shrink-0 filter">
         <label for="type">Tipo:</label>
         <select name="type" id="type">
             ${pokemonTypeOptions}
@@ -33,8 +33,8 @@ export function createPokemonCards(pokemon, types, stats){
     name = `${name.charAt(0).toUpperCase()}${name.slice(1)}`
 
     return`
-        <div id="${pokemon.name}" class="card">
-            <div class="w-100 flex card-img">
+        <div id="${pokemon.name}" class="shrink-0 card">
+            <div class="w-100 flex shrink-0 card-img">
                 <img src="${pokemon.imgUrl}"
                 alt="${pokemon.name}-img">
             </div>
@@ -51,7 +51,7 @@ export function createPokemonCards(pokemon, types, stats){
 export function createCardsTypes(pokemon){
     let types = ""
     for(let type of pokemon.type){
-        types+=`<span class="type ${type}">${type}</span>`
+        types+=`<span class="shrink-0 type ${type}">${type}</span>`
     }
     return types
 }
@@ -70,11 +70,11 @@ export function createCardsStats(pokemon){
             </div>
         </div>`
     }
-    return `<div class="w-100 more-info">${stats}</div>`
+    return `<div class="w-100 shrink-0 more-info">${stats}</div>`
 }
 export function notFoundDiv(){
     return`<div class="flex not-found">
-                <span>Pokemon não encontrado</span>
+                <span>Pokemon não encontrado.</span>
                 <span class="material-symbols-outlined">sentiment_dissatisfied</span>
             </div>`
 }
@@ -94,3 +94,4 @@ export function showFilters(){
         filtersContainer.classList.add("show-filters")
     })
 }
+
