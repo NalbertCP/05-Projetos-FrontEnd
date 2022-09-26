@@ -20,6 +20,9 @@ fetch("./pokemons.json").then(async(response)=>{
 
 /*Função principal (executa todas as outras)*/
 function consumeData(pokemons){ 
+    //Desabilitando a página de loading
+    desableLoadEffect()
+
     //Renderizando filtros no DOM
     const filtersForm = document.querySelector("form")
     const allFilters = functions.createFilters(pokemonTypes)
@@ -108,4 +111,11 @@ function allFiltersEvents (){
     //Inserindo cards filtrados no DOM ou aviso de "Not found"
     if (filteredCards.length===0) pokemonsContainer.innerHTML += functions.notFoundDiv()
     else pokemonsContainer.append(...filteredCards)
+}
+
+/*Desabilitando de loading da página*/
+function desableLoadEffect(){
+    const loadOverlay = document.querySelector(".load-overlay")
+    loadOverlay.classList.add("desabled")
+    loadOverlay.querySelector(".pokeball-load").style.animationPlayState = "paused"
 }
