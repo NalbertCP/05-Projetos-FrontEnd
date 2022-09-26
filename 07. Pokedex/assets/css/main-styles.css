@@ -55,8 +55,9 @@ body::-webkit-scrollbar-thumb{
 .load-overlay > img{
     margin: 0 auto;
     width: 100px;
+    transform-origin: center;
     transform: translateX(-100px);
-    animation: rotate-move 1.5s infinite alternate ease-in-out;
+    animation: roll-pokeball 1.5s infinite alternate ease-in-out;
     animation-play-state: running;
 }
 
@@ -66,7 +67,7 @@ body::-webkit-scrollbar-thumb{
     transform: translateX(-100px);
     background-color: #616161;
     filter: blur(12px);
-    animation: move-only 1.5s infinite alternate ease-in-out;
+    animation:move-shadow 1.5s infinite alternate ease-in-out;
 }
 
 .load-overlay > .load-msg{
@@ -315,11 +316,11 @@ main > .pokemons-container{
 /*Fim - Estilos aplicados aos cards da pokedex*/   
 
 /*Animations*/
-@keyframes rotate-move {
+@keyframes roll-pokeball {
     100%{transform: translateX(100px) rotate(360deg);}
 }
 
-@keyframes move-only {
+@keyframes move-shadow {
     100%{transform: translateX(100px);}
 }
 
@@ -352,11 +353,11 @@ main > .pokemons-container{
         transform: translateX(-50px);
     }
 
-    @keyframes rotate-move {
+    @keyframes roll-pokeball {
         100%{transform: translateX(50px) rotate(360deg);}
     }
 
-    @keyframes move-only {
+    @keyframes move-shadow {
         100%{transform: translateX(50px);}
     }
 }
