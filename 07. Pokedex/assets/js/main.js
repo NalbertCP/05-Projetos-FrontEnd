@@ -113,7 +113,7 @@ function allFiltersEvents (){
     else pokemonsContainer.append(...filteredCards)
 }
 
-/*Desabilitando de loading da página*/
+/*Desabilitando efeito de loading da página*/
 function desableLoadEffect(){
     const loadOverlay = document.querySelector(".load-overlay")
     loadOverlay.classList.add("desabled")
