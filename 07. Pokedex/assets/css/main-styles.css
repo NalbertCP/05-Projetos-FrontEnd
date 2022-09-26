@@ -60,7 +60,16 @@ body::-webkit-scrollbar-thumb{
     animation-play-state: running;
 }
 
-.load-overlay > span{
+.load-overlay .pokeball-shadow{
+    width: 80px;
+    height: 4px;
+    transform: translateX(-100px);
+    background-color: #616161;
+    filter: blur(12px);
+    animation: move-only 1.5s infinite alternate ease-in-out;
+}
+
+.load-overlay > .load-msg{
     margin-top: 16px;
     text-align: center;
     font-weight: bold;
@@ -310,6 +319,10 @@ main > .pokemons-container{
     100%{transform: translateX(100px) rotate(360deg);}
 }
 
+@keyframes move-only {
+    100%{transform: translateX(100px);}
+}
+
 /*Media Queries*/
 @media only screen and (max-width:1100px) {
     form{
@@ -334,11 +347,16 @@ main > .pokemons-container{
         margin-bottom: 4px;
     }
 
-    .load-overlay > img{
+    .load-overlay > img, 
+    .load-overlay > .pokeball-shadow{
         transform: translateX(-50px);
     }
 
     @keyframes rotate-move {
         100%{transform: translateX(50px) rotate(360deg);}
+    }
+
+    @keyframes move-only {
+        100%{transform: translateX(50px);}
     }
 }
