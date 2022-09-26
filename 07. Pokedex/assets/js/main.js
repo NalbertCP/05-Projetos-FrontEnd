@@ -118,4 +118,5 @@ function desableLoadEffect(){
     const loadOverlay = document.querySelector(".load-overlay")
     loadOverlay.classList.add("desabled")
     loadOverlay.querySelector(".pokeball-load").style.animationPlayState = "paused"
+    loadOverlay.querySelector(".pokeball-shadow").style.animationPlayState = "paused"
 }
