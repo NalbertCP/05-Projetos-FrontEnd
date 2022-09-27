@@ -35,7 +35,7 @@ function consumeData(pokemons){
     for (let pokemon of pokemons){
         const types = functions.createCardsTypes(pokemon)
         const stats = functions.createCardsStats(pokemon)
-        pokemonsContainer.innerHTML += functions.createPokemonCards(pokemon,types,stats)
+        pokemonsContainer.innerHTML += functions.createPokemonCards(pokemon, types, stats)
     }
 
     //Criando um array dos cards para que eu consiga filtra-los depois
@@ -52,13 +52,13 @@ function consumeData(pokemons){
 /*Filtrando e ordenando os cards*/
 function createFiltersListeners(){
     nameFilterElement = document.querySelector("input[type=text]")
-    nameFilterElement.addEventListener("keyup",allFiltersEvents)
+    nameFilterElement.addEventListener("keyup", allFiltersEvents)
 
     typeFilterElement = document.querySelector("select#type")
-    typeFilterElement.addEventListener("change",allFiltersEvents)
+    typeFilterElement.addEventListener("change", allFiltersEvents)
 
     sortFilterElement = document.querySelector("select#sort")
-    sortFilterElement.addEventListener("change",allFiltersEvents)
+    sortFilterElement.addEventListener("change", allFiltersEvents)
 }
 function allFiltersEvents (){
     let filteredCards = []
@@ -72,7 +72,7 @@ function allFiltersEvents (){
 
     //Filtrando cards pelo nome (1º filtro)
     filteredCards = pokemonCards.filter((pokemon)=>{
-        return pokemon.id.slice(0,filters.name.length)===filters.name
+        return pokemon.id.slice(0, filters.name.length)===filters.name
     })
 
     //Filtrando cards pelo tipo (2º filtro)
@@ -86,7 +86,7 @@ function allFiltersEvents (){
     })
 
     //Ordenando os cards (3º filtro)
-    filteredCards.sort((a,b)=>{
+    filteredCards.sort((a, b)=>{
         let cardNumberA = Number(a.querySelector(".card-number").innerHTML.slice(-3))
         let cardNumberB = Number(b.querySelector(".card-number").innerHTML.slice(-3))
         if (filters.sort === "l-to-h")
