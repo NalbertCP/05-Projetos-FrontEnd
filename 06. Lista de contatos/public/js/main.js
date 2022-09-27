@@ -4,7 +4,7 @@ const searchInput = document.querySelector("#search")
 const searchLabel = document.querySelector(".search-bar label")
 
 window.onload = slideContacts
-searchInput.addEventListener("input",moveLabel)
+searchInput.addEventListener("input", moveLabel)
 
 //Função para manter a label acima do input caso input.value !=""
 function moveLabel (){
