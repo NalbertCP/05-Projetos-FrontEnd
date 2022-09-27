@@ -3,12 +3,12 @@ let cardTarget = ""
 let form = document.querySelector("form")
 
 /*Cancelando o submit do form que contém os filtros*/
-form.addEventListener("submit",(event)=>{
+form.addEventListener("submit", (event)=>{
     event.preventDefault()
 })
 
 /*Criando efeito de animação do card ao clica-lo*/
-window.addEventListener("click",animateCard)
+window.addEventListener("click", animateCard)
 
 /*Funções*/
 function animateCard(event){
@@ -26,4 +26,3 @@ function setCardAsUnclicked(){
     cardTarget.querySelector(".card-info").classList.remove("move-info")
     cardTarget.querySelector(".more-info").classList.remove("show")
 }
-
