@@ -1,4 +1,3 @@
-
 const closeFaqButtons = document.querySelectorAll(".open-card-button")
 
 let allFaqAnswers = []
@@ -6,7 +5,7 @@ let targetAnswer
 let targetIndex
 
 for (let button of closeFaqButtons){
-    button.addEventListener("click",(event)=>{
+    button.addEventListener("click", (event)=>{
         getArrayOfAnswers()
         if (button.classList[2]==="active"){
             hideTergetAnswer(button)
@@ -33,8 +32,8 @@ function showTargetAnswer(button){
     event.target.nextElementSibling.classList.remove("content-hidden")
     
 }
-function closeAllFaqsAnswers (event){
-    allFaqAnswers.forEach((answer,index)=>{
+function closeAllFaqsAnswers (){
+    allFaqAnswers.forEach((answer, index)=>{
         if (answer.classList[1]!= "hidden-content" && index!=targetIndex)
         answer.classList.add("content-hidden")
     })
@@ -43,7 +42,3 @@ function closeAllFaqsAnswers (event){
         button.children[1].classList.remove("rotate")
     })
 }   
-
-
-
-
