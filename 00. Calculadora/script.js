@@ -17,22 +17,22 @@ addNumbers()
 addOperators()
 
 /*Exbindo o resultado, limpando o display e fechando o modal*/
-equal.addEventListener("click",showResult)
-clear.addEventListener("click",clearDisplay)
-backspace.addEventListener("click",backSpace)
-modalOverlay.addEventListener("click",closeModal)
+equal.addEventListener("click", showResult)
+clear.addEventListener("click", clearDisplay)
+backspace.addEventListener("click", backSpace)
+modalOverlay.addEventListener("click", closeModal)
 
 /* Funções utilizadas */
 function addNumbers (){
     for (let number of numbers){
-        number.addEventListener("click",()=>display.value += number.value)
+        number.addEventListener("click", ()=>display.value += number.value)
     }
 }
 function addOperators(){
     for (let operator of operators){
-        operator.addEventListener("click",()=>{
+        operator.addEventListener("click", ()=>{
             if (operator.value == "X"){
-                display.value+= ` * `
+                display.value+= " * "
             } else {
                 display.value += ` ${operator.value} `  
             }
@@ -51,7 +51,7 @@ function showResult(){
     }
 }
 function backSpace(){
-    display.value = display.value.slice(0,display.value.length-1)
+    display.value = display.value.slice(0, display.value.length-1)
 }
 function clearDisplay(){
     display.value=""
