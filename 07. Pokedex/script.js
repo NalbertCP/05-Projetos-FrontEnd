@@ -26,7 +26,7 @@ async function createPokemonDataBase(nodeArray){
         )
     }
 
-    fs.writeFile("./pokemons.json",JSON.stringify(dataBase,null,4),(error)=>{
+    fs.writeFile("./pokemons.json", JSON.stringify(dataBase, null, 4), (error)=>{
         if (error){
             console.log(error.message)
             return
