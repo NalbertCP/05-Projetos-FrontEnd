@@ -3,8 +3,8 @@ const formInputs = document.querySelectorAll("form .input")
 
 //Modificado o aviso de preenchimento do campo para cada input
 for (let input of formInputs){
-    input.addEventListener("invalid",invalidInput)
-    input.addEventListener("change",validInput)
+    input.addEventListener("invalid", invalidInput)
+    input.addEventListener("change", validInput)
 }
 
 //Funções
