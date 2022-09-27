@@ -4,28 +4,27 @@ const inputs = document.querySelectorAll(".inputs")
 const initial = document.querySelector("#initial")
 const final = document.querySelector("#final")
 
-
 /*Símbolos das unidades de medida que serão utilziadas nas tags option do html*/
 const units = [
-    ["mg","g","kg","ton","lb","@"],
-    ["mm","cm","m","km","ft","pol"],
-    ["s","min","h","dia","sem","mês","ano"],
+    ["mg", "g", "kg", "ton", "lb", "@"],
+    ["mm", "cm", "m", "km", "ft", "pol"],
+    ["s", "min", "h", "dia", "sem", "mês", "ano"],
 ]
 /*Nomes das unidades de medida que serão utilziadas nas tags option do html*/
 const unitnames = [
-    ["miligrama","grama","quilograma","tonelada","libra","arroba"],
-    ["milimetro","centímetro","metro","quilômetro","pé","polegada"],
-    ["segundo","minuto","hora","dia","semana","mês","ano"],
+    ["miligrama", "grama", "quilograma", "tonelada", "libra", "arroba"],
+    ["milimetro", "centímetro", "metro", "quilômetro", "pé", "polegada"],
+    ["segundo", "minuto", "hora", "dia", "semana", "mês", "ano"],
 ]
 /*Razões de conversão de cada unidade em relação a uma base*/
 const unitratios = [
-    [1000,1,0.001,0.000001, 0.00220462, 0.000066667],      //Base adotada: 1 grama
+    [1000, 1, 0.001, 0.000001, 0.00220462, 0.000066667],      //Base adotada: 1 grama
     [1000, 100, 1, 0.001, 3.28084, 39.3701],               //Base adotada: 1 metro
     [86400, 1440, 24, 1, 0.142857, 0.0328767, 0.00273973]  //Base adotada: 1 dia
 ]
 
 /* Parte responsável por alterar os atributos das tags options com base no tipo de unidade escolhido*/
-document.querySelector(".selecttype").addEventListener("click",()=>{
+document.querySelector(".selecttype").addEventListener("click", ()=>{
     const selectunit = Number(document.querySelector(".selecttype").value)
     for (let input of inputs){
         input.value=""
@@ -50,9 +49,9 @@ document.querySelector(".selecttype").addEventListener("click",()=>{
 
 /*Event listeners*/
 document.querySelector("#initial").addEventListener("keyup", leftright_converter)
-document.querySelector("#final").addEventListener("keyup",rightleft_converter)
-document.querySelector(".iselect").addEventListener("click",leftright_converter)
-document.querySelector(".fselect").addEventListener("click",leftright_converter)
+document.querySelector("#final").addEventListener("keyup", rightleft_converter)
+document.querySelector(".iselect").addEventListener("click", leftright_converter)
+document.querySelector(".fselect").addEventListener("click", leftright_converter)
 
 /*Funções*/
 function simbol(units){
@@ -65,11 +64,11 @@ function ratios(unitratios){
     const constunits = [...unitratios[selectunit]]
     return constunits
 }
-function leftright_converter(){
+function leftrightconverter(){
     const valor = initial.value
     final.value = valor*ratio()
 }
-function rightleft_converter(){
+function rightleft-converter(){
     const valor =final.value
     initial.value = valor/ratio()
 }
