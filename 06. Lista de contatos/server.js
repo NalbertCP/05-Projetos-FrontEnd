@@ -8,8 +8,8 @@ const routes = require("./controller/routes")
 const server = express()
 
 //Cofigurando o nunjucks e a engine de renderização do projeto
-server.set("view engine","njk")
-nunjucks.configure("views",{
+server.set("view engine", "njk")
+nunjucks.configure("views", {
     express:server
 })
 
@@ -20,6 +20,6 @@ server.use(express.urlencoded({extended:true}))//Hbilitando body parser
 server.use(routes)
 
 //Iniciando o servidor na porta 5000
-server.listen("5000",()=>{
+server.listen("5000", ()=>{
     console.log("server is running")
 })
