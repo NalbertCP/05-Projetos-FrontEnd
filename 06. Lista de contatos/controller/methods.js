@@ -4,12 +4,12 @@ const data = require("../data.json")
 const {getAge, updateAge, sortContacts, getBithDate} = require("./utils.js")
 
 //Métodos utilizados em routes.js
-function index (req,res){
+function index (req, res){
     updateAge() //Atualizando a data de cada contacto em caso de aniversário
     sortContacts() //Ordenando os contatos em ordem alfabética
-    res.render("./Contacts/index.njk",{contacts:data.contacts})
+    res.render("./Contacts/index.njk", {contacts:data.contacts})
 }
-function searchContact(req,res){
+function searchContact(req, res){
     //Redirecionando o usário para a página inicial caso o input esteja vazio
     let {name} = req.query
     if(!name)
@@ -19,18 +19,18 @@ function searchContact(req,res){
     let upperName = name.toUpperCase()
     let nameSize = name.length
     let filteredArray =[]
-    filteredArray = data.contacts.filter((value)=>value.name.substring(0,nameSize).toUpperCase() === upperName)
+    filteredArray = data.contacts.filter((value)=>value.name.substring(0, nameSize).toUpperCase() === upperName)
     
     //Renderizando a página not-found em caso de correspodência vazia (array.length === 0)
     if (filteredArray.length<1)
     return res.status(404).render("./404-not-found.njk")
 
-    return res.render("./Contacts/search-result.njk",{filteredArray})
+    return res.render("./Contacts/search-result.njk", {filteredArray})
 }
-function createContact(req,res){
+function createContact(req, res){
     res.render("./Contacts/create.njk")
 }
-function get(req,res){
+function get(req, res){
     //Entrando na página do contato com base no id
     const {id} = req.params
     const foundContact = data.contacts.find((value)=>value.id === id)
@@ -39,9 +39,9 @@ function get(req,res){
     if (!foundContact)
     return res.status(404).send("Erro 404: Contact not found")
 
-    return res.render("./Contacts/contact-info.njk",{contact: foundContact})
+    return res.render("./Contacts/contact-info.njk", {contact: foundContact})
 }
-function editContact(req,res){
+function editContact(req, res){
     //Copiando os dados do contato para edição
     const {id} = req.params
     const foundContact = {...data.contacts.find((value)=>value.id === id)}
@@ -54,9 +54,9 @@ function editContact(req,res){
     const {birthStamp} = foundContact
     foundContact.birthDate = getBithDate(birthStamp)
 
-    return res.render("./Contacts/edit.njk",{contact: foundContact})
+    return res.render("./Contacts/edit.njk", {contact: foundContact})
 }
-function post(req,res){
+function post(req, res){
     //Vericiando se todos os campos foram preenchidos.
     const keys = Object.keys(req.body)
     for (let key of keys){
@@ -81,14 +81,14 @@ function post(req,res){
     })
     
     //Escrevendo os dados do formulário no arquivo data.json
-    fs.writeFile("./data.json",JSON.stringify(data,null, 4),(error)=>{
+    fs.writeFile("./data.json", JSON.stringify(data, null, 4), (error)=>{
         if (error) 
         return res.send("Sorry for the trouble, an error has occurred> :(")
     })
 
     return res.redirect("/contacts")
 }
-function put(req,res){
+function put(req, res){
     //Vericiando se todos os campos foram preenchidos.
     const keys = Object.keys(req.body)
     for (let key of keys){
@@ -96,11 +96,11 @@ function put(req,res){
         return res.status(422).send("Error 422: Please fill all the fields before sending the form")
     }
 
-    let {id,birth,name, avatarURL, number, state, country} = req.body
+    let {id, birth, name, avatarURL, birth:birthStamp, number, state, country} = req.body
     let foundIndex
 
     //Buscando o index referente a posição do contato no array em data.json
-    const foundContact = data.contacts.find((value,index)=>{
+    const foundContact = data.contacts.find((value, index)=>{
         if (value.id === id){
             foundIndex = index
             return true
@@ -123,14 +123,14 @@ function put(req,res){
     }
 
     //Resscrevendo o arqivo data.json com as informações do contato alterada
-    fs.writeFile("data.json",JSON.stringify(data, null, 4),(error)=>{
+    fs.writeFile("data.json", JSON.stringify(data, null, 4), (error)=>{
         if(error)
         return res.send("Sorry for the trouble, an error has occurred> :(")
     })
 
     return res.redirect(`contacts/${id}`)
 }
-function deleteContact (req,res){
+function deleteContact (req, res){
     //Buscando a posição do contato que será deleteado
     const {deleteId} = req.body
     const foundIndex = data.contacts.findIndex((value)=> value.id==deleteId)
@@ -140,10 +140,10 @@ function deleteContact (req,res){
     return res.status(404).send("Erro 404: Contact was already deleted")
     
     //Deleteando o contato com base no index encontrado anteriormente
-    data.contacts.splice(foundIndex,1)
+    data.contacts.splice(foundIndex, 1)
 
     //Reescrevendo o arquivo data.json
-    fs.writeFile("data.json",JSON.stringify(data,null,4),(error)=>{
+    fs.writeFile("data.json", JSON.stringify(data, null, 4), (error)=>{
         if (error)
         return res.send("Sorry for the trouble, an error has occurred> :(")
     })
