@@ -114,6 +114,7 @@ input[type=text]:focus + label{
 
 .wrapper .task-list{
     width: 100%;
+    overflow: hidden;
 }
 
 .task-list .task{
