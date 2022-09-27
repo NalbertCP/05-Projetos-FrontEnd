@@ -9,12 +9,12 @@ const deleteIconAttr={class:"delete-icon", src:"./img/delete-task-icon.svg", alt
 const doneButtonAttr = {class:"done-btn", value:"taskdone", onclick:"taskDone(event)"}
 const doneIconAttr={class:"done-icon", src:"./img/done-task-icon.svg", alt:"done-icon"}
 
-createTaskButton.addEventListener("click",()=>{
+createTaskButton.addEventListener("click", ()=>{
     if (input.value!=""){
         createTask()
         setTimeout(()=>{
             input.value = ""
-        },50)
+        }, 50)
     }
 })
 
@@ -26,7 +26,7 @@ function createIcons(){
     }
     const doneIcon = document.createElement("img")
     for (let attr in doneIconAttr){
-       doneIcon.setAttribute(attr, doneIconAttr[attr])
+        doneIcon.setAttribute(attr, doneIconAttr[attr])
     }
 
     return [deleteIcon, doneIcon]
@@ -50,30 +50,30 @@ function createButtons(){
 /* Criando task com base no input do formulário*/
 function createTask (){
     const taskName = document.createElement("span")
-    taskName.setAttribute("class","task-name")
+    taskName.setAttribute("class", "task-name")
     taskName.innerHTML = input.value
 
     const before = document.createElement("span")
-    before.setAttribute("class","before")
+    before.setAttribute("class", "before")
 
     const buttonsContainer = document.createElement("div")
-    buttonsContainer.setAttribute("class","task-buttons")
+    buttonsContainer.setAttribute("class", "task-buttons")
     for (let button of createButtons()){
         buttonsContainer.appendChild(button)
     }
 
     const task = document.createElement("div")
-    task.setAttribute("class","task")
+    task.setAttribute("class", "task")
     task.append(before, taskName, buttonsContainer)
     taskList.appendChild(task)
 }
 /* Deletando a task ao clicar no botão "trash" */
 function deleteTask(event){
-    const taskParent = event.target.parentNode.parentNode
+    const taskParent = event.target.parentElement.parentElement
     taskParent.classList.add("delete-task")
     setTimeout(()=>{
         taskParent.remove()
-    },500)
+    }, 500)
 
 }
 /* Marcando a task como concluída */
