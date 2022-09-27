@@ -85,7 +85,7 @@ export function showCards(){
     for (let i=0; i<arrayOfCards.length; i++){
         setTimeout(()=>{
             arrayOfCards[i].classList.add("show-card")
-        },10*i)
+        }, 10*i)
     }
 }
 export function showFilters(){
