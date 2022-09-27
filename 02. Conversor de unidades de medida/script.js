@@ -64,11 +64,11 @@ function ratios(unitratios){
     const constunits = [...unitratios[selectunit]]
     return constunits
 }
-function leftrightconverter(){
+function leftright_converter(){
     const valor = initial.value
     final.value = valor*ratio()
 }
-function rightleft-converter(){
+function rightleft_converter(){
     const valor =final.value
     initial.value = valor/ratio()
 }
