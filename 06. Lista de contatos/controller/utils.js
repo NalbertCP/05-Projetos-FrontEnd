@@ -22,20 +22,20 @@ function updateAge(){
     }
 
     //Reescrevendo o arquivo JSON com a idade atualizada
-    fs.writeFile("data.json",JSON.stringify(data,null,4),(error)=>{
+    fs.writeFile("data.json", JSON.stringify(data, null, 4), (error)=>{
         if (error) res.send("An error has ocurred during the writing file")
     })
 
 }
 function sortContacts(){
-    data.contacts.sort((a,b)=>{
+    data.contacts.sort((a, b)=>{
         if (a.name < b.name) return -1
         else if (a.name > b.name) return 1
         else return 0
     })
 
     //Reescrevendo o arquivo JSON com os objetos ordenados em ordem alfabética de acordo com o nome
-    fs.writeFile("data.json",JSON.stringify(data,null,4),(error)=>{
+    fs.writeFile("data.json", JSON.stringify(data, null, 4), (error)=>{
         if (error) res.send("An error has ocurred during the writing file")
     })
 }
