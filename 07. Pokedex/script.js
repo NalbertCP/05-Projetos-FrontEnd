@@ -74,30 +74,3 @@ async function searchPokemonData(pokemonNames){
     }
     return dataBase
 }
-
-
-// Essa função cria um arquivo json contendo todos os tipos de pokemons 
-// juntamente com seus estilos. Por enquanto está em faze de testes.
-// function createDataBaseOfTypes(){
-//     const pokemons = require("./data-bases/pokemons.json")
-//     let listOfTypes = []
-//     let mainObj = {}
-
-//     console.log("Creating data base with types and it's styles.")
-//     console.log("...")
-//     for (let {type}of pokemons){
-//         listOfTypes.push(...type)
-//     }
-//     listOfTypes = [... new Set(listOfTypes)]
-
-//     for (let type of listOfTypes){
-//         mainObj[type] = {textColor:"", backColor:""}
-//     }
-//     fs.writeFile("./data-bases/types-styles.json", JSON.stringify(mainObj,null,4),(error)=>{
-//         if (error){
-//             console.log(error.message)
-//             return
-//         }
-//         console.log("Sucess! Check the data base 'types-styles.json' in data-bases directory")
-//     })
-// }
