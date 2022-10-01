@@ -184,8 +184,10 @@ button[type=submit]:hover{
 
 /* Media queries*/
 @media only screen and (max-width:480px){
-    .header{
+    .container .header{
         flex-direction: column;
+        margin-bottom: 24px;
+        align-items: flex-start;
     }
 
     .new-contact{
@@ -195,7 +197,7 @@ button[type=submit]:hover{
     .new-contact a{
         width: 100%;
         text-align: center;
-        margin-top: 16px;
+        margin-top: 24px;
     }
 
     .contact, .search-bar form{
