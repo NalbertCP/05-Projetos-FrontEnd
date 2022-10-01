@@ -57,7 +57,7 @@ body{
     } 
 }
 
-@media only screen and (max-width:480px) {
+@media only screen and (max-width:680px) {
     .center-container{
         justify-content: flex-start;
     }   
