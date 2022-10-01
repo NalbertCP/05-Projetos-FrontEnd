@@ -21,6 +21,7 @@
   <br> - Cada contato na lista será exibido com seu nome, telefone, idade, localidade e foto de perfil.
   <br> - A lista em si conta com um filtro de busca, para filtrar os contatos pelo nome.
 <p>
+<img width="600px" src="https://user-images.githubusercontent.com/105606295/193386771-11d0e8bd-5ffa-4ebb-8010-644b9522a3b2.png">
 <h2> 🎮 Iniciando o projeto</h2>
 <p>Após clonar este repositório, navegue até o diretório do projeto pelo seu terminal, baixe as dependências com <b>npm install</b>, inicie o projeto com 
   <b>npm start</b>, e após, abra seu navegador em <b>http://localhost:5000/</b> para visualizar o projeto.</p>
