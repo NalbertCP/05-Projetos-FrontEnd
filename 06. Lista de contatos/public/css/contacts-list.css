@@ -44,11 +44,7 @@
     pointer-events: none;
 }
 
-.search-bar label.movelabel{
-    animation: moveLabel 0s forwards;
-}
-
-#search:focus +label{
+#search:focus +label, #search:not(:placeholder-shown) +label{
     transform: translateY(-28px) scale(0.8);
     left: -8px;
 }
@@ -228,12 +224,5 @@ button[type=submit]:hover{
     100%{
         opacity: 100%;
         transform: translateX(0%);
-    }
-}
-
-@keyframes moveLabel {
-    100%{
-        transform: translateY(-28px) scale(0.8);
-        left: -8px;
     }
 }
