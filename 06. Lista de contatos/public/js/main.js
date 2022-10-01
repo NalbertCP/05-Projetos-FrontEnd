@@ -2,7 +2,6 @@
 const contacts = document.querySelectorAll(".contact")
 
 window.onload = slideContacts
-searchInput.addEventListener("input", moveLabel)
 
 //Criando o efeito de slide em cascata dos contatos
 function slideContacts(){
