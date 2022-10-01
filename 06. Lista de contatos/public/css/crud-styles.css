@@ -148,7 +148,7 @@ form input.delete-button{
     background-color: #ee7171;   
 }
 
-@media only screen and (max-width:480px){
+@media only screen and (max-width:680px){
     .extended{
         height: fit-content;
         grid-template-columns: 1fr;
