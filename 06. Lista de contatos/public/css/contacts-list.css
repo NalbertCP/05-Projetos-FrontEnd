@@ -41,7 +41,7 @@
     letter-spacing: 0.5px;
     transition: transform 0.3s, left 0.3s;
     font-weight: 500;
-    cursor: auto;
+    pointer-events: none;
 }
 
 .search-bar label.movelabel{
