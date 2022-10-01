@@ -1,4 +1,4 @@
-//Selecioando todos os inputs dados do formulário
+//Selecioando todos os inputs do formulário
 const formInputs = document.querySelectorAll("form .input")
 
 //Modificado o aviso de preenchimento do campo para cada input
