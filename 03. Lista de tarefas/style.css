@@ -17,7 +17,7 @@ body{
 .container{
     width: 100%;
     min-height: 100vh;
-    padding: 24px;
+    padding: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -27,30 +27,30 @@ body{
     flex: 1;
     max-width: 450px;
     background-color: #ebebeb;
-    border-radius: 8px;
-    box-shadow: 2px 2px 6px #acacac;
+    border-radius: 0.5rem;
+    box-shadow: 0.125rem 0.125rem 0.37rem #acacac;
     position: relative;
 }
 
-.todo-container .header{
+.todo-container .todo-header{
     width: 100%;
     background-color: #695ff8;
-    padding: 16px;
-    border-radius: 8px 8px 0px 0px;
+    padding: 1rem;
+    border-radius: 0.5rem 0.5rem 0px 0px;
     color: #ffffff;
-    font-size: 24px;
+    font-size: 1.5rem;
 }
 
 .todo-container .wrapper{
-    padding: 0px 14px 16px;
+    padding: 0px 1rem 1rem;
 }
 
 .wrapper .input-bar{
     width: 100%;
-    margin:24px 0px 8px;
+    margin: 1.5rem 0px 0.5rem;
     display: flex;
     justify-content: space-between;
-    gap: 8px;
+    gap: 0.5rem;
 }
 
 .input-bar .input-area{
@@ -60,25 +60,26 @@ body{
 
 .input-area input[type=text]{
     width: 100%;
-    padding: 8px 8px 8px 32px;
-    border-radius: 4px;
+    padding: 0.5rem 0.5rem 0.5rem 2rem;
+    border-radius: 0.25rem;
     outline: none;
     border: 1px solid #979797;
-    font-size: 16px;
+    font-size: 1rem;
     color: #353535;
 }
 
+
 input[type=text]:focus + label{
-    top:-18px;
-    left:-4px;
+    top:-1.125rem;
+    left:-0.25rem;
     transform: scale(0.85);
 }
 
 .input-area label{
     position: absolute;
-    top:10px; left:34px;
+    top: 0.6rem; left:2rem;
     color:#979797;
-    font-size: 14px;
+    font-size: 0.8rem;
     letter-spacing: 0.5px;
     cursor: auto;
     transition-property: top, left, transform;
@@ -86,22 +87,22 @@ input[type=text]:focus + label{
 }
 
 .input-area label.move-label{
-    top:-18px;
-    left:-4px;
+    top:-1.125rem;
+    left:-0.25rem;
     transform: scale(0.85);
 }
 
 .input-area .add-task-icon{
     position: absolute;
-    top:10px; left:8px;
+    top: 0.6rem; left: 0.5rem;
 }
 
 .input-bar button{
     background-color: #4234ff;
-    font-size: 24px;
-    padding: 0px 16px;
+    font-size: 1.5rem;
+    padding: 0 1rem;
     border: none;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     color:#ffffff;
     cursor: pointer;
 }
@@ -109,7 +110,6 @@ input[type=text]:focus + label{
 .input-bar button:hover{
     background-color: #2b1fd6;
     transition: background-color 0.25s;
-
 }
 
 .wrapper .task-list{
@@ -119,11 +119,11 @@ input[type=text]:focus + label{
 
 .task-list .task{
     width: 100%;
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 16px 8px;
+    gap: 0.5rem;
+    padding: 1rem 0.5rem;
     border-bottom: 1px solid #979797;
     transform: translateX(-10%);
     opacity: 0%;
@@ -137,10 +137,10 @@ input[type=text]:focus + label{
 .task .before{
     content: "";
     height: 60%;
-    width: 5px;
+    width: 0.3rem;
     position: absolute;
-    left: 0px;
-    border-radius: 4px;
+    left: 0;
+    border-radius: 0.25rem;
     background-color: #bbbcbd;
 }
 
@@ -151,28 +151,27 @@ input[type=text]:focus + label{
 .task .task-name{
     display: block;
     height: fit-content;
-    margin-left: 4px;
-    font-family: 16px;
+    width: fit-content;
+    margin-left: o.25rem;
+    font-family: 1rem;
     color: #353535;
-    break-inside: avoid;
     word-break: break-all;
-    
 }
 
 .task-name.done{
     color: #17a017;
-    text-decoration: line-through solid #17a017 2px;
+    text-decoration: line-through solid #17a017 0.125rem;
 }
 
 .task .task-buttons{
     margin-left: auto;
     display: flex;
-    gap: 8px;
+    gap: 0.5rem;
 }
 
 .task-buttons > button{
-    padding: 4px 6px;
-    border-radius: 4px;
+    padding: 0.25rem 0.37rem;
+    border-radius: 0.25rem;
     border: none;
     cursor: pointer;
 }
@@ -195,13 +194,13 @@ input[type=text]:focus + label{
 .modal-overlay{
     height: 100vh;
     width: 100%;
-    padding: 24px;
+    padding: 1.5rem;
     background-color: #252525a4;
     display: flex;
     align-items: center;
     justify-content: center;
     position: fixed;
-    top:0px;
+    top: 0;
     opacity: 0%;
     visibility: hidden;
 }
@@ -215,16 +214,16 @@ input[type=text]:focus + label{
     flex:1;
     max-width: 400px;
     background-color: #ebebeb;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     position: relative;
     box-shadow: 1px 1px 6px #4b4b4b;
 }
 
 .modal .modal-header{
     width: 100%;
-    padding: 16px;
+    padding: 1rem;
     background-color: #464646;
-    border-radius: 7px 7px 0px 0px;
+    border-radius: 0.43rem 0.43rem 0 0;
     color: #ffffff;
     display: flex;
     justify-content: space-between;
@@ -236,20 +235,20 @@ input[type=text]:focus + label{
 }
 
 .modal .modal-content{
-    padding: 32px 16px;
+    padding: 2rem 1rem;
     color: #353535;
-    font-size: 16px; 
+    font-size: 1rem; 
     text-align: justify;
 }
 
 .modal .close-modal{
     display: block;
-    margin: 16px 0px 0px auto;
-    padding: 8px 16px;
+    margin: 1rem 0 0 auto;
+    padding: 0.5rem 1rem;
     background-color: #e62c2c;
-    border: 2px solid #923131;
+    border: 0.125rem solid #923131;
     color: #ffffff;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     cursor: pointer;
     transition: background-color 0.25s;
 }
@@ -279,8 +278,22 @@ input[type=text]:focus + label{
 }
 
 /* Media Queries */
-@media (max-width:950px){
+@media (max-width:480px){
+    html{
+        font-size: 120%;
+    }
+
+    .container{
+        padding: 0rem;
+    }
+
     .container .todo-container{
         max-width: 100%;
+        border-radius: 0rem;
+        min-height: 100vh;
+    }
+
+    .todo-container .todo-header{
+        border-radius: 0rem;
     }
 }
