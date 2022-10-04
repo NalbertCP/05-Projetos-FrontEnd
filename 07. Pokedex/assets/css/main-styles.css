@@ -347,7 +347,9 @@ main > .pokemons-container{
     .filter > label{
         margin-bottom: 4px;
     }
+}
 
+@media only screen and (max-width:320px){
     .load-overlay > img, 
     .load-overlay > .pokeball-shadow{
         transform: translateX(-50px);
@@ -356,7 +358,7 @@ main > .pokemons-container{
     @keyframes roll-pokeball {
         100%{transform: translateX(50px) rotate(360deg);}
     }
-
+    
     @keyframes move-shadow {
         100%{transform: translateX(50px);}
     }
