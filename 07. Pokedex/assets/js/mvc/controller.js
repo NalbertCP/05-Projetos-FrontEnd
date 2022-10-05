@@ -14,7 +14,7 @@ main()
 
 /*Função principal (executa todas as outras)*/
 async function main(){
-    const allPokemonsData = new PokemonsData("../pokemons.json")
+    const allPokemonsData = new PokemonsData(`${window.location.origin}/pokemons.json`)
     await allPokemonsData.requestData()
     renderVirtualViews(allPokemonsData)
 }
