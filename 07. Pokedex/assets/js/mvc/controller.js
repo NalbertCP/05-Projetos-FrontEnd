@@ -1,5 +1,5 @@
 import PokemonsData from "./model.js"
-import * as views from "./virtualViews.js"
+import * as views from "./virtual-views.js"
 
 const pokemonsContainer = document.querySelector(".pokemons-container")
 let pokemonCards = []
