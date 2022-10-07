@@ -11,7 +11,7 @@
 <p>
   Projeto Front-End dedicado à criação de uma lista de contatos no modelo CRUD, por meio de uma API Rest. O projeto conta com as seguintes funcionalidades:
   <br> - Cadastro de novos contatos através da rota /contacts/create
-  <br> - Visualização dos dados de cada contato individual por meio da rota /contacts/:id-do-contato
+  <br> - Visualização dos dados de cada contato individual por meio da rota /contacts/:contactid
   <br> - Edição dos dados do contato por meio da rota /contacts/:id-do-contato/edit
   <br> - Possibilidade de deletar o contato através da rota /contacts porém com o método DELETE
   <br>
