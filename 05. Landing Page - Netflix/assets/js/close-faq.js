@@ -1,44 +1,29 @@
-const closeFaqButtons = document.querySelectorAll(".open-card-button")
+const faqsContainer = document.querySelector(".faq-cards")
+let targetParent = ""
+let targetParentId = ""
 
-let allFaqAnswers = []
-let targetAnswer
-let targetIndex
+faqsContainer.addEventListener("click",(event)=>{
+    targetParent = event.target.parentElement
+    targetParentId = targetParent.id
+    if (targetParent.className === "card"){
+        closeLastOpenedFAQ()
+        toggleFAQ(event.target)
+    } 
+})
 
-for (let button of closeFaqButtons){
-    button.addEventListener("click", (event)=>{
-        getArrayOfAnswers()
-        if (button.classList[2]==="active"){
-            hideTergetAnswer(button)
-        }else {
-            targetAnswer = event.target.nextElementSibling
-            targetIndex = allFaqAnswers.indexOf(targetAnswer)
-            closeAllFaqsAnswers(event)
-            showTargetAnswer(button)
-        }
-    })
+function closeLastOpenedFAQ(){
+    for (let faqHeader of document.querySelectorAll(".open-card-button")){
+        const id = faqHeader.parentElement.id
+        if (faqHeader.classList[2]==="active" && id!=targetParentId) closeFAQ(faqHeader)
+    }
 }
-
-function getArrayOfAnswers(){
-    allFaqAnswers = Array.from(document.querySelectorAll(".card-content"))
+function toggleFAQ(faqHeader){
+    faqHeader.classList.toggle("active")
+    faqHeader.querySelector(".material-icons").classList.toggle("rotate")
+    faqHeader.nextElementSibling.classList.toggle("content-hidden")
 }
-function hideTergetAnswer(button){
-    event.target.nextElementSibling.classList.add("content-hidden")
-    event.target.children[1].classList.remove("rotate")
-    button.classList.remove("active")
+function closeFAQ(faqHeader){
+    faqHeader.classList.remove("active")
+    faqHeader.querySelector(".material-icons").classList.remove("rotate")
+    faqHeader.nextElementSibling.classList.add("content-hidden")
 }
-function showTargetAnswer(button){
-    button.classList.add("active")
-    event.target.children[1].classList.add("rotate")
-    event.target.nextElementSibling.classList.remove("content-hidden")
-    
-}
-function closeAllFaqsAnswers (){
-    allFaqAnswers.forEach((answer, index)=>{
-        if (answer.classList[1]!= "hidden-content" && index!=targetIndex)
-        answer.classList.add("content-hidden")
-    })
-    closeFaqButtons.forEach((button)=>{
-        button.classList.remove("active")
-        button.children[1].classList.remove("rotate")
-    })
-}   
