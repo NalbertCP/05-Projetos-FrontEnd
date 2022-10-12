@@ -5,9 +5,9 @@ const createTaskButton = document.querySelector(".create-task")
 
 /* Atributos dos elementos html presentes em cada task*/
 const deleteButtonAttr = {class:"delete-btn", value:"taskdelete", onclick:"deleteTask(event)"}
-const deleteIconAttr={class:"delete-icon", src:"./img/delete-task-icon.svg", alt:"delete-icon"}
+const deleteIconAttr={class:"delete-icon", src:"./img/delete-task-icon.svg", alt:"delete task icon"}
 const doneButtonAttr = {class:"done-btn", value:"taskdone", onclick:"taskDone(event)"}
-const doneIconAttr={class:"done-icon", src:"./img/done-task-icon.svg", alt:"done-icon"}
+const doneIconAttr={class:"done-icon", src:"./img/done-task-icon.svg", alt:"done task icon"}
 
 createTaskButton.addEventListener("click", ()=>{
     if (input.value!=""){
