@@ -1,7 +1,11 @@
+/*Selecionando o container de FAQs no DOM*/
 const faqsContainer = document.querySelector(".faq-cards")
+
+/*Declarando variáveis auxiliares*/
 let targetParent = ""
 let targetParentId = ""
 
+/*Adicionado Event listener ao container de FAQs*/
 faqsContainer.addEventListener("click",(event)=>{
     targetParent = event.target.parentElement
     targetParentId = targetParent.id
@@ -11,6 +15,7 @@ faqsContainer.addEventListener("click",(event)=>{
     } 
 })
 
+/*Funções utilizadas*/
 function closeLastOpenedFAQ(){
     for (let faqHeader of document.querySelectorAll(".open-card-button")){
         const id = faqHeader.parentElement.id
