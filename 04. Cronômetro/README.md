@@ -17,6 +17,9 @@ funcionalidades do cronômetro:
   <br>
   <br><b>🌑 O projeto também conta com um botão no modelo switch para alterar o tema visual do cronômetro entre Light Mode e Dark Mode.</b>
 <p>
+
+<img width="850px" src="https://user-images.githubusercontent.com/105606295/196014262-1d28e658-f844-439e-9850-5f348a93aaed.png">
+
 <h2> 💻 Stacks utilizadas</h2>
 <ul>
   <li>HTML</li>
