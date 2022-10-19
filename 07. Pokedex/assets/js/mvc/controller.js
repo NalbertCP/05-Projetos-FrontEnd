@@ -19,7 +19,7 @@ async function main(){
     renderVirtualViews(allPokemonsData)
 }
 
-/*Rendrizando os elementos(nodes DOM) vindos de virtualViews.js*/
+/*Renderizando os elementos(nodes DOM) vindos de virtualViews.js*/
 function renderVirtualViews(data){ 
     desableLoadEffect() //Desabilitando a página de loading
 
