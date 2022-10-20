@@ -46,7 +46,7 @@
 ```
 
 <img width="500px" src="https://user-images.githubusercontent.com/105606295/192077554-6c733252-55f3-45d8-9180-4eb83be6b6c9.png">
-<p><b>Após seguir o passo a passo acima, uma nova base de dados será criada e substituirá a base de dados atual (pokemons.json).</b></p>
+<p><b>Após seguir o passo a passo acima, uma nova base de dados será criada e substituirá a base de dados atual do projeto.</b></p>
 
 <h2> 💻 Stacks utilizadas</h2>
 <ul>
