@@ -1,9 +1,8 @@
 /*Criando filtros da pokedex*/
 export function createFilters(arrayOfTypes){
-    let pokemonTypeOptions = ""
-    for (let type of arrayOfTypes){
-        pokemonTypeOptions+=`<option value="${type}">${type}</option>`
-    }
+    let pokemonTypeOptions = arrayOfTypes.reduce((options, type)=>{
+        return options+=`<option value="${type}">${type}</option>`
+    }, "")
     return`<div class="filter">
         <label for="name">Nome:</label>
         <input autocomplete="off" type="text" name="name" id="name">
@@ -48,11 +47,9 @@ export function createPokemonCards(pokemon, types, stats){
         </div>`
 }
 export function createCardsTypes(pokemon){
-    let types = ""
-    for(let type of pokemon.type){
-        types+=`<span class="shrink-0 type ${type}">${type}</span>`
-    }
-    return types
+    return pokemon.type.reduce((nodes, type)=>{
+        return nodes+=`<span class="shrink-0 type ${type}">${type}</span>`
+    }, "")
 }
 export function createCardsStats(pokemon){
     let total = Number(pokemon.stats.total)
