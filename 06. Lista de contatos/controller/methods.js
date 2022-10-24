@@ -67,7 +67,7 @@ function post(req, res){
     //Tratando os dados do formulário de cadastro
     let {avatarURL, name, number, birth:birthStamp, state, country} = req.body
     birthStamp = Date.parse(birthStamp)
-    const id = new String(Date.now())
+    const id = `${Date.now()}`
     const age = getAge(birthStamp)
     data.contacts.push({
         id,
