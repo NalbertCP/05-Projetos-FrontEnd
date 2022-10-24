@@ -156,7 +156,12 @@ form label{
     pointer-events: none;
 }
 
-form input[type=email]:focus + label{
+form input[type=email]:focus + label,
+form input[type=email]:not(:placeholder-shown) + label{
+    top:6px;
+    font-size:calc((var(--input-height)/4)*0.8);
+    font-weight: 500;
+}
     top:6px;
     font-size:calc((var(--input-height)/4)*0.8);
     font-weight: 500;
