@@ -19,7 +19,7 @@ faqsContainer.addEventListener("click",(event)=>{
 function closeLastOpenedFAQ(){
     for (let faqHeader of document.querySelectorAll(".open-card-button")){
         const id = faqHeader.parentElement.id
-        if (faqHeader.classList[2]==="active" && id!=targetParentId) closeFAQ(faqHeader)
+        if (faqHeader.classList.contains("active") && id!=targetParentId) closeFAQ(faqHeader)
     }
 }
 function toggleFAQ(faqHeader){
