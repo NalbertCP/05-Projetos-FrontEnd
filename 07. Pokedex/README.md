@@ -14,7 +14,7 @@
   <b>O Design do projeto foi inspirado em uma página de pokedex ja existente, para mais informações segue abaixo o link do projeto original.</b>
 </p>
 <p>
-    Observação: como este projeto consome dados através do comando fetch( ), recomendo que o projeto seja executado em um servidor, a exemplo do plugin LiveServer do VsCode, caso contrário não será possível consumir os dados durante a aplicação.
+    Observação: como este projeto consome dados através da API fetch( ), recomendo que o projeto seja executado em um servidor, a exemplo do plugin LiveServer do VsCode, caso contrário não será possível consumir os dados durante a aplicação.
 </p>
 
 ```md
