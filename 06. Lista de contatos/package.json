@@ -1,7 +1,6 @@
 {
   "name": "contact-list",
   "version": "2.0.0",
-  "description": "",
   "main": "server.js",
   "files":[
     "controller",
