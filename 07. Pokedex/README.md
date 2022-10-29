@@ -18,7 +18,7 @@
 </p>
 
 ```md
-[Original Pokedex project wich inspired me] https://ifpb.github.io/challenges/web/front-end/js/pokedex/
+[Original Pokedex project wich inspired me] 🔗 https://ifpb.github.io/challenges/web/front-end/js/pokedex/
 ```
 
 <h3>Funcionalides</h3>
@@ -34,7 +34,7 @@
 <p> A API pública utilizada para consumir os dados utilizados no projeto segue no link abaixo.</p>
 
 ```md
-[PokeAPI ] https://pokeapi.co/
+[PokeAPI ] 🔗 https://pokeapi.co/
 ```
 
 <p>Como a API original fornece milhares de dados de mais de 1100 Pokemons, precisei criar um algorítimo que me gerasse um arquivo JSON contendo apenas as informações nescessárias para o projeto, e principalmente, com um número bem menor de pokemons para nao sobrecarregar a página.</p>
