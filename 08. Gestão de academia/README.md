@@ -20,7 +20,7 @@
   <b>Obs: ambos os paineis, de membros e instrutores, contam com um filtro para facilitar a busca dos alunos ou instrutores pelo nome.</b>
 <p>
 <br>
-<img width="800px" src="https://user-images.githubusercontent.com/105606295/193386771-11d0e8bd-5ffa-4ebb-8010-644b9522a3b2.png">
+<img width="800px" src="https://user-images.githubusercontent.com/105606295/198773576-79eb9828-275f-4cb6-849e-841c86cd0166.png">
 
 <h2> 🎮 Iniciando o projeto</h2>
 <p>Após clonar este repositório, navegue até o diretório do projeto pelo seu terminal, baixe as dependências com <b>npm install</b>, inicie o projeto com 
