@@ -10,7 +10,7 @@
 <p>
   
 ```md
-[Netflix original landing page] https://www.netflix.com/br-en/
+[Netflix original landing page] 🔗 https://www.netflix.com/br-en/
 ```
   
 <h2> 💻 Stacks utilizadas</h2>
