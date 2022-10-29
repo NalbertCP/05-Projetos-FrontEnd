@@ -9,7 +9,7 @@
 <br>
 <h2>📋 Descrição</h2>
 <p>
-  Projeto Front-End desenvolvido durante um dos BootCamps encontrados na página da 🔗 <a target="_blank" href="https://www.rocketseat.com.br/">RocketSeat</a>. O projeto consistiu em desenvolver uma aplicação para cadastrar e gerenciar informações de alunos e instrutores de uma academia através de uma API REST. Seguem abaixo as funcionalidades do projeto:
+  Projeto Front-End desenvolvido durante um dos Bootcamps encontrados na página da 🔗 <a target="_blank" href="https://www.rocketseat.com.br/">RocketSeat</a>. O projeto consistiu em desenvolver uma aplicação para cadastrar e gerenciar informações de alunos e instrutores de uma academia através de uma API REST. Seguem abaixo as funcionalidades do projeto:
   <ul>
     <li>Painel de visualização dos instruores e alunos em sessões separadas;</li>
     <li>Cadastro de membros e instrutores através da rota members/create e instructors/create;</li>
