@@ -1,11 +1,8 @@
 export async function main(){
-   const data = await fetchData()
+   const data = await ((await fetch("/data")).json())
    const path = window.location.pathname.slice(1)
    if (path === "instructors") renderInstructors(data[path])
    if (path === "members") renderMembers(data[path])
-}
-export async function fetchData(){
-   return await ((await fetch("/data")).json())
 }
 export function renderInstructors(instructors){
    const instructorServices = []
