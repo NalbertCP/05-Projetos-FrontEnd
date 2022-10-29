@@ -1,0 +1,37 @@
+{% extends "../baselayout.njk" %}
+
+{% block title %}
+<title>Gym Management | Members</title>
+{% endblock %}
+
+{% block content %}
+<div class="center-container">
+    <div class="card-container">
+        <div style="background: url({{member.avatar}}) no-repeat top center /cover" class="card-image"></div>
+        <div class="card-content member-card">
+            <form class="form-put"  action="/members?_method=PUT"  method="post">
+                <h3>Editar Informações</h3>
+                {% include "./fields.njk"%}
+                <input value="{{member.id}}" type="hidden" name="id">
+                <input class="w-100 button" type="submit" value="Salvar Edição">
+            </form>
+            <form class="form-delete" method="POST" action="/members?_method=DELETE">
+                <input class="w-100 delete-button" type="submit" value="Apagar Cadastro">
+                <input type="hidden" value="{{member.id}}" name="id">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock%}
+
+{% block scripts %}
+<script>
+    const formDelete = document.querySelector(".form-delete")
+    formDelete.addEventListener("submit",(event)=>{
+        let confirmation = window.confirm("Tem certeza que deseja deletar?")
+        if (!confirmation)
+        event.preventDefault()
+    })
+</script>
+{% include "../general-scrips.njk" %}
+{% endblock %}

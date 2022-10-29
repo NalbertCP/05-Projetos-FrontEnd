@@ -1,0 +1,38 @@
+<div class="item">
+    <div>Avatar URL</div>
+    <input class="w-100" name="avatar" placeholder="http://" type="URL" value="{{instructor.avatar}}">
+</div>
+<div class="item">
+    <div>Instrutor</div>
+    <input class="w-100" name="name" placeholder="Nome do Instrutor" type="text" value="{{instructor.name}}">
+</div>
+<div class="item">
+    <div>Data de nascimento</div>
+    <input class="w-100" name="birth" type="date" value="{{instructor.birth}}">
+</div>
+<div class="item">
+    <div>Sexo</div>
+    <label for="m-radio">
+        <input class="w-100" 
+            value="M" 
+            name="gender" 
+            id="m-radio" 
+            checked
+            type="radio">Masculino
+    </label>
+    <label for="f-radio">
+        <input class="w-100"
+            value="F" 
+            name="gender" 
+            id="f-radio" 
+            {% if instructor.gender==="F" %}
+            checked
+            {% endif %}
+            type="radio">Feminino
+    </label>
+</div>
+<div class="item">
+    <div>Áreas de atuação</div>
+    <input class="w-100" name="services" type="text" placeholder="Digite as áreas separando-as por vírgula" value="{{instructor.services}}">
+</div>
+

@@ -1,0 +1,26 @@
+{
+  "name": "projeto-3",
+  "version": "1.0.0",
+  "main": "server.js",
+  "files":[
+    "controllers",
+    "public",
+    "views",
+    "data.json",
+    "LICENSE",
+    "README.md",
+    "routes.js",
+    "server.js"
+  ],
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "method-override": "^3.0.0",
+    "nunjucks": "^3.2.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}

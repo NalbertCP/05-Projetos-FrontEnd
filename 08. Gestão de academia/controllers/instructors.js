@@ -1,0 +1,171 @@
+/* Importando variáveis e métodos*/
+const fs = require("fs")
+const data = require("../data.json")
+const {getAge, getBirthDate, updatePersonAge} = require ("./utils.js")
+
+/*Métodos na CRUD de intrutores */
+module.exports.index = function(req,res){
+    res.render("Instructors/index.njk",{instructors: data.instructors})
+}
+module.exports.create = function(req,res){
+    res.render("./Instructors/create")   
+}
+module.exports.post = function (req,res){
+    //Verificando se todos os campos foram preenchidos
+    const keys = Object.keys(req.body)
+    for (let key of keys){
+       try{
+            if (req.body[key]==="")
+            throw new Error("Error 422: the user needs to fill all the fields before sending the form.")
+        }catch(error){
+            console.log(error)
+            return res.status(422).render("./errors.njk",
+            {status:"Error 422", msg: "Please fill all the fields before sending the form."})
+        }
+    }
+
+    //Tratando os dados do req.boby e adicionando novos dados
+    let {avatar, name, birth, gender, services} = req.body
+    birth = Date.parse(birth)
+    services = services.replace(/ /g, "").split(",")
+    const createdAt = Date.now()
+    const id = createdAt.toString()
+    const age = getAge(createdAt, birth)
+    const sinceDate = new Intl.DateTimeFormat("pt-BR").format(createdAt)
+    data.instructors.push({
+        id, // Não veio do req.body
+        avatar,
+        name,
+        birth,
+        age, // Não veio do req.body
+        gender,
+        services,
+        createdAt, // Não veio do req.body
+        sinceDate, // Não veio do req.body
+    })
+
+    //Atualizando o arquivo data.json com o cadastro do novo instrutor
+    fs.writeFile("./data.json",JSON.stringify(data, null, 4),(error)=>{
+        if (error)
+        console.log(error)
+        return res.send("An error has ocurred during the file writing.")
+    })
+    return res.redirect(`/instructors/${id}`)
+}
+module.exports.findInstructor = function(req,res){
+    let {id} = req.params
+    const foundInstructor = data.instructors.find((value)=>value.id==id)
+    
+    try{
+        if (!foundInstructor)
+        throw new Error ("Error 404: the instructor, user is looking for was not found.")
+    } catch(error){
+        console.log(error)
+        return res.status(404).render("./errors.njk",{status:"Error 404", msg: "Sorry, instructor not found."})
+    }
+    
+    /* Atualizando a idade do instrutor em caso de aniversário*/
+    updatePersonAge(foundInstructor, id, "instructors")
+    
+    return res.render("./Instructors/showinstructor",{instructor: foundInstructor})
+}
+module.exports.edit = function(req,res){
+    //Buscando instrutor com base no ID
+    let {id} = req.params
+    const foundInstructor = data.instructors.find((value)=>value.id==id)
+
+    try{
+        if (!foundInstructor)
+        throw new Error ("Error 404: the instructor, user is looking for was not found.")
+    } catch (error){
+        console.log(error)
+        return res.status(404).render("./errors.njk",{status:"Error 404", msg: "Sorry, instructor not found."})
+    }
+    
+    const {birth} = foundInstructor
+    const instructor ={
+        ...foundInstructor,
+        birth:getBirthDate(birth).iso
+    }
+
+    return res.render("./Instructors/edit.njk",{instructor})
+}
+module.exports.put = function(req,res){
+    let {id, birth,services} = req.body
+
+    //Verificando se todos os campos foram preenchidos
+    const keys = Object.keys(req.body)
+    for (let key of keys){
+        try{
+            if (req.body[key]==="")
+            throw new Error("Error 422: the user needs to fill all the fields before sending the form.")
+        }catch(error){
+            console.log(error)
+            return res.status(422).render("./errors.njk",
+            {status:"Error 422", msg: "Please fill all the fields before sending the form."})
+        } 
+    }
+
+    //Buscando instrutor com base no ID
+    let foundIndex
+    const foundInstructor = data.instructors.find((value,index)=>{
+        if (value.id==id) {
+            foundIndex = index
+            return value
+        } 
+    })
+    
+    //Tratando o error em caso de correspondência vazia para o instrutor
+    try{
+        if (!foundInstructor)
+        throw new Error ("Error 404: the instructor, user is looking for was not found.")
+    }catch(error){
+        console.log(error)
+        return res.status(404).render("./errors.njk",{status:"Error 404", msg: "Sorry, instructor not found."})
+    }
+    
+    //Atualizando os dados do instrutor
+    services = services.replace(/ /g, "").split(",")
+    const createdAt = Date.now()
+    const age = getAge(createdAt, birth)
+    let instructor ={
+        ...foundInstructor,
+        ...req.body,
+        birth: Date.parse(birth),
+        age:age,
+        services:services
+    }
+
+    //Atualizando os dados do instrutor e reescrevendo o data.json
+    data.instructors[foundIndex] = instructor
+    fs.writeFile("data.json",JSON.stringify(data,null,4),(error)=>{
+        console.log(error)
+        if (error) return res.send("An error has ocurred during the writing file.")
+    })
+    return res.redirect(`instructors/${id}`)
+}
+module.exports.delete=function(req,res){
+    const {id} = req.body
+    let foundIndex  = data.instructors.findIndex((value)=>value.id === id)
+    
+    //Tratando o erro caso o usuário tente excluir o instrutor mais de uma vez
+    try{
+        if(foundIndex<0)
+        throw new Error("Error 404: the instrutor user is trying to delete was already deleted.")
+    }catch(error){
+        console.log(error)
+        return res.status(404).render("./errors.njk",{status:"Error 404", msg: "instructor was already deleted."})
+    }
+
+    //Excluindo o instrutor do banco de dados
+    data.instructors.splice(foundIndex,1)
+
+    //Reescrevendo o arquivo data.json
+    fs.writeFile("data.json",JSON.stringify(data,null, 4),(error)=>{
+        console.log(error)
+        if (error) return res.send("An error has ocurred during the writing file.")
+    })
+
+    return res.redirect("/instructors")
+}
+

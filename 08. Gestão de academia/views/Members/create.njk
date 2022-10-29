@@ -1,0 +1,22 @@
+{% extends "../baselayout.njk" %}
+
+{% block title %}
+<title>Gym Management | Members</title>
+{% endblock %}
+
+{% block content %}
+<div class="center-container">
+    <div class="card-container">
+        <div style="background: url(https://source.unsplash.com/collection/9659878/400x450) no-repeat top center /cover" class="card-image"></div>
+        <form class="card-content member-card" action="/members" method="post">
+            <h3>NOVO ALUNO</h3>
+            {% include "./fields.njk"%}
+            <input class="w-100 button" type="submit" value="Salvar">
+        </form>
+    </div>
+</div>
+{% endblock%}
+
+{% block scripts %}
+{% include "../general-scrips.njk" %}
+{% endblock %}

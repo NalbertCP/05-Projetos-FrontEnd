@@ -1,0 +1,539 @@
+/*Início - Estilos gerais*/
+@import url(https://fonts.googleapis.com/css2?family=Roboto&display=swap);
+
+*{
+    margin:0; 
+    padding:0; 
+    border:none; 
+    box-sizing: border-box; 
+    font-family: 'Roboto', sans-serif
+}
+
+:root{
+    --primary-color: #7159c1;
+}
+
+body{ 
+    background-color: var(--primary-color);
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.w-100{
+    width: 100%;
+}
+
+.load-overlay{
+    height: 100vh;
+    z-index: 999;
+    background-color: #ffffff;
+    position: fixed;
+    justify-content: center;
+    top:0;
+    transition: opacity 0.25s 0.5s, visibility 0.7s;
+}
+
+.load-overlay.hidden{
+    opacity: 0%;
+    visibility: hidden;
+}
+
+.rotate-load{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border-right: 0.125rem solid #4f389c;
+    border-top: 0.125rem solid #4f389c;
+    animation: rotate 0.5s linear infinite;
+    animation-play-state: running;
+}
+
+@keyframes rotate {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+/*Fim - Estilos gerais*/
+
+/* Início - Header*/
+header{
+    transform: translateY(0%);
+    display: flex;
+    position: relative;
+    justify-content: center;
+    min-width: 340px;
+    background-color: #f3f3f3;
+    box-shadow: 0px 0.125rem 0.5rem #00000063;
+    padding: 2rem;
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+
+header.hidden{
+    transform: translateY(-100%);
+    box-shadow: none;
+}
+
+header .hidemenu-button{
+    position: absolute;  
+    left:0; top: 100%;
+    background-color: #3a3a3a;
+    width: fit-content;
+    display: none;
+    cursor: pointer;
+    border-radius: 0 0 0.75rem 0.75rem;
+}
+
+.hidemenu-button .material-icons{
+    font-size: 1.5rem;
+    color: #ffffff;
+    transition: transform 0.5s;
+    pointer-events: none;
+}
+
+.material-icons.rotate{
+    transform: rotate(180deg);
+}
+
+nav ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav a{
+    font-size: 1.25rem;
+    text-decoration:none;
+    color: #696969;
+    position: relative;
+    transition: color 0.5s;
+}
+
+a.active{
+    color: #4f389c;
+    font-weight: bold;
+}
+
+nav a::after{
+    content: "";
+    background-color: var(--primary-color);
+    position: absolute; bottom:-3px; left:0;
+    height: 0.125rem;
+    width: 0%;
+    transition: width 0.25s;
+}
+
+nav a:hover::after{
+    width: 100%;
+    transition-timing-function: ease-in-out;
+}
+
+nav a:hover{
+    color:var(--primary-color);
+}
+/* Fim- Header*/
+
+/* Início - Painel de info dos instrutores e alunos*/
+.center-container{
+    display: flex;
+    margin-top: 2rem;
+    padding: 0px 1.5rem 1.5rem;
+    justify-content: center;
+    transition: transform 0.5s;
+}
+
+.center-container.hiddenContainer{
+    transform: translateY(-80px);
+}
+
+.card-container{
+    background: #f3f3f3;
+    max-width: 800px;
+    min-width: 340px;
+    box-shadow: 0.125rem 0.125rem 0.5rem #0000008f;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    opacity: 0;
+    animation: goUp 0.5s forwards;
+    flex-grow: 1;
+}
+
+.card-container .card-content{
+    padding: 1rem 2rem;
+    background: #f3f3f3;
+}
+
+.card-content h3{
+    color: var(--primary-color);
+    padding: 1rem 0;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.card-container .item{
+    border-bottom: 1px solid #c5c5c5;
+    padding: 1rem 0;
+}
+
+.card-container .item:nth-child(n+7){
+    border: none;
+}
+
+.item div:first-child{
+    color: #7e7e7e;
+    font-size: 0.81rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.item div:nth-child(2), .item ul{
+    list-style-type: none;
+    font-weight: bold;
+    color: #3a3a3a;
+    font-size: 0.87rem ;
+    line-height: 1.5rem;
+}
+
+.item ul{
+    display: flex;
+    column-gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.item li, label{
+    background-color: #f3e849;
+    line-height: normal;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+@media only screen and (max-width:950px){
+    .center-container{
+        justify-content: flex-start;
+        padding: 0.5rem
+    }
+
+    header .hidemenu-button{
+        display: flex
+    }
+
+    .card-container{
+        display: block;
+        max-width: 100%;
+        padding: 0.62rem;
+    }
+
+    .card-container .card-content{
+        width: 100%;
+        height: 100%;
+        background:#ffffffe3;
+    }
+}
+
+@keyframes goUp {
+    0%{
+        opacity: 0%;
+        transform: translateY(10%);
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+/* Fim - Painel de info dos instrutores e alunos*/
+
+/* Início - Cadastro, edição e deleção (instrutores e alunos) */
+.card-content input, select{
+    padding: 0.5rem 0;
+    outline: none;
+    margin: 0.5rem 0 0;
+    font-weight: bold;
+    color: #3a3a3a;
+    font-size: 0.87rem ;
+    background-color: #ffffff00;
+}
+
+select{
+    width: fit-content;
+}
+
+input::placeholder{
+    font-weight: initial;
+}
+
+.item label{
+    display: inline-block;
+    margin: 0.5rem 0.25rem 0 0;
+    font-weight: bold;
+    font-size: 0.75rem;
+    color: #3a3a3a;
+    display: inline-flex;
+}
+
+.item input[type="radio"]{
+    width: fit-content;
+    padding: initial;
+    margin: 0 0.25rem 0 0;
+}
+
+input[type="submit"], .edit-button{
+    padding: 0.5rem 2rem;
+    background-color: var(--primary-color);
+    border-radius: 0.25rem;
+    margin: 2rem 0 1rem;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.87rem;
+    transition: background-color 0.25s;
+}
+
+.card-content .edit-button{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+
+input[type="submit"]:hover, .edit-button:hover{
+    background-color: #866ed4;
+}
+
+.form-delete .delete-button{
+    margin: 0 0 1rem;
+    background-color: #d85d5d;
+}
+
+.form-delete .delete-button:hover{
+    background-color: #f16f6f;
+}
+
+.member-card .item:nth-child(n+4){
+    border-bottom: 1px solid #c5c5c5;
+}
+/* Fim - Cadastro, edição e deleção (instrutores e alunos) */
+
+
+/* Início - Listagem de membros e instrutores */
+.card-container > .header{
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 0.5rem;
+}
+
+.header a{
+    white-space: nowrap;
+    background-color:var(--primary-color);
+    padding: 0.665rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    color:#ffffff;
+    text-decoration: none;
+}
+
+.header a:hover{
+    background-color: #866ed4;
+    transition: background-color 0.25s;
+}
+
+.header > .search-bar{
+    position: relative;
+}
+
+.search-bar > #search{
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: transparent;
+    outline: none;
+    padding: 0.5rem 1rem 0.5rem 2.125rem;
+    border-radius: 0.25rem;
+    border: 2px solid #c5c5c5;
+    transition: border-color 0.25s;
+}
+
+#search:focus, #search:not(:placeholder-shown){
+    border-color: var(--primary-color);
+}
+
+#search:focus + svg, #search:not(:placeholder-shown) + svg{
+    fill: var(--primary-color);
+}
+
+.search-bar > svg{
+    position: absolute;
+    height: 1.25rem;
+    width: 1.5rem;
+    left: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: fill 0.25s;
+}
+
+#search::placeholder{
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: #969696;
+}
+
+.table-container{
+    display: block;
+    padding: 1.5rem;
+}
+
+.table-container table{
+    border-spacing: 0;
+    padding: 0;
+}
+
+table tr, thead{
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+table > tbody{
+    max-height: 540px;
+    display: block;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) transparent;
+}
+
+tbody::-webkit-scrollbar{
+    width: 0.5rem;
+}
+
+tbody::-webkit-scrollbar-thumb{
+    background-color: var(--primary-color);
+    border-radius: 0.5rem;
+}
+
+th, td{
+    text-align:center;
+    padding: 1rem 0rem;
+    border-bottom: 1px solid #c5c5c5;
+    font-size: 0.87rem;
+}
+
+th{
+    padding-top: 0.5rem;
+    text-transform: uppercase;
+    color:#707070;
+}
+
+tr:last-child td{
+    border-bottom: 0;
+}
+
+
+td:nth-child(2) > span{
+    display: inline-block;
+    background-color: #f3e849;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    margin: 0.25rem;
+    text-transform: capitalize;
+    white-space: nowrap;
+}
+
+td a{
+    text-decoration: none;
+    max-width: fit-content;
+    padding: 0.25rem 0.5rem;
+    background-color: var(--primary-color);
+    color: #e7e7e7;
+    border-radius: 0.25rem;
+    margin: 0 auto;
+}
+
+td a:active{
+    color: #e7e7e7;
+}
+
+td .material-icons{
+    color: #e7e7e7;
+    font-size: 1rem;
+}
+
+tr td > img{
+    display: block;
+    width: 3rem;
+    height:3rem;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 50%;
+    border: 0.125rem solid white;
+    box-shadow: 0 0 0.25rem black;
+    margin: 0 auto 0.5rem;
+}
+
+@media only screen and (max-width:950px){
+    th, td{
+        padding:0.5rem;
+    }
+    
+    td > span:last-child{
+        margin-bottom: 0;
+    }
+}
+
+@media only screen and (max-width:540px){
+    body{
+        min-width: fit-content
+    }
+    
+    .table-container{
+        padding: 1rem;
+    }
+    
+    th, td{
+        font-size: 0.75rem;
+    }
+
+    td a > span{
+        display: none;
+    }
+}
+
+/* Início - Páginas de erros */
+header .notfound-page{
+    display: none;
+}
+
+.center-container .not-found{
+    max-width: 600px;
+    min-width: 340px;
+    margin: 2rem auto 0;
+    text-align: center;
+    border-radius: 1rem;
+    padding: 2rem 0.87rem;
+}
+
+.not-found > div{
+    margin: 0 auto;
+    width: fit-content;
+    gap: 0.5rem;
+}
+
+.not-found span, .not-found i{
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 2rem;
+}
+
+.not-found i{
+    font-size: 2.5rem;
+}
+
+.not-found span:last-child{
+    margin-top: 0.75rem;
+    display: block;
+    color: #ffffffaf;
+    font-size: 1.75rem;
+}
+/* Fim - Páginas de erros */
