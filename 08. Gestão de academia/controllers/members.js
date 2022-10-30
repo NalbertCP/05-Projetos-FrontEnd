@@ -53,7 +53,7 @@ module.exports.findMember = function(req,res){
     
     try{
         if (!foundMember)
-        throw new Error("Error 404: the member, user is looking for was not found.")
+        throw new Error("Error 404: the memeber was not found.")
     }catch(error){
         console.log(error)
         return res.status(404).render("./errors.njk",{status:"Error 404", msg: "Sorry, member not found."})
@@ -145,7 +145,7 @@ module.exports.delete=function(req,res){
     //Tratando o erro caso o usuário tente excluir o membro mais de uma vez
     try{
         if(foundIndex<0)
-        throw new Error("Error 404: the member user is trying to delete was already deleted.")
+        throw new Error("Error 404: the member was already deleted.")
     }catch(error){
         console.log(error)
         return res.status(404).render("./errors.njk",{status:"Error 404", msg: "member was already deleted."})
