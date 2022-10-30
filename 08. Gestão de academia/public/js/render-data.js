@@ -67,9 +67,9 @@ export function activateFilter(nodes){
    nameFilter.addEventListener("input",()=>{
       tableBody.innerHTML = ""
       filteredNodes = nodes.filter((node)=>{
-         const inputLength = nameFilter.value.length
+         const input = nameFilter.value.toUpperCase()
          const personName = node.querySelector(".person-name").innerHTML.toUpperCase()
-         return personName.slice(0,inputLength) === nameFilter.value.toUpperCase()
+         return personName.match(input)
       })
       tableBody.append(...filteredNodes)
    })
