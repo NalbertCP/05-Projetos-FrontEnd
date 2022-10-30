@@ -16,7 +16,9 @@ function searchContact(req, res){
 
     //Filtrando os contatos da lista com base do input do usuário
     let upperName = name.toUpperCase()
-    let filteredArray = data.contacts.filter((value)=>value.name.toUpperCase().match(upperName))
+    let filteredArray = data.contacts.filter((value)=>{
+        return value.name.toUpperCase().match(upperName)
+    })
     
     //Renderizando a página not-found em caso de correspodência vazia (array.length === 0)
     if (filteredArray.length<1)
