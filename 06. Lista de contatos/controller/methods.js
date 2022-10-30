@@ -12,14 +12,11 @@ function index (req, res){
 function searchContact(req, res){
     //Redirecionando o usário para a página inicial caso o input esteja vazio
     let {name} = req.query
-    if(!name)
-    return res.redirect("/contacts")
+    if(!name) return res.redirect("/contacts")
 
     //Filtrando os contatos da lista com base do input do usuário
     let upperName = name.toUpperCase()
-    let nameSize = name.length
-    let filteredArray =[]
-    filteredArray = data.contacts.filter((value)=>value.name.substring(0, nameSize).toUpperCase() === upperName)
+    let filteredArray = data.contacts.filter((value)=>value.name.toUpperCase().match(upperName))
     
     //Renderizando a página not-found em caso de correspodência vazia (array.length === 0)
     if (filteredArray.length<1)
