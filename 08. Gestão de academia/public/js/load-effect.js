@@ -6,5 +6,5 @@ export default function hideLoadOverlay(){
     overlay.classList.add("hidden")
     setTimeout(()=>{
         rotateLoad.style.animationPlayState = "paused"
-    },1000)
+    }, 1000)
 }

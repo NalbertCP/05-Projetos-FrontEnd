@@ -21,7 +21,7 @@ window.onload = async function(){
 }
 
 //Aplicando efeito toggle ao menu
-hideMenuButton.addEventListener("click",()=>{
+hideMenuButton.addEventListener("click", ()=>{
     if (hideMenuButton.value=="desable"){
         mobileAdjust.showBar()
         hideMenuButton.value ="active"

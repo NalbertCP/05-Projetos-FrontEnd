@@ -32,7 +32,7 @@ export function renderInstructors(instructors){
             </td>
          </tr>
       `
-   },"")
+   }, "")
 }
 export function renderMembers(members){
    const tableBody = document.querySelector("tbody")
@@ -58,13 +58,13 @@ export function renderMembers(members){
             </td>
          </tr>
       `
-   },"")
+   }, "")
 }
 export function activateFilter(nodes){
    const nameFilter = document.querySelector("#search")
    const tableBody = document.querySelector("tbody")
    let filteredNodes = []
-   nameFilter.addEventListener("input",()=>{
+   nameFilter.addEventListener("input", ()=>{
       tableBody.innerHTML = ""
       filteredNodes = nodes.filter((node)=>{
          const input = nameFilter.value.toUpperCase()

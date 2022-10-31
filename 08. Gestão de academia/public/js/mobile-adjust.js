@@ -12,7 +12,6 @@ export function checkWidth (){
 }
 export function hideBar(){
     const header = document.querySelector("header")
-
     header.classList.add("hidden")
     header.querySelector(".hidemenu-button i").classList.remove("rotate")
     document.querySelector(".center-container").classList.add("hiddenContainer")

@@ -4,13 +4,13 @@ const data = require("../data.json")
 const {getAge, getBirthDate, updatePersonAge} = require ("./utils.js")
 
 /*Métodos na CRUD de intrutores */
-module.exports.index = function(req,res){
-    res.render("Instructors/index.njk",{instructors: data.instructors})
+module.exports.index = function(req, res){
+    res.render("Instructors/index.njk", {instructors: data.instructors})
 }
-module.exports.create = function(req,res){
+module.exports.create = function(req, res){
     res.render("./Instructors/create")   
 }
-module.exports.post = function (req,res){
+module.exports.post = function (req, res){
     //Verificando se todos os campos foram preenchidos
     const keys = Object.keys(req.body)
     for (let key of keys){
@@ -20,7 +20,7 @@ module.exports.post = function (req,res){
         }catch(error){
             console.log(error)
             return res.status(422).render("./errors.njk",
-            {status:"Error 422", msg: "Please fill all the fields before sending the form."})
+            {status: "Error 422", msg: "Please fill all the fields before sending the form."})
         }
     }
 
@@ -41,18 +41,18 @@ module.exports.post = function (req,res){
         gender,
         services,
         createdAt, // Não veio do req.body
-        sinceDate, // Não veio do req.body
+        sinceDate // Não veio do req.body
     })
 
     //Atualizando o arquivo data.json com o cadastro do novo instrutor
-    fs.writeFile("./data.json",JSON.stringify(data, null, 4),(error)=>{
+    fs.writeFile("./data.json", JSON.stringify(data, null, 4), (error)=>{
         if (error)
         console.log(error)
         return res.send("An error has ocurred during the file writing.")
     })
     return res.redirect(`/instructors/${id}`)
 }
-module.exports.findInstructor = function(req,res){
+module.exports.findInstructor = function(req, res){
     let {id} = req.params
     const foundInstructor = data.instructors.find((value)=>value.id==id)
     
@@ -61,15 +61,15 @@ module.exports.findInstructor = function(req,res){
         throw new Error ("Error 404: the instructor was not found.")
     } catch(error){
         console.log(error)
-        return res.status(404).render("./errors.njk",{status:"Error 404", msg: "Sorry, instructor not found."})
+        return res.status(404).render("./errors.njk", {status: "Error 404", msg: "Sorry, instructor not found."})
     }
     
     /* Atualizando a idade do instrutor em caso de aniversário*/
     updatePersonAge(foundInstructor, id, "instructors")
     
-    return res.render("./Instructors/showinstructor",{instructor: foundInstructor})
+    return res.render("./Instructors/showinstructor", {instructor: foundInstructor})
 }
-module.exports.edit = function(req,res){
+module.exports.edit = function(req, res){
     //Buscando instrutor com base no ID
     let {id} = req.params
     const foundInstructor = data.instructors.find((value)=>value.id==id)
@@ -79,19 +79,19 @@ module.exports.edit = function(req,res){
         throw new Error ("Error 404: the instructor, user is looking for was not found.")
     } catch (error){
         console.log(error)
-        return res.status(404).render("./errors.njk",{status:"Error 404", msg: "Sorry, instructor not found."})
+        return res.status(404).render("./errors.njk", {status: "Error 404", msg: "Sorry, instructor not found."})
     }
     
     const {birth} = foundInstructor
     const instructor ={
         ...foundInstructor,
-        birth:getBirthDate(birth).iso
+        birth: getBirthDate(birth).iso
     }
 
-    return res.render("./Instructors/edit.njk",{instructor})
+    return res.render("./Instructors/edit.njk", {instructor})
 }
-module.exports.put = function(req,res){
-    let {id, birth,services} = req.body
+module.exports.put = function(req, res){
+    let {id, birth, services} = req.body
 
     //Verificando se todos os campos foram preenchidos
     const keys = Object.keys(req.body)
@@ -102,13 +102,13 @@ module.exports.put = function(req,res){
         }catch(error){
             console.log(error)
             return res.status(422).render("./errors.njk",
-            {status:"Error 422", msg: "Please fill all the fields before sending the form."})
+            {status: "Error 422", msg: "Please fill all the fields before sending the form."})
         } 
     }
 
     //Buscando instrutor com base no ID
     let foundIndex
-    const foundInstructor = data.instructors.find((value,index)=>{
+    const foundInstructor = data.instructors.find((value, index)=>{
         if (value.id==id) {
             foundIndex = index
             return value
@@ -121,7 +121,7 @@ module.exports.put = function(req,res){
         throw new Error ("Error 404: the instructor, user is looking for was not found.")
     }catch(error){
         console.log(error)
-        return res.status(404).render("./errors.njk",{status:"Error 404", msg: "Sorry, instructor not found."})
+        return res.status(404).render("./errors.njk", {status: "Error 404", msg: "Sorry, instructor not found."})
     }
     
     //Atualizando os dados do instrutor
@@ -132,19 +132,19 @@ module.exports.put = function(req,res){
         ...foundInstructor,
         ...req.body,
         birth: Date.parse(birth),
-        age:age,
-        services:services
+        age: age,
+        services: services
     }
 
     //Atualizando os dados do instrutor e reescrevendo o data.json
     data.instructors[foundIndex] = instructor
-    fs.writeFile("data.json",JSON.stringify(data,null,4),(error)=>{
+    fs.writeFile("data.json", JSON.stringify(data, null, 4), (error)=>{
         console.log(error)
         if (error) return res.send("An error has ocurred during the writing file.")
     })
     return res.redirect(`instructors/${id}`)
 }
-module.exports.delete=function(req,res){
+module.exports.delete=function(req, res){
     const {id} = req.body
     let foundIndex  = data.instructors.findIndex((value)=>value.id === id)
     
@@ -154,14 +154,14 @@ module.exports.delete=function(req,res){
         throw new Error("Error 404: the instrutor was already deleted.")
     }catch(error){
         console.log(error)
-        return res.status(404).render("./errors.njk",{status:"Error 404", msg: "instructor was already deleted."})
+        return res.status(404).render("./errors.njk", {status: "Error 404", msg: "instructor was already deleted."})
     }
 
     //Excluindo o instrutor do banco de dados
-    data.instructors.splice(foundIndex,1)
+    data.instructors.splice(foundIndex, 1)
 
     //Reescrevendo o arquivo data.json
-    fs.writeFile("data.json",JSON.stringify(data,null, 4),(error)=>{
+    fs.writeFile("data.json", JSON.stringify(data, null, 4), (error)=>{
         console.log(error)
         if (error) return res.send("An error has ocurred during the writing file.")
     })
