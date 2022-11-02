@@ -285,12 +285,17 @@ input[type=text]:focus + label{
 
     .container{
         padding: 0rem;
+        justify-content: flex-start;
     }
 
     .container .todo-container{
         max-width: 100%;
         border-radius: 0rem;
         min-height: 100vh;
+    }
+
+    .todo-container{
+        min-width: 340px;
     }
 
     .todo-container .todo-header{
