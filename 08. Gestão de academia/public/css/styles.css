@@ -320,7 +320,7 @@ input[type="submit"]:hover, .edit-button:hover{
 /* Fim - Cadastro, edição e deleção (instrutores e alunos) */
 
 
-/* Início - Listagem de membros e instrutores */
+/* Início - Listagem de alunos e instrutores */
 .card-container > .header{
     align-items: center;
     margin-bottom: 1rem;
@@ -500,6 +500,7 @@ tr td > img{
         display: none;
     }
 }
+/* Fim - Listagem de alunos e instrutores */
 
 /* Início - Páginas de erros */
 header .notfound-page{

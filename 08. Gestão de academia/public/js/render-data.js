@@ -4,6 +4,8 @@ export async function main(){
    if (path === "instructors") renderInstructors(data[path])
    if (path === "members") renderMembers(data[path])
 }
+
+/*Renderizando tabela de instrutores na página inicial*/
 export function renderInstructors(instructors){
    const instructorServices = []
    const tableBody = document.querySelector("tbody")
@@ -34,9 +36,9 @@ export function renderInstructors(instructors){
       `
    }, "")
 }
+/*Renderizando tabela de membros na página inicial*/
 export function renderMembers(members){
    const tableBody = document.querySelector("tbody")
-
    tableBody.innerHTML = members.reduce((acc, member)=>{
       return acc+=`
          <tr class="person-data">
@@ -60,6 +62,7 @@ export function renderMembers(members){
       `
    }, "")
 }
+/*Atribuindo event listener ao filtro*/
 export function activateFilter(nodes){
    const nameFilter = document.querySelector("#search")
    const tableBody = document.querySelector("tbody")

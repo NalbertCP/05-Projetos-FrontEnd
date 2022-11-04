@@ -1,3 +1,4 @@
+/* Modificando a posição da imagem de fundo com base no viewport*/
 export function checkWidth (){
     const cardContainer = document.querySelector(".card-container")
     const cardImage = document.querySelector(".card-image")
@@ -10,12 +11,16 @@ export function checkWidth (){
         showBar()
     }
 }
+
+/*Escondendo a barra de navegação*/
 export function hideBar(){
     const header = document.querySelector("header")
     header.classList.add("hidden")
     header.querySelector(".hidemenu-button i").classList.remove("rotate")
     document.querySelector(".center-container").classList.add("hiddenContainer")
 }
+
+/*Exibindo a barra de navegação*/
 export function showBar(){
     const header = document.querySelector("header")
 
