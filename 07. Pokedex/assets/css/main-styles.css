@@ -35,7 +35,9 @@ body::-webkit-scrollbar-thumb{
     background-color: #858585;
     border: 2px solid #eeeeee;
 }
+/*Fim - Estilos gerais*/
 
+/*Início - Estilos da página de loading*/
 .load-overlay{
     padding: 24px;
     flex-direction: column;
@@ -80,7 +82,7 @@ body::-webkit-scrollbar-thumb{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-/*Fim - Estilos gerais*/
+/*Fim - Estilos da página de loading*/
 
 /*Início - Estilo dos filtros*/
 header{
