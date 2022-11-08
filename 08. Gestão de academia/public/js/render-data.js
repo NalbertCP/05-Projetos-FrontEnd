@@ -64,13 +64,13 @@ export function renderMembers(members){
 }
 /*Atribuindo event listener ao filtro*/
 export function activateFilter(nodes){
-   const nameFilter = document.querySelector("#search")
+   const searchFilter = document.querySelector("#search")
    const tableBody = document.querySelector("tbody")
-   let filteredNodes = []
-   nameFilter.addEventListener("input", ()=>{
+   
+   searchFilter.addEventListener("input", ()=>{
       tableBody.innerHTML = ""
-      filteredNodes = nodes.filter((node)=>{
-         const input = nameFilter.value.toUpperCase()
+      const filteredNodes = nodes.filter((node)=>{
+         const input = searchFilter.value.toUpperCase()
          const personName = node.querySelector(".person-name").innerHTML.toUpperCase()
          return personName.match(input)
       })
