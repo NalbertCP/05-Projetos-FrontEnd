@@ -12,16 +12,16 @@ window.addEventListener("click", animateCard)
 
 /*Funções*/
 function animateCard(event) {
-  cardTarget ? setCardAsUnclicked() : ""
-  event.target.classList.contains("card") ? setCardAsClicked(event) : ""
+  cardTarget ? removeAnimation() : ""
+  event.target.classList.contains("card") ? addAnimation(event) : ""
 }
-function setCardAsClicked(event) {
+function addAnimation(event) {
   cardTarget = event.target
   cardTarget.querySelector(".card-img").classList.add("move-img")
   cardTarget.querySelector(".card-info").classList.add("move-info")
   cardTarget.querySelector(".more-info").classList.add("show")
 }
-function setCardAsUnclicked() {
+function removeAnimation() {
   cardTarget.querySelector(".card-img").classList.remove("move-img")
   cardTarget.querySelector(".card-info").classList.remove("move-info")
   cardTarget.querySelector(".more-info").classList.remove("show")

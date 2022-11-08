@@ -1,5 +1,5 @@
 import PokemonsData from "./model.js"
-import * as views from "./virtual-views.js"
+import * as views from "./views.js"
 
 const pokemonsContainer = document.querySelector(".pokemons-container")
 let pokemonCards = []
@@ -16,11 +16,11 @@ main()
 async function main(){
     const allPokemonsData = new PokemonsData("./pokemons.json")
     await allPokemonsData.requestData()
-    renderVirtualViews(allPokemonsData)
+    renderViews(allPokemonsData)
 }
 
-/*Renderizando os elementos(nodes DOM) vindos de virtualViews.js*/
-function renderVirtualViews(data){ 
+/*Renderizando os elementos(nodes DOM) vindos de views.js*/
+function renderViews(data){ 
     desableLoadEffect() //Desabilitando a página de loading
 
     //Renderizando filtros no DOM
@@ -110,7 +110,7 @@ function allFiltersEvents (){
     })
 
     //Inserindo cards filtrados no DOM ou aviso de "Not found"
-    if (filteredCards.length===0) pokemonsContainer.innerHTML += views.notFoundDiv()
+    if (filteredCards.length===0) pokemonsContainer.innerHTML += views.notFound()
     else pokemonsContainer.append(...filteredCards)
 }
 
