@@ -11,7 +11,11 @@ window.onresize = mobileAdjust.checkWidth
 window.onload = async function(){
     const path = window.location.pathname.slice(1)
     if (path === "instructors" || path === "members"){
-        await renderElements.main()
+        try{ await renderElements.main()} 
+        catch(error){
+            console.log(error)
+            window.alert("Something went wrong. Please reaload the page.")
+        }
         const dataNodes = []
         dataNodes.push.apply(dataNodes, document.querySelectorAll(".person-data"))
         renderElements.activateFilter(dataNodes)

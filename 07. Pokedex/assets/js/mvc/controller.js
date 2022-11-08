@@ -15,8 +15,13 @@ main()
 /*Função principal (executa todas as outras)*/
 async function main(){
     const allPokemonsData = new PokemonsData("./pokemons.json")
-    await allPokemonsData.requestData()
-    renderViews(allPokemonsData)
+    try{
+        await allPokemonsData.requestData()
+        renderViews(allPokemonsData)
+    } catch(error){
+        console.log(error)
+        window.alert("Something went wrong. Please reload the page.")
+    }
 }
 
 /*Renderizando os elementos(nodes DOM) vindos de views.js*/
