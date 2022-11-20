@@ -10,13 +10,15 @@ window.onresize = mobileAdjust.checkWidth
 //Renderizando instrutores e membros e removendo efeito de loading
 window.onload = async function(){
     const path = window.location.pathname.slice(1)
+    const dataNodes = []
     if (path === "instructors" || path === "members"){
-        try{ await renderElements.main()} 
+        try{ 
+            await renderElements.main()
+        } 
         catch(error){
             console.log(error)
             window.alert("Something went wrong. Please reaload the page.")
         }
-        const dataNodes = []
         dataNodes.push.apply(dataNodes, document.querySelectorAll(".person-data"))
         renderElements.activateFilter(dataNodes)
     }
