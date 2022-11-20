@@ -6,7 +6,7 @@ let targetParent = ""
 let targetParentId = ""
 
 /*Adicionado Event listener ao container de FAQs*/
-faqsContainer.addEventListener("click",(event)=>{
+faqsContainer.addEventListener("click", (event)=>{
     targetParent = event.target.parentElement
     targetParentId = targetParent.id
     if (targetParent.className === "card"){
