@@ -51,8 +51,8 @@ async function searchPokemonData(pokemonNames){
         const pokemonStat = {
             id: result.id,
             name: result.name,
-            type:[],
-            stats:{total:0},
+            type: [],
+            stats: {total: 0},
             imgUrl: result.sprites.other["official-artwork"].front_default
         }
 

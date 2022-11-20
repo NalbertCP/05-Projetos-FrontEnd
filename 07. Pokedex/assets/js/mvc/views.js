@@ -27,7 +27,7 @@ export function createFilters(arrayOfTypes){
 
 /*Criando os cards e seus componentes*/
 export function createPokemonCards(pokemon, types, stats){
-    let id = '#'+`00${pokemon.id}`.slice(-3)
+    let id = "#"+`00${pokemon.id}`.slice(-3)
     let nameFormated = `${pokemon.name.charAt(0).toUpperCase()}${pokemon.name.slice(1)}`
     return`
         <div id="${pokemon.name}" class="shrink-0 card">

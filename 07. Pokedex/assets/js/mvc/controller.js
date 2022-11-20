@@ -4,9 +4,9 @@ import * as views from "./views.js"
 const pokemonsContainer = document.querySelector(".pokemons-container")
 let pokemonCards = []
 let filters = {
-    name:"", 
-    type:"Todos", 
-    sort:"l-to-h"
+    name: "", 
+    type: "Todos", 
+    sort: "l-to-h"
 }
 let nameFilterElement="", typeFilterElement="", sortFilterElement=""
 
