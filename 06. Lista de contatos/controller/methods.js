@@ -5,9 +5,9 @@ const {getAge, updateAge, sortContacts, getBithDate} = require("./utils.js")
 
 //Métodos utilizados em routes.js
 function index (req, res){
-    updateAge() //Atualizando a data de cada contacto em caso de aniversário
-    sortContacts() //Ordenando os contatos em ordem alfabética
-    res.render("./Contacts/index.njk", {contacts:data.contacts})
+    updateAge(res) //Atualizando a data de cada contacto em caso de aniversário
+    sortContacts(res) //Ordenando os contatos em ordem alfabética
+    res.render("./Contacts/index.njk", {contacts: data.contacts})
 }
 function searchContact(req, res){
     //Redirecionando o usário para a página inicial caso o input esteja vazio
@@ -64,7 +64,7 @@ function post(req, res){
     }
 
     //Tratando os dados do formulário de cadastro
-    let {avatarURL, name, number, birth:birthStamp, state, country} = req.body
+    let {avatarURL, name, number, birth: birthStamp, state, country} = req.body
     birthStamp = Date.parse(birthStamp)
     const id = `${Date.now()}`
     const age = getAge(birthStamp)
@@ -95,7 +95,7 @@ function put(req, res){
         return res.status(422).send("Error 422: Please fill all the fields before sending the form")
     }
 
-    let {id, birth, name, avatarURL, birth:birthStamp, number, state, country} = req.body
+    let {id, birth, name, avatarURL, birth: birthStamp, number, state, country} = req.body
     let foundIndex
 
     //Buscando o index referente a posição do contato no array em data.json
@@ -113,11 +113,11 @@ function put(req, res){
     data.contacts[foundIndex]={
         ...foundContact,
         name: name,
-        avatarURL:avatarURL,
-        number:number,
-        state:state,
-        country:country,
-        birthStamp:birthStamp,
+        avatarURL: avatarURL,
+        number: number,
+        state: state,
+        country: country,
+        birthStamp: birthStamp,
         age: getAge(birth)
     }
 

@@ -15,7 +15,7 @@ function getAge (birthStamp){
 
     return years
 }
-function updateAge(){
+function updateAge(res){
     //Atualizando a idade de cada contanto em caso de aniversário
     for (let contact of data.contacts){
         contact.age = getAge(contact.birthStamp)
@@ -27,7 +27,7 @@ function updateAge(){
     })
 
 }
-function sortContacts(){
+function sortContacts(res){
     data.contacts.sort((a, b)=>{
         if (a.name < b.name) return -1
         else if (a.name > b.name) return 1

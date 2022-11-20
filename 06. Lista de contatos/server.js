@@ -10,13 +10,13 @@ const server = express()
 //Cofigurando o nunjucks e a engine de renderização do projeto
 server.set("view engine", "njk")
 nunjucks.configure("views", {
-    express:server
+    express: server
 })
 
 //Aplicando os middlewares
 server.use(methodOverride("_method"))//Habilitando métodos PUT e DELETE no form html
 server.use(express.static("./public"))
-server.use(express.urlencoded({extended:true}))//Hbilitando body parser
+server.use(express.urlencoded({extended: true}))//Hbilitando body parser
 server.use(routes)
 
 //Iniciando o servidor na porta 5000
