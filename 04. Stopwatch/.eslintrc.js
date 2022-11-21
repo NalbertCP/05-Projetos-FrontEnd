@@ -19,7 +19,7 @@ module.exports = {
                 semi: false,
                 tabWidth: 4,
                 endOfLine: "auto",
-                printWidth: 100
+                printWidth: 110
             }
         ]
     }

@@ -9,16 +9,16 @@ const watchDisplay = document.querySelector(".watch")
 switchModeButton.addEventListener("click", darkMode)
 
 /*Funções*/
-function darkMode(event){
+function darkMode(event) {
     //Alterando o ícone do botão "switch mode"
     const checked = event.target.checked
-    checked? switchModeIcon.innerHTML="light_mode": switchModeIcon.innerHTML="dark_mode"
+    checked ? (switchModeIcon.innerHTML = "light_mode") : (switchModeIcon.innerHTML = "dark_mode")
 
     //Alterando a cor dos ícones
-    for (let simbol of simbols){
-        simbol.classList.toggle("white") 
+    for (let simbol of simbols) {
+        simbol.classList.toggle("white")
     }
-    
+
     documentBody.classList.toggle("dark-mode") //Alterando as cores settadas no body
     watchDisplay.classList.toggle("dark-mode") // Acrescentandodo animação light no display do relógio
 }
