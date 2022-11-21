@@ -1,23 +1,24 @@
-export async function main(){
-   const data = await ((await fetch("/data")).json())
-   const path = window.location.pathname.slice(1)
-   if (path === "instructors") renderInstructors(data[path])
-   if (path === "members") renderMembers(data[path])
+export async function main() {
+    const data = await (await fetch("/data")).json()
+    const path = window.location.pathname.slice(1)
+    if (path === "instructors") renderInstructors(data[path])
+    if (path === "members") renderMembers(data[path])
 }
 
 /*Renderizando tabela de instrutores na página inicial*/
-export function renderInstructors(instructors){
-   const instructorServices = []
-   const tableBody = document.querySelector("tbody")
-   for (let instructor of instructors){
-      const services = instructor.services.reduce((acc, value)=>{
-         return acc+=`<span>${value}</span>`
-      }, "")
-      instructorServices.push(services)
-   }
+export function renderInstructors(instructors) {
+    const instructorServices = []
+    const tableBody = document.querySelector("tbody")
 
-   tableBody.innerHTML = instructors.reduce((acc, instructor, index)=>{
-      return acc+=`
+    for (let instructor of instructors) {
+        const services = instructor.services.reduce((acc, value) => {
+            return (acc += `<span>${value}</span>`)
+        }, "")
+        instructorServices.push(services)
+    }
+
+    tableBody.innerHTML = instructors.reduce((acc, instructor, index) => {
+        return (acc += `
          <tr class="person-data">
             <td>
                <img alt="${instructor.name} profile picutre" src="${instructor.avatar}">
@@ -33,14 +34,14 @@ export function renderInstructors(instructors){
                </a>
             </td>
          </tr>
-      `
-   }, "")
+      `)
+    }, "")
 }
 /*Renderizando tabela de membros na página inicial*/
-export function renderMembers(members){
-   const tableBody = document.querySelector("tbody")
-   tableBody.innerHTML = members.reduce((acc, member)=>{
-      return acc+=`
+export function renderMembers(members) {
+    const tableBody = document.querySelector("tbody")
+    tableBody.innerHTML = members.reduce((acc, member) => {
+        return (acc += `
          <tr class="person-data">
             <td>
                <img alt="${member.name} profile picutre" src="${member.avatar}">
@@ -59,21 +60,21 @@ export function renderMembers(members){
                </a>
             </td>
          </tr>
-      `
-   }, "")
+      `)
+    }, "")
 }
 /*Atribuindo event listener ao filtro*/
-export function activateFilter(nodes){
-   const searchFilter = document.querySelector("#search")
-   const tableBody = document.querySelector("tbody")
-   
-   searchFilter.addEventListener("input", ()=>{
-      tableBody.innerHTML = ""
-      const filteredNodes = nodes.filter((node)=>{
-         const input = searchFilter.value.toUpperCase()
-         const personName = node.querySelector(".person-name").innerHTML.toUpperCase()
-         return personName.match(input)
-      })
-      tableBody.append(...filteredNodes)
-   })
+export function activateFilter(nodes) {
+    const searchFilter = document.querySelector("#search")
+    const tableBody = document.querySelector("tbody")
+
+    searchFilter.addEventListener("input", () => {
+        tableBody.innerHTML = ""
+        const filteredNodes = nodes.filter((node) => {
+            const input = searchFilter.value.toUpperCase()
+            const personName = node.querySelector(".person-name").innerHTML.toUpperCase()
+            return personName.match(input)
+        })
+        tableBody.append(...filteredNodes)
+    })
 }

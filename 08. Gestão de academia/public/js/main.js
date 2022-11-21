@@ -8,14 +8,13 @@ const hideMenuButton = document.querySelector(".hidemenu-button")
 window.onresize = mobileAdjust.checkWidth
 
 //Renderizando instrutores e membros e removendo efeito de loading
-window.onload = async function(){
+window.onload = async function () {
     const path = window.location.pathname.slice(1)
     const dataNodes = []
-    if (path === "instructors" || path === "members"){
-        try{ 
+    if (path === "instructors" || path === "members") {
+        try {
             await renderElements.main()
-        } 
-        catch(error){
+        } catch (error) {
             console.log(error)
             window.alert("Something went wrong. Please reaload the page.")
         }
@@ -27,12 +26,12 @@ window.onload = async function(){
 }
 
 //Aplicando efeito toggle ao menu
-hideMenuButton.addEventListener("click", ()=>{
-    if (hideMenuButton.value=="desable"){
+hideMenuButton.addEventListener("click", () => {
+    if (hideMenuButton.value == "desable") {
         mobileAdjust.showBar()
-        hideMenuButton.value ="active"
-    }else{
+        hideMenuButton.value = "active"
+    } else {
         mobileAdjust.hideBar()
-        hideMenuButton.value ="desable"
+        hideMenuButton.value = "desable"
     }
 })
