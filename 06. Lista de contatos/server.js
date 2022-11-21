@@ -14,12 +14,12 @@ nunjucks.configure("views", {
 })
 
 //Aplicando os middlewares
-server.use(methodOverride("_method"))//Habilitando métodos PUT e DELETE no form html
+server.use(methodOverride("_method")) //Habilitando métodos PUT e DELETE no form html
 server.use(express.static("./public"))
-server.use(express.urlencoded({extended: true}))//Hbilitando body parser
+server.use(express.urlencoded({ extended: true })) //Hbilitando body parser
 server.use(routes)
 
 //Iniciando o servidor na porta 5000
-server.listen("5000", ()=>{
+server.listen("5000", () => {
     console.log("server is running")
 })

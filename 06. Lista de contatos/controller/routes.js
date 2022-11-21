@@ -4,7 +4,7 @@ const methods = require("./methods")
 const routes = express.Router()
 
 //Declaração das rotas utilizadas em server.js
-routes.get("/", (req, res)=>{
+routes.get("/", (req, res) => {
     res.redirect("/contacts")
 })
 routes.get("/contacts", methods.index)
@@ -18,4 +18,3 @@ routes.delete("/contacts", methods.deleteContact)
 
 //Exportando as rotas para serem utilizadas em server.js
 module.exports = routes
-
