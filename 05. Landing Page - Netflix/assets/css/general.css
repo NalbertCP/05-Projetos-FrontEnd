@@ -1,73 +1,74 @@
 /*Início - Estilos gerais*/
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
 
-body{
-    --input-height:60px;
+body {
+    --input-height: 60px;
 }
 
-section{
+section {
     background-color: #000000;
     border-bottom: 8px solid #252525;
     color: #ffffff;
 }
 
-.w100-h100-absolute{
+.w100-h100-absolute {
     width: 100%;
     height: 100%;
     position: absolute;
 }
 
-.middle-sections{
+.middle-sections {
     padding: 24px;
     justify-content: center;
 }
 
-.w100{
+.w100 {
     width: 100%;
 }
 
-.middle-containers{
+.middle-containers {
     flex: 1;
     max-width: 1180px;
     justify-content: space-around;
     margin: 0 0 16px;
 }
 
-.img-wrapper{
+.img-wrapper {
     flex-shrink: 2;
     max-width: 524px;
     position: relative;
     z-index: 1;
 }
 
-.flex{
+.flex {
     display: flex;
     align-items: center;
 }
 
-.content{
+.content {
     max-width: 524px;
     flex-shrink: 3;
 }
 
-.content > h2{
+.content>h2 {
     margin-bottom: 16px;
     letter-spacing: 2px;
     font-size: 48px;
 }
 
-.content > p{
+.content>p {
     font-size: 26px;
 }
 
-@media only screen and (max-width:480px){
-    body{
+@media only screen and (max-width:480px) {
+    body {
         width: fit-content;
     }
 }
+
 /*Fim - Estilos gerais*/

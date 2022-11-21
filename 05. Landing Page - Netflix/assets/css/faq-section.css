@@ -1,53 +1,53 @@
 /* Início - FAQ-Section*/
-#faq-section{
+#faq-section {
     padding: 64px;
     justify-content: center;
 }
 
-#faq-section > .center-container{
+#faq-section>.center-container {
     flex-grow: 1;
 }
 
-.center-container > h2{
+.center-container>h2 {
     font-size: 48px;
     letter-spacing: 2px;
     margin-bottom: 56px;
     text-align: center;
 }
 
-.center-container > .give-margin{
+.center-container>.give-margin {
     justify-content: center;
 }
 
-.faq-cards{
+.faq-cards {
     max-width: 816px;
     margin: 0 96px 64px;
 }
 
-.faq-cards > .card{
+.faq-cards>.card {
     background-color: #2e2e2e;
     margin-bottom: 8px;
 }
 
-.card:last-child{
+.card:last-child {
     margin-bottom: 0px;
 }
 
-.open-card-button{
+.open-card-button {
     justify-content: space-between;
     padding: 21px 32px;
     border-bottom: 1px solid #000000;
     cursor: pointer;
 }
 
-.open-card-button > h3{
+.open-card-button>h3 {
     color: white;
     font-weight: 400;
     font-size: 26px;
     pointer-events: none;
 }
 
-.open-card-button > i{
+.open-card-button>i {
     display: block;
     font-size: 28px;
     transform: rotate(45deg);
@@ -55,88 +55,90 @@
     transition: transform 0.15s;
 }
 
-i.rotate{
+i.rotate {
     transform: rotate(90deg);
 }
 
-.card-content{
+.card-content {
     max-height: 500px;
     overflow: hidden;
     transition: max-height 0.15s ease-in-out;
 }
 
-.content-hidden{
+.content-hidden {
     max-height: 0px;
 }
 
-.card-content > p{
+.card-content>p {
     padding: 30px 32px;
-    font-size:26px;
+    font-size: 26px;
 }
 
-.center-container > .get-started-box{
+.center-container>.get-started-box {
     text-align: center;
     margin: 0 auto 18px;
     max-width: 670px;
 }
 
-@media only screen and (max-width:950px){
-    .center-container > h2{
+@media only screen and (max-width:950px) {
+    .center-container>h2 {
         font-size: 36px;
         margin-bottom: 24px;
     }
-    .faq-cards{
+
+    .faq-cards {
         margin: 0 16px 32px;
     }
 
-    .open-card-button{
+    .open-card-button {
         padding: 16px 24px;
     }
 
-    .open-card-button > h3{
+    .open-card-button>h3 {
         font-size: 20px;
     }
 
-    .card-content > p{
+    .card-content>p {
         font-size: 20px;
         padding: 24px;
     }
 
-    .center-container .get-started-box > p{
+    .center-container .get-started-box>p {
         margin: 0 auto 18px;
     }
 }
 
-@media only screen and (max-width:750px){
-    .center-container .get-started-box > p{
+@media only screen and (max-width:750px) {
+    .center-container .get-started-box>p {
         font-size: 18px;
     }
 }
 
-@media only screen and (max-width:600px){
-    .center-container > h2{
+@media only screen and (max-width:600px) {
+    .center-container>h2 {
         font-size: 24px;
     }
 
-    #faq-section{
+    #faq-section {
         padding: 48px 0px;
         justify-content: flex-start;
     }
 
-    .faq-cards{
+    .faq-cards {
         margin: 0 0 32px;
     }
 
-    .open-card-button > h3{
+    .open-card-button>h3 {
         font-size: 18px;
     }
 
-    .card-content > p{
+    .card-content>p {
         font-size: 18px;
     }
 
-    .center-container .get-started-box{
+    .center-container .get-started-box {
         margin: 0 22px 18px
     }
 }
+
 /* Fim - FAQ-Section*/
