@@ -1,10 +1,10 @@
 /*Criando filtros da pokedex*/
-export function createFilters(arrayOfTypes){
-    let pokemonTypeOptions = arrayOfTypes.reduce((options, type)=>{
-        return options+=`<option value="${type}">${type}</option>`
+export function createFilters(arrayOfTypes) {
+    let pokemonTypeOptions = arrayOfTypes.reduce((options, type) => {
+        return (options += `<option value="${type}">${type}</option>`)
     }, "")
 
-    return`<div class="filter">
+    return `<div class="filter">
         <label for="name">Nome:</label>
         <input autocomplete="off" type="text" name="name" id="name">
     </div>
@@ -26,10 +26,10 @@ export function createFilters(arrayOfTypes){
 }
 
 /*Criando os cards e seus componentes*/
-export function createPokemonCards(pokemon, types, stats){
-    let id = "#"+`00${pokemon.id}`.slice(-3)
+export function createPokemonCards(pokemon, types, stats) {
+    let id = "#" + `00${pokemon.id}`.slice(-3)
     let nameFormated = `${pokemon.name.charAt(0).toUpperCase()}${pokemon.name.slice(1)}`
-    return`
+    return `
         <div id="${pokemon.name}" class="shrink-0 card">
             <div class="w-100 flex shrink-0 card-img">
                 <img src="${pokemon.imgUrl}" alt="${pokemon.name}-image">
@@ -44,19 +44,18 @@ export function createPokemonCards(pokemon, types, stats){
             ${stats}
         </div>`
 }
-export function createCardsTypes(pokemon){
-    return pokemon.type.reduce((nodes, type)=>{
-        return nodes+=`<span class="shrink-0 type ${type}">${type}</span>`
+export function createCardsTypes(pokemon) {
+    return pokemon.type.reduce((nodes, type) => {
+        return (nodes += `<span class="shrink-0 type ${type}">${type}</span>`)
     }, "")
 }
-export function createCardsStats(pokemon){
+export function createCardsStats(pokemon) {
     let total = Number(pokemon.stats.total)
     let stats = ""
-    for (let [stat, value] of Object.entries(pokemon.stats)){
-        let width = `${Math.floor(Number(value)*100/total)+5}%`
-        if (stat!="total")
-        stats+=
-        `<div class="w-100 flex pokemon-stats">
+    for (let [stat, value] of Object.entries(pokemon.stats)) {
+        let width = `${Math.floor((Number(value) * 100) / total) + 5}%`
+        if (stat != "total")
+            stats += `<div class="w-100 flex pokemon-stats">
             <div class="stat-name">${stat}</div>
             <div class="stat-bar">
                 <div class="stat-number" style="width:${width}">${value}</div>
@@ -65,24 +64,24 @@ export function createCardsStats(pokemon){
     }
     return `<div class="w-100 shrink-0 more-info">${stats}</div>`
 }
-export function notFound(){
-    return`<div class="flex not-found">
+export function notFound() {
+    return `<div class="flex not-found">
                 <span>Pokemon não encontrado.</span>
                 <span class="material-symbols-outlined">sentiment_dissatisfied</span>
             </div>`
 }
 
 /*Exibindo cards e filtros de forma suave*/
-export function showCards(){
+export function showCards() {
     const arrayOfCards = document.querySelectorAll(".card")
-    for (let i=0; i<arrayOfCards.length; i++){
-        setTimeout(()=>{
+    for (let i = 0; i < arrayOfCards.length; i++) {
+        setTimeout(() => {
             arrayOfCards[i].classList.add("show-card")
-        }, 10*i)
+        }, 10 * i)
     }
 }
-export function showFilters(){
-    setTimeout(()=>{
+export function showFilters() {
+    setTimeout(() => {
         const filtersContainer = document.querySelector(".filters-container")
         filtersContainer.classList.add("show-filters")
     })

@@ -1,16 +1,16 @@
-export default class PokemonsData{
-    constructor(url){
+export default class PokemonsData {
+    constructor(url) {
         this.url = url
     }
-    
-    async requestData(){
+
+    async requestData() {
         this.pokemons = await (await fetch(this.url)).json()
         this.createPokemonTypes()
     }
 
-    createPokemonTypes(){
+    createPokemonTypes() {
         let types = []
-        for (let {type} of this.pokemons){
+        for (let { type } of this.pokemons) {
             types.push(...type)
         }
         this.pokemonTypes = ["Todos", ...new Set(types)]
