@@ -6,19 +6,15 @@ module.exports = {
     },
     extends: [
         "eslint:recommended",
-        "plugin:react/recommended",
         "prettier",
         "plugin:prettier/recommended"
     ],
     overrides: [],
     parserOptions: {
-        ecmaFeatures: {
-            jsx: true
-        },
         ecmaVersion: "latest",
         sourceType: "module"
     },
-    plugins: ["react", "prettier"],
+    plugins: ["prettier"],
     rules: {
         "prettier/prettier": [
             "error",
