@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -55,17 +55,17 @@ section {
     flex-shrink: 3;
 }
 
-.content>h2 {
+.content > h2 {
     margin-bottom: 16px;
     letter-spacing: 2px;
     font-size: 48px;
 }
 
-.content>p {
+.content > p {
     font-size: 26px;
 }
 
-@media only screen and (max-width:480px) {
+@media only screen and (max-width: 480px) {
     body {
         width: fit-content;
     }

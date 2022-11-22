@@ -5,7 +5,7 @@
     z-index: 1;
 }
 
-#intro-section>img {
+#intro-section > img {
     z-index: -2;
     object-fit: cover;
     object-position: center center;
@@ -34,22 +34,22 @@
     max-width: 132px;
 }
 
-.center-header>.right {
+.center-header > .right {
     gap: 32px;
 }
 
-.right>label {
+.right > label {
     position: relative;
 }
 
-label>i {
+label > i {
     transform: scale(0.7);
     pointer-events: none;
     position: absolute;
-    left: 4px
+    left: 4px;
 }
 
-label>select {
+label > select {
     background-color: transparent;
     padding: 8px 0px 8px 24px;
     outline: none;
@@ -59,7 +59,7 @@ label>select {
     color: #ffffff;
 }
 
-select>option {
+select > option {
     background-color: #9e9e9e;
     font-size: 14px;
 }
@@ -68,7 +68,7 @@ select:focus {
     outline: #ffffff solid 1px;
 }
 
-.right>.sign-in-button {
+.right > .sign-in-button {
     background-color: #db0808;
     padding: 8px 18px;
     height: fit-content;
@@ -95,7 +95,7 @@ select:focus {
     margin-bottom: 12px;
 }
 
-.hero>p {
+.hero > p {
     letter-spacing: 1px;
     font-size: 24px;
     margin-bottom: 32px;
@@ -105,17 +105,17 @@ select:focus {
     font-size: 20px;
 }
 
-.get-started-box>p {
+.get-started-box > p {
     margin-bottom: 18px;
     font-size: 20px;
 }
 
-.get-started-box>form {
+.get-started-box > form {
     margin: 0 auto;
     position: relative;
 }
 
-form input[type=email] {
+form input[type="email"] {
     height: var(--input-height);
     padding: 8px 12px 0px;
     font-size: 17px;
@@ -138,7 +138,7 @@ form button {
     cursor: pointer;
 }
 
-form>button:active {
+form > button:active {
     background-color: #ad0707;
     outline: #5e0808 solid 2px;
 }
@@ -149,18 +149,18 @@ button .material-icons {
 
 form label {
     position: absolute;
-    top: calc(var(--input-height)/2 - 10px);
+    top: calc(var(--input-height) / 2 - 10px);
     left: 12px;
-    font-size: calc(var(--input-height)/4);
+    font-size: calc(var(--input-height) / 4);
     color: #929292;
     transition: all 0.1s;
     pointer-events: none;
 }
 
-form input[type=email]:focus+label,
-form input[type=email]:not(:placeholder-shown)+label {
+form input[type="email"]:focus + label,
+form input[type="email"]:not(:placeholder-shown) + label {
     top: 6px;
-    font-size: calc((var(--input-height)/4)*0.8);
+    font-size: calc((var(--input-height) / 4) * 0.8);
     font-weight: 500;
 }
 
@@ -170,28 +170,28 @@ form input[type=email]:not(:placeholder-shown)+label {
     font-weight: 500;
 }
 
-@media only screen and (max-width:1400px) {
+@media only screen and (max-width: 1400px) {
     #intro-section {
         min-height: 685px;
     }
 }
 
-@media only screen and (max-width:950px) {
+@media only screen and (max-width: 950px) {
     .hero-container .hero {
         max-width: 524px;
         margin: 0px 56px;
     }
 
-    .get-started-box>p {
+    .get-started-box > p {
         font-size: 24px;
         max-width: 524px;
     }
 
-    .hero>p {
+    .hero > p {
         margin-bottom: 16px;
     }
 
-    .get-started-box>form,
+    .get-started-box > form,
     footer form {
         max-width: 524px;
         flex-direction: column;
@@ -215,7 +215,7 @@ form input[type=email]:not(:placeholder-shown)+label {
     }
 }
 
-@media only screen and (max-width:740px) {
+@media only screen and (max-width: 740px) {
     body {
         --input-height: 48px;
     }
@@ -226,7 +226,7 @@ form input[type=email]:not(:placeholder-shown)+label {
     }
 }
 
-@media only screen and (max-width:600px) {
+@media only screen and (max-width: 600px) {
     #intro-section {
         min-height: 508px;
     }
@@ -237,7 +237,7 @@ form input[type=email]:not(:placeholder-shown)+label {
 
     .header .center-header {
         margin: 0 20px;
-        gap: 12px
+        gap: 12px;
     }
 
     .center-header .logo {
@@ -245,7 +245,7 @@ form input[type=email]:not(:placeholder-shown)+label {
         min-width: 88px;
     }
 
-    .center-header>.right {
+    .center-header > .right {
         gap: 12px;
     }
 
@@ -253,7 +253,7 @@ form input[type=email]:not(:placeholder-shown)+label {
         padding: 4px 0px 4px 24px;
     }
 
-    .right>.sign-in-button {
+    .right > .sign-in-button {
         padding: 4px 0;
         min-width: 64px;
     }
@@ -272,8 +272,8 @@ form input[type=email]:not(:placeholder-shown)+label {
         margin-bottom: 24px;
     }
 
-    .hero>p,
-    .get-started-box>p {
+    .hero > p,
+    .get-started-box > p {
         font-size: 18px;
     }
 

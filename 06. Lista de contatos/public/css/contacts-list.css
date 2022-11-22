@@ -1,19 +1,19 @@
 /* Início do cabeçalho e barra de pesquisa*/
-.container .search-bar{
+.container .search-bar {
     border-radius: 8px;
 }
 
-.container .header{
+.container .header {
     justify-content: space-between;
     margin-bottom: 16px;
 }
 
-.header h3{
+.header h3 {
     animation: none;
     margin: 0px;
 }
 
-.new-contact a{
+.new-contact a {
     padding: 8px 16px;
     background-color: #ab1bcf;
     text-decoration: none;
@@ -23,19 +23,20 @@
     font-weight: 500;
 }
 
-.new-contact a:active, .new-contact a:focus{
+.new-contact a:active,
+.new-contact a:focus {
     box-shadow: 0px 0px 0px 2px #585858;
 }
 
-.search-bar form{
+.search-bar form {
     align-items: stretch;
     position: relative;
 }
 
-.search-bar label{
+.search-bar label {
     position: absolute;
-    left:16px;
-    top:9.5px;
+    left: 16px;
+    top: 9.5px;
     color: #a5a5a5;
     font-size: 14px;
     letter-spacing: 0.5px;
@@ -44,17 +45,18 @@
     pointer-events: none;
 }
 
-#search:focus{
+#search:focus {
     border-color: #ab1bcf;
 }
 
-#search:focus +label, #search:not(:placeholder-shown) +label{
+#search:focus + label,
+#search:not(:placeholder-shown) + label {
     transform: translateY(-28px) scale(0.8);
     left: -8px;
-    color:#3f3f3f;
+    color: #3f3f3f;
 }
 
-.search-bar input[type=search]{
+.search-bar input[type="search"] {
     height: 100%;
     margin-top: 0px;
     padding: 8px 16px;
@@ -67,11 +69,11 @@
     font-weight: 500;
 }
 
-input[type=search]::-webkit-search-cancel-button{
+input[type="search"]::-webkit-search-cancel-button {
     -webkit-appearance: none;
 }
 
-.search-bar button[type=submit]{
+.search-bar button[type="submit"] {
     background-color: #4e4e4e;
     color: #ffffff;
     padding: 4px 8px;
@@ -80,41 +82,41 @@ input[type=search]::-webkit-search-cancel-button{
     transition: background-color 0.25s;
 }
 
-button[type=submit]:hover{
+button[type="submit"]:hover {
     background-color: #777777;
 }
 /* Fim do cabeçalho e barra de pesquisa*/
 
 /* Início da lista de contatos*/
-.center-list .contacts-list{
-    margin:16px 0px 0px;
+.center-list .contacts-list {
+    margin: 16px 0px 0px;
     max-height: 440px;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #db81f0 transparent;
 }
 
-.contacts-list::-webkit-scrollbar{
+.contacts-list::-webkit-scrollbar {
     width: 16px;
     border-radius: 8px;
 }
 
-.contacts-list::-webkit-scrollbar-thumb{
+.contacts-list::-webkit-scrollbar-thumb {
     background-color: #db81f0;
     border-radius: 8px;
-    border:4px solid #f1f1f1;
+    border: 4px solid #f1f1f1;
 }
 
-.contacts-list .not-found{
+.contacts-list .not-found {
     font-size: 24px;
-    color:#a3a3a3;
+    color: #a3a3a3;
     text-align: center;
     line-height: 24px;
     margin: 16px 0px;
     letter-spacing: 1px;
 }
 
-.contacts-list .contact{
+.contacts-list .contact {
     display: flex;
     border-bottom: 1px solid #cccccc;
     padding: 8px 0px;
@@ -125,50 +127,51 @@ button[type=submit]:hover{
     animation: slideContact 0.7s forwards;
 }
 
-.contact:last-child{
+.contact:last-child {
     margin-bottom: 0px;
 }
 
-.contact .avatar{
+.contact .avatar {
     width: 112px;
     height: 112px;
     flex-shrink: 0;
     padding: 4px;
     border-radius: 50%;
-    background: linear-gradient(to right bottom,#b951d3, #f7fa57);
+    background: linear-gradient(to right bottom, #b951d3, #f7fa57);
 }
 
-.avatar img{
+.avatar img {
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
     object-position: center top;
 }
 
-.about .name, .number{
+.about .name,
+.number {
     font-weight: bold;
     display: block;
     margin: 0px 0px 6px;
 }
 
-.about .number{
+.about .number {
     font-size: 16px;
     color: #646464;
 }
 
-.about .name{
+.about .name {
     color: #ab1bcf;
     font-size: 18px;
 }
 
-.about .more{
-    color:#777777;
+.about .more {
+    color: #777777;
     font-weight: 500;
     font-size: 16px;
 }
 
-.contact .details{
-    margin-left:auto;
+.contact .details {
+    margin-left: auto;
     padding: 4px 8px;
     font-weight: 500;
     background-color: #f3f728;
@@ -176,43 +179,44 @@ button[type=submit]:hover{
     border-radius: 4px;
 }
 
-.details a{
+.details a {
     text-decoration: none;
     color: #3f3f3f;
 }
 /* Fim da lista de contatos*/
 
 /* Media queries*/
-@media only screen and (max-width:480px){
-    .container .header{
+@media only screen and (max-width: 480px) {
+    .container .header {
         flex-direction: column;
         margin-bottom: 24px;
         align-items: flex-start;
     }
 
-    .new-contact{
+    .new-contact {
         width: 100%;
     }
 
-    .new-contact a{
+    .new-contact a {
         width: 100%;
         text-align: center;
         margin-top: 24px;
     }
 
-    .contact, .search-bar form{
+    .contact,
+    .search-bar form {
         flex-direction: column;
     }
-    
-    .contact .details{
-        margin-left:0px;
+
+    .contact .details {
+        margin-left: 0px;
     }
 
-    .contact .about{
+    .contact .about {
         text-align: center;
     }
-    
-    .search-bar input[type=search]{
+
+    .search-bar input[type="search"] {
         border-left: 2px solid #cccccc;
         border-top: 2px solid #cccccc;
         border-right: 2px solid #cccccc;
@@ -220,7 +224,7 @@ button[type=submit]:hover{
         border-radius: 4px 4px 0px 0px;
     }
 
-    .search-bar button[type=submit]{
+    .search-bar button[type="submit"] {
         padding: 8px;
         border-radius: 0px 0px 4px 4px;
     }
@@ -228,7 +232,7 @@ button[type=submit]:hover{
 
 /*Animations*/
 @keyframes slideContact {
-    100%{
+    100% {
         opacity: 100%;
         transform: translateX(0%);
     }

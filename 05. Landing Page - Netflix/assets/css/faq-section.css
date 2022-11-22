@@ -4,18 +4,18 @@
     justify-content: center;
 }
 
-#faq-section>.center-container {
+#faq-section > .center-container {
     flex-grow: 1;
 }
 
-.center-container>h2 {
+.center-container > h2 {
     font-size: 48px;
     letter-spacing: 2px;
     margin-bottom: 56px;
     text-align: center;
 }
 
-.center-container>.give-margin {
+.center-container > .give-margin {
     justify-content: center;
 }
 
@@ -24,7 +24,7 @@
     margin: 0 96px 64px;
 }
 
-.faq-cards>.card {
+.faq-cards > .card {
     background-color: #2e2e2e;
     margin-bottom: 8px;
 }
@@ -40,14 +40,14 @@
     cursor: pointer;
 }
 
-.open-card-button>h3 {
+.open-card-button > h3 {
     color: white;
     font-weight: 400;
     font-size: 26px;
     pointer-events: none;
 }
 
-.open-card-button>i {
+.open-card-button > i {
     display: block;
     font-size: 28px;
     transform: rotate(45deg);
@@ -69,19 +69,19 @@ i.rotate {
     max-height: 0px;
 }
 
-.card-content>p {
+.card-content > p {
     padding: 30px 32px;
     font-size: 26px;
 }
 
-.center-container>.get-started-box {
+.center-container > .get-started-box {
     text-align: center;
     margin: 0 auto 18px;
     max-width: 670px;
 }
 
-@media only screen and (max-width:950px) {
-    .center-container>h2 {
+@media only screen and (max-width: 950px) {
+    .center-container > h2 {
         font-size: 36px;
         margin-bottom: 24px;
     }
@@ -94,28 +94,28 @@ i.rotate {
         padding: 16px 24px;
     }
 
-    .open-card-button>h3 {
+    .open-card-button > h3 {
         font-size: 20px;
     }
 
-    .card-content>p {
+    .card-content > p {
         font-size: 20px;
         padding: 24px;
     }
 
-    .center-container .get-started-box>p {
+    .center-container .get-started-box > p {
         margin: 0 auto 18px;
     }
 }
 
-@media only screen and (max-width:750px) {
-    .center-container .get-started-box>p {
+@media only screen and (max-width: 750px) {
+    .center-container .get-started-box > p {
         font-size: 18px;
     }
 }
 
-@media only screen and (max-width:600px) {
-    .center-container>h2 {
+@media only screen and (max-width: 600px) {
+    .center-container > h2 {
         font-size: 24px;
     }
 
@@ -128,16 +128,16 @@ i.rotate {
         margin: 0 0 32px;
     }
 
-    .open-card-button>h3 {
+    .open-card-button > h3 {
         font-size: 18px;
     }
 
-    .card-content>p {
+    .card-content > p {
         font-size: 18px;
     }
 
     .center-container .get-started-box {
-        margin: 0 22px 18px
+        margin: 0 22px 18px;
     }
 }
 

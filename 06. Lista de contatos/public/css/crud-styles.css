@@ -1,14 +1,14 @@
 /*Início do formulário de cadastro*/
-.header.create{
+.header.create {
     transform: translateY(30px);
     animation: slide 0.8s forwards;
 }
 
-.create a{
+.create a {
     background-color: #777777;
 }
 
-.container .item{
+.container .item {
     padding: 12px 0px;
     border-bottom: 1px solid #cccccc;
     margin-bottom: 8px;
@@ -16,14 +16,15 @@
     animation: slide 0.8s forwards;
 }
 
-.item label, h4{
+.item label,
+h4 {
     display: block;
     font-size: 14px;
     color: #505050;
-    font-weight:400;
+    font-weight: 400;
 }
 
-form input{
+form input {
     background-color: #ffffff00;
     color: #1f1f1f;
     font-size: 17px;
@@ -31,18 +32,18 @@ form input{
     margin-top: 6px;
 }
 
-input:valid{
+input:valid {
     color: #1f1f1f;
 }
 
-input::placeholder{
+input::placeholder {
     font-size: 14px;
     font-weight: 400;
-    color:#777777;
+    color: #777777;
     letter-spacing: 0.5px;
 }
 
-input[type=submit]{
+input[type="submit"] {
     background-color: #ab1bcf;
     border: 1px solid #7e259481;
     color: #ffffff;
@@ -55,58 +56,59 @@ input[type=submit]{
     animation: slide 0.8s forwards;
 }
 
-input[type=submit]:hover{
-    background-color:#bc2ce0;
+input[type="submit"]:hover {
+    background-color: #bc2ce0;
 }
 /*Fim do formulário de cadastro*/
 
 /*Início da visualização e edição dos dados do contato*/
-.extended{
+.extended {
     max-width: 900px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
 }
 
-.contact-image{
+.contact-image {
     max-height: 520px;
     border-radius: 8px;
-    background: linear-gradient(to right bottom,#b951d3, #f7fa57);
+    background: linear-gradient(to right bottom, #b951d3, #f7fa57);
     transform: translateY(30px);
     animation: slide 0.8s forwards;
 }
 
-.contact-image.limited{
+.contact-image.limited {
     max-height: 388px;
 }
 
-.contact-image > img{
+.contact-image > img {
     width: 96%;
     height: 96%;
     object-fit: cover;
     object-position: center center;
     border-radius: 8px;
-} 
+}
 
-.item.styled{
+.item.styled {
     border: 2px solid #e0a1f0;
     padding: 8px 16px;
     border-radius: 8px;
     background-color: #ffffff;
 }
 
-.location{
+.location {
     gap: 8px;
     margin-bottom: 24px;
 }
 
-.location .item{
+.location .item {
     max-width: 50%;
     flex-grow: 1;
     margin-bottom: 0px;
 }
 
-.item span, input{
+.item span,
+input {
     display: block;
     color: #505050;
     font-size: 16px;
@@ -114,11 +116,12 @@ input[type=submit]:hover{
     margin-top: 6px;
 }
 
-.edit-button, form > input.put-button{
+.edit-button,
+form > input.put-button {
     display: block;
-    background-color:#f3f728;
+    background-color: #f3f728;
     border: 1px solid #a1a32f71;
-    padding:8px;
+    padding: 8px;
     border-radius: 4px;
     text-decoration: none;
     color: #505050;
@@ -129,48 +132,46 @@ input[type=submit]:hover{
     transition: background-color 0.3s;
 }
 
-.edit-button:hover, form >
-.put-button:hover,
-.put-button:active{
-    background-color:#fcff4f;
+.edit-button:hover,
+form > .put-button:hover,
+.put-button:active {
+    background-color: #fcff4f;
 }
 
-form input.delete-button{
+form input.delete-button {
     background-color: #f85555;
     border: 1px solid #a32f2f71;
     transition: background-color 0.3s;
-
 }
 
-.form-delete > 
-.delete-button:hover,
-.delete-button:active{
-    background-color: #ee7171;   
+.form-delete > .delete-button:hover,
+.delete-button:active {
+    background-color: #ee7171;
 }
 
-@media only screen and (max-width:680px){
-    .extended{
+@media only screen and (max-width: 680px) {
+    .extended {
         height: fit-content;
         grid-template-columns: 1fr;
     }
 
-    .contact-image{
+    .contact-image {
         height: 288px;
     }
-    
-    .location{
+
+    .location {
         flex-wrap: wrap;
     }
 
-    .location .item{
-        flex:1 1 70%;
-        max-width: 100%
+    .location .item {
+        flex: 1 1 70%;
+        max-width: 100%;
     }
 }
 /*Fim da visualização e edição dos dados do contato*/
 
 /*Início do modal*/
-.modal-overlay{
+.modal-overlay {
     height: 100vh;
     position: fixed;
     top: 0px;
@@ -178,12 +179,12 @@ form input.delete-button{
     padding: 16px;
 }
 
-.modal-hidden{
+.modal-hidden {
     opacity: 0;
     visibility: hidden;
 }
 
-.modal{
+.modal {
     max-width: 400px;
     padding: 16px;
     flex: 1;
@@ -194,14 +195,14 @@ form input.delete-button{
     position: relative;
 }
 
-.modal > i{
+.modal > i {
     position: absolute;
     right: 16px;
     top: 16px;
     cursor: pointer;
 }
 
-.delete-icon > span{
+.delete-icon > span {
     display: block;
     width: fit-content;
     margin: 0 auto 16px;
@@ -209,28 +210,28 @@ form input.delete-button{
     color: #f85555;
 }
 
-.modal > .delete-msg{
-    margin:0px 16px;
+.modal > .delete-msg {
+    margin: 0px 16px;
 }
 
-.delete-msg > span{
+.delete-msg > span {
     display: block;
     text-align: center;
     margin-bottom: 16px;
     font-size: 16px;
 }
 
-.delete-msg > span:last-child{
-    color:#a8a8a8;
+.delete-msg > span:last-child {
+    color: #a8a8a8;
     font-weight: 500;
 }
 
-.modal > .modal-buttons{
+.modal > .modal-buttons {
     align-self: flex-end;
     justify-self: flex-end;
 }
 
-.modal-buttons > button{
+.modal-buttons > button {
     padding: 8px 16px;
     background-color: transparent;
     border-radius: 4px;
@@ -239,30 +240,32 @@ form input.delete-button{
     letter-spacing: 1px;
 }
 
-.modal-buttons > .modal-delete{
-    background-color:#f85555;
+.modal-buttons > .modal-delete {
+    background-color: #f85555;
     color: #ffffff;
 }
 
-.modal-delete:hover, .modal-delete:active{
+.modal-delete:hover,
+.modal-delete:active {
     background-color: #ee7171;
 }
 
-.cancel-delete:hover, .cancel-delete:active{
+.cancel-delete:hover,
+.cancel-delete:active {
     box-shadow: 0px 0px 0px 1px inset black;
 }
 
-@media only screen and (max-width:300px){
-    .modal-buttons{
+@media only screen and (max-width: 300px) {
+    .modal-buttons {
         width: 100%;
         text-align: center;
     }
 
-    .modal-buttons > button{
+    .modal-buttons > button {
         width: 100%;
     }
 
-    .cancel-delete{
+    .cancel-delete {
         margin-bottom: 4px;
     }
 }

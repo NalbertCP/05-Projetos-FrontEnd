@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Noto Sans HK', sans-serif;
+    font-family: "Noto Sans HK", sans-serif;
 }
 
 body {
@@ -79,7 +79,7 @@ body.dark-mode {
 
 .stopwatch-header h1 {
     font-size: 1.5rem;
-    color: var(--dark_grey)
+    color: var(--dark_grey);
 }
 
 .switch-theme {
@@ -91,15 +91,15 @@ body.dark-mode {
     cursor: pointer;
 }
 
-.switch-theme>input[type=checkbox] {
+.switch-theme > input[type="checkbox"] {
     display: none;
 }
 
-input[type=checkbox]:checked+span {
+input[type="checkbox"]:checked + span {
     left: calc(50% + 0.187rem);
 }
 
-.switch-theme>span {
+.switch-theme > span {
     height: 1.5rem;
     width: 1.5rem;
     border-radius: 0.75rem;
@@ -122,7 +122,7 @@ p {
     font-weight: 500;
 }
 
-.watch>p:last-child {
+.watch > p:last-child {
     font-size: 1rem;
     margin-top: 0.5rem;
 }
@@ -162,11 +162,11 @@ li button:active {
     box-shadow: 1px 1px 0.125rem inset var(--shadow_grey);
 }
 
-li button:hover>span {
+li button:hover > span {
     display: block;
 }
 
-li button>.material-icons {
+li button > .material-icons {
     font-size: 1.5rem;
 }
 
@@ -239,7 +239,7 @@ thead tr {
 /* Fim - Lap table*/
 
 /* Media queries*/
-@media (max-width:480px) {
+@media (max-width: 480px) {
     body {
         min-width: fit-content;
         min-height: fit-content;
@@ -248,7 +248,6 @@ thead tr {
     .main-container {
         min-height: 100vh;
         padding: 0rem;
-
     }
 
     .stopwatch-container {
@@ -260,8 +259,7 @@ thead tr {
     }
 }
 
-@media (max-width:350px) {
-
+@media (max-width: 350px) {
     table td,
     th {
         font-size: 0.8rem;
@@ -286,33 +284,22 @@ thead tr {
 
 @keyframes watch-lights {
     0% {
-        box-shadow:
-            0px 0px 2px 2px rgb(225, 0, 255),
-            0px 0px 6px 6px rgb(232, 120, 247);
-
+        box-shadow: 0px 0px 2px 2px rgb(225, 0, 255), 0px 0px 6px 6px rgb(232, 120, 247);
     }
 
     25% {
-        box-shadow:
-            0px 0px 2px 2px rgb(255, 0, 0),
-            0px 0px 6px 6px rgb(247, 120, 120);
+        box-shadow: 0px 0px 2px 2px rgb(255, 0, 0), 0px 0px 6px 6px rgb(247, 120, 120);
     }
 
     50% {
-        box-shadow:
-            0px 0px 2px 2px rgb(251, 255, 0),
-            0px 0px 6px 6px rgb(224, 247, 120);
+        box-shadow: 0px 0px 2px 2px rgb(251, 255, 0), 0px 0px 6px 6px rgb(224, 247, 120);
     }
 
     75% {
-        box-shadow:
-            0px 0px 2px 2px rgb(4, 0, 255),
-            0px 0px 6px 6px rgb(120, 129, 247);
+        box-shadow: 0px 0px 2px 2px rgb(4, 0, 255), 0px 0px 6px 6px rgb(120, 129, 247);
     }
 
     100% {
-        box-shadow:
-            0px 0px 2px 2px rgb(225, 0, 255),
-            0px 0px 6px 6px rgb(232, 120, 247);
+        box-shadow: 0px 0px 2px 2px rgb(225, 0, 255), 0px 0px 6px 6px rgb(232, 120, 247);
     }
 }

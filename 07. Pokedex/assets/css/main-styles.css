@@ -1,36 +1,40 @@
 /*Início - Estilos gerais*/
-*{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.w-100{ width: 100%; }
+.w-100 {
+    width: 100%;
+}
 
-.shrink-0{ flex-shrink:0; }
+.shrink-0 {
+    flex-shrink: 0;
+}
 
-.flex{
+.flex {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-body{
+body {
     min-width: 100%;
     max-width: fit-content;
 }
 
-body::-webkit-scrollbar{
+body::-webkit-scrollbar {
     width: 18px;
 }
 
-body::-webkit-scrollbar-track{
+body::-webkit-scrollbar-track {
     border-radius: 8px;
     background: #eeeeee;
 }
 
-body::-webkit-scrollbar-thumb{
+body::-webkit-scrollbar-thumb {
     border-radius: 8px;
     background-color: #858585;
     border: 2px solid #eeeeee;
@@ -38,23 +42,24 @@ body::-webkit-scrollbar-thumb{
 /*Fim - Estilos gerais*/
 
 /*Início - Estilos da página de loading*/
-.load-overlay{
+.load-overlay {
     padding: 24px;
     flex-direction: column;
     position: fixed;
-    top:0px; left: 0px;
+    top: 0px;
+    left: 0px;
     height: 100vh;
     background: linear-gradient(#ffffff, rgb(167, 172, 255));
     opacity: 100%;
     transition: opacity 0.5s, visility 0.1s 0.5s;
 }
 
-.load-overlay.desabled{
+.load-overlay.desabled {
     opacity: 0%;
     visibility: hidden;
 }
 
-.load-overlay > img{
+.load-overlay > img {
     margin: 0 auto;
     width: 100px;
     transform-origin: center;
@@ -63,16 +68,16 @@ body::-webkit-scrollbar-thumb{
     animation-play-state: running;
 }
 
-.load-overlay .pokeball-shadow{
+.load-overlay .pokeball-shadow {
     width: 80px;
     height: 4px;
     transform: translateX(-100px);
     background-color: #616161;
     filter: blur(12px);
-    animation:move-shadow 1.5s infinite alternate ease-in-out;
+    animation: move-shadow 1.5s infinite alternate ease-in-out;
 }
 
-.load-overlay > .load-msg{
+.load-overlay > .load-msg {
     margin-top: 16px;
     text-align: center;
     font-weight: bold;
@@ -85,35 +90,37 @@ body::-webkit-scrollbar-thumb{
 /*Fim - Estilos da página de loading*/
 
 /*Início - Estilo dos filtros*/
-header{
+header {
     padding: 24px;
     background-color: #292929;
     color: #ffffff;
 }
 
-main{
+main {
     padding: 0 24px 24px;
 }
 
-main >.filters-container, .pokemons-container {
+main > .filters-container,
+.pokemons-container {
     margin: 56px auto 0;
 }
 
-main > .filters-container{
+main > .filters-container {
     opacity: 0%;
     transition: opacity 0.5s;
 }
 
-.filters-container.show-filters{
+.filters-container.show-filters {
     opacity: 100%;
 }
 
-form > .filter{
+form > .filter {
     text-align: center;
     width: 310px;
 }
 
-.filter > input, select{
+.filter > input,
+select {
     background-color: #ffffff;
     outline: none;
     border: none;
@@ -125,16 +132,19 @@ form > .filter{
     transition: border-color 0.2s, box-shadow 0.25s;
 }
 
-.filter:last-child>select{
+.filter:last-child > select {
     margin-right: 0px;
 }
 
-input:active,input:focus, select:active, select:focus{
+input:active,
+input:focus,
+select:active,
+select:focus {
     border-color: #646464;
     box-shadow: 0px 0px 0px 1px inset #646464;
 }
 
-.filter > label{
+.filter > label {
     margin-right: 8px;
     font-weight: bold;
     color: #555555;
@@ -142,35 +152,35 @@ input:active,input:focus, select:active, select:focus{
 /*Fim - Estilo dos filtros*/
 
 /*Início - Estilos aplicados aos cards da pokedex*/
-main > .pokemons-container{
+main > .pokemons-container {
     max-width: 100%;
     gap: 32px;
     flex-wrap: wrap;
 }
 
-.not-found{
+.not-found {
     flex-direction: column;
     width: 100%;
     gap: 16px;
 }
 
-.not-found > span{
+.not-found > span {
     font-size: 36px;
     color: #666666;
     text-align: center;
     max-width: fit-content;
 }
 
-.not-found > .material-symbols-outlined{
+.not-found > .material-symbols-outlined {
     font-size: 56px;
-    color: #818181
+    color: #818181;
 }
 
-.pokemons-container input[type=radio]{
+.pokemons-container input[type="radio"] {
     display: none;
 }
 
-.pokemons-container .card{
+.pokemons-container .card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -189,124 +199,125 @@ main > .pokemons-container{
     transition: opacity 0.5s, transform 0.5s;
 }
 
-.card.show-card{
+.card.show-card {
     opacity: 100%;
     transform: translateY(0px);
 }
 
-.card *{
+.card * {
     pointer-events: none;
 }
 
-.card > .card-img{
+.card > .card-img {
     z-index: 2;
     height: 184px;
     text-align: center;
     transition: transform 0.3s, height 0.3s, width 0.3s;
 }
 
-.card-img.move-img{
+.card-img.move-img {
     transform: translate(24px, -11px);
     height: 126px;
     width: 70%;
 }
 
-.card-img > img{
+.card-img > img {
     width: 80%;
 }
 
-.card > .card-info, .more-info{
+.card > .card-info,
+.more-info {
     padding: 8px;
     background-color: #ffffff;
     border-radius: 4px;
 }
 
-.card-info{
+.card-info {
     z-index: 1;
     transition: transform 0.3s, border-radius 0.3s;
 }
 
-.card-info.move-info{
+.card-info.move-info {
     transform: translateY(-90px);
     border-radius: 4px 4px 0px 0px;
 }
 
-.more-info{
+.more-info {
     opacity: 0%;
-    transition: opacity 0.5s, border-radius 0.5s, transform 0.5s; 
+    transition: opacity 0.5s, border-radius 0.5s, transform 0.5s;
 }
 
-.more-info.show{
+.more-info.show {
     opacity: 100%;
     border-radius: 0px 0px 4px 4px;
     transform: translateY(-108px);
 }
 
-.card-info >.card-number{
+.card-info > .card-number {
     display: block;
     font-size: 18px;
     color: #a7a7a7;
     margin-bottom: 12px;
 }
 
-.card-info > .pokemon-name{
+.card-info > .pokemon-name {
     font-size: 24px;
     font-weight: 500;
     color: #2b2b2b;
     margin-bottom: 12px;
 }
 
-.card-info > .types{
+.card-info > .types {
     display: flex;
-    overflow-x:auto;
+    overflow-x: auto;
     pointer-events: all;
     scrollbar-width: thin;
     scrollbar-color: #d8d8d8 transparent;
 }
 
-.types::-webkit-scrollbar{
+.types::-webkit-scrollbar {
     height: 10px;
 }
 
-.types::-webkit-scrollbar-thumb{
+.types::-webkit-scrollbar-thumb {
     background-color: #b9b9b9;
     border-radius: 2px;
     border-top: 2px solid white;
-    border-bottom:2px solid white ;
+    border-bottom: 2px solid white;
 }
 
-.types > span{
+.types > span {
     font-size: 14px;
     display: inline-block;
     width: 40%;
     height: 20px;
     text-align: center;
-    line-height:18px;
-    margin-right:8px;
+    line-height: 18px;
+    margin-right: 8px;
     border-radius: 4px;
 }
 
-.types> span:last-child{
-    margin-right:0px;
+.types > span:last-child {
+    margin-right: 0px;
 }
 
-.more-info > .pokemon-stats{
+.more-info > .pokemon-stats {
     justify-content: space-between;
     margin-bottom: 6px;
-    font-size: 13px
+    font-size: 13px;
 }
 
-.pokemon-stats:last-child{
+.pokemon-stats:last-child {
     margin-bottom: 0;
 }
 
-.pokemon-stats > .stat-bar{
+.pokemon-stats > .stat-bar {
     width: 64%;
     background-color: #dfdfdf;
     height: 16px;
 }
 
-.stat-bar .stat-number{
+.stat-bar .stat-number {
     height: 100%;
     width: 20%;
     background-color: #292929;
@@ -315,53 +326,61 @@ main > .pokemons-container{
     color: #ffffff;
     line-height: 16px;
 }
-/*Fim - Estilos aplicados aos cards da pokedex*/   
+/*Fim - Estilos aplicados aos cards da pokedex*/
 
 /*Animations*/
 @keyframes roll-pokeball {
-    100%{transform: translateX(100px) rotate(360deg);}
+    100% {
+        transform: translateX(100px) rotate(360deg);
+    }
 }
 
 @keyframes move-shadow {
-    100%{transform: translateX(100px);}
+    100% {
+        transform: translateX(100px);
+    }
 }
 
 /*Media Queries*/
-@media only screen and (max-width:1100px) {
-    form{
+@media only screen and (max-width: 1100px) {
+    form {
         flex-direction: column;
         gap: 24px;
     }
 
-    form > .filter{
+    form > .filter {
         display: flex;
         justify-content: space-between;
     }
 }
 
-@media only screen and (max-width:400px) {
-    form > .filter{
+@media only screen and (max-width: 400px) {
+    form > .filter {
         flex-direction: column;
         width: fit-content;
         text-align: left;
     }
 
-    .filter > label{
+    .filter > label {
         margin-bottom: 4px;
     }
 }
 
-@media only screen and (max-width:320px){
-    .load-overlay > img, 
-    .load-overlay > .pokeball-shadow{
+@media only screen and (max-width: 320px) {
+    .load-overlay > img,
+    .load-overlay > .pokeball-shadow {
         transform: translateX(-50px);
     }
 
     @keyframes roll-pokeball {
-        100%{transform: translateX(50px) rotate(360deg);}
+        100% {
+            transform: translateX(50px) rotate(360deg);
+        }
     }
-    
+
     @keyframes move-shadow {
-        100%{transform: translateX(50px);}
+        100% {
+            transform: translateX(50px);
+        }
     }
 }
