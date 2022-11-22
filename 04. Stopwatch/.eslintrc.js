@@ -12,15 +12,6 @@ module.exports = {
     },
     plugins: ["prettier"],
     rules: {
-        "prettier/prettier": [
-            "error",
-            {
-                trailingComma: "none",
-                semi: false,
-                tabWidth: 4,
-                endOfLine: "auto",
-                printWidth: 110
-            }
-        ]
+        "prettier/prettier": ["error"]
     }
 }
