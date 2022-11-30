@@ -38,9 +38,8 @@ function renderViews(data) {
 
     //Renderizando os cards de pokemons no DOM
     for (let pokemon of data.pokemons) {
-        const types = views.createCardsTypes(pokemon)
         const stats = views.createCardsStats(pokemon)
-        pokemonsContainer.innerHTML += views.createPokemonCards(pokemon, types, stats)
+        pokemonsContainer.innerHTML += views.createPokemonCards(pokemon, stats)
     }
 
     //Criando um array dos cards para que eu consiga filtra-los depois
