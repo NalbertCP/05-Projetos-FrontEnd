@@ -12,7 +12,7 @@
         "README.md"
     ],
     "scripts": {
-        "start": "nodemon server.js"
+        "start": "nodemon --ext js,jsm,json,html,css,njk server.js"
     },
     "license": "LICENSE",
     "dependencies": {
