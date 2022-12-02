@@ -7,17 +7,9 @@ export async function main() {
 
 /*Renderizando tabela de instrutores na página inicial*/
 export function renderInstructors(instructors) {
-    const instructorServices = []
     const tableBody = document.querySelector("tbody")
 
-    for (let instructor of instructors) {
-        const services = instructor.services.reduce((acc, value) => {
-            return (acc += `<span>${value}</span>`)
-        }, "")
-        instructorServices.push(services)
-    }
-
-    tableBody.innerHTML = instructors.reduce((acc, instructor, index) => {
+    tableBody.innerHTML = instructors.reduce((acc, instructor) => {
         return (acc += `
          <tr class="person-data">
             <td>
@@ -25,7 +17,9 @@ export function renderInstructors(instructors) {
                <span class="person-name">${instructor.name}</span>
             </td>
             <td>
-               ${instructorServices[index]}
+                ${instructor.services.reduce((acc, service) => {
+                    return (acc += `<span>${service}</span>`)
+                }, "")}
             </td>
             <td>
                <a class="flex" href="/instructors/${instructor.id}">
