@@ -8,6 +8,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="/css/styles.css">
+        {% block headScripts %}{% endblock %}
     </head>
     <body>
         <header class="w-100">
@@ -25,6 +26,6 @@
             <div class="rotate-load"></div>
         </div>
         {% block content %}{% endblock %}
-        {% block scripts %}{% endblock %}
+        {% block bodyScripts %}{% endblock %}
     </body>
 </html>

@@ -22,9 +22,6 @@
         </div>
     </div>
 </div>
-{% endblock%}
-
-{% block scripts %}
 <script>
     const formDelete = document.querySelector(".form-delete")
     formDelete.addEventListener("submit",(event)=>{
@@ -33,5 +30,8 @@
         event.preventDefault()
     })
 </script>
+{% endblock%}
+
+{% block headScripts %}
 {% include "../general-scrips.njk" %}
 {% endblock %}

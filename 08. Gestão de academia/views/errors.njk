@@ -16,8 +16,11 @@
     </div>
 {% endblock %}
 
-{% block scripts %}
+{% block headScripts %}
     <script defer type="module" src="/js/load-effect.js"></script>
+{% endblock %}
+
+{% block bodyScripts %}
     <script type="module">
         import hideLoadOverlay from "/js/load-effect.js"
         hideLoadOverlay()
