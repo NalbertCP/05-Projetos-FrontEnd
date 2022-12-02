@@ -14,12 +14,12 @@
         <link rel="stylesheet" href="/css/crud-styles.css">
         <link rel="icon" href="/favicon.png" type="image/x-icon">
         {% block title %}{% endblock %}
+        {% block scripts %}{% endblock scripts %}
     </head>
     <body>
         <div class="flex w-100 center-container">
             {% block content %}{% endblock %}
         </div>
         {% block overlay %}{% endblock %}
-        {% block scriptjs %}{% endblock scriptjs %}
     </body>
 </html>
