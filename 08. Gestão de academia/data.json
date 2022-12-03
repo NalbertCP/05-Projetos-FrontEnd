@@ -35,11 +35,7 @@
             "birth": 1046649600000,
             "age": 19,
             "gender": "F",
-            "services": [
-                "Natação",
-                "Crossfit",
-                "Calistenia"
-            ],
+            "services": ["Natação", "Crossfit", "Calistenia"],
             "createdAt": 1660882291892,
             "sinceDate": "19/08/2022"
         },
@@ -50,11 +46,7 @@
             "birth": 890352000000,
             "age": 24,
             "gender": "M",
-            "services": [
-                "Musculação",
-                "Dança",
-                "Jiu-Jitsu"
-            ],
+            "services": ["Musculação", "Dança", "Jiu-Jitsu"],
             "createdAt": 1660882330298,
             "sinceDate": "19/08/2022"
         },
@@ -65,11 +57,7 @@
             "birth": 886377600000,
             "age": 24,
             "gender": "M",
-            "services": [
-                "Musculação",
-                "Hipertrofia",
-                "Calistenia"
-            ],
+            "services": ["Musculação", "Hipertrofia", "Calistenia"],
             "createdAt": 1660882647031,
             "sinceDate": "19/08/2022"
         },
@@ -80,11 +68,7 @@
             "birth": 957916800000,
             "age": 22,
             "gender": "M",
-            "services": [
-                "Musculação",
-                "Hipertrofia",
-                "Calistenia"
-            ],
+            "services": ["Musculação", "Hipertrofia", "Calistenia"],
             "createdAt": 1660884317270,
             "sinceDate": "19/08/2022"
         },
@@ -95,11 +79,7 @@
             "birth": 846979200000,
             "age": 26,
             "gender": "M",
-            "services": [
-                "Musculação",
-                "Hipertrofia",
-                "Calistenia"
-            ],
+            "services": ["Musculação", "Hipertrofia", "Calistenia"],
             "createdAt": 1660932521716,
             "sinceDate": "19/08/2022"
         }
