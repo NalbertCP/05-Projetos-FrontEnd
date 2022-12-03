@@ -1,4 +1,4 @@
-//Selecioando os links do header
+//Selecionando os links do header
 const headerLinks = document.querySelectorAll("nav a")
 
 //Verificando se a URL contém o href do link, se sim, a link (tag a) fica em destaque

@@ -125,7 +125,7 @@ module.exports.put = function (req, res) {
         }
     })
 
-    //Tratando o error em caso de correspondência vazia para o instrutor
+    //Tratando o erro em caso de correspondência vazia para o instrutor
     try {
         if (!foundInstructor)
             throw new Error("Error 404: the instructor, user is looking for was not found.")

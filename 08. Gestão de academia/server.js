@@ -24,7 +24,7 @@ nunjucks.configure("./views", {
     autoescape: false
 })
 
-/*Escolhendo a engeine para os arquivos dinâmicos*/
+/*Escolhendo a engine para os arquivos dinâmicos*/
 server.set("view engine", "njk")
 
 /*Iniciando o servidor*/

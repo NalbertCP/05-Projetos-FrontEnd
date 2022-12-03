@@ -33,7 +33,7 @@ function updatePersonAge(person, id, type) {
     person.age = getAge(dateNow, birth)
     let foundIndex = data[type].findIndex((value) => value.id === id)
 
-    /*Alterando a idade do instrutor e reescrevendo data.json*/
+    /*Alterando a idade do instrutor/aluno e reescrevendo data.json*/
     data[type][foundIndex].age = getAge(dateNow, birth)
     fs.writeFile("data.json", JSON.stringify(data, null, 4), (error) => {
         if (error) return error.message
