@@ -1,4 +1,4 @@
-//Importando variáveis e depenências
+//Importando dependências e variáveis
 const express = require("express")
 const methods = require("./methods")
 const routes = express.Router()

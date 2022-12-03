@@ -1,4 +1,4 @@
-//Selecioando todos os inputs do formulário
+//Selecionando todos os inputs do formulário
 const formInputs = document.querySelectorAll("form .input")
 const tellInput = document.querySelector("#number")
 const stateInput = document.querySelector("#state")

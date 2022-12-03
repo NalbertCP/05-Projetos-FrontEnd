@@ -1,7 +1,7 @@
 const data = require("../data.json")
 const fs = require("fs")
 
-/*Funções utilizadas no routes.js*/
+/*Funções utilizadas em routes.js*/
 function getAge(birthStamp) {
     //Calculando a idade do contato com base na data de nascimento
     const dateToday = new Date(Date.now())
@@ -21,7 +21,7 @@ function updateAge(res) {
         contact.age = getAge(contact.birthStamp)
     }
 
-    //Reescrevendo o arquivo JSON com a idade atualizada
+    //Reescrevendo o arquivo data.JSON com a idade atualizada
     fs.writeFile("data.json", JSON.stringify(data, null, 4), (error) => {
         if (error) res.send("An error has ocurred during the writing file")
     })
@@ -33,7 +33,7 @@ function sortContacts(res) {
         else return 0
     })
 
-    //Reescrevendo o arquivo JSON com os objetos ordenados em ordem alfabética de acordo com o nome
+    //Reescrevendo o arquivo data.JSON com os objetos ordenados em ordem alfabética
     fs.writeFile("data.json", JSON.stringify(data, null, 4), (error) => {
         if (error) res.send("An error has ocurred during the writing file")
     })
