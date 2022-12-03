@@ -44,7 +44,9 @@ function editContact(req, res) {
     const foundContact = { ...data.contacts.find((value) => value.id === id) }
 
     //Enviando um status 404 em caso de correspondência vazia
-    if (!foundContact) return res.status(404).send("Erro 404: Contact not found")
+    if (Object.keys(foundContact).length === 0) {
+        return res.status(404).send("Erro 404: Contact not found")
+    }
 
     //Alterando a propriedade birthStamp do contato para o formato aceito pelo input:date do formulário
     const { birthStamp } = foundContact
