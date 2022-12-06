@@ -1,0 +1,49 @@
+{% extends "../baselayout.njk" %}
+
+{% block title %}
+<title>Alunos | {{member.name}}</title>
+{% endblock %}
+
+{% block content %}
+<div class="center-container">
+    <div class="card-container">
+        <div style="background: url({{member.avatar}}) no-repeat top center /cover" class="card-image"></div>
+        <div class="card-content member-card">
+            <h3>Detalhes</h3>
+            <div class="item">
+                <div>Aluno</div>
+                <div>{{member.name}}</div>
+            </div>
+            <div class="item">
+                <div>Email</div>
+                <div>{{member.email}}</div>
+            </div>
+            <div class="item">
+                <div>Aniversário</div>
+                <div>{{member.birthday}}</div>
+            </div>
+            <div class="item">
+                <div>Sexo</div>
+                <div>{{"Masculino" if member.gender ==="M" else "Feminino"}}</div>
+            </div>
+            <div class="item">
+                <div>Tipo sanguíneo</div>
+                <div>{{member.bloodType}}</div>
+            </div>
+            <div class="item">
+                <div>Peso</div>
+                <div>{{member.weight}} quilos</div>
+            </div>
+            <div class="item">
+                <div>Altura</div>
+                <div>{{member.height}} metros</div>
+            </div>
+            <a href="/members/{{member.id}}/edit" class="w-100 edit-button">Editar</a>
+        </div>
+    </div>
+</div>
+{% endblock%}
+
+{% block headScripts %}
+{% include "../general-scrips.njk" %}
+{% endblock %}

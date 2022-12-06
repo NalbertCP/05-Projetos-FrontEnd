@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="icon" href="./img/favicon03.ico" type="image/x-icon">
+        <title>Lista de tarefas</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="todo-container">
+                <div class="todo-header">
+                    <span>Lista de tarefas</span>
+                </div>
+                <div class="wrapper">
+                    <div class="input-bar">
+                        <div class="input-area">
+                            <input id="text-input" type="text">
+                            <label for="text-input">Nova tarefa</label>
+                            <i class="add-task-icon"><img src="./img/task-list-icon.svg" alt="add task icon"></i>
+                        </div>
+                        <button type="button" class="create-task">+</button>
+                    </div>
+                    <div id="task-collection" class="task-list">
+                        <div class="task"> 
+                            <span class="before"></span>
+                            <span class="task-name">Tarefa criada como exemplo</span>
+                            <div class="task-buttons">
+                                <button type="button" class="delete-btn" value="taskdelete" onclick="deleteTask(event)">
+                                    <img class="delete-icon" src="./img/delete-task-icon.svg" alt="delete task icon">
+                                </button>
+                                <button type="button" class="done-btn" value="taskdone" onclick="taskDone(event)">
+                                    <img class="done-icon" src="./img/done-task-icon.svg" alt="done task icon">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-overlay">
+                <div class="modal">
+                    <div class="modal-header">
+                        Lista de tarefas
+                        <span class="close-icon">X</span>
+                    </div>
+                    <div class="modal-content">
+                        <p>Não é possível inserir uma atividade
+                            em branco, por favor preencha o formulário
+                            antes de adicionar uma nova tarefa.
+                        </p>
+                        <button type="button" class="close-modal" >Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./js/input-label.js" ></script>
+        <script src="./js/create-task.js" ></script>
+        <script src="./js/close-modal.js" ></script>
+    </body>
+</html>

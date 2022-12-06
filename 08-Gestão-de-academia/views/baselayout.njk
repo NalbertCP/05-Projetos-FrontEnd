@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        {% block title %}{% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="/css/styles.css">
+        {% block headScripts %}{% endblock %}
+    </head>
+    <body>
+        <header class="w-100">
+            <button type="button" class="hidemenu-button" value="desable">
+                <i class="material-icons">expand_more</i>
+            </button>
+            <nav class="links">
+                <ul>
+                    <li><a href="/instructors">Instrutores</a></li>
+                    <li><a href="/members">Alunos</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="w-100 flex load-overlay">
+            <div class="rotate-load"></div>
+        </div>
+        {% block content %}{% endblock %}
+        {% block bodyScripts %}{% endblock %}
+    </body>
+</html>

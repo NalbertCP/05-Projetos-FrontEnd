@@ -1,0 +1,29 @@
+{% extends "./baselayout.njk" %}
+
+{% block title %}
+    <title>Gym Management | {{ status }}</title>
+{% endblock %}
+
+{% block content %}
+    <div class="center-container errors">
+        <div class="not-found">
+            <div class="flex">
+                <span>{{ status }}</span>
+                <i class="material-icons">sentiment_dissatisfied</i>
+            </div>
+            <span>{{ msg }}</span>
+        </div>
+    </div>
+{% endblock %}
+
+{% block headScripts %}
+    <script defer type="module" src="/js/load-effect.js"></script>
+{% endblock %}
+
+{% block bodyScripts %}
+    <script type="module">
+        import hideLoadOverlay from "/js/load-effect.js"
+        hideLoadOverlay()
+        document.querySelector(".hidemenu-button").classList.add("notfound-page")
+    </script>
+{% endblock %}

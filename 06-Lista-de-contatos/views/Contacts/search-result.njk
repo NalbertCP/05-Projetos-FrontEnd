@@ -1,0 +1,38 @@
+{% extends "../baselayout.njk"%}
+
+{% block title%}
+<title>Lista de contatos</title>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% include "../search-bar.njk"%}
+    <div class="flex w-100 center-list">
+        <div class="w-100 contacts-list">
+            {% for contact in filteredArray %}
+            <div class="flex contact">
+                <div class="flex avatar">
+                    <img class="w-100" src="{{contact.avatarURL}}" alt="profile_picture">
+                </div>
+                <div class="about">
+                    <span class="name">{{contact.name}}</span>
+                    <span class="number">{{contact.number}}</span>
+                    <div class="more">
+                        <span>{{contact.age}} Anos</span>
+                        |
+                        <span>{{contact.state}} - {{contact.country}}</span>
+                    </div>
+                </div>
+                <div class=details>
+                    <a href="/contacts/{{contact.id}}" class="details-button">Informações</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts%}
+<script defer type="text/javascript" src="/js/slide-contacts.js"></script>
+{% endblock %}
