@@ -1,55 +1,62 @@
 /* Estilos gerais */
-*{margin:0; padding:0; box-sizing:border-box;}
-body{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     background-color: #5d4b80;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
 }
 
 /*Início da Calculadora*/
-.center-container{
+.center-container {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    min-width: 350px;
     padding: 24px;
     display: flex;
     justify-content: center;
 }
 
-.container{
+.container {
     display: grid;
     max-width: 400px;
-    grid-template-rows: repeat(6,80px);
-    grid-template-columns: repeat(4,1fr);
-    gap:5px;
+    grid-template-rows: repeat(6, 80px);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
     flex-grow: 1;
 }
 
-.container input{
+.container input {
     padding: 0px 2px;
     cursor: pointer;
     outline: none;
-    border:none;
+    border: none;
     font-size: 15px;
 }
 
-.container .number{
+.container .number {
     transition: background-color 0.2s;
 }
 
-.number:hover{
+.number:hover {
     background-color: #c2c2c2;
 }
 
-.container .operator{
+.container .operator {
     background-color: #c2c2c2;
     transition: background-color 0.2s;
     font-size: 15px;
 }
 
-.operator:hover{
+.operator:hover {
     background-color: #919191;
 }
 
-.container .display{
+.container .display {
     grid-column: 1/5;
     border-radius: 0px;
     background-color: #ffffff;
@@ -58,62 +65,63 @@ body{
     color: #535353;
 }
 
-.container #plus{
-    border-radius:0px;
+.container #plus {
+    border-radius: 0px;
 }
 
-.container #clear{
+.container #clear {
     border-radius: 0px;
     background-color: #6e92c7;
 }
 
-#clear:hover{
+#clear:hover {
     background-color: #316cc5;
 }
 
-.container #equal{
+.container #equal {
     background-color: #c76e6e;
     grid-row: 5/7;
     grid-column: 4;
     border-radius: 0px 0px 32px 0px;
 }
 
-.container #zero{
+.container #zero {
     grid-column: 1/3;
     border-radius: 0px 0px 0px 32px;
 }
 
-.container #dot{
+.container #dot {
     font-size: 24px;
-    background-color: #F0F0F0;
+    background-color: #f0f0f0;
 }
 
-.container #backspace{
+.container #backspace {
     background-color: #c2c2c2;
 }
 
-#equal:hover{
+#equal:hover {
     background-color: #c04242;
 }
 /*Fim da Calculadora*/
 
 /* Início do Modal */
-.modal-overlay{
+.modal-overlay {
     height: 100vh;
     width: 100vw;
     background-color: #000000ce;
-    position: fixed; top:0px;
+    position: fixed;
+    top: 0px;
     visibility: hidden;
 }
 
-.modal-overlay.active{
+.modal-overlay.active {
     visibility: visible;
 }
 
-.modal-overlay .modal{
+.modal-overlay .modal {
     max-width: 400px;
     min-height: 200px;
-    margin:120px auto 0px;
+    margin: 120px auto 0px;
     background-color: #dddddd;
     border-radius: 15px;
     box-shadow: 2px 2px 5px #000000;
@@ -122,12 +130,12 @@ body{
     flex-direction: column;
 }
 
-.modal .text{
+.modal .text {
     font-size: 16px;
     text-align: justify;
 }
 
-.modal .closemodal{
+.modal .closemodal {
     cursor: pointer;
     background-color: #316cc5;
     max-width: fit-content;
@@ -136,11 +144,11 @@ body{
     font-size: 15px;
     border-radius: 5px;
     border: 2px solid #1f3f6e59;
-    color:#ffffff;
+    color: #ffffff;
 }
 
-.closemodal:hover{
-    background-color:#0066ff;
+.closemodal:hover {
+    background-color: #0066ff;
     transition: 0.2s;
 }
 /* Fim  do Modal */
