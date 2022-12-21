@@ -7,7 +7,6 @@ const watchDisplay = document.querySelector(".watch")
 
 /*Event listeners*/
 switchModeButton.onclick = switchMode
-
 window.onload = function () {
     const mode = localStorage.getItem("theme")
     //Aplicando o thema do cronômetro ao inicar a aplicação com base no localStorage
