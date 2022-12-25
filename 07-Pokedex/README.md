@@ -18,7 +18,7 @@
 </p>
 
 ```md
-[Original Pokedex project wich inspired me] 🔗 https://ifpb.github.io/challenges/web/front-end/js/pokedex/
+[Original Pokedex original project] 🔗 https://ifpb.github.io/challenges/web/front-end/js/pokedex/
 ```
 
 <h3>Funcionalides</h3>
