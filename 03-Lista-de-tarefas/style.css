@@ -1,20 +1,19 @@
 /* Início - Estilos gerais*/
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
+body {
     background: linear-gradient(to right bottom, #819eff, #fff9a3 80%);
     background-attachment: fixed;
 }
 /* Fim - Estilos gerais*/
 
-
 /* Início - Lista de tarefas*/
-.container{
+.container {
     width: 100%;
     min-height: 100vh;
     padding: 1.5rem;
@@ -23,7 +22,7 @@ body{
     align-items: flex-start;
 }
 
-.todo-container{
+.todo-container {
     flex: 1;
     max-width: 450px;
     background-color: #ebebeb;
@@ -32,7 +31,7 @@ body{
     position: relative;
 }
 
-.todo-container .todo-header{
+.todo-container .todo-header {
     width: 100%;
     background-color: #695ff8;
     padding: 1rem;
@@ -41,11 +40,11 @@ body{
     font-size: 1.5rem;
 }
 
-.todo-container .wrapper{
+.todo-container .wrapper {
     padding: 0px 1rem 1rem;
 }
 
-.wrapper .input-bar{
+.wrapper form {
     width: 100%;
     margin: 1.5rem 0px 0.5rem;
     display: flex;
@@ -53,12 +52,12 @@ body{
     gap: 0.5rem;
 }
 
-.input-bar .input-area{
+form .input-area {
     position: relative;
     flex: 1;
 }
 
-.input-area input[type=text]{
+.input-area input[type="text"] {
     width: 100%;
     padding: 0.5rem 0.5rem 0.5rem 2rem;
     border-radius: 0.25rem;
@@ -68,17 +67,17 @@ body{
     color: #353535;
 }
 
-
-input[type=text]:focus + label{
-    top:-1.125rem;
-    left:-0.25rem;
+input[type="text"]:focus + label {
+    top: -1.125rem;
+    left: -0.25rem;
     transform: scale(0.85);
 }
 
-.input-area label{
+.input-area label {
     position: absolute;
-    top: 0.6rem; left:2rem;
-    color:#979797;
+    top: 0.6rem;
+    left: 2rem;
+    color: #979797;
     font-size: 0.8rem;
     letter-spacing: 0.5px;
     cursor: auto;
@@ -86,38 +85,39 @@ input[type=text]:focus + label{
     transition-duration: 0.25s;
 }
 
-.input-area label.move-label{
-    top:-1.125rem;
-    left:-0.25rem;
+.input-area label.move-label {
+    top: -1.125rem;
+    left: -0.25rem;
     transform: scale(0.85);
 }
 
-.input-area .add-task-icon{
+.input-area .add-task-icon {
     position: absolute;
-    top: 0.6rem; left: 0.5rem;
+    top: 0.6rem;
+    left: 0.5rem;
 }
 
-.input-bar button{
+form button {
     background-color: #4234ff;
     font-size: 1.5rem;
     padding: 0 1rem;
     border: none;
     border-radius: 0.25rem;
-    color:#ffffff;
+    color: #ffffff;
     cursor: pointer;
 }
 
-.input-bar button:hover{
+form button:hover {
     background-color: #2b1fd6;
     transition: background-color 0.25s;
 }
 
-.wrapper .task-list{
+.wrapper .task-list {
     width: 100%;
     overflow: hidden;
 }
 
-.task-list .task{
+.task-list .task {
     width: 100%;
     margin-bottom: 0.5rem;
     display: flex;
@@ -130,11 +130,11 @@ input[type=text]:focus + label{
     animation: slideTask 0.8s forwards;
 }
 
-.task.delete-task{
+.task.delete-task {
     animation: deleteTask 0.8s forwards;
 }
 
-.task .before{
+.task .before {
     content: "";
     height: 60%;
     width: 0.3rem;
@@ -144,11 +144,11 @@ input[type=text]:focus + label{
     background-color: #bbbcbd;
 }
 
-.before.done{
+.before.done {
     background-color: #17a017;
 }
 
-.task .task-name{
+.task .task-name {
     display: block;
     height: fit-content;
     width: fit-content;
@@ -158,40 +158,39 @@ input[type=text]:focus + label{
     word-break: break-all;
 }
 
-.task-name.done{
+.task-name.done {
     color: #17a017;
     text-decoration: line-through solid #17a017 0.125rem;
 }
 
-.task .task-buttons{
+.task .task-buttons {
     margin-left: auto;
     display: flex;
     gap: 0.5rem;
 }
 
-.task-buttons > button{
+.task-buttons > button {
     padding: 0.25rem 0.37rem;
     border-radius: 0.25rem;
     border: none;
     cursor: pointer;
 }
 
-.task-buttons button > img{
+.task-buttons button > img {
     pointer-events: none;
 }
 
-.task-buttons .delete-btn{
+.task-buttons .delete-btn {
     background-color: #e62c2c;
 }
 
-.task-buttons .done-btn{
+.task-buttons .done-btn {
     background-color: #2cbd19;
 }
 /* Fim - Lista de tarefas*/
 
-
 /* Início - Modal*/
-.modal-overlay{
+.modal-overlay {
     height: 100vh;
     width: 100%;
     padding: 1.5rem;
@@ -205,13 +204,13 @@ input[type=text]:focus + label{
     visibility: hidden;
 }
 
-.modal-overlay.active{
+.modal-overlay.active {
     opacity: 100%;
     visibility: visible;
 }
 
-.modal-overlay .modal{
-    flex:1;
+.modal-overlay .modal {
+    flex: 1;
     max-width: 400px;
     background-color: #ebebeb;
     border-radius: 0.5rem;
@@ -219,7 +218,7 @@ input[type=text]:focus + label{
     box-shadow: 1px 1px 6px #4b4b4b;
 }
 
-.modal .modal-header{
+.modal .modal-header {
     width: 100%;
     padding: 1rem;
     background-color: #464646;
@@ -230,18 +229,18 @@ input[type=text]:focus + label{
     align-items: center;
 }
 
-.modal-header span{
+.modal-header span {
     cursor: pointer;
 }
 
-.modal .modal-content{
+.modal .modal-content {
     padding: 2rem 1rem;
     color: #353535;
-    font-size: 1rem; 
+    font-size: 1rem;
     text-align: justify;
 }
 
-.modal .close-modal{
+.modal .close-modal {
     display: block;
     margin: 1rem 0 0 auto;
     padding: 0.5rem 1rem;
@@ -253,52 +252,52 @@ input[type=text]:focus + label{
     transition: background-color 0.25s;
 }
 
-.close-modal:hover{
+.close-modal:hover {
     background-color: #c21a1a;
 }
 /* Fim- Modal*/
 
 /* CCS Animations*/
 @keyframes slideTask {
-    100%{
+    100% {
         transform: translateX(0%);
         opacity: 100%;
     }
 }
 
 @keyframes deleteTask {
-    0%{
+    0% {
         transform: translateX(0%);
         opacity: 100%;
     }
-    100%{
+    100% {
         transform: translateX(-10%);
         opacity: 0%;
     }
 }
 
 /* Media Queries */
-@media (max-width:480px){
-    html{
+@media (max-width: 480px) {
+    html {
         font-size: 120%;
     }
 
-    .container{
+    .container {
         padding: 0rem;
         justify-content: flex-start;
     }
 
-    .container .todo-container{
+    .container .todo-container {
         max-width: 100%;
         border-radius: 0rem;
         min-height: 100vh;
     }
 
-    .todo-container{
+    .todo-container {
         min-width: 340px;
     }
 
-    .todo-container .todo-header{
+    .todo-container .todo-header {
         border-radius: 0rem;
     }
 }
