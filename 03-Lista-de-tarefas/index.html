@@ -7,8 +7,10 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"
         />
-        <link rel="stylesheet" href="./style.css" />
+        <link rel="stylesheet" href="./css/style.css" />
         <link rel="icon" href="./img/favicon03.ico" type="image/x-icon" />
+        <script defer type="text/javascript" src="./js/input-label.js"></script>
+        <script defer type="text/javascript" src="./js/new-task.js"></script>
         <title>Lista de tarefas</title>
     </head>
     <body>
@@ -20,37 +22,27 @@
                 <div class="wrapper">
                     <form class="input-bar">
                         <div class="input-area">
-                            <input id="text-input" type="text" />
+                            <input name="text-input" id="text-input" type="text" />
                             <label for="text-input">Nova tarefa</label>
                             <i class="add-task-icon"
                                 ><img src="./img/task-list-icon.svg" alt="add task icon"
                             /></i>
                         </div>
-                        <button type="button" class="create-task">+</button>
+                        <input type="submit" class="create-task" value="+" />
                     </form>
                     <div id="task-collection" class="task-list">
                         <div class="task">
                             <span class="before"></span>
                             <span class="task-name">Tarefa criada como exemplo</span>
                             <div class="task-buttons">
-                                <button
-                                    type="button"
-                                    class="delete-btn"
-                                    value="taskdelete"
-                                    onclick="deleteTask(event)"
-                                >
+                                <button type="button" class="delete-btn" value="taskdelete">
                                     <img
                                         class="delete-icon"
                                         src="./img/delete-task-icon.svg"
                                         alt="delete task icon"
                                     />
                                 </button>
-                                <button
-                                    type="button"
-                                    class="done-btn"
-                                    value="taskdone"
-                                    onclick="taskDone(event)"
-                                >
+                                <button type="button" class="done-btn" value="taskdone">
                                     <img
                                         class="done-icon"
                                         src="./img/done-task-icon.svg"
@@ -78,8 +70,5 @@
                 </div>
             </div>
         </div>
-        <script src="./js/input-label.js"></script>
-        <script src="./js/create-task.js"></script>
-        <script src="./js/close-modal.js"></script>
     </body>
 </html>
