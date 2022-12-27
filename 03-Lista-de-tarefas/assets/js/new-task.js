@@ -36,10 +36,10 @@ function createNewTask(task) {
         <span class="task-name">${task}</span>
         <div class="task-buttons">
             <button type="button" class="delete-btn" value="taskdelete">
-                <img class="delete-icon" src="./img/delete-task-icon.svg" alt="delete task icon"/>
+                <img class="delete-icon" src="./assets/img/delete-task-icon.svg" alt="delete task icon"/>
             </button>
             <button type="button" class="done-btn" value="taskdone">
-                <img class="done-icon" src="./img/done-task-icon.svg" alt="done task icon"/>
+                <img class="done-icon" src="./assets/img/done-task-icon.svg" alt="done task icon"/>
             </button>
         </div>`
     return taskContainer
