@@ -21,8 +21,7 @@
 }
 
 body {
-    min-width: 100%;
-    max-width: fit-content;
+    min-width: fit-content;
 }
 
 body::-webkit-scrollbar {
