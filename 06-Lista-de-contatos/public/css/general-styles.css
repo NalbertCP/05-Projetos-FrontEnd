@@ -10,6 +10,7 @@
 }
 
 body {
+    min-width: fit-content;
     background: linear-gradient(to right bottom, #b951d3, #f7fa57);
     background-attachment: fixed;
 }

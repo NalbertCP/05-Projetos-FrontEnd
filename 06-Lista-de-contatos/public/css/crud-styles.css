@@ -173,6 +173,7 @@ form input.delete-button {
 /*Início do modal*/
 .modal-overlay {
     height: 100vh;
+    overflow: scroll;
     position: fixed;
     top: 0px;
     background-color: #000000b4;
@@ -256,6 +257,10 @@ form input.delete-button {
 }
 
 @media only screen and (max-width: 300px) {
+    .modal-overlay {
+        justify-content: flex-start;
+    }
+
     .modal-buttons {
         width: 100%;
         text-align: center;
