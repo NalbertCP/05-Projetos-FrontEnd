@@ -12,7 +12,7 @@ function formHandler(event) {
     event.preventDefault()
     const input = event.target["text-input"]
     if (input.value === "") {
-        return modal.classList.add("active")
+        modal.classList.add("active")
     } else {
         appendNewTask(input)
         input.value = ""
@@ -52,10 +52,8 @@ function taskHandler(event) {
     const target = event.target
     if (target.className === "delete-btn") {
         deleteTask(target)
-        return
     } else if (target.className === "done-btn") {
         taskDone(target)
-        return
     }
 }
 function deleteTask(deleteButton) {
