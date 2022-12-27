@@ -11,8 +11,12 @@ modal.addEventListener("click", closeModal)
 function formHandler(event) {
     event.preventDefault()
     const input = event.target["text-input"]
-    if (input.value === "") return modal.classList.add("active")
-    appendNewTask(input)
+    if (input.value === "") {
+        return modal.classList.add("active")
+    } else {
+        appendNewTask(input)
+        input.value = ""
+    }
 }
 function closeModal(event) {
     const targetName = event.target.className
@@ -23,10 +27,8 @@ function closeModal(event) {
 
 //Adicionando uma nova tarefa ao DOM
 function appendNewTask(input) {
-    const myInput = input
     const task = input.value
     tasksList.appendChild(createNewTask(task))
-    myInput.value = ""
 }
 function createNewTask(task) {
     const taskContainer = document.createElement("div")
