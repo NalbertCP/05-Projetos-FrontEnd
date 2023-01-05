@@ -79,7 +79,7 @@ function allFiltersEvents() {
 
     //Filtrando cards pelo nome (1º filtro)
     filteredCards = pokemonCards.filter((pokemon) => {
-        return pokemon.id.slice(0, filters.name.length) === filters.name
+        return pokemon.id.match(filters.name)
     })
 
     //Filtrando cards pelo tipo (2º filtro)
