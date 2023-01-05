@@ -31,7 +31,7 @@ export function createPokemonCards(pokemon, stats) {
     return `
     <div id="${pokemon.name}" class="shrink-0 card">
         <div class="w-100 flex shrink-0 card-img">
-            <img src="${pokemon.imgUrl}" alt="${pokemon.name}-image">
+            <img loading="lazy" src="${pokemon.imgUrl}" alt="${pokemon.name}-image">
         </div>
         <div class="w-100 card-info">
             <span class="card-number">${id}</span>
