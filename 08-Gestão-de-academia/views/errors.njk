@@ -14,16 +14,7 @@
             <span>{{ msg }}</span>
         </div>
     </div>
-{% endblock %}
-
-{% block headScripts %}
-    <script defer type="module" src="/js/load-effect.js"></script>
-{% endblock %}
-
-{% block bodyScripts %}
-    <script type="module">
-        import hideLoadOverlay from "/js/load-effect.js"
-        hideLoadOverlay()
+    <script type="text/javascript">
         document.querySelector(".hidemenu-button").classList.add("notfound-page")
     </script>
 {% endblock %}
