@@ -88,7 +88,13 @@ function post(req, res) {
 
     //Reescrevendo o arquivo data.json
     fs.writeFile("./data.json", JSON.stringify(data, null, 4), (error) => {
-        if (error) return res.send("Sorry for the trouble, an error has occurred> :(")
+        if (error) {
+            console.log("Error 500.\nSorry for the trouble, an error has occurred in the server")
+            res.setHeader("Content-Type", "text/plain")
+            return res
+                .status(500)
+                .send("Error 500.\nSorry for the trouble, an error has occurred in the server")
+        }
     })
 
     return res.redirect("/contacts")
@@ -162,7 +168,13 @@ function deleteContact(req, res) {
 
     //Reescrevendo o arquivo data.json
     fs.writeFile("data.json", JSON.stringify(data, null, 4), (error) => {
-        if (error) return res.send("Sorry for the trouble, an error has occurred> :(")
+        if (error) {
+            console.log("Error 500.\nSorry for the trouble, an error has occurred in the server")
+            res.setHeader("Content-Type", "text/plain")
+            return res
+                .status(500)
+                .send("Error 500.\nSorry for the trouble, an error has occurred in the server")
+        }
     })
 
     return res.redirect("/contacts")
