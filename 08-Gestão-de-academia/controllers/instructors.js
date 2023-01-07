@@ -50,10 +50,15 @@ module.exports.post = function (req, res) {
 
     //Atualizando o arquivo data.json com o cadastro do novo instrutor
     fs.writeFile("./data.json", JSON.stringify(data, null, 4), (error) => {
-        if (error) console.log(error)
-        return res.send("An error has ocurred during the file writing.")
+        if (error) {
+            console.log("Sever internal error during POST instructor")
+            return res.status(500).render("./errors.njk", {
+                status: "Error 500",
+                msg: "Sorry, we're facing some problems in the server."
+            })
+        }
+        return res.redirect(`/instructors/${id}`)
     })
-    return res.redirect(`/instructors/${id}`)
 }
 module.exports.findInstructor = function (req, res) {
     let { id } = req.params
@@ -152,9 +157,15 @@ module.exports.put = function (req, res) {
     data.instructors[foundIndex] = instructor
     fs.writeFile("data.json", JSON.stringify(data, null, 4), (error) => {
         console.log(error)
-        if (error) return res.send("An error has ocurred during the writing file.")
+        if (error) {
+            console.log("Sever internal error during PUT instructor")
+            return res.status(500).render("./errors.njk", {
+                status: "Error 500",
+                msg: "Sorry, we're facing some problems in the server."
+            })
+        }
+        return res.redirect(`instructors/${id}`)
     })
-    return res.redirect(`instructors/${id}`)
 }
 module.exports.delete = function (req, res) {
     const { id } = req.body
@@ -176,8 +187,13 @@ module.exports.delete = function (req, res) {
     //Reescrevendo o arquivo data.json
     fs.writeFile("data.json", JSON.stringify(data, null, 4), (error) => {
         console.log(error)
-        if (error) return res.send("An error has ocurred during the writing file.")
+        if (error) {
+            console.log("Sever internal error during DELETE instructor")
+            return res.status(500).render("./errors.njk", {
+                status: "Error 500",
+                msg: "Sorry, we're facing some problems in the server."
+            })
+        }
+        return res.redirect(`instructors/${id}`)
     })
-
-    return res.redirect("/instructors")
 }
