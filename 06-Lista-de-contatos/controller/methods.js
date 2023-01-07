@@ -97,10 +97,12 @@ function put(req, res) {
     //Verificando se todos os campos foram preenchidos.
     const keys = Object.keys(req.body)
     for (let key of keys) {
-        if (req.body[key] === "")
+        if (req.body[key] === "") {
+            res.setHeader("Content-Type", "text/plain")
             return res
                 .status(422)
                 .send("Error 422: Please fill all the fields before sending the form")
+        }
     }
 
     let { id, birth, name, avatarURL, birth: birthStamp, number, state, country } = req.body
@@ -113,7 +115,10 @@ function put(req, res) {
             return true
         }
     })
-    if (!foundContact || foundIndex < 0) return res.status(404).send("Erro 404: Contact not found")
+    if (!foundContact || foundIndex < 0) {
+        res.setHeader("Content-Type", "text/plain")
+        return res.status(404).send("Erro 404.\nContact not found")
+    }
 
     //Alterando os dados do contato de acordo com as informações fornecidas no formulário
     birthStamp = Date.parse(birth)
@@ -130,7 +135,13 @@ function put(req, res) {
 
     //Reescrevendo o arqivo data.json com as informações do contato alterada
     fs.writeFile("data.json", JSON.stringify(data, null, 4), (error) => {
-        if (error) return res.send("Sorry for the trouble, an error has occurred> :(")
+        if (error) {
+            console.log("Error 500.\nSorry for the trouble, an error has occurred in the server")
+            res.setHeader("Content-Type", "text/plain")
+            return res
+                .status(500)
+                .send("Error 500.\nSorry for the trouble, an error has occurred in the server")
+        }
     })
 
     return res.redirect(`contacts/${id}`)
@@ -141,7 +152,10 @@ function deleteContact(req, res) {
     const foundIndex = data.contacts.findIndex((value) => value.id == deleteId)
 
     //Enviando um status 404 em caso de conrespondência vazia
-    if (foundIndex < 0) return res.status(404).send("Erro 404: Contact was already deleted")
+    if (foundIndex < 0) {
+        res.setHeader("Content-Type", "text/plain")
+        return res.status(404).send("Erro 404.\nContact was already deleted")
+    }
 
     //Deletando o contato com base no index encontrado anteriormente
     data.contacts.splice(foundIndex, 1)
