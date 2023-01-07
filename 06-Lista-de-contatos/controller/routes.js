@@ -16,5 +16,11 @@ routes.post("/contacts", methods.post)
 routes.put("/contacts", methods.put)
 routes.delete("/contacts", methods.deleteContact)
 
+//middleware handler para rotas inválidas
+routes.use((req, res) => {
+    res.setHeader("Content-Type", "text/plain")
+    return res.status(404).send("Error 404.\nWe could not found the page you're looking for")
+})
+
 //Exportando as rotas para serem utilizadas em server.js
 module.exports = routes
