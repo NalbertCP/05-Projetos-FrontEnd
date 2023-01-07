@@ -34,7 +34,10 @@ function get(req, res) {
     const foundContact = data.contacts.find((value) => value.id === id)
 
     //Enviando um status 404 em caso de correspondência vazia
-    if (!foundContact) return res.status(404).send("Erro 404: Contact not found")
+    if (!foundContact) {
+        res.setHeader("Content-Type", "text/plain")
+        res.status(404).send("Error 404.\nContact not found")
+    }
 
     return res.render("./Contacts/contact-info.njk", { contact: foundContact })
 }
@@ -45,7 +48,8 @@ function editContact(req, res) {
 
     //Enviando um status 404 em caso de correspondência vazia
     if (Object.keys(foundContact).length === 0) {
-        return res.status(404).send("Erro 404: Contact not found")
+        res.setHeader("Content-Type", "text/plain")
+        res.status(404).send("Error 404.\nContact not found")
     }
 
     //Alterando a propriedade birthStamp do contato para o formato aceito pelo input:date do formulário
@@ -58,10 +62,12 @@ function post(req, res) {
     //Verificando se todos os campos foram preenchidos.
     const keys = Object.keys(req.body)
     for (let key of keys) {
-        if (req.body[key] == "")
+        if (req.body[key] == "") {
+            res.setHeader("Content-Type", "text/plain")
             return res
                 .status(422)
-                .send("ERROR 422: Please fill all the fields before sending the form")
+                .send("ERROR 422.\nPlease fill all the fields before sending the form")
+        }
     }
 
     //Tratando os dados do formulário de cadastro
