@@ -194,6 +194,6 @@ module.exports.delete = function (req, res) {
                 msg: "Sorry, we're facing some problems in the server."
             })
         }
-        return res.redirect(`instructors/${id}`)
+        return res.redirect(`/instructors`)
     })
 }
