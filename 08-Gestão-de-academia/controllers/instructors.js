@@ -156,7 +156,6 @@ module.exports.put = function (req, res) {
     //Atualizando os dados do instrutor e reescrevendo o data.json
     data.instructors[foundIndex] = instructor
     fs.writeFile("data.json", JSON.stringify(data, null, 4), (error) => {
-        console.log(error)
         if (error) {
             console.log("Sever internal error during PUT instructor")
             return res.status(500).render("./errors.njk", {
@@ -186,7 +185,6 @@ module.exports.delete = function (req, res) {
 
     //Reescrevendo o arquivo data.json
     fs.writeFile("data.json", JSON.stringify(data, null, 4), (error) => {
-        console.log(error)
         if (error) {
             console.log("Sever internal error during DELETE instructor")
             return res.status(500).render("./errors.njk", {
