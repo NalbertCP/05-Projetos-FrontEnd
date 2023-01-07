@@ -10,7 +10,7 @@ server.use(express.urlencoded({ extended: true }))
 server.use(
     express.static("./public", {
         setHeaders: function (res) {
-            res.setHeader("Cache-Control", "public, must-revalidate, max-age=60")
+            res.setHeader("Cache-Control", "public, must-revalidate, max-age=0")
             res.setHeader("Vary", "Accept-Language")
         }
     })
