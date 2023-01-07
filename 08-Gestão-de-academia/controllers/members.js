@@ -45,8 +45,11 @@ module.exports.post = function (req, res) {
     //Atualizando o arquivo data.json com o cadastro do novo aluno
     fs.writeFile("./data.json", JSON.stringify(data, null, 4), (error) => {
         if (error) {
-            console.log(error)
-            return res.send("An error has ocurred during the file writing.")
+            console.log("Sever internal error during POST member")
+            return res.status(500).render("./errors.njk", {
+                status: "Error 500",
+                msg: "Sorry, we're facing some problems in the server."
+            })
         }
         return res.redirect(`/members/${id}`)
     })
@@ -90,7 +93,7 @@ module.exports.edit = function (req, res) {
         birth: getBirthDate(birth).iso
     }
 
-    return res.render("./members/edit.njk", { member })
+    return res.render("./Members/edit.njk", { member })
 }
 module.exports.put = function (req, res) {
     const keys = Object.keys(req.body)
@@ -146,10 +149,15 @@ module.exports.put = function (req, res) {
     //Atualizando os dados do aluno e reescrevendo o data.json
     data.members[foundIndex] = member
     fs.writeFile("data.json", JSON.stringify(data, null, 4), (error) => {
-        console.log(error)
-        if (error) return res.send("An error has ocurred during the writing file")
+        if (error) {
+            console.log("Sever internal error during PUT member")
+            return res.status(500).render("./errors.njk", {
+                status: "Error 500",
+                msg: "Sorry, we're facing some problems in the server."
+            })
+        }
+        return res.redirect(`members/${id}`)
     })
-    return res.redirect(`members/${id}`)
 }
 module.exports.delete = function (req, res) {
     const { id } = req.body
@@ -170,8 +178,13 @@ module.exports.delete = function (req, res) {
 
     //Reescrevendo o arquivo data.json
     fs.writeFile("data.json", JSON.stringify(data, null, 4), (error) => {
-        if (error) return res.send("An error has ocurred during the writing file")
+        if (error) {
+            console.log("Sever internal error during DELETE member")
+            return res.status(500).render("./errors.njk", {
+                status: "Error 500",
+                msg: "Sorry, we're facing some problems in the server."
+            })
+        }
+        return res.redirect("/members")
     })
-
-    return res.redirect("/members")
 }
