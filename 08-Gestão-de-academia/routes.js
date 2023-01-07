@@ -28,4 +28,12 @@ routes.post("/members", members.post)
 routes.put("/members", members.put)
 routes.delete("/members", members.delete)
 
+//middleware handler para rotas inválidas
+routes.use((req, res) => {
+    res.status(404).render("./errors.njk", {
+        status: "Error 404",
+        msg: "We could not find the page you're looking for."
+    })
+})
+
 module.exports = routes
