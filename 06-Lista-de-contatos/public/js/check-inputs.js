@@ -32,7 +32,7 @@ function fromatPhoneInput(event) {
                 ? (tellInput.value = tellInput.value.replace(lastCharacter, ""))
                 : null
         } catch (error) {
-            console.log(null)
+            return
         }
     }
 }
