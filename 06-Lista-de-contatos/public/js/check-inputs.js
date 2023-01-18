@@ -25,11 +25,11 @@ function fromatPhoneInput(event) {
     tellInput.value = tellInput.value.replace(/(\d{5})/, "$1-")
 
     if (event.inputType === "deleteContentBackward") {
-        const lastCaracter = tellInput.value[length - 1]
+        const lastCharacter = tellInput.value[length - 1]
         length === 5 || length === 4 ? (tellInput.value = tellInput.value.replace(/\D/g, "")) : null
         try {
-            lastCaracter.match(/\D/)
-                ? (tellInput.value = tellInput.value.replace(lastCaracter, ""))
+            lastCharacter.match(/\D/)
+                ? (tellInput.value = tellInput.value.replace(lastCharacter, ""))
                 : null
         } catch (error) {
             console.log(null)
