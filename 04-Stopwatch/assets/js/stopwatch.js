@@ -94,8 +94,12 @@ function registerLap() {
     }
 
     let hours = Math.floor(lapTime / 360000).toLocaleString("pt-br", { minimumIntegerDigits: 2 })
-    let minutes = (Math.floor(lapTime / 6000) % 60).toLocaleString("pt-br", { minimumIntegerDigits: 2 })
-    let seconds = (Math.floor(lapTime / 100) % 60).toLocaleString("pt-br", { minimumIntegerDigits: 2 })
+    let minutes = (Math.floor(lapTime / 6000) % 60).toLocaleString("pt-br", {
+        minimumIntegerDigits: 2
+    })
+    let seconds = (Math.floor(lapTime / 100) % 60).toLocaleString("pt-br", {
+        minimumIntegerDigits: 2
+    })
     let decimals = Math.ceil(lapTime % 100).toLocaleString("pt-br", { minimumIntegerDigits: 2 })
 
     const lapData = createLapsRow()
