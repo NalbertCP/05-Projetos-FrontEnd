@@ -1,5 +1,5 @@
 /* Importando variáveis e métodos*/
-const fs = require("fs")
+const { writeFile } = require("fs")
 const data = require("../data.json")
 const { getAge, getBirthDate, updatePersonAge } = require("./utils.js")
 
@@ -49,7 +49,7 @@ module.exports.post = function (req, res) {
     })
 
     //Atualizando o arquivo data.json com o cadastro do novo instrutor
-    fs.writeFile("./data.json", JSON.stringify(data, null, 4), (error) => {
+    writeFile("./data.json", JSON.stringify(data, null, 4), (error) => {
         if (error) {
             console.log("Sever internal error during POST instructor")
             return res.status(500).render("./errors.njk", {
@@ -155,7 +155,7 @@ module.exports.put = function (req, res) {
 
     //Atualizando os dados do instrutor e reescrevendo o data.json
     data.instructors[foundIndex] = instructor
-    fs.writeFile("data.json", JSON.stringify(data, null, 4), (error) => {
+    writeFile("data.json", JSON.stringify(data, null, 4), (error) => {
         if (error) {
             console.log("Sever internal error during PUT instructor")
             return res.status(500).render("./errors.njk", {
@@ -184,7 +184,7 @@ module.exports.delete = function (req, res) {
     data.instructors.splice(foundIndex, 1)
 
     //Reescrevendo o arquivo data.json
-    fs.writeFile("data.json", JSON.stringify(data, null, 4), (error) => {
+    writeFile("data.json", JSON.stringify(data, null, 4), (error) => {
         if (error) {
             console.log("Sever internal error during DELETE instructor")
             return res.status(500).render("./errors.njk", {
