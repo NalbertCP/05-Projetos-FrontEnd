@@ -24,7 +24,7 @@ function index(req, res) {
     //Renderizando a página not-found em caso de correspodência vazia (array.length === 0)
     if (filteredArray.length < 1) return res.status(404).render("./404-not-found.njk")
 
-    return res.render("./Contacts/search-result.njk", { filteredArray })
+    return res.render("./Contacts/index.njk", { contacts: filteredArray })
 }
 function createContact(req, res) {
     res.render("./Contacts/create.njk")
