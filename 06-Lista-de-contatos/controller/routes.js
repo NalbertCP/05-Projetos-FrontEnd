@@ -8,7 +8,6 @@ routes.get("/", (req, res) => {
     res.redirect("/contacts")
 })
 routes.get("/contacts", methods.index)
-routes.get("/contacts/search", methods.searchContact)
 routes.get("/contacts/create", methods.createContact)
 routes.get("/contacts/:id", methods.get)
 routes.get("/contacts/:id/edit", methods.editContact)
