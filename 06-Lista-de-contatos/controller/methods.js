@@ -1,11 +1,11 @@
 //Importando dependências e variáveis
-const fs = require("fs")
+const fs = require("fs").promises
 const data = require("../data.json")
 const { getAge, updateAge, sortContacts, getBithDate } = require("./utils.js")
 
 //Métodos utilizados em routes.js
-function index(req, res) {
-    updateAge(res) //Atualizando a data de cada contato em caso de aniversário
+async function index(req, res) {
+    await updateAge(res) //Atualizando a data de cada contato em caso de aniversário
 
     const { name } = req.query
     const sortedContacts = sortContacts(data.contacts) //Ordenando os contatos em ordem alfabética
@@ -60,7 +60,7 @@ function editContact(req, res) {
 
     return res.render("./Contacts/edit.njk", { contact: foundContact })
 }
-function post(req, res) {
+async function post(req, res) {
     //Verificando se todos os campos foram preenchidos.
     const keys = Object.keys(req.body)
     for (let key of keys) {
@@ -68,7 +68,7 @@ function post(req, res) {
             res.setHeader("Content-Type", "text/plain")
             return res
                 .status(422)
-                .send("ERROR 422.\nPlease fill all the fields before sending the form")
+                .send("Error 422.\nPlease fill all the fields before sending the form.")
         }
     }
 
@@ -89,19 +89,18 @@ function post(req, res) {
     })
 
     //Reescrevendo o arquivo data.json
-    fs.writeFile("./data.json", JSON.stringify(data, null, 4), (error) => {
-        if (error) {
-            console.log("Error 500.\nSorry for the trouble, an error has occurred in the server")
-            res.setHeader("Content-Type", "text/plain")
-            return res
-                .status(500)
-                .send("Error 500.\nSorry for the trouble, an error has occurred in the server")
-        }
-    })
+    try {
+        await fs.writeFile("./data.json", JSON.stringify(data, null, 4), { encoding: "utf-8" })
+    } catch (error) {
+        res.setHeader("Content-Type", "text/plain")
+        return res
+            .status(500)
+            .send("Error 500.\nSorry for the trouble, an error has occurred in the server.")
+    }
 
     return res.redirect("/contacts")
 }
-function put(req, res) {
+async function put(req, res) {
     //Verificando se todos os campos foram preenchidos.
     const keys = Object.keys(req.body)
     for (let key of keys) {
@@ -109,7 +108,7 @@ function put(req, res) {
             res.setHeader("Content-Type", "text/plain")
             return res
                 .status(422)
-                .send("Error 422: Please fill all the fields before sending the form")
+                .send("Error 422: Please fill all the fields before sending the form.")
         }
     }
 
@@ -125,7 +124,7 @@ function put(req, res) {
     })
     if (!foundContact || foundIndex < 0) {
         res.setHeader("Content-Type", "text/plain")
-        return res.status(404).send("Erro 404.\nContact not found")
+        return res.status(404).send("Erro 404.\nContact not found.")
     }
 
     //Alterando os dados do contato de acordo com as informações fornecidas no formulário
@@ -142,19 +141,18 @@ function put(req, res) {
     }
 
     //Reescrevendo o arqivo data.json com as informações do contato alterada
-    fs.writeFile("data.json", JSON.stringify(data, null, 4), (error) => {
-        if (error) {
-            console.log("Error 500.\nSorry for the trouble, an error has occurred in the server")
-            res.setHeader("Content-Type", "text/plain")
-            return res
-                .status(500)
-                .send("Error 500.\nSorry for the trouble, an error has occurred in the server")
-        }
-    })
+    try {
+        await fs.writeFile("data.json", JSON.stringify(data, null, 4), { encoding: "utf-8" })
+    } catch (error) {
+        res.setHeader("Content-Type", "text/plain")
+        return res
+            .status(500)
+            .send("Error 500.\nSorry for the trouble, an error has occurred in the server.")
+    }
 
     return res.redirect(`contacts/${id}`)
 }
-function deleteContact(req, res) {
+async function deleteContact(req, res) {
     //Buscando a posição do contato que será deletado
     const { deleteId } = req.body
     const foundIndex = data.contacts.findIndex((value) => value.id == deleteId)
@@ -162,22 +160,21 @@ function deleteContact(req, res) {
     //Enviando um status 404 em caso de conrespondência vazia
     if (foundIndex < 0) {
         res.setHeader("Content-Type", "text/plain")
-        return res.status(404).send("Erro 404.\nContact was already deleted")
+        return res.status(404).send("Erro 404.\nContact was already deleted.")
     }
 
     //Deletando o contato com base no index encontrado anteriormente
     data.contacts.splice(foundIndex, 1)
 
     //Reescrevendo o arquivo data.json
-    fs.writeFile("data.json", JSON.stringify(data, null, 4), (error) => {
-        if (error) {
-            console.log("Error 500.\nSorry for the trouble, an error has occurred in the server")
-            res.setHeader("Content-Type", "text/plain")
-            return res
-                .status(500)
-                .send("Error 500.\nSorry for the trouble, an error has occurred in the server")
-        }
-    })
+    try {
+        await fs.writeFile("data.json", JSON.stringify(data, null, 4), { encoding: "utf-8" })
+    } catch (error) {
+        res.setHeader("Content-Type", "text/plain")
+        return res
+            .status(500)
+            .send("Error 500.\nSorry for the trouble, an error has occurred in the server.")
+    }
 
     return res.redirect("/contacts")
 }
