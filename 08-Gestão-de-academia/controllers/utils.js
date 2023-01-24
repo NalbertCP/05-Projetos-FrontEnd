@@ -1,4 +1,4 @@
-const fs = require("fs")
+const { writeFile } = require("fs").promises
 
 /* Funções utilizadas em routes.js*/
 function getAge(actualStamp, birthStamp) {
@@ -24,20 +24,19 @@ function getBirthDate(birth) {
         memberDate: `${day}/${mounth}`
     }
 }
-function updatePersonAge(person, id, type) {
+async function updatePersonAge(res, { person, type }) {
     const data = require("../data.json")
     const dateNow = Date.now()
     const { birth } = person
 
     /*Calculando a idade atual*/
     person.age = getAge(dateNow, birth)
-    let foundIndex = data[type].findIndex((value) => value.id === id)
+    let foundIndex = data[type].findIndex((value) => value.id === person.id)
 
     /*Alterando a idade do instrutor/aluno e reescrevendo data.json*/
     data[type][foundIndex].age = getAge(dateNow, birth)
-    fs.writeFile("data.json", JSON.stringify(data, null, 4), (error) => {
-        if (error) return error.message
-    })
+
+    await writeFile("data.json", JSON.stringify(data, null, 4), { encoding: "utf-8" })
 }
 
 module.exports = {

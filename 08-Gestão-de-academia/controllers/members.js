@@ -1,5 +1,5 @@
 /* Importando variáveis e métodos*/
-const { writeFile } = require("fs")
+const { writeFile } = require("fs").promises
 const data = require("../data.json")
 const { getAge, getBirthDate, updatePersonAge } = require("./utils.js")
 
@@ -10,7 +10,7 @@ module.exports.index = function (req, res) {
 module.exports.create = function (req, res) {
     res.render("./Members/create")
 }
-module.exports.post = function (req, res) {
+module.exports.post = async function (req, res) {
     //Verificando se todos os campos foram preenchidos
     const keys = Object.keys(req.body)
     for (let key of keys) {
@@ -20,7 +20,6 @@ module.exports.post = function (req, res) {
                     "Error 422: the user needs to fill all the fields before sending the form."
                 )
         } catch (error) {
-            console.log(error)
             return res.status(422).render("./errors.njk", {
                 status: "Error 422",
                 msg: "Please fill all the fields before sending the form."
@@ -43,32 +42,38 @@ module.exports.post = function (req, res) {
     })
 
     //Atualizando o arquivo data.json com o cadastro do novo aluno
-    writeFile("./data.json", JSON.stringify(data, null, 4), (error) => {
-        if (error) {
-            console.log("Sever internal error during POST member")
-            return res.status(500).render("./errors.njk", {
-                status: "Error 500",
-                msg: "Sorry, we're facing some problems in the server."
-            })
-        }
-        return res.redirect(`/members/${id}`)
-    })
+    try {
+        await writeFile("./data.json", JSON.stringify(data, null, 4), { encoding: "utf-8" })
+    } catch (error) {
+        return res.status(500).render("./errors.njk", {
+            status: "Error 500",
+            msg: "Sorry, we're facing some problems in the server."
+        })
+    }
+
+    return res.redirect(`/members/${id}`)
 }
-module.exports.findMember = function (req, res) {
+module.exports.findMember = async function (req, res) {
     let { id } = req.params
     const foundMember = data.members.find((value) => value.id == id)
 
     try {
         if (!foundMember) throw new Error("Error 404: the memeber was not found.")
     } catch (error) {
-        console.log(error)
         return res
             .status(404)
             .render("./errors.njk", { status: "Error 404", msg: "Sorry, member not found." })
     }
 
     /* Atualizando a idade do aluno em caso de aniversário*/
-    updatePersonAge(foundMember, id, "members")
+    try {
+        await updatePersonAge(res, { person: foundMember, type: "members" })
+    } catch (error) {
+        return res.status(500).render("./errors.njk", {
+            status: "Error 500",
+            msg: "Server internal error."
+        })
+    }
 
     return res.render("./Members/showmember", { member: foundMember })
 }
@@ -80,7 +85,6 @@ module.exports.edit = function (req, res) {
         if (!foundMember)
             throw new Error("Error 404: the member, user is looking for was not found.")
     } catch (error) {
-        console.log(error)
         return res
             .status(404)
             .render("./errors.njk", { status: "Error 404", msg: "Sorry, member not found." })
@@ -95,7 +99,7 @@ module.exports.edit = function (req, res) {
 
     return res.render("./Members/edit.njk", { member })
 }
-module.exports.put = function (req, res) {
+module.exports.put = async function (req, res) {
     const keys = Object.keys(req.body)
 
     //Verificando se todos os campos foram preenchidos
@@ -106,7 +110,6 @@ module.exports.put = function (req, res) {
                     "Error 422: the user needs to fill all the fields before sending the form."
                 )
         } catch (error) {
-            console.log(error)
             return res.status(422).render("./errors.njk", {
                 status: "Error 422",
                 msg: "Please fill all the fields before sending the form."
@@ -128,7 +131,6 @@ module.exports.put = function (req, res) {
         if (!foundMember)
             throw new Error("Error 404: the member, user is looking for was not found.")
     } catch (error) {
-        console.log(error)
         return res
             .status(404)
             .render("./errors.njk", { status: "Error 404", msg: "Sorry, member not found." })
@@ -148,18 +150,17 @@ module.exports.put = function (req, res) {
 
     //Atualizando os dados do aluno e reescrevendo o data.json
     data.members[foundIndex] = member
-    writeFile("data.json", JSON.stringify(data, null, 4), (error) => {
-        if (error) {
-            console.log("Sever internal error during PUT member")
-            return res.status(500).render("./errors.njk", {
-                status: "Error 500",
-                msg: "Sorry, we're facing some problems in the server."
-            })
-        }
-        return res.redirect(`members/${id}`)
-    })
+    try {
+        await writeFile("data.json", JSON.stringify(data, null, 4), { encoding: "utf-8" })
+    } catch (error) {
+        return res.status(500).render("./errors.njk", {
+            status: "Error 500",
+            msg: "Sorry, we're facing some problems in the server."
+        })
+    }
+    return res.redirect(`members/${id}`)
 }
-module.exports.delete = function (req, res) {
+module.exports.delete = async function (req, res) {
     const { id } = req.body
     let foundIndex = data.members.findIndex((value) => value.id === id)
 
@@ -167,7 +168,6 @@ module.exports.delete = function (req, res) {
     try {
         if (foundIndex < 0) throw new Error("Error 404: the member was already deleted.")
     } catch (error) {
-        console.log(error)
         return res
             .status(404)
             .render("./errors.njk", { status: "Error 404", msg: "member was already deleted." })
@@ -177,14 +177,14 @@ module.exports.delete = function (req, res) {
     data.members.splice(foundIndex, 1)
 
     //Reescrevendo o arquivo data.json
-    writeFile("data.json", JSON.stringify(data, null, 4), (error) => {
-        if (error) {
-            console.log("Sever internal error during DELETE member")
-            return res.status(500).render("./errors.njk", {
-                status: "Error 500",
-                msg: "Sorry, we're facing some problems in the server."
-            })
-        }
-        return res.redirect("/members")
-    })
+    try {
+        await writeFile("data.json", JSON.stringify(data, null, 4), { encoding: "utf-8" })
+    } catch (error) {
+        return res.status(500).render("./errors.njk", {
+            status: "Error 500",
+            msg: "Sorry, we're facing some problems in the server."
+        })
+    }
+
+    return res.redirect("/members")
 }

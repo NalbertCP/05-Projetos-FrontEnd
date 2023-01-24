@@ -1,5 +1,5 @@
 /* Importando variáveis e métodos*/
-const { writeFile } = require("fs")
+const { writeFile } = require("fs").promises
 const data = require("../data.json")
 const { getAge, getBirthDate, updatePersonAge } = require("./utils.js")
 
@@ -10,7 +10,7 @@ module.exports.index = function (req, res) {
 module.exports.create = function (req, res) {
     res.render("./Instructors/create")
 }
-module.exports.post = function (req, res) {
+module.exports.post = async function (req, res) {
     //Verificando se todos os campos foram preenchidos
     const keys = Object.keys(req.body)
     for (let key of keys) {
@@ -20,7 +20,6 @@ module.exports.post = function (req, res) {
                     "Error 422: the user needs to fill all the fields before sending the form."
                 )
         } catch (error) {
-            console.log(error)
             return res.status(422).render("./errors.njk", {
                 status: "Error 422",
                 msg: "Please fill all the fields before sending the form."
@@ -49,32 +48,38 @@ module.exports.post = function (req, res) {
     })
 
     //Atualizando o arquivo data.json com o cadastro do novo instrutor
-    writeFile("./data.json", JSON.stringify(data, null, 4), (error) => {
-        if (error) {
-            console.log("Sever internal error during POST instructor")
-            return res.status(500).render("./errors.njk", {
-                status: "Error 500",
-                msg: "Sorry, we're facing some problems in the server."
-            })
-        }
-        return res.redirect(`/instructors/${id}`)
-    })
+
+    try {
+        await writeFile("./data.json", JSON.stringify(data, null, 4), { encoding: "utf-8" })
+    } catch (error) {
+        return res.status(500).render("./errors.njk", {
+            status: "Error 500",
+            msg: "Sorry, we're facing some problems in the server."
+        })
+    }
+    return res.redirect(`/instructors/${id}`)
 }
-module.exports.findInstructor = function (req, res) {
+module.exports.findInstructor = async function (req, res) {
     let { id } = req.params
     const foundInstructor = data.instructors.find((value) => value.id == id)
 
     try {
         if (!foundInstructor) throw new Error("Error 404: the instructor was not found.")
     } catch (error) {
-        console.log(error)
         return res
             .status(404)
             .render("./errors.njk", { status: "Error 404", msg: "Sorry, instructor not found." })
     }
 
     /* Atualizando a idade do instrutor em caso de aniversário*/
-    updatePersonAge(foundInstructor, id, "instructors")
+    try {
+        await updatePersonAge(res, { person: foundInstructor, type: "instructors" })
+    } catch (error) {
+        return res.status(500).render("./errors.njk", {
+            status: "Error 500",
+            msg: "Server internal error."
+        })
+    }
 
     return res.render("./Instructors/showinstructor", { instructor: foundInstructor })
 }
@@ -87,7 +92,6 @@ module.exports.edit = function (req, res) {
         if (!foundInstructor)
             throw new Error("Error 404: the instructor, user is looking for was not found.")
     } catch (error) {
-        console.log(error)
         return res
             .status(404)
             .render("./errors.njk", { status: "Error 404", msg: "Sorry, instructor not found." })
@@ -101,7 +105,7 @@ module.exports.edit = function (req, res) {
 
     return res.render("./Instructors/edit.njk", { instructor })
 }
-module.exports.put = function (req, res) {
+module.exports.put = async function (req, res) {
     let { id, birth, services } = req.body
 
     //Verificando se todos os campos foram preenchidos
@@ -113,7 +117,6 @@ module.exports.put = function (req, res) {
                     "Error 422: the user needs to fill all the fields before sending the form."
                 )
         } catch (error) {
-            console.log(error)
             return res.status(422).render("./errors.njk", {
                 status: "Error 422",
                 msg: "Please fill all the fields before sending the form."
@@ -135,7 +138,6 @@ module.exports.put = function (req, res) {
         if (!foundInstructor)
             throw new Error("Error 404: the instructor, user is looking for was not found.")
     } catch (error) {
-        console.log(error)
         return res
             .status(404)
             .render("./errors.njk", { status: "Error 404", msg: "Sorry, instructor not found." })
@@ -155,18 +157,18 @@ module.exports.put = function (req, res) {
 
     //Atualizando os dados do instrutor e reescrevendo o data.json
     data.instructors[foundIndex] = instructor
-    writeFile("data.json", JSON.stringify(data, null, 4), (error) => {
-        if (error) {
-            console.log("Sever internal error during PUT instructor")
-            return res.status(500).render("./errors.njk", {
-                status: "Error 500",
-                msg: "Sorry, we're facing some problems in the server."
-            })
-        }
-        return res.redirect(`instructors/${id}`)
-    })
+    try {
+        await writeFile("data.json", JSON.stringify(data, null, 4), { encoding: "utf-8" })
+    } catch (error) {
+        return res.status(500).render("./errors.njk", {
+            status: "Error 500",
+            msg: "Sorry, we're facing some problems in the server."
+        })
+    }
+
+    return res.redirect(`instructors/${id}`)
 }
-module.exports.delete = function (req, res) {
+module.exports.delete = async function (req, res) {
     const { id } = req.body
     let foundIndex = data.instructors.findIndex((value) => value.id === id)
 
@@ -174,7 +176,6 @@ module.exports.delete = function (req, res) {
     try {
         if (foundIndex < 0) throw new Error("Error 404: the instrutor was already deleted.")
     } catch (error) {
-        console.log(error)
         return res
             .status(404)
             .render("./errors.njk", { status: "Error 404", msg: "instructor was already deleted." })
@@ -184,14 +185,14 @@ module.exports.delete = function (req, res) {
     data.instructors.splice(foundIndex, 1)
 
     //Reescrevendo o arquivo data.json
-    writeFile("data.json", JSON.stringify(data, null, 4), (error) => {
-        if (error) {
-            console.log("Sever internal error during DELETE instructor")
-            return res.status(500).render("./errors.njk", {
-                status: "Error 500",
-                msg: "Sorry, we're facing some problems in the server."
-            })
-        }
-        return res.redirect(`/instructors`)
-    })
+    try {
+        await writeFile("data.json", JSON.stringify(data, null, 4), { encoding: "utf-8" })
+    } catch (error) {
+        return res.status(500).render("./errors.njk", {
+            status: "Error 500",
+            msg: "Sorry, we're facing some problems in the server."
+        })
+    }
+
+    return res.redirect(`/instructors`)
 }
