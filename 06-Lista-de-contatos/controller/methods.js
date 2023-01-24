@@ -5,15 +5,16 @@ const { getAge, updateAge, sortContacts, getBithDate } = require("./utils.js")
 
 //Métodos utilizados em routes.js
 function index(req, res) {
-    const { name } = req.query
     updateAge(res) //Atualizando a data de cada contato em caso de aniversário
-    sortContacts(res) //Ordenando os contatos em ordem alfabética
+
+    const { name } = req.query
+    const sortedContacts = sortContacts(data.contacts) //Ordenando os contatos em ordem alfabética
 
     if (!(name ?? false)) {
-        return res.render("./Contacts/index.njk", { contacts: data.contacts })
+        return res.render("./Contacts/index.njk", { contacts: sortedContacts })
     }
 
-    if (name === "") return res.render("./Contacts/index.njk", { contacts: data.contacts })
+    if (name === "") return res.render("./Contacts/index.njk", { contacts: sortedContacts })
 
     //Filtrando os contatos da lista com base no input do usuário
     let upperName = name.toUpperCase()
@@ -24,7 +25,7 @@ function index(req, res) {
     //Renderizando a página not-found em caso de correspodência vazia (array.length === 0)
     if (filteredArray.length < 1) return res.status(404).render("./404-not-found.njk")
 
-    return res.render("./Contacts/index.njk", { contacts: filteredArray })
+    return res.render("./Contacts/index.njk", { contacts: sortContacts(filteredArray) })
 }
 function createContact(req, res) {
     res.render("./Contacts/create.njk")

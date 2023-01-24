@@ -26,17 +26,16 @@ function updateAge(res) {
         if (error) res.send("An error has ocurred during the writing file")
     })
 }
-function sortContacts(res) {
-    data.contacts.sort((a, b) => {
+function sortContacts(contacts) {
+    const copyContacts = JSON.parse(JSON.stringify(contacts))
+    copyContacts.sort((a, b) => {
         if (a.name < b.name) return -1
         else if (a.name > b.name) return 1
         else return 0
     })
 
-    //Reescrevendo o arquivo data.JSON com os objetos ordenados em ordem alfabética
-    fs.writeFile("data.json", JSON.stringify(data, null, 4), (error) => {
-        if (error) res.send("An error has ocurred during the writing file")
-    })
+    //Retornando os contatos em ordem alfabética
+    return copyContacts
 }
 function getBithDate(birthStamp) {
     const birthDate = new Date(birthStamp)
