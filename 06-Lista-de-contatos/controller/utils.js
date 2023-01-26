@@ -1,4 +1,3 @@
-const data = require("../data.json")
 const fs = require("fs").promises
 
 /*Funções utilizadas em routes.js*/
@@ -15,7 +14,7 @@ function getAge(birthStamp) {
 
     return years
 }
-async function updateAge(res) {
+async function updateAge(res, data) {
     //Atualizando a idade de cada contanto em caso de aniversário
     for (let contact of data.contacts) {
         contact.age = getAge(contact.birthStamp)
@@ -26,9 +25,9 @@ async function updateAge(res) {
         await fs.writeFile("data.json", JSON.stringify(data, null, 4), { encoding: "utf-8" })
     } catch (error) {
         res.setHeader("Content-Type", "text/plain")
-        res.status(500).send(
-            "Error 500.\nSorry for the trouble, an error has occurred in the server."
-        )
+        return res
+            .status(500)
+            .send("Error 500.\nSorry for the trouble, an error has occurred in the server.")
     }
 }
 function sortContacts(contacts) {

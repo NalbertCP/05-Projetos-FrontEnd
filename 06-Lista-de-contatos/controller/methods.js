@@ -1,12 +1,10 @@
 //Importando dependências e variáveis
 const fs = require("fs").promises
 const data = require("../data.json")
-const { getAge, updateAge, sortContacts, getBithDate } = require("./utils.js")
+const { getAge, sortContacts, getBithDate } = require("./utils.js")
 
 //Métodos utilizados em routes.js
 async function index(req, res) {
-    await updateAge(res) //Atualizando a data de cada contato em caso de aniversário
-
     const { name } = req.query
     const sortedContacts = sortContacts(data.contacts) //Ordenando os contatos em ordem alfabética
 
