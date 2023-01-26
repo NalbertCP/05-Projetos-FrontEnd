@@ -7,7 +7,7 @@ function invalidRoutes(req, res) {
     return res.status(404).send("Error 404.\nWe could not found the page you're looking for")
 }
 
-//Atualizando a data de aniversário dos contatos uma vez ao dia
+//Atualizando a idade dos contatos uma vez ao dia em caso de aniversário
 async function shouldUpdateAges(req, res, next) {
     const agesUpdated = cookieParser(req.headers.cookie).ages_updated
     if (!agesUpdated) {
