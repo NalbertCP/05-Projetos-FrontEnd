@@ -52,5 +52,18 @@ function getBithDate(birthStamp) {
     let dateIso = `${year}-${mounth}-${day}`
     return dateIso
 }
+function cookieParser(rawCookies) {
+    if (typeof rawCookies !== "string") throw new TypeError("Only strings allowed")
+    const prettyCookies = rawCookies
+        .replace(/ /gm, "")
+        .replace(/&/g, ";")
+        .split(";")
+        .map((cookie) => cookie.split("="))
+        .reduce((acc, value) => {
+            acc[value[0]] = value[1]
+            return acc
+        }, {})
+    return prettyCookies
+}
 
-module.exports = { updateAge, getAge, sortContacts, getBithDate }
+module.exports = { updateAge, getAge, sortContacts, getBithDate, cookieParser }
