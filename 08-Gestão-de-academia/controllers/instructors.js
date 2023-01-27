@@ -1,7 +1,7 @@
 /* Importando variáveis e métodos*/
 const { writeFile } = require("fs").promises
 const data = require("../data.json")
-const { getAge, getBirthDate, updatePersonAge } = require("./utils.js")
+const { getAge, getBirthDate } = require("./utils.js")
 
 /*Métodos na CRUD de intrutores */
 module.exports.index = function (req, res) {
@@ -61,7 +61,7 @@ module.exports.post = async function (req, res) {
 }
 module.exports.findInstructor = async function (req, res) {
     let { id } = req.params
-    const foundInstructor = data.instructors.find((value) => value.id == id)
+    const foundInstructor = { ...data.instructors.find((value) => value.id == id) }
 
     try {
         if (!foundInstructor) throw new Error("Error 404: the instructor was not found.")
@@ -71,15 +71,7 @@ module.exports.findInstructor = async function (req, res) {
             .render("./errors.njk", { status: "Error 404", msg: "Sorry, instructor not found." })
     }
 
-    /* Atualizando a idade do instrutor em caso de aniversário*/
-    try {
-        await updatePersonAge(res, { person: foundInstructor, type: "instructors" })
-    } catch (error) {
-        return res.status(500).render("./errors.njk", {
-            status: "Error 500",
-            msg: "Server internal error."
-        })
-    }
+    foundInstructor.age = getAge(Date.now(), foundInstructor.birth)
 
     return res.render("./Instructors/showinstructor", { instructor: foundInstructor })
 }

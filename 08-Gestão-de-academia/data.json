@@ -10,7 +10,6 @@
             "bloodType": "AB+",
             "weight": "80",
             "height": "1.80",
-            "age": 26,
             "birthday": "11/03"
         },
         {
@@ -23,7 +22,6 @@
             "bloodType": "B+",
             "weight": "82",
             "height": "1.82",
-            "age": 37,
             "birthday": "04/04"
         }
     ],
@@ -33,13 +31,8 @@
             "avatar": "https://images.unsplash.com/photo-1587343848943-d026dc755ef3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80",
             "name": "Instrutor 01",
             "birth": 1046649600000,
-            "age": 19,
             "gender": "F",
-            "services": [
-                "Natação",
-                "Crossfit",
-                "Calistenia"
-            ],
+            "services": ["Natação", "Crossfit", "Calistenia"],
             "createdAt": 1660882291892,
             "sinceDate": "19/08/2022"
         },
@@ -48,13 +41,8 @@
             "avatar": "https://sportsjob.com.br/wp-content/uploads/2018/06/Mauricio-Rossi-foto-para-site-3.jpg",
             "name": "Instrutor 02",
             "birth": 890352000000,
-            "age": 24,
             "gender": "M",
-            "services": [
-                "Musculação",
-                "Dança",
-                "Jiu-Jitsu"
-            ],
+            "services": ["Musculação", "Dança", "Jiu-Jitsu"],
             "createdAt": 1660882330298,
             "sinceDate": "19/08/2022"
         },
@@ -63,13 +51,8 @@
             "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
             "name": "Instrutor 03",
             "birth": 886377600000,
-            "age": 24,
             "gender": "M",
-            "services": [
-                "Musculação",
-                "Hipertrofia",
-                "Calistenia"
-            ],
+            "services": ["Musculação", "Hipertrofia", "Calistenia"],
             "createdAt": 1660882647031,
             "sinceDate": "19/08/2022"
         },
@@ -78,13 +61,8 @@
             "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvi6L_YR6rlVxFAjWhuq3mhsXd1HIVr8Oftg&usqp=CAU",
             "name": "Instrutor 04",
             "birth": 957916800000,
-            "age": 22,
             "gender": "M",
-            "services": [
-                "Musculação",
-                "Hipertrofia",
-                "Calistenia"
-            ],
+            "services": ["Musculação", "Hipertrofia", "Calistenia"],
             "createdAt": 1660884317270,
             "sinceDate": "19/08/2022"
         },
@@ -93,13 +71,8 @@
             "avatar": "https://www.biowellness.com.br/wp-content/uploads/2022/04/personal_01.png",
             "name": "Instrutor 05",
             "birth": 846979200000,
-            "age": 26,
             "gender": "M",
-            "services": [
-                "Musculação",
-                "Hipertrofia",
-                "Calistenia"
-            ],
+            "services": ["Musculação", "Hipertrofia", "Calistenia"],
             "createdAt": 1660932521716,
             "sinceDate": "19/08/2022"
         }

@@ -1,7 +1,7 @@
 /* Importando variáveis e métodos*/
 const { writeFile } = require("fs").promises
 const data = require("../data.json")
-const { getAge, getBirthDate, updatePersonAge } = require("./utils.js")
+const { getAge, getBirthDate } = require("./utils.js")
 
 /*Métodos na CRUD de alunos */
 module.exports.index = function (req, res) {
@@ -55,7 +55,7 @@ module.exports.post = async function (req, res) {
 }
 module.exports.findMember = async function (req, res) {
     let { id } = req.params
-    const foundMember = data.members.find((value) => value.id == id)
+    const foundMember = { ...data.members.find((value) => value.id == id) }
 
     try {
         if (!foundMember) throw new Error("Error 404: the memeber was not found.")
@@ -64,16 +64,7 @@ module.exports.findMember = async function (req, res) {
             .status(404)
             .render("./errors.njk", { status: "Error 404", msg: "Sorry, member not found." })
     }
-
-    /* Atualizando a idade do aluno em caso de aniversário*/
-    try {
-        await updatePersonAge(res, { person: foundMember, type: "members" })
-    } catch (error) {
-        return res.status(500).render("./errors.njk", {
-            status: "Error 500",
-            msg: "Server internal error."
-        })
-    }
+    foundMember.age = getAge(Date.now(), foundMember.birth)
 
     return res.render("./Members/showmember", { member: foundMember })
 }
