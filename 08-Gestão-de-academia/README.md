@@ -12,10 +12,10 @@
   Projeto Front-End desenvolvido durante um dos Bootcamps encontrados na página da 🔗 <a target="_blank" href="https://www.rocketseat.com.br/">RocketSeat</a>. O projeto consistiu em desenvolver uma aplicação para cadastrar e gerenciar informações de alunos e instrutores de uma academia através de uma API REST. Seguem abaixo as funcionalidades do projeto:
   <ul>
     <li>Painel de visualização dos instruores e alunos em sessões separadas;</li>
-    <li>Cadastro de membros e instrutores através da rota members/create e instructors/create;</li>
-    <li>Visualização das informações dos membros e instrutores pelas rotas members/id e instructors/id;</li>
-    <li>Edição das informações dos instrutores e membros pelas rotas /instructors/id/edit e /memebers/id/edit;</li>
-    <li>Possiblidade de apagar os dados do instrutor ou aluno através da rota anterior, porém através do método DELETE da API.</li>
+    <li>Cadastro de membros e instrutores através da rota members/new e instructors/new;</li>
+    <li>Visualização das informações dos membros e instrutores pelas rotas members/:id e instructors/id;</li>
+    <li>Edição das informações dos instrutores e membros pelas rotas /instructors/:id/edition e /memebers/:id/edition;</li>
+    <li>Possiblidade de apagar os dados do instrutor ou aluno através da rota anterior, porém utilizando o método DELETE da API.</li>
   </ul>
   <b>Obs: ambos os paineis, de membros e instrutores, contam com um filtro para facilitar a busca dos alunos ou instrutores pelo nome.</b>
 <p>
@@ -23,7 +23,7 @@
 <img width="800px" src="https://user-images.githubusercontent.com/105606295/198773576-79eb9828-275f-4cb6-849e-841c86cd0166.png">
 
 <h2> 🎮 Iniciando o projeto</h2>
-<p>Após clonar este repositório, navegue até o diretório do projeto pelo seu terminal, baixe as dependências com <b>npm install</b>, inicie o projeto com 
+<p>Após clonar este repositório, navegue até o diretório do projeto pelo seu terminal, baixe as dependências com <b>npm install</b>, inicie o projeto com
   <b>npm start</b>, e após, abra seu navegador em <b>http://localhost:5000/</b> para visualizar o projeto.</p>
 <h2> 💻 Stacks utilizadas</h2>
 
