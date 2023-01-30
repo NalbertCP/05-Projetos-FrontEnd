@@ -10,9 +10,9 @@
 <h2>📋 Descrição</h2>
 <p>
   Projeto Front-End dedicado à criação de uma lista de contatos no modelo CRUD, por meio de uma API Rest. O projeto conta com as seguintes funcionalidades:
-  <br> - Cadastro de novos contatos através da rota /contacts/create
-  <br> - Visualização dos dados de cada contato individual por meio da rota /contacts/contactid
-  <br> - Edição dos dados do contato por meio da rota /contacts/contactid/edit
+  <br> - Cadastro de novos contatos através da rota /contacts/new
+  <br> - Visualização dos dados de cada contato individual por meio da rota /contacts/:id
+  <br> - Edição dos dados do contato por meio da rota /contacts/:id/edition
   <br> - Possibilidade de deletar o contato através da rota /contacts porém com o método DELETE
   <br>
   <br> <b>OBS: Antes de confirmar a deleção, um modal deve aparecer na tela confirmando se o usuário deseja
@@ -23,7 +23,7 @@
 <p>
 <img width="800px" src="https://user-images.githubusercontent.com/105606295/193386771-11d0e8bd-5ffa-4ebb-8010-644b9522a3b2.png">
 <h2> 🎮 Iniciando o projeto</h2>
-<p>Após clonar este repositório, navegue até o diretório do projeto pelo seu terminal, baixe as dependências com <b>npm install</b>, inicie o projeto com 
+<p>Após clonar este repositório, navegue até o diretório do projeto pelo seu terminal, baixe as dependências com <b>npm install</b>, inicie o projeto com
   <b>npm start</b>, e após, abra seu navegador em <b>http://localhost:5000/</b> para visualizar o projeto.</p>
 <h2> 💻 Stacks utilizadas</h2>
 <ul>
