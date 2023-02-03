@@ -4,14 +4,12 @@ const methodOverride = require("method-override")
 const nunjucks = require("nunjucks")
 
 //Importando as rotas e criando o server
-const routes = require("./controller/routes")
+const routes = require("./routes/routes")
 const server = express()
 
 //Cofigurando o nunjucks e a engine de renderização do projeto
 server.set("view engine", "njk")
-nunjucks.configure("views", {
-    express: server
-})
+nunjucks.configure(__dirname + "/views", { express: server })
 
 //Aplicando os middlewares
 server.use(methodOverride("_method")) //Habilitando métodos PUT e DELETE no form html

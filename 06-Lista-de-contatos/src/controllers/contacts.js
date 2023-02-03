@@ -1,7 +1,8 @@
 //Importando dependências e variáveis
 const fs = require("fs").promises
 const data = require("../data.json")
-const { getAge, sortContacts, getBithDate } = require("./utils.js")
+const { getAge, sortContacts, getBithDate } = require("../utils/utils.js")
+const { resolve } = require("path")
 
 //Métodos utilizados em routes.js
 async function index(req, res) {
@@ -59,8 +60,10 @@ function editContact(req, res) {
     return res.render("./Contacts/edit.njk", { contact: foundContact })
 }
 async function post(req, res) {
-    //Verificando se todos os campos foram preenchidos.
+    const filePath = resolve(__dirname, "../data.json")
     const keys = Object.keys(req.body)
+
+    //Verificando se todos os campos foram preenchidos.
     for (let key of keys) {
         if (req.body[key] == "") {
             res.setHeader("Content-Type", "text/plain")
@@ -88,7 +91,7 @@ async function post(req, res) {
 
     //Reescrevendo o arquivo data.json
     try {
-        await fs.writeFile("./data.json", JSON.stringify(data, null, 4), { encoding: "utf-8" })
+        await fs.writeFile(filePath, JSON.stringify(data, null, 4), { encoding: "utf-8" })
     } catch (error) {
         res.setHeader("Content-Type", "text/plain")
         return res
@@ -99,8 +102,10 @@ async function post(req, res) {
     return res.redirect("/contacts")
 }
 async function put(req, res) {
-    //Verificando se todos os campos foram preenchidos.
+    const filePath = resolve(__dirname, "../data.json")
     const keys = Object.keys(req.body)
+
+    //Verificando se todos os campos foram preenchidos.
     for (let key of keys) {
         if (req.body[key] === "") {
             res.setHeader("Content-Type", "text/plain")
@@ -140,7 +145,7 @@ async function put(req, res) {
 
     //Reescrevendo o arqivo data.json com as informações do contato alterada
     try {
-        await fs.writeFile("data.json", JSON.stringify(data, null, 4), { encoding: "utf-8" })
+        await fs.writeFile(filePath, JSON.stringify(data, null, 4), { encoding: "utf-8" })
     } catch (error) {
         res.setHeader("Content-Type", "text/plain")
         return res
@@ -151,8 +156,10 @@ async function put(req, res) {
     return res.redirect(`contacts/${id}`)
 }
 async function deleteContact(req, res) {
-    //Buscando a posição do contato que será deletado
+    const filePath = resolve(__dirname, "../data.json")
     const { deleteId } = req.body
+
+    //Buscando a posição do contato que será deletado
     const foundIndex = data.contacts.findIndex((value) => value.id == deleteId)
 
     //Enviando um status 404 em caso de conrespondência vazia
@@ -166,7 +173,7 @@ async function deleteContact(req, res) {
 
     //Reescrevendo o arquivo data.json
     try {
-        await fs.writeFile("data.json", JSON.stringify(data, null, 4), { encoding: "utf-8" })
+        await fs.writeFile(filePath, JSON.stringify(data, null, 4), { encoding: "utf-8" })
     } catch (error) {
         res.setHeader("Content-Type", "text/plain")
         return res

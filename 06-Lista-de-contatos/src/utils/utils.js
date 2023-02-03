@@ -1,4 +1,5 @@
 const fs = require("fs").promises
+const { resolve } = require("path")
 
 /*Funções utilizadas em routes.js*/
 function getAge(birthStamp) {
@@ -15,6 +16,7 @@ function getAge(birthStamp) {
     return years
 }
 async function updateAge(res, data) {
+    const filePath = resolve(__dirname, "../data.json")
     //Atualizando a idade de cada contanto em caso de aniversário
     for (let contact of data.contacts) {
         contact.age = getAge(contact.birthStamp)
@@ -22,7 +24,7 @@ async function updateAge(res, data) {
 
     //Reescrevendo o arquivo data.JSON com a idade atualizada
     try {
-        await fs.writeFile("data.json", JSON.stringify(data, null, 4), { encoding: "utf-8" })
+        await fs.writeFile(filePath, JSON.stringify(data, null, 4), { encoding: "utf-8" })
     } catch (error) {
         res.setHeader("Content-Type", "text/plain")
         return res
