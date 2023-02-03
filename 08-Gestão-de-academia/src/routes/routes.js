@@ -3,6 +3,7 @@ const express = require("express")
 const { resolve } = require("path")
 const instructors = require("../controllers/instructors")
 const members = require("../controllers/members")
+const { invalidRoutes } = require("../middlewares/middlewares")
 const routes = express.Router()
 
 routes.get("/data", (req, res) => {
@@ -30,11 +31,6 @@ routes.put("/members", members.put)
 routes.delete("/members", members.delete)
 
 //middleware handler para rotas inválidas
-routes.use((req, res) => {
-    res.status(404).render("./errors.njk", {
-        status: "Error 404",
-        msg: "We could not find the page you're looking for."
-    })
-})
+routes.use(invalidRoutes)
 
 module.exports = routes
