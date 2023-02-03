@@ -1,7 +1,8 @@
 /* Importando variáveis e métodos*/
 const { writeFile } = require("fs").promises
+const { resolve } = require("path")
+const { getAge, getBirthDate } = require("../utils/utils.js")
 const data = require("../data.json")
-const { getAge, getBirthDate } = require("./utils.js")
 
 /*Métodos na CRUD de intrutores */
 module.exports.index = function (req, res) {
@@ -11,8 +12,10 @@ module.exports.create = function (req, res) {
     res.render("./Instructors/create")
 }
 module.exports.post = async function (req, res) {
-    //Verificando se todos os campos foram preenchidos
+    const filePath = resolve(__dirname, "../data.json")
     const keys = Object.keys(req.body)
+
+    //Verificando se todos os campos foram preenchidos
     for (let key of keys) {
         try {
             if (req.body[key] === "")
@@ -33,14 +36,12 @@ module.exports.post = async function (req, res) {
     services = services.replace(/ /g, "").split(",")
     const createdAt = Date.now()
     const id = createdAt.toString()
-    const age = getAge(createdAt, birth)
     const sinceDate = new Intl.DateTimeFormat("pt-BR").format(createdAt)
     data.instructors.push({
         id, // Não veio do req.body
         avatar,
         name,
         birth,
-        age, // Não veio do req.body
         gender,
         services,
         createdAt, // Não veio do req.body
@@ -50,14 +51,14 @@ module.exports.post = async function (req, res) {
     //Atualizando o arquivo data.json com o cadastro do novo instrutor
 
     try {
-        await writeFile("./data.json", JSON.stringify(data, null, 4), { encoding: "utf-8" })
+        await writeFile(filePath, JSON.stringify(data, null, 4), { encoding: "utf-8" })
+        return res.redirect(`/instructors/${id}`)
     } catch (error) {
         return res.status(500).render("./errors.njk", {
             status: "Error 500",
             msg: "Sorry, we're facing some problems in the server."
         })
     }
-    return res.redirect(`/instructors/${id}`)
 }
 module.exports.findInstructor = async function (req, res) {
     let { id } = req.params
@@ -78,7 +79,7 @@ module.exports.findInstructor = async function (req, res) {
 module.exports.edit = function (req, res) {
     //Buscando instrutor com base no ID
     let { id } = req.params
-    const foundInstructor = data.instructors.find((value) => value.id == id)
+    const foundInstructor = { ...data.instructors.find((value) => value.id == id) }
 
     try {
         if (!foundInstructor)
@@ -98,6 +99,7 @@ module.exports.edit = function (req, res) {
     return res.render("./Instructors/edit.njk", { instructor })
 }
 module.exports.put = async function (req, res) {
+    const filePath = resolve(__dirname, "../data.json")
     let { id, birth, services } = req.body
 
     //Verificando se todos os campos foram preenchidos
@@ -137,30 +139,28 @@ module.exports.put = async function (req, res) {
 
     //Atualizando os dados do instrutor
     services = services.replace(/ /g, "").split(",")
-    const createdAt = Date.now()
-    const age = getAge(createdAt, birth)
     let instructor = {
         ...foundInstructor,
         ...req.body,
         birth: Date.parse(birth),
-        age: age,
         services: services
     }
 
     //Atualizando os dados do instrutor e reescrevendo o data.json
     data.instructors[foundIndex] = instructor
     try {
-        await writeFile("data.json", JSON.stringify(data, null, 4), { encoding: "utf-8" })
+        await writeFile(filePath, JSON.stringify(data, null, 4), { encoding: "utf-8" })
+        return res.redirect(`instructors/${id}`)
     } catch (error) {
         return res.status(500).render("./errors.njk", {
             status: "Error 500",
             msg: "Sorry, we're facing some problems in the server."
         })
     }
-
-    return res.redirect(`instructors/${id}`)
 }
 module.exports.delete = async function (req, res) {
+    const filePath = resolve(__dirname, "../data.json")
+
     const { id } = req.body
     let foundIndex = data.instructors.findIndex((value) => value.id === id)
 
@@ -178,13 +178,12 @@ module.exports.delete = async function (req, res) {
 
     //Reescrevendo o arquivo data.json
     try {
-        await writeFile("data.json", JSON.stringify(data, null, 4), { encoding: "utf-8" })
+        await writeFile(filePath, JSON.stringify(data, null, 4), { encoding: "utf-8" })
+        return res.redirect(`/instructors`)
     } catch (error) {
         return res.status(500).render("./errors.njk", {
             status: "Error 500",
             msg: "Sorry, we're facing some problems in the server."
         })
     }
-
-    return res.redirect(`/instructors`)
 }

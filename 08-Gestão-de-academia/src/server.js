@@ -1,14 +1,15 @@
 /*Importando dependências*/
 const express = require("express")
-const server = express()
-const routes = require("./routes")
-const nunjucks = require("nunjucks")
 const methodOverride = require("method-override")
+const server = express()
+const routes = require("./routes/routes")
+const nunjucks = require("nunjucks")
+const { resolve } = require("path")
 
 /*Middlewares*/
 server.use(express.urlencoded({ extended: true }))
 server.use(
-    express.static("./public", {
+    express.static(resolve(__dirname, "../public"), {
         setHeaders: function (res) {
             res.setHeader("Cache-Control", "public, must-revalidate, max-age=0")
             res.setHeader("Vary", "Accept-Language")
@@ -19,7 +20,7 @@ server.use(methodOverride("_method"))
 server.use(routes)
 
 /*conifigurando o nunjucks*/
-nunjucks.configure("./views", {
+nunjucks.configure(resolve(__dirname, "./views"), {
     express: server,
     autoescape: false
 })

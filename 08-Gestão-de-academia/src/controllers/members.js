@@ -1,7 +1,8 @@
 /* Importando variáveis e métodos*/
 const { writeFile } = require("fs").promises
+const { resolve } = require("path")
 const data = require("../data.json")
-const { getAge, getBirthDate } = require("./utils.js")
+const { getAge, getBirthDate } = require("../utils/utils.js")
 
 /*Métodos na CRUD de alunos */
 module.exports.index = function (req, res) {
@@ -11,8 +12,10 @@ module.exports.create = function (req, res) {
     res.render("./Members/create")
 }
 module.exports.post = async function (req, res) {
-    //Verificando se todos os campos foram preenchidos
+    const filePath = resolve(__dirname, "../data.json")
     const keys = Object.keys(req.body)
+
+    //Verificando se todos os campos foram preenchidos
     for (let key of keys) {
         try {
             if (req.body[key] === "")
@@ -31,27 +34,24 @@ module.exports.post = async function (req, res) {
     let { birth } = req.body
     birth = Date.parse(birth)
     const id = Date.now().toString()
-    const age = getAge(id, birth)
     const birthday = getBirthDate(birth).memberDate
     data.members.push({
         id, // Não veio do req.body
         ...req.body,
         birth: birth,
-        age, // Não veio do req.body
         birthday // Não veio do req.body
     })
 
     //Atualizando o arquivo data.json com o cadastro do novo aluno
     try {
-        await writeFile("./data.json", JSON.stringify(data, null, 4), { encoding: "utf-8" })
+        await writeFile(filePath, JSON.stringify(data, null, 4), { encoding: "utf-8" })
+        return res.redirect(`/members/${id}`)
     } catch (error) {
         return res.status(500).render("./errors.njk", {
             status: "Error 500",
             msg: "Sorry, we're facing some problems in the server."
         })
     }
-
-    return res.redirect(`/members/${id}`)
 }
 module.exports.findMember = async function (req, res) {
     let { id } = req.params
@@ -72,6 +72,7 @@ module.exports.edit = function (req, res) {
     //Buscando aluno com base no ID
     let { id } = req.params
     const foundMember = data.members.find((value) => value.id == id)
+
     try {
         if (!foundMember)
             throw new Error("Error 404: the member, user is looking for was not found.")
@@ -91,6 +92,7 @@ module.exports.edit = function (req, res) {
     return res.render("./Members/edit.njk", { member })
 }
 module.exports.put = async function (req, res) {
+    const filePath = resolve(__dirname, "../data.json")
     const keys = Object.keys(req.body)
 
     //Verificando se todos os campos foram preenchidos
@@ -128,30 +130,29 @@ module.exports.put = async function (req, res) {
     }
 
     //Atualizando os dados do aluno
-    const createdAt = Date.now()
-    const age = getAge(createdAt, birth)
     const birthday = getBirthDate(birth).memberDate
     let member = {
         ...foundMember,
         ...req.body,
         birth: Date.parse(birth),
-        age: age,
         birthday: birthday
     }
 
     //Atualizando os dados do aluno e reescrevendo o data.json
     data.members[foundIndex] = member
     try {
-        await writeFile("data.json", JSON.stringify(data, null, 4), { encoding: "utf-8" })
+        await writeFile(filePath, JSON.stringify(data, null, 4), { encoding: "utf-8" })
+        return res.redirect(`members/${id}`)
     } catch (error) {
         return res.status(500).render("./errors.njk", {
             status: "Error 500",
             msg: "Sorry, we're facing some problems in the server."
         })
     }
-    return res.redirect(`members/${id}`)
 }
 module.exports.delete = async function (req, res) {
+    const filePath = resolve(__dirname, "../data.json")
+
     const { id } = req.body
     let foundIndex = data.members.findIndex((value) => value.id === id)
 
@@ -169,13 +170,12 @@ module.exports.delete = async function (req, res) {
 
     //Reescrevendo o arquivo data.json
     try {
-        await writeFile("data.json", JSON.stringify(data, null, 4), { encoding: "utf-8" })
+        await writeFile(filePath, JSON.stringify(data, null, 4), { encoding: "utf-8" })
+        return res.redirect("/members")
     } catch (error) {
         return res.status(500).render("./errors.njk", {
             status: "Error 500",
             msg: "Sorry, we're facing some problems in the server."
         })
     }
-
-    return res.redirect("/members")
 }

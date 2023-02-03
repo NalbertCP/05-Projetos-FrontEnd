@@ -1,12 +1,13 @@
 /*Importando as dependências*/
 const express = require("express")
-const instructors = require("./controllers/instructors")
-const members = require("./controllers/members")
+const { resolve } = require("path")
+const instructors = require("../controllers/instructors")
+const members = require("../controllers/members")
 const routes = express.Router()
 
 routes.get("/data", (req, res) => {
     res.setHeader("Cache-Control", "private, no-cache")
-    res.sendFile(__dirname + "/data.json")
+    res.sendFile(resolve(__dirname, "../data.json"))
 })
 
 /*Rotas de acesso às funcionalidades dos instrutores*/

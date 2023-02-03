@@ -30,9 +30,13 @@
             "id": "1660882291892",
             "avatar": "https://images.unsplash.com/photo-1587343848943-d026dc755ef3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80",
             "name": "Instrutor 01",
-            "birth": 1046649600000,
+            "birth": 983577600000,
             "gender": "F",
-            "services": ["Natação", "Crossfit", "Calistenia"],
+            "services": [
+                "Natação",
+                "Crossfit",
+                "Calistenia"
+            ],
             "createdAt": 1660882291892,
             "sinceDate": "19/08/2022"
         },
@@ -42,7 +46,11 @@
             "name": "Instrutor 02",
             "birth": 890352000000,
             "gender": "M",
-            "services": ["Musculação", "Dança", "Jiu-Jitsu"],
+            "services": [
+                "Musculação",
+                "Dança",
+                "Jiu-Jitsu"
+            ],
             "createdAt": 1660882330298,
             "sinceDate": "19/08/2022"
         },
@@ -52,7 +60,11 @@
             "name": "Instrutor 03",
             "birth": 886377600000,
             "gender": "M",
-            "services": ["Musculação", "Hipertrofia", "Calistenia"],
+            "services": [
+                "Musculação",
+                "Hipertrofia",
+                "Calistenia"
+            ],
             "createdAt": 1660882647031,
             "sinceDate": "19/08/2022"
         },
@@ -62,7 +74,11 @@
             "name": "Instrutor 04",
             "birth": 957916800000,
             "gender": "M",
-            "services": ["Musculação", "Hipertrofia", "Calistenia"],
+            "services": [
+                "Musculação",
+                "Hipertrofia",
+                "Calistenia"
+            ],
             "createdAt": 1660884317270,
             "sinceDate": "19/08/2022"
         },
@@ -72,7 +88,11 @@
             "name": "Instrutor 05",
             "birth": 846979200000,
             "gender": "M",
-            "services": ["Musculação", "Hipertrofia", "Calistenia"],
+            "services": [
+                "Musculação",
+                "Hipertrofia",
+                "Calistenia"
+            ],
             "createdAt": 1660932521716,
             "sinceDate": "19/08/2022"
         }
