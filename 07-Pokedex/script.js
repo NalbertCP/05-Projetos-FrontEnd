@@ -1,5 +1,5 @@
 const axios = require("axios").default
-const fs = require("fs")
+const { writeFile } = require("fs").promises
 
 //Criando uma base de dados a partir da quantidade passada no terminal
 createPokemonDataBase(process.argv)
@@ -23,14 +23,14 @@ async function createPokemonDataBase(nodeArray) {
         console.log(error.message + " during the search of pokemon name to create data base.")
     }
 
-    fs.writeFile("./pokemons.json", JSON.stringify(dataBase, null, 4), (error) => {
-        if (error) {
-            console.log(error.message)
-            return
-        }
+    try {
+        await writeFile("./pokemons.json", JSON.stringify(dataBase, null, 4), { encoding: "utf-8" })
         console.log("Sucess! Check the data base with name 'pokemons.json' in this directory.")
-    })
-    return
+        return
+    } catch (error) {
+        console.log(error.message)
+        return
+    }
 }
 async function createPokemonList(total) {
     let listOfNames = []
