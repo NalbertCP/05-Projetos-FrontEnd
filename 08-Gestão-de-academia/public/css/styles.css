@@ -342,11 +342,11 @@ input[type="submit"]:hover,
     font-size: 0.875rem;
     color: #ffffff;
     text-decoration: none;
+    transition: background-color 0.25s;
 }
 
 .header a:hover {
     background-color: #866ed4;
-    transition: background-color 0.25s;
 }
 
 .header > .search-bar {
@@ -460,6 +460,11 @@ td a {
     color: #e7e7e7;
     border-radius: 0.25rem;
     margin: 0 auto;
+    transition: background-color 0.25s;
+}
+
+td a:hover {
+    background-color: #866ed4;
 }
 
 td a:active {
