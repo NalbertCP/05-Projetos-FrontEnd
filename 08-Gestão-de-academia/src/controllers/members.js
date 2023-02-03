@@ -58,7 +58,9 @@ module.exports.findMember = async function (req, res) {
     const foundMember = { ...data.members.find((value) => value.id == id) }
 
     try {
-        if (!foundMember) throw new Error("Error 404: the memeber was not found.")
+        if (Object.keys(foundMember).length === 0) {
+            throw new Error("Error 404: the memeber was not found.")
+        }
     } catch (error) {
         return res
             .status(404)
@@ -74,8 +76,9 @@ module.exports.edit = function (req, res) {
     const foundMember = data.members.find((value) => value.id == id)
 
     try {
-        if (!foundMember)
+        if (Object.keys(foundMember).length === 0) {
             throw new Error("Error 404: the member, user is looking for was not found.")
+        }
     } catch (error) {
         return res
             .status(404)

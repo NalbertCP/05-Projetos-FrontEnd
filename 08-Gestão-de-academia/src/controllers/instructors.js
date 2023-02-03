@@ -65,7 +65,9 @@ module.exports.findInstructor = async function (req, res) {
     const foundInstructor = { ...data.instructors.find((value) => value.id == id) }
 
     try {
-        if (!foundInstructor) throw new Error("Error 404: the instructor was not found.")
+        if (Object.keys(foundInstructor).length === 0) {
+            throw new Error("Error 404: the instructor was not found.")
+        }
     } catch (error) {
         return res
             .status(404)
@@ -82,8 +84,9 @@ module.exports.edit = function (req, res) {
     const foundInstructor = { ...data.instructors.find((value) => value.id == id) }
 
     try {
-        if (!foundInstructor)
+        if (Object.keys(foundInstructor).length === 0) {
             throw new Error("Error 404: the instructor, user is looking for was not found.")
+        }
     } catch (error) {
         return res
             .status(404)
