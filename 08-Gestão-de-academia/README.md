@@ -24,7 +24,7 @@ Projeto Front-End desenvolvido durante um dos Bootcamps encontrados na página d
 
 ```
 1. Clone este repositório;
-2. navegue até o diretório do projeto pelo seu terminal;
+2. Navegue até o diretório do projeto pelo seu terminal;
 3. Baixe as dependências com npm install e o inicie com npm start;
 4. Abra seu navegador em http://localhost:5000/ para visualizar o projeto.
 ```
