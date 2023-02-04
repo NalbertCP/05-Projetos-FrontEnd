@@ -22,7 +22,7 @@ Projeto Front-End desenvolvido durante um dos Bootcamps encontrados na página d
 
 ## 🎮 Iniciando o projeto
 
-```
+```r
 1. Clone este repositório;
 2. Navegue até o diretório do projeto pelo seu terminal;
 3. Baixe as dependências com npm install e o inicie com npm start;
