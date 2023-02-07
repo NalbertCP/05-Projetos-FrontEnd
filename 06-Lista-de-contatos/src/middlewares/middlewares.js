@@ -11,7 +11,11 @@ function invalidRoutes(req, res) {
 async function shouldUpdateAges(req, res, next) {
     const agesUpdated = cookieParser(req.headers.cookie).ages_updated
     if (!agesUpdated) {
-        res.cookie("ages_updated", "true", { maxAge: 86400000 })
+        res.cookie("ages_updated", "true", {
+            maxAge: 86400000,
+            sameSite: "strict",
+            httpOnly: true
+        })
         await updateAge(res, data)
     }
     next()
