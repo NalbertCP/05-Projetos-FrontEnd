@@ -1,5 +1,4 @@
 /*Variáveis*/
-const documentBody = document.querySelector("body")
 const switchModeButton = document.querySelector(".switch-theme > input")
 const switchModeIcon = document.querySelector(".switch-theme i")
 const simbols = document.querySelectorAll("i.material-icons")
@@ -36,14 +35,14 @@ function applyMode(checked) {
         for (let simbol of simbols) {
             simbol.classList.add("white")
         }
-        documentBody.classList.add("dark-mode") //Alterando as cores settadas no body
+        document.documentElement.classList.add("dark-mode") //Alterando as cores settadas no body
         watchDisplay.classList.add("dark-mode") //Acrescentando animação de luzes no display do relógio
     } else {
         switchModeIcon.innerHTML = "dark_mode" //Alterando o ícone do botão de tema
         for (let simbol of simbols) {
             simbol.classList.remove("white")
         }
-        documentBody.classList.remove("dark-mode") //Alterando as cores settadas no body
+        document.documentElement.classList.remove("dark-mode") //Alterando as cores settadas no body
         watchDisplay.classList.remove("dark-mode") //Acrescentando animação de luzes no display do relógio
     }
 }

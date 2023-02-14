@@ -8,7 +8,7 @@
     font-family: "Noto Sans HK", sans-serif;
 }
 
-body {
+html {
     --white: #ffffff;
     --base_grey: #f1f1f1;
     --shadow_grey: #818181;
@@ -18,7 +18,7 @@ body {
     --button_border: #f1f1f1;
 }
 
-body.dark-mode {
+html.dark-mode {
     --white: #1f1f1f;
     --base_grey: #000000;
     --light_blue: #000000;
