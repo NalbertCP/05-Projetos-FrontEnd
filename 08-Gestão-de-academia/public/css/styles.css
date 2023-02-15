@@ -66,7 +66,7 @@ header {
     display: flex;
     position: relative;
     justify-content: center;
-    min-width: 340px;
+    min-width: 300px;
     background-color: #f3f3f3;
     box-shadow: 0px 0.125rem 0.5rem #00000063;
     padding: 2rem;
@@ -157,7 +157,7 @@ nav a:hover {
 .card-container {
     background: #f3f3f3;
     max-width: 800px;
-    min-width: 340px;
+    min-width: 300px;
     box-shadow: 0.125rem 0.125rem 0.5rem #0000008f;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -431,6 +431,8 @@ td {
     padding: 1rem 0rem;
     border-bottom: 1px solid #c5c5c5;
     font-size: 0.87rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 th {
@@ -450,6 +452,9 @@ td:nth-child(2) > span {
     background-color: #f3e849;
     padding: 0.25rem 0.5rem;
     border-radius: 1rem;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin: 0.25rem;
     text-transform: capitalize;
     white-space: nowrap;
@@ -511,11 +516,6 @@ tr td > img {
         padding: 1rem;
     }
 
-    th,
-    td {
-        font-size: 0.75rem;
-    }
-
     td a > span {
         display: none;
     }
@@ -529,7 +529,7 @@ header .notfound-page {
 
 .center-container .not-found {
     max-width: 600px;
-    min-width: 340px;
+    min-width: 300px;
     margin: 2rem auto 0;
     text-align: center;
     border-radius: 1rem;
