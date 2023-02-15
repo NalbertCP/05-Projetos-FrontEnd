@@ -91,7 +91,7 @@ async function post(req, res) {
 
     //Reescrevendo o arquivo data.json
     try {
-        await fs.writeFile(filePath, JSON.stringify(data, null, 4), { encoding: "utf-8" })
+        await fs.writeFile(filePath, JSON.stringify(data), { encoding: "utf-8" })
     } catch (error) {
         res.setHeader("Content-Type", "text/plain")
         return res
@@ -145,7 +145,7 @@ async function put(req, res) {
 
     //Reescrevendo o arqivo data.json com as informações do contato alterada
     try {
-        await fs.writeFile(filePath, JSON.stringify(data, null, 4), { encoding: "utf-8" })
+        await fs.writeFile(filePath, JSON.stringify(data), { encoding: "utf-8" })
     } catch (error) {
         res.setHeader("Content-Type", "text/plain")
         return res
@@ -173,7 +173,7 @@ async function deleteContact(req, res) {
 
     //Reescrevendo o arquivo data.json
     try {
-        await fs.writeFile(filePath, JSON.stringify(data, null, 4), { encoding: "utf-8" })
+        await fs.writeFile(filePath, JSON.stringify(data), { encoding: "utf-8" })
     } catch (error) {
         res.setHeader("Content-Type", "text/plain")
         return res
