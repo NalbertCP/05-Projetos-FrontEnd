@@ -24,7 +24,7 @@ async function updateAge(res, data) {
 
     //Reescrevendo o arquivo data.JSON com a idade atualizada
     try {
-        await fs.writeFile(filePath, JSON.stringify(data, null, 4), { encoding: "utf-8" })
+        await fs.writeFile(filePath, JSON.stringify(data), { encoding: "utf-8" })
     } catch (error) {
         res.setHeader("Content-Type", "text/plain")
         return res
