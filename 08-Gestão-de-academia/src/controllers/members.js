@@ -44,7 +44,7 @@ module.exports.post = async function (req, res) {
 
     //Atualizando o arquivo data.json com o cadastro do novo aluno
     try {
-        await writeFile(filePath, JSON.stringify(data, null, 4), { encoding: "utf-8" })
+        await writeFile(filePath, JSON.stringify(data), { encoding: "utf-8" })
         return res.redirect(`/members/${id}`)
     } catch (error) {
         return res.status(500).render("./errors.njk", {
@@ -144,7 +144,7 @@ module.exports.put = async function (req, res) {
     //Atualizando os dados do aluno e reescrevendo o data.json
     data.members[foundIndex] = member
     try {
-        await writeFile(filePath, JSON.stringify(data, null, 4), { encoding: "utf-8" })
+        await writeFile(filePath, JSON.stringify(data), { encoding: "utf-8" })
         return res.redirect(`members/${id}`)
     } catch (error) {
         return res.status(500).render("./errors.njk", {
@@ -173,7 +173,7 @@ module.exports.delete = async function (req, res) {
 
     //Reescrevendo o arquivo data.json
     try {
-        await writeFile(filePath, JSON.stringify(data, null, 4), { encoding: "utf-8" })
+        await writeFile(filePath, JSON.stringify(data), { encoding: "utf-8" })
         return res.redirect("/members")
     } catch (error) {
         return res.status(500).render("./errors.njk", {
