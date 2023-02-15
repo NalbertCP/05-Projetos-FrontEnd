@@ -409,6 +409,7 @@ thead {
 
 table > tbody {
     max-height: 540px;
+    overflow-x: hidden;
     display: block;
     overflow-y: scroll;
     scrollbar-width: thin;
@@ -435,6 +436,8 @@ td {
 th {
     padding-top: 0.5rem;
     text-transform: uppercase;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
     color: #707070;
 }
 
