@@ -54,7 +54,7 @@ function getBithDate(birthStamp) {
     return dateIso
 }
 function cookieParser(rawCookies) {
-    if (typeof rawCookies !== "string") throw new TypeError("Only strings allowed")
+    if (typeof rawCookies !== "string") return undefined
     const prettyCookies = rawCookies
         .replace(/ /g, "")
         .replace(/&/g, ";")
