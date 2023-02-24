@@ -9,8 +9,8 @@ function invalidRoutes(req, res) {
 
 //Atualizando a idade dos contatos uma vez ao dia em caso de aniversário
 async function shouldUpdateAges(req, res, next) {
-    const agesUpdated = cookieParser(req.headers.cookie).ages_updated
-    if (!agesUpdated) {
+    const agesUpdated = cookieParser(req.headers.cookie)
+    if (!agesUpdated || !agesUpdated?.ages_updated) {
         res.cookie("ages_updated", "true", {
             maxAge: 86400000,
             sameSite: "strict",
