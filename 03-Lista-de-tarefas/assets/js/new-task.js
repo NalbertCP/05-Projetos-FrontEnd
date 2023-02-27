@@ -14,7 +14,7 @@ function formHandler(event) {
     if (input.value === "") {
         modal.classList.add("active")
     } else {
-        appendNewTask(input)
+        appendNewTask(input.value)
         input.value = ""
     }
 }
@@ -27,8 +27,7 @@ function closeModal(event) {
 
 //Adicionando uma nova tarefa ao DOM
 function appendNewTask(input) {
-    const task = input.value
-    tasksList.appendChild(createNewTask(task))
+    tasksList.appendChild(createNewTask(input))
 }
 function createNewTask(task) {
     const taskContainer = document.createElement("div")
@@ -50,11 +49,8 @@ function createNewTask(task) {
 //Verificando se o usuário marcou a tarefa como concluída ou a deletou
 function taskHandler(event) {
     const target = event.target
-    if (target.className === "delete-btn") {
-        deleteTask(target)
-    } else if (target.className === "done-btn") {
-        taskDone(target)
-    }
+    if (target.className === "delete-btn") deleteTask(target)
+    if (target.className === "done-btn") taskDone(target)
 }
 function deleteTask(deleteButton) {
     const task = deleteButton.parentElement.parentElement
