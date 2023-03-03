@@ -7,9 +7,7 @@
 
 ## 📋 Descrição
 
-Projeto desenvolvido com objetivo de consumir uma API pública de pokemons e exibi-los em cards de uma só vez em uma pagina web.
-
-**O Design do projeto foi inspirado em uma página de pokedex ja existente, para mais informações segue abaixo o link do projeto original.**
+Projeto desenvolvido com objetivo de consumir uma API pública de pokemons e exibi-los em cards de uma só vez em uma pagina web. O Design do projeto foi inspirado em uma página de pokedex ja existente, para mais informações segue abaixo o link do projeto original.
 
 ```r
 [Original Pokedex original project] 🔗 https://ifpb.github.io/challenges/web/front-end/js/pokedex/
@@ -25,6 +23,7 @@ Projeto desenvolvido com objetivo de consumir uma API pública de pokemons e exi
 <img width="800px" src="https://user-images.githubusercontent.com/105606295/192077415-407f9c89-ba61-40f2-b117-1ca207a651d6.png">
 
 **Consumindo API**
+
 API pública utilizada para consumir os dados utilizados no projeto segue no link abaixo.
 
 ```r
