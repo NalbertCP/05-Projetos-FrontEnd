@@ -11,9 +11,6 @@ Projeto desenvolvido com objetivo de consumir uma API pública de pokemons e exi
 
 **O Design do projeto foi inspirado em uma página de pokedex ja existente, para mais informações segue abaixo o link do projeto original.**
 
-> **Note**
-> Este projeto consome dados através da API fetch( ), por isso é recomendo que o projeto seja executado em um servidor, a exemplo do plugin LiveServer do VsCode, caso contrário não será possível consumir os dados durante a aplicação.
-
 ```r
 [Original Pokedex original project] 🔗 https://ifpb.github.io/challenges/web/front-end/js/pokedex/
 ```
