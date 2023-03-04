@@ -7,7 +7,7 @@
 
 ## 📋 Descrição
 
-Projeto desenvolvido com objetivo de consumir uma API pública de pokemons e exibi-los em cards de uma só vez em uma pagina web. O Design do projeto foi inspirado em uma página de pokedex ja existente, para mais informações segue abaixo o link do projeto original.
+Projeto desenvolvido com objetivo de consumir uma API pública de pokemons e exibi-los em uma pagina web. O Design do projeto foi inspirado em uma página de pokedex ja existente, para mais informações segue abaixo o link do projeto original.
 
 ```r
 [Original Pokedex original project] 🔗 https://ifpb.github.io/challenges/web/front-end/js/pokedex/
@@ -15,7 +15,7 @@ Projeto desenvolvido com objetivo de consumir uma API pública de pokemons e exi
 
 **Funcionalides:**
 
--   Visualização de todos os pokemos em cards em uma única página;
+-   Visualização de todos os pokemons;
 -   Filtragem dos pokemons por nome e tipo (tipo terrestre, aquático ou aéreo por exemplo);
 -   Ordenação dos pokemons de A à Z, Z à A, ordem crescente e ordem decrescente de Id;
 -   Exibição de mais informações de cada pokemon ao clicar em seu respectivo card.
@@ -24,13 +24,13 @@ Projeto desenvolvido com objetivo de consumir uma API pública de pokemons e exi
 
 **Consumindo API**
 
-API pública utilizada para consumir os dados utilizados no projeto segue no link abaixo.
+A API pública utilizada para consumir os dados utilizados no projeto segue no link abaixo.
 
 ```r
 [PokeAPI ] 🔗 https://pokeapi.co/
 ```
 
-Como a API original fornece milhares de dados de mais de 1100 Pokemons, precisei criar um algorítimo que me gerasse um arquivo JSON contendo apenas as informações nescessárias para o projeto, e principalmente, com um número bem menor de pokemons para nao sobrecarregar a página.
+Como a API original fornece milhares de dados de mais de 1100 Pokemons, foi necessário criar um algorítimo que gerasse um arquivo JSON contendo apenas as informações nescessárias para o projeto, e principalmente, com um número bem menor de pokemons para nao sobrecarregar a página.
 
 ## 🎮 Criando Base de Dados Personalizada
 
