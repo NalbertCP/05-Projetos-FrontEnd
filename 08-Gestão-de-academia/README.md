@@ -13,7 +13,7 @@ Projeto Front-End desenvolvido durante um dos Bootcamps encontrados na página d
 -   Painel de visualização dos instruores e alunos em sessões separadas;
 -   Cadastro de membros e instrutores através da rota members/new e instructors/new;
 -   Visualização das informações dos membros e instrutores pelas rotas members/:id e instructors/id;
--   Edição das informações dos instrutores e membros pelas rotas /instructors/:id/edition e /memebers/:id/edition;
+-   Edição das informações dos instrutores e membros pelas rotas /instructors/:id/edition e /members/:id/edition;
 -   Possiblidade de apagar os dados do instrutor ou aluno através da rota anterior, porém utilizando o método DELETE da API.
 
 **Obs: ambos os paineis, de membros e instrutores, contam com um filtro para facilitar a busca dos alunos ou instrutores pelo nome.**
