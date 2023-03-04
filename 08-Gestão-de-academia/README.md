@@ -8,15 +8,15 @@
 
 ## 📋 Descrição
 
-Projeto Front-End desenvolvido durante um dos Bootcamps encontrados na página da 🔗 [RocketSeat](https://www.rocketseat.com.br). O projeto consistiu em desenvolver uma aplicação para cadastrar e gerenciar informações de alunos e instrutores de uma academia através de uma API REST. Seguem abaixo as funcionalidades do projeto:
+Projeto Front-End desenvolvido através de um dos Bootcamps encontrados na página da 🔗 [RocketSeat](https://www.rocketseat.com.br). O projeto consistiu em desenvolver uma aplicação para cadastrar e gerenciar informações de alunos e instrutores de uma academia através de uma API REST. Seguem abaixo as funcionalidades do projeto:
 
--   Painel de visualização dos instruores e alunos em sessões separadas;
--   Cadastro de membros e instrutores através da rota members/new e instructors/new;
--   Visualização das informações dos membros e instrutores pelas rotas members/:id e instructors/id;
--   Edição das informações dos instrutores e membros pelas rotas /instructors/:id/edition e /members/:id/edition;
--   Possiblidade de apagar os dados do instrutor ou aluno através da rota anterior, porém utilizando o método DELETE da API.
+-   Painel de visualização dos instrutores e alunos em sessões separadas;
+-   Cadastro de alunos e instrutores através da rota members/new e instructors/new;
+-   Visualização das informações dos alunos e instrutores pelas rotas members/:id e instructors/id;
+-   Edição das informações dos instrutores e alunos pelas rotas /instructors/:id/edition e /members/:id/edition;
+-   Remoção de alunos e instrutores através das rotas instructors/:id (DELETE) e members/:id (DELETE). 
 
-**Obs: ambos os paineis, de membros e instrutores, contam com um filtro para facilitar a busca dos alunos ou instrutores pelo nome.**
+**Obs: ambos os painéis, de alunos e instrutores, contam com um filtro para facilitar a busca pelo nome.**
 
 <img width="800px" src="https://user-images.githubusercontent.com/105606295/198773576-79eb9828-275f-4cb6-849e-841c86cd0166.png">
 
@@ -25,7 +25,7 @@ Projeto Front-End desenvolvido durante um dos Bootcamps encontrados na página d
 ```r
 1. Clone este repositório;
 2. Navegue até o diretório do projeto pelo seu terminal;
-3. Baixe as dependências com npm install e o inicie com npm start;
+3. Baixe as dependências com npm install e o inicie-o com npm start;
 4. Abra seu navegador em http://localhost:5000/ para visualizar o projeto.
 ```
 
