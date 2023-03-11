@@ -16,7 +16,7 @@ routes.post("/contacts", contacts.post)
 routes.put("/contacts", contacts.put)
 routes.delete("/contacts", contacts.deleteContact)
 
-//middleware handler para rotas inválidas
+//middleware para tratar rotas inválidas
 routes.use(invalidRoutes)
 
 //Exportando as rotas para serem utilizadas em server.js

@@ -1,7 +1,7 @@
 const { cookieParser, updateAge } = require("../utils/utils")
 const data = require("../data.json")
 
-//Handler para páginas inválidas
+//Middleware para tratar rotas inválidas
 function invalidRoutes(req, res) {
     res.setHeader("Content-Type", "text/plain")
     return res.status(404).send("Error 404.\nWe could not found the page you're looking for.")
