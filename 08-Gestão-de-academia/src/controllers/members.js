@@ -159,7 +159,7 @@ module.exports.delete = async function (req, res) {
     const { id } = req.body
     let foundIndex = data.members.findIndex((value) => value.id === id)
 
-    //Tratando o erro caso o usuário tente excluir o membro mais de uma vez
+    //Tratando o erro caso o usuário tente excluir o aluno mais de uma vez
     try {
         if (foundIndex < 0) throw new Error("Error 404: the member was already deleted.")
     } catch (error) {
@@ -168,7 +168,6 @@ module.exports.delete = async function (req, res) {
             .render("./errors.njk", { status: "Error 404", msg: "member was already deleted." })
     }
 
-    //Excluindo o instrutor do banco de dados
     data.members.splice(foundIndex, 1)
 
     //Reescrevendo o arquivo data.json

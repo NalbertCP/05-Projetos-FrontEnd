@@ -4,7 +4,7 @@ const { resolve } = require("path")
 const { getAge, getBirthDate } = require("../utils/utils.js")
 const data = require("../data.json")
 
-/*Métodos na CRUD de intrutores */
+/*Métodos na CRUD de instrutores */
 module.exports.index = function (req, res) {
     res.render("Instructors/index.njk", { instructors: data.instructors })
 }
@@ -49,7 +49,6 @@ module.exports.post = async function (req, res) {
     })
 
     //Atualizando o arquivo data.json com o cadastro do novo instrutor
-
     try {
         await writeFile(filePath, JSON.stringify(data), { encoding: "utf-8" })
         return res.redirect(`/instructors/${id}`)
@@ -176,7 +175,6 @@ module.exports.delete = async function (req, res) {
             .render("./errors.njk", { status: "Error 404", msg: "instructor was already deleted." })
     }
 
-    //Excluindo o instrutor do banco de dados
     data.instructors.splice(foundIndex, 1)
 
     //Reescrevendo o arquivo data.json

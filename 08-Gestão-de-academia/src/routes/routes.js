@@ -30,7 +30,7 @@ routes.post("/members", members.post)
 routes.put("/members", members.put)
 routes.delete("/members", members.delete)
 
-//middleware handler para rotas inválidas
+//middleware para rotas inválidas
 routes.use(invalidRoutes)
 
 module.exports = routes
