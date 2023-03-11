@@ -64,9 +64,17 @@ li > a:hover {
     font-size: 16px;
 }
 
-footer span {
+footer span,
+footer .github-link {
     font-size: 13px;
     color: #747474;
+    text-decoration: none;
+    transition: 0.15s ease-in-out;
+}
+
+.github-link:hover {
+    color: #dfdfdf;
+    text-decoration: underline 1px white;
 }
 
 @media only screen and (max-width: 600px) {
