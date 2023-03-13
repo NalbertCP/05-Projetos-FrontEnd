@@ -203,8 +203,7 @@ button[type="submit"]:hover {
         margin-top: 24px;
     }
 
-    .contact,
-    .search-bar form {
+    .contact {
         flex-direction: column;
     }
 
@@ -214,19 +213,6 @@ button[type="submit"]:hover {
 
     .contact .about {
         text-align: center;
-    }
-
-    .search-bar input[type="search"] {
-        border-left: 2px solid #cccccc;
-        border-top: 2px solid #cccccc;
-        border-right: 2px solid #cccccc;
-        border-bottom: none;
-        border-radius: 4px 4px 0px 0px;
-    }
-
-    .search-bar button[type="submit"] {
-        padding: 8px;
-        border-radius: 0px 0px 4px 4px;
     }
 }
 
