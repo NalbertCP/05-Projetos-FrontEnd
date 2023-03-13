@@ -15,11 +15,11 @@ function getAge(birthStamp) {
 
     return years
 }
-async function updateAge(res, data) {
+async function updateAge(res, data, userId) {
     const dataPath = resolve(process.cwd(), "./data.json")
 
     //Atualizando a idade de cada contanto em caso de aniversário
-    for (let contact of data.contacts) {
+    for (let contact of data[userId].contacts) {
         contact.age = getAge(contact.birthStamp)
     }
 
@@ -67,5 +67,14 @@ function cookieParser(rawCookies) {
         }, {})
     return prettyCookies
 }
+function generateHash(idLength) {
+    const charactersList = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    let id = ""
+    for (let i = 0; i < idLength; i++) {
+        const random = Math.floor(Math.random() * charactersList.length)
+        id = id.concat(charactersList[random])
+    }
+    return id
+}
 
-module.exports = { updateAge, getAge, sortContacts, getBithDate, cookieParser }
+module.exports = { updateAge, getAge, sortContacts, getBithDate, cookieParser, generateHash }

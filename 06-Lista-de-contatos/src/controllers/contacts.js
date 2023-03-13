@@ -1,17 +1,18 @@
 //Importando dependências e variáveis
 const fs = require("fs").promises
-const { getAge, sortContacts, getBithDate } = require("../utils/utils.js")
+const { getAge, sortContacts, getBithDate, cookieParser } = require("../utils/utils.js")
 const { resolve } = require("path")
 
 //Métodos utilizados em routes.js
 async function index(req, res) {
     let data
+    const userId = cookieParser(req.headers.cookie)["user_id"]
     const dataPath = resolve(process.cwd(), "./data.json")
     const { name } = req.query
 
     //Buscando os dados em data.json
     try {
-        data = JSON.parse(await fs.readFile(dataPath, { encoding: "utf-8" }))
+        data = JSON.parse(await fs.readFile(dataPath, { encoding: "utf-8" }))[userId]
     } catch (error) {
         res.setHeader("Content-Type", "text/plain")
         return res.status(500).send("Error 500.\nServer internal error")
@@ -41,11 +42,12 @@ function createContact(req, res) {
 }
 async function get(req, res) {
     let data
+    const userId = cookieParser(req.headers.cookie)["user_id"]
     const dataPath = resolve(process.cwd(), "./data.json")
 
     //Buscando os dados em data.json
     try {
-        data = JSON.parse(await fs.readFile(dataPath, { encoding: "utf-8" }))
+        data = JSON.parse(await fs.readFile(dataPath, { encoding: "utf-8" }))[userId]
     } catch (error) {
         res.setHeader("Content-Type", "text/plain")
         return res.status(500).send("Error 500.\nServer internal error")
@@ -65,11 +67,12 @@ async function get(req, res) {
 }
 async function editContact(req, res) {
     let data
+    const userId = cookieParser(req.headers.cookie)["user_id"]
     const dataPath = resolve(process.cwd(), "./data.json")
 
     //Buscando os dados em data.json
     try {
-        data = JSON.parse(await fs.readFile(dataPath, { encoding: "utf-8" }))
+        data = JSON.parse(await fs.readFile(dataPath, { encoding: "utf-8" }))[userId]
     } catch (error) {
         res.setHeader("Content-Type", "text/plain")
         return res.status(500).send("Error 500.\nServer internal error")
@@ -93,6 +96,7 @@ async function editContact(req, res) {
 }
 async function post(req, res) {
     let data
+    const userId = cookieParser(req.headers.cookie)["user_id"]
     const dataPath = resolve(process.cwd(), "./data.json")
     const keys = Object.keys(req.body)
 
@@ -119,7 +123,7 @@ async function post(req, res) {
     birthStamp = Date.parse(birthStamp)
     const id = `${Date.now()}`
     const age = getAge(birthStamp)
-    data.contacts.push({
+    data[userId].contacts.push({
         id,
         name,
         avatarURL,
@@ -144,6 +148,7 @@ async function post(req, res) {
 }
 async function put(req, res) {
     let data
+    const userId = cookieParser(req.headers.cookie)["user_id"]
     const dataPath = resolve(process.cwd(), "./data.json")
     const keys = Object.keys(req.body)
 
@@ -169,7 +174,7 @@ async function put(req, res) {
     let foundIndex
 
     //Buscando o index referente a posição do contato no array em data.json
-    const foundContact = data.contacts.find((value, index) => {
+    const foundContact = data[userId].contacts.find((value, index) => {
         if (value.id === id) {
             foundIndex = index
             return true
@@ -182,7 +187,7 @@ async function put(req, res) {
 
     //Alterando os dados do contato de acordo com as informações fornecidas no formulário
     birthStamp = Date.parse(birth)
-    data.contacts[foundIndex] = {
+    data[userId].contacts[foundIndex] = {
         ...foundContact,
         name: name,
         avatarURL: avatarURL,
@@ -207,6 +212,7 @@ async function put(req, res) {
 }
 async function deleteContact(req, res) {
     let data
+    const userId = cookieParser(req.headers.cookie)["user_id"]
     const dataPath = resolve(process.cwd(), "./data.json")
     const { deleteId } = req.body
 
@@ -219,7 +225,7 @@ async function deleteContact(req, res) {
     }
 
     //Buscando a posição do contato que será deletado
-    const foundIndex = data.contacts.findIndex((value) => value.id == deleteId)
+    const foundIndex = data[userId].contacts.findIndex((value) => value.id == deleteId)
 
     //Enviando um status 404 em caso de conrespondência vazia
     if (foundIndex < 0) {
@@ -228,7 +234,7 @@ async function deleteContact(req, res) {
     }
 
     //Deletando o contato com base no index encontrado anteriormente
-    data.contacts.splice(foundIndex, 1)
+    data[userId].contacts.splice(foundIndex, 1)
 
     //Reescrevendo o arquivo data.json
     try {
