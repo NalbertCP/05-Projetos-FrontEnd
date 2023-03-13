@@ -1,12 +1,22 @@
 //Importando dependências e variáveis
 const fs = require("fs").promises
-const data = require("../data.json")
 const { getAge, sortContacts, getBithDate } = require("../utils/utils.js")
 const { resolve } = require("path")
 
 //Métodos utilizados em routes.js
 async function index(req, res) {
+    let data
+    const dataPath = resolve(process.cwd(), "./data.json")
     const { name } = req.query
+
+    //Buscando os dados em data.json
+    try {
+        data = JSON.parse(await fs.readFile(dataPath, { encoding: "utf-8" }))
+    } catch (error) {
+        res.setHeader("Content-Type", "text/plain")
+        return res.status(500).send("Error 500.\nServer internal error")
+    }
+
     const sortedContacts = sortContacts(data.contacts) //Ordenando os contatos em ordem alfabética
 
     if (!(name ?? false)) {
@@ -29,7 +39,18 @@ async function index(req, res) {
 function createContact(req, res) {
     res.render("./Contacts/create.njk")
 }
-function get(req, res) {
+async function get(req, res) {
+    let data
+    const dataPath = resolve(process.cwd(), "./data.json")
+
+    //Buscando os dados em data.json
+    try {
+        data = JSON.parse(await fs.readFile(dataPath, { encoding: "utf-8" }))
+    } catch (error) {
+        res.setHeader("Content-Type", "text/plain")
+        return res.status(500).send("Error 500.\nServer internal error")
+    }
+
     //Entrando na página do contato com base no id
     const { id } = req.params
     const foundContact = data.contacts.find((value) => value.id === id)
@@ -42,7 +63,18 @@ function get(req, res) {
 
     return res.render("./Contacts/contact-info.njk", { contact: foundContact })
 }
-function editContact(req, res) {
+async function editContact(req, res) {
+    let data
+    const dataPath = resolve(process.cwd(), "./data.json")
+
+    //Buscando os dados em data.json
+    try {
+        data = JSON.parse(await fs.readFile(dataPath, { encoding: "utf-8" }))
+    } catch (error) {
+        res.setHeader("Content-Type", "text/plain")
+        return res.status(500).send("Error 500.\nServer internal error")
+    }
+
     //Copiando os dados do contato para edição
     const { id } = req.params
     const foundContact = { ...data.contacts.find((value) => value.id === id) }
@@ -60,8 +92,17 @@ function editContact(req, res) {
     return res.render("./Contacts/edit.njk", { contact: foundContact })
 }
 async function post(req, res) {
-    const filePath = resolve(__dirname, "../data.json")
+    let data
+    const dataPath = resolve(process.cwd(), "./data.json")
     const keys = Object.keys(req.body)
+
+    //Buscando os dados em data.json
+    try {
+        data = JSON.parse(await fs.readFile(dataPath, { encoding: "utf-8" }))
+    } catch (error) {
+        res.setHeader("Content-Type", "text/plain")
+        return res.status(500).send("Error 500.\nServer internal error")
+    }
 
     //Verificando se todos os campos foram preenchidos.
     for (let key of keys) {
@@ -91,7 +132,7 @@ async function post(req, res) {
 
     //Reescrevendo o arquivo data.json
     try {
-        await fs.writeFile(filePath, JSON.stringify(data), { encoding: "utf-8" })
+        await fs.writeFile(dataPath, JSON.stringify(data), { encoding: "utf-8" })
     } catch (error) {
         res.setHeader("Content-Type", "text/plain")
         return res
@@ -102,8 +143,17 @@ async function post(req, res) {
     return res.redirect("/contacts")
 }
 async function put(req, res) {
-    const filePath = resolve(__dirname, "../data.json")
+    let data
+    const dataPath = resolve(process.cwd(), "./data.json")
     const keys = Object.keys(req.body)
+
+    //Buscando os dados em data.json
+    try {
+        data = JSON.parse(await fs.readFile(dataPath, { encoding: "utf-8" }))
+    } catch (error) {
+        res.setHeader("Content-Type", "text/plain")
+        return res.status(500).send("Error 500.\nServer internal error")
+    }
 
     //Verificando se todos os campos foram preenchidos.
     for (let key of keys) {
@@ -145,7 +195,7 @@ async function put(req, res) {
 
     //Reescrevendo o arqivo data.json com as informações do contato alterada
     try {
-        await fs.writeFile(filePath, JSON.stringify(data), { encoding: "utf-8" })
+        await fs.writeFile(dataPath, JSON.stringify(data), { encoding: "utf-8" })
     } catch (error) {
         res.setHeader("Content-Type", "text/plain")
         return res
@@ -156,8 +206,17 @@ async function put(req, res) {
     return res.redirect(`contacts/${id}`)
 }
 async function deleteContact(req, res) {
-    const filePath = resolve(__dirname, "../data.json")
+    let data
+    const dataPath = resolve(process.cwd(), "./data.json")
     const { deleteId } = req.body
+
+    //Buscando os dados em data.json
+    try {
+        data = JSON.parse(await fs.readFile(dataPath, { encoding: "utf-8" }))
+    } catch (error) {
+        res.setHeader("Content-Type", "text/plain")
+        return res.status(500).send("Error 500.\nServer internal error")
+    }
 
     //Buscando a posição do contato que será deletado
     const foundIndex = data.contacts.findIndex((value) => value.id == deleteId)
@@ -173,7 +232,7 @@ async function deleteContact(req, res) {
 
     //Reescrevendo o arquivo data.json
     try {
-        await fs.writeFile(filePath, JSON.stringify(data), { encoding: "utf-8" })
+        await fs.writeFile(dataPath, JSON.stringify(data), { encoding: "utf-8" })
     } catch (error) {
         res.setHeader("Content-Type", "text/plain")
         return res

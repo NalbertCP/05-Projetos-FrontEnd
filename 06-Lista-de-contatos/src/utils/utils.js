@@ -16,7 +16,8 @@ function getAge(birthStamp) {
     return years
 }
 async function updateAge(res, data) {
-    const filePath = resolve(__dirname, "../data.json")
+    const dataPath = resolve(process.cwd(), "./data.json")
+
     //Atualizando a idade de cada contanto em caso de aniversário
     for (let contact of data.contacts) {
         contact.age = getAge(contact.birthStamp)
@@ -24,7 +25,7 @@ async function updateAge(res, data) {
 
     //Reescrevendo o arquivo data.JSON com a idade atualizada
     try {
-        await fs.writeFile(filePath, JSON.stringify(data), { encoding: "utf-8" })
+        await fs.writeFile(dataPath, JSON.stringify(data), { encoding: "utf-8" })
     } catch (error) {
         res.setHeader("Content-Type", "text/plain")
         return res
