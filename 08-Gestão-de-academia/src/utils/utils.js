@@ -22,4 +22,27 @@ function getBirthDate(birth) {
         memberDate: `${day}/${mounth}`
     }
 }
-module.exports = { getAge, getBirthDate }
+function cookieParser(rawCookies) {
+    if (typeof rawCookies !== "string") return undefined
+    const prettyCookies = rawCookies
+        .replace(/ /g, "")
+        .replace(/&/g, ";")
+        .split(";")
+        .map((cookie) => cookie.split("="))
+        .reduce((acc, value) => {
+            acc[value[0]] = value[1]
+            return acc
+        }, {})
+    return prettyCookies
+}
+function generateHash(idLength) {
+    const charactersList = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    let id = ""
+    for (let i = 0; i < idLength; i++) {
+        const random = Math.floor(Math.random() * charactersList.length)
+        id = id.concat(charactersList[random])
+    }
+    return id
+}
+
+module.exports = { getAge, getBirthDate, cookieParser, generateHash }
