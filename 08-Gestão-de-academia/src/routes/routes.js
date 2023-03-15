@@ -1,15 +1,16 @@
 /*Importando as dependências*/
 const express = require("express")
-const { resolve } = require("path")
+const api = require("../controllers/api.js")
 const instructors = require("../controllers/instructors")
 const members = require("../controllers/members")
-const { invalidRoutes } = require("../middlewares/middlewares")
+const { invalidRoutes, handleUserId } = require("../middlewares/middlewares")
+
 const routes = express.Router()
 
-routes.get("/data", (req, res) => {
-    res.setHeader("Cache-Control", "private, no-cache")
-    res.sendFile(resolve(__dirname, "../data.json"))
-})
+//Validando o cookie enviando pelo usuário
+routes.use(handleUserId)
+
+routes.get("/data", api.getData)
 
 /*Rotas de acesso às funcionalidades dos instrutores*/
 routes.get("/", (req, res) => res.redirect("/instructors"))

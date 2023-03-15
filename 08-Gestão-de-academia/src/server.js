@@ -29,6 +29,6 @@ nunjucks.configure(resolve(__dirname, "./views"), {
 server.set("view engine", "njk")
 
 /*Iniciando o servidor*/
-server.listen("5000", () => {
+server.listen("3000", () => {
     console.log("Server is running")
 })
