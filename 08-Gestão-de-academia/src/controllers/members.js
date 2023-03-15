@@ -1,19 +1,30 @@
 /* Importando variáveis e métodos*/
-const { writeFile } = require("fs").promises
+const { writeFile, readFile } = require("fs").promises
 const { resolve } = require("path")
-const data = require("../data.json")
-const { getAge, getBirthDate } = require("../utils/utils.js")
+const { getAge, getBirthDate, cookieParser } = require("../utils/utils.js")
 
 /*Métodos na CRUD de alunos */
 module.exports.index = function (req, res) {
-    res.render("./Members/index.njk", { members: data.members })
+    res.render("./Members/index.njk")
 }
 module.exports.create = function (req, res) {
     res.render("./Members/create")
 }
 module.exports.post = async function (req, res) {
-    const filePath = resolve(__dirname, "../data.json")
+    let data
     const keys = Object.keys(req.body)
+    const dataPath = resolve(process.cwd(), "./data.json")
+    const userId = cookieParser(req.headers.cookie)["user_id_3000"]
+
+    //Lendo o arquivo data.json
+    try {
+        data = JSON.parse(await readFile(dataPath, { encoding: "utf-8" }))
+    } catch (error) {
+        return res.status(500).render("./errors.njk", {
+            status: "Error 500",
+            msg: "Server internal error."
+        })
+    }
 
     //Verificando se todos os campos foram preenchidos
     for (let key of keys) {
@@ -35,7 +46,7 @@ module.exports.post = async function (req, res) {
     birth = Date.parse(birth)
     const id = Date.now().toString()
     const birthday = getBirthDate(birth).memberDate
-    data.members.push({
+    data[userId].members.push({
         id, // Não veio do req.body
         ...req.body,
         birth: birth,
@@ -44,7 +55,7 @@ module.exports.post = async function (req, res) {
 
     //Atualizando o arquivo data.json com o cadastro do novo aluno
     try {
-        await writeFile(filePath, JSON.stringify(data), { encoding: "utf-8" })
+        await writeFile(dataPath, JSON.stringify(data), { encoding: "utf-8" })
         return res.redirect(`/members/${id}`)
     } catch (error) {
         return res.status(500).render("./errors.njk", {
@@ -54,9 +65,23 @@ module.exports.post = async function (req, res) {
     }
 }
 module.exports.findMember = async function (req, res) {
+    let data
     let { id } = req.params
-    const foundMember = { ...data.members.find((value) => value.id == id) }
+    const dataPath = resolve(process.cwd(), "./data.json")
+    const userId = cookieParser(req.headers.cookie)["user_id_3000"]
 
+    //Lendo o arquivo data.json
+    try {
+        data = JSON.parse(await readFile(dataPath, { encoding: "utf-8" }))[userId]
+    } catch (error) {
+        return res.status(500).render("./errors.njk", {
+            status: "Error 500",
+            msg: "Server internal error."
+        })
+    }
+
+    //Buscando o instrutor em data.json com base no id recebido
+    const foundMember = { ...data.members.find((value) => value.id == id) }
     try {
         if (Object.keys(foundMember).length === 0) {
             throw new Error("Error 404: the memeber was not found.")
@@ -70,11 +95,24 @@ module.exports.findMember = async function (req, res) {
 
     return res.render("./Members/showmember", { member: foundMember })
 }
-module.exports.edit = function (req, res) {
-    //Buscando aluno com base no ID
+module.exports.edit = async function (req, res) {
+    let data
     let { id } = req.params
-    const foundMember = data.members.find((value) => value.id == id)
+    const dataPath = resolve(process.cwd(), "./data.json")
+    const userId = cookieParser(req.headers.cookie)["user_id_3000"]
 
+    //Lendo o arquivo data.json
+    try {
+        data = JSON.parse(await readFile(dataPath, { encoding: "utf-8" }))[userId]
+    } catch (error) {
+        return res.status(500).render("./errors.njk", {
+            status: "Error 500",
+            msg: "Server internal error."
+        })
+    }
+
+    //Buscando o instrutor em data.json com base no id recebido
+    const foundMember = data.members.find((value) => value.id == id)
     try {
         if (Object.keys(foundMember).length === 0) {
             throw new Error("Error 404: the member, user is looking for was not found.")
@@ -95,8 +133,22 @@ module.exports.edit = function (req, res) {
     return res.render("./Members/edit.njk", { member })
 }
 module.exports.put = async function (req, res) {
-    const filePath = resolve(__dirname, "../data.json")
+    let data
+    let foundIndex
+    let { id, birth } = req.body
     const keys = Object.keys(req.body)
+    const dataPath = resolve(process.cwd(), "./data.json")
+    const userId = cookieParser(req.headers.cookie)["user_id_3000"]
+
+    //Lendo o arquivo data.json
+    try {
+        data = JSON.parse(await readFile(dataPath, { encoding: "utf-8" }))
+    } catch (error) {
+        return res.status(500).render("./errors.njk", {
+            status: "Error 500",
+            msg: "Server internal error."
+        })
+    }
 
     //Verificando se todos os campos foram preenchidos
     for (let key of keys) {
@@ -114,9 +166,7 @@ module.exports.put = async function (req, res) {
     }
 
     //Buscando aluno com base no ID
-    let { id, birth } = req.body
-    let foundIndex
-    const foundMember = data.members.find((value, index) => {
+    const foundMember = data[userId].members.find((value, index) => {
         if (value.id == id) {
             foundIndex = index
             return value
@@ -142,9 +192,9 @@ module.exports.put = async function (req, res) {
     }
 
     //Atualizando os dados do aluno e reescrevendo o data.json
-    data.members[foundIndex] = member
+    data[userId].members[foundIndex] = member
     try {
-        await writeFile(filePath, JSON.stringify(data), { encoding: "utf-8" })
+        await writeFile(dataPath, JSON.stringify(data), { encoding: "utf-8" })
         return res.redirect(`members/${id}`)
     } catch (error) {
         return res.status(500).render("./errors.njk", {
@@ -154,12 +204,23 @@ module.exports.put = async function (req, res) {
     }
 }
 module.exports.delete = async function (req, res) {
-    const filePath = resolve(__dirname, "../data.json")
-
+    let data
     const { id } = req.body
-    let foundIndex = data.members.findIndex((value) => value.id === id)
+    const dataPath = resolve(process.cwd(), "./data.json")
+    const userId = cookieParser(req.headers.cookie)["user_id_3000"]
+
+    //Lendo o arquivo data.json
+    try {
+        data = JSON.parse(await readFile(dataPath, { encoding: "utf-8" }))
+    } catch (error) {
+        return res.status(500).render("./errors.njk", {
+            status: "Error 500",
+            msg: "Server internal error."
+        })
+    }
 
     //Tratando o erro caso o usuário tente excluir o aluno mais de uma vez
+    let foundIndex = data[userId].members.findIndex((value) => value.id === id)
     try {
         if (foundIndex < 0) throw new Error("Error 404: the member was already deleted.")
     } catch (error) {
@@ -168,11 +229,11 @@ module.exports.delete = async function (req, res) {
             .render("./errors.njk", { status: "Error 404", msg: "member was already deleted." })
     }
 
-    data.members.splice(foundIndex, 1)
+    data[userId].members.splice(foundIndex, 1)
 
     //Reescrevendo o arquivo data.json
     try {
-        await writeFile(filePath, JSON.stringify(data), { encoding: "utf-8" })
+        await writeFile(dataPath, JSON.stringify(data), { encoding: "utf-8" })
         return res.redirect("/members")
     } catch (error) {
         return res.status(500).render("./errors.njk", {

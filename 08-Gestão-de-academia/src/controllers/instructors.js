@@ -1,19 +1,30 @@
 /* Importando variáveis e métodos*/
-const { writeFile } = require("fs").promises
+const { writeFile, readFile } = require("fs").promises
 const { resolve } = require("path")
-const { getAge, getBirthDate } = require("../utils/utils.js")
-const data = require("../data.json")
+const { getAge, getBirthDate, cookieParser } = require("../utils/utils.js")
 
 /*Métodos na CRUD de instrutores */
 module.exports.index = function (req, res) {
-    res.render("Instructors/index.njk", { instructors: data.instructors })
+    res.render("Instructors/index.njk")
 }
 module.exports.create = function (req, res) {
     res.render("./Instructors/create")
 }
 module.exports.post = async function (req, res) {
-    const filePath = resolve(__dirname, "../data.json")
+    let data
+    const dataPath = resolve(process.cwd(), "./data.json")
+    const userId = cookieParser(req.headers.cookie)["user_id_3000"]
     const keys = Object.keys(req.body)
+
+    //Lendo o arquivo data.json
+    try {
+        data = JSON.parse(await readFile(dataPath, { encoding: "utf-8" }))
+    } catch (error) {
+        return res.status(500).render("./errors.njk", {
+            status: "Error 500",
+            msg: "Server internal error."
+        })
+    }
 
     //Verificando se todos os campos foram preenchidos
     for (let key of keys) {
@@ -37,7 +48,7 @@ module.exports.post = async function (req, res) {
     const createdAt = Date.now()
     const id = createdAt.toString()
     const sinceDate = new Intl.DateTimeFormat("pt-BR").format(createdAt)
-    data.instructors.push({
+    data[userId].instructors.push({
         id, // Não veio do req.body
         avatar,
         name,
@@ -50,7 +61,7 @@ module.exports.post = async function (req, res) {
 
     //Atualizando o arquivo data.json com o cadastro do novo instrutor
     try {
-        await writeFile(filePath, JSON.stringify(data), { encoding: "utf-8" })
+        await writeFile(dataPath, JSON.stringify(data), { encoding: "utf-8" })
         return res.redirect(`/instructors/${id}`)
     } catch (error) {
         return res.status(500).render("./errors.njk", {
@@ -60,9 +71,23 @@ module.exports.post = async function (req, res) {
     }
 }
 module.exports.findInstructor = async function (req, res) {
+    let data
     let { id } = req.params
-    const foundInstructor = { ...data.instructors.find((value) => value.id == id) }
+    const dataPath = resolve(process.cwd(), "./data.json")
+    const userId = cookieParser(req.headers.cookie)["user_id_3000"]
 
+    //Lendo o arquivo data.json
+    try {
+        data = JSON.parse(await readFile(dataPath, { encoding: "utf-8" }))[userId]
+    } catch (error) {
+        return res.status(500).render("./errors.njk", {
+            status: "Error 500",
+            msg: "Server internal error."
+        })
+    }
+
+    //Buscando o instrutor em data.json com base no id recebido
+    const foundInstructor = { ...data.instructors.find((value) => value.id == id) }
     try {
         if (Object.keys(foundInstructor).length === 0) {
             throw new Error("Error 404: the instructor was not found.")
@@ -77,11 +102,24 @@ module.exports.findInstructor = async function (req, res) {
 
     return res.render("./Instructors/showinstructor", { instructor: foundInstructor })
 }
-module.exports.edit = function (req, res) {
-    //Buscando instrutor com base no ID
+module.exports.edit = async function (req, res) {
+    let data
     let { id } = req.params
-    const foundInstructor = { ...data.instructors.find((value) => value.id == id) }
+    const dataPath = resolve(process.cwd(), "./data.json")
+    const userId = cookieParser(req.headers.cookie)["user_id_3000"]
 
+    //Lendo o arquivo data.json
+    try {
+        data = JSON.parse(await readFile(dataPath, { encoding: "utf-8" }))[userId]
+    } catch (error) {
+        return res.status(500).render("./errors.njk", {
+            status: "Error 500",
+            msg: "Server internal error."
+        })
+    }
+
+    //Buscando o instrutor em data.json com base no id recebido
+    const foundInstructor = { ...data.instructors.find((value) => value.id == id) }
     try {
         if (Object.keys(foundInstructor).length === 0) {
             throw new Error("Error 404: the instructor, user is looking for was not found.")
@@ -101,11 +139,24 @@ module.exports.edit = function (req, res) {
     return res.render("./Instructors/edit.njk", { instructor })
 }
 module.exports.put = async function (req, res) {
-    const filePath = resolve(__dirname, "../data.json")
+    let data
+    let foundIndex
+    const keys = Object.keys(req.body)
     let { id, birth, services } = req.body
+    const dataPath = resolve(process.cwd(), "./data.json")
+    const userId = cookieParser(req.headers.cookie)["user_id_3000"]
+
+    //Lendo o arquivo data.json
+    try {
+        data = JSON.parse(await readFile(dataPath, { encoding: "utf-8" }))
+    } catch (error) {
+        return res.status(500).render("./errors.njk", {
+            status: "Error 500",
+            msg: "Server internal error."
+        })
+    }
 
     //Verificando se todos os campos foram preenchidos
-    const keys = Object.keys(req.body)
     for (let key of keys) {
         try {
             if (req.body[key] === "")
@@ -121,8 +172,7 @@ module.exports.put = async function (req, res) {
     }
 
     //Buscando instrutor com base no ID
-    let foundIndex
-    const foundInstructor = data.instructors.find((value, index) => {
+    const foundInstructor = data[userId].instructors.find((value, index) => {
         if (value.id == id) {
             foundIndex = index
             return value
@@ -149,9 +199,9 @@ module.exports.put = async function (req, res) {
     }
 
     //Atualizando os dados do instrutor e reescrevendo o data.json
-    data.instructors[foundIndex] = instructor
+    data[userId].instructors[foundIndex] = instructor
     try {
-        await writeFile(filePath, JSON.stringify(data), { encoding: "utf-8" })
+        await writeFile(dataPath, JSON.stringify(data), { encoding: "utf-8" })
         return res.redirect(`instructors/${id}`)
     } catch (error) {
         return res.status(500).render("./errors.njk", {
@@ -161,12 +211,23 @@ module.exports.put = async function (req, res) {
     }
 }
 module.exports.delete = async function (req, res) {
-    const filePath = resolve(__dirname, "../data.json")
-
+    let data
     const { id } = req.body
-    let foundIndex = data.instructors.findIndex((value) => value.id === id)
+    const dataPath = resolve(process.cwd(), "./data.json")
+    const userId = cookieParser(req.headers.cookie)["user_id_3000"]
+
+    //Lendo o arquivo data.json
+    try {
+        data = JSON.parse(await readFile(dataPath, { encoding: "utf-8" }))
+    } catch (error) {
+        return res.status(500).render("./errors.njk", {
+            status: "Error 500",
+            msg: "Server internal error."
+        })
+    }
 
     //Tratando o erro caso o usuário tente excluir o instrutor mais de uma vez
+    let foundIndex = data[userId].instructors.findIndex((value) => value.id === id)
     try {
         if (foundIndex < 0) throw new Error("Error 404: the instrutor was already deleted.")
     } catch (error) {
@@ -175,11 +236,11 @@ module.exports.delete = async function (req, res) {
             .render("./errors.njk", { status: "Error 404", msg: "instructor was already deleted." })
     }
 
-    data.instructors.splice(foundIndex, 1)
+    data[userId].instructors.splice(foundIndex, 1)
 
     //Reescrevendo o arquivo data.json
     try {
-        await writeFile(filePath, JSON.stringify(data), { encoding: "utf-8" })
+        await writeFile(dataPath, JSON.stringify(data), { encoding: "utf-8" })
         return res.redirect(`/instructors`)
     } catch (error) {
         return res.status(500).render("./errors.njk", {
