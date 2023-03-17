@@ -1,0 +1,127 @@
+*{
+    margin:0; 
+    padding:0; 
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+    background-color: #ebebeb;
+}
+
+.toCenter-content{
+    display: flex;
+    width: 100vw;
+    padding: 1.5rem;
+    justify-content: center;
+}
+
+.container {
+    flex-grow: 1;
+    padding: 2.5rem;
+    max-width: 650px;
+    min-width: 200px;
+    background-color: #ffffff;
+    box-shadow: 1px 1px 5px #b4b4b4;
+    border-radius: 0.6rem;
+}
+
+.container h1{
+    font-size: 1.6rem;
+    color: #5c5c5c;
+    padding: 0px 0px 0.6rem;
+    font-weight: 500;
+    border-bottom: 0.125rem solid #ecc207;
+}
+
+.container .flex{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 3rem 0px;
+}
+
+.container #unit-type{
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+}
+
+.container #converter{
+    justify-content: space-around;
+    font-size: 2rem;
+    color:#ecc207;
+    padding: 1rem 0px;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#unit-type label{
+    font-size: 1.25rem;
+    font-weight:400;
+    color: #5c5c5c;
+    border-bottom: 2px solid #ecc207;
+    padding: 0px 0px 0.6rem;
+}
+
+#unit-type select{
+    font-size: 0.8rem;
+    padding: 0.8rem 0.6rem;
+    background-color: #eeeded;
+    border-radius: 0.25rem;
+    flex: 0 1 230px;
+    border: 0.125rem solid #c2c2c2;
+}
+
+section .initial, .final{
+    max-width: 230px;
+    border:0.125rem solid #c2c2c2;
+    border-radius: 0.25rem;
+}
+
+section input{
+    padding: 0.8rem ;
+    outline: none;
+    border:none;
+    width: 100%;
+    border-radius: 0.25rem 0.25rem 0px 0px;
+    font-size: 1rem;
+}
+
+section select{
+    font-size: 0.8rem;
+    width: 100%;
+    padding: 0.8rem 0.6rem;
+    background-color: #eeeded;
+    border:none;
+    border-radius:0px 0px 0.25rem 0.25rem;
+    border-top: 0.125rem solid #c2c2c2;
+}
+
+@media only screen and (max-width:950px){
+    .container{
+        max-width: 100%;
+    }
+    .container section{
+        flex-direction: column;
+        align-items: center;
+    }
+    .container h1{
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 480px){
+    html{
+        font-size: 125%;
+    }
+
+    .toCenter-content{
+        padding: 0rem;
+    }
+
+    .container{
+        border-radius: 0rem;
+        min-height: 100vh;
+        padding: 2rem 1.5rem;
+    }
+}

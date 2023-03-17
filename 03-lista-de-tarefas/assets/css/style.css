@@ -1,0 +1,310 @@
+/* Início - Estilos gerais*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: linear-gradient(to right bottom, #819eff, #fff9a3 80%);
+    background-attachment: fixed;
+}
+/* Fim - Estilos gerais*/
+
+/* Início - Lista de tarefas*/
+.container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.todo-container {
+    flex: 1;
+    max-width: 450px;
+    background-color: #ebebeb;
+    border-radius: 0.5rem;
+    box-shadow: 0.125rem 0.125rem 0.37rem #acacac;
+    position: relative;
+}
+
+.todo-container .todo-header {
+    width: 100%;
+    background-color: #695ff8;
+    padding: 1rem;
+    border-radius: 0.5rem 0.5rem 0px 0px;
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+
+.todo-container .wrapper {
+    padding: 0px 1rem 1rem;
+}
+
+.wrapper form {
+    width: 100%;
+    margin: 1.5rem 0px 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+form .input-area {
+    position: relative;
+    flex: 1;
+}
+
+.input-area input[type="text"] {
+    width: 100%;
+    padding: 0.5rem 0.5rem 0.5rem 2rem;
+    border-radius: 0.25rem;
+    outline: none;
+    border: 1px solid #979797;
+    font-size: 1rem;
+    color: #353535;
+}
+
+input[type="text"]:focus + label {
+    top: -1.125rem;
+    left: -0.25rem;
+    transform: scale(0.85);
+}
+
+.input-area label {
+    position: absolute;
+    top: 0.6rem;
+    left: 2rem;
+    color: #979797;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    cursor: auto;
+    transition-property: top, left, transform;
+    transition-duration: 0.25s;
+}
+
+.input-area label.move-label {
+    top: -1.125rem;
+    left: -0.25rem;
+    transform: scale(0.85);
+}
+
+.input-area .add-task-icon {
+    position: absolute;
+    top: 0.6rem;
+    left: 0.5rem;
+}
+
+form input.create-task {
+    display: block;
+    background-color: #4234ff;
+    font-size: 1.5rem;
+    padding: 0 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+input.create-task:hover {
+    background-color: #2b1fd6;
+    transition: background-color 0.25s;
+}
+
+.wrapper .task-list {
+    width: 100%;
+    overflow: hidden;
+}
+
+.task-list .task {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0.5rem;
+    border-bottom: 1px solid #979797;
+    transform: translateX(-10%);
+    opacity: 0%;
+    animation: slideTask 0.8s forwards;
+}
+
+.task.delete-task {
+    animation: deleteTask 0.8s forwards;
+}
+
+.task .before {
+    content: "";
+    height: 60%;
+    width: 0.3rem;
+    position: absolute;
+    left: 0;
+    border-radius: 0.25rem;
+    background-color: #bbbcbd;
+}
+
+.before.done {
+    background-color: #17a017;
+}
+
+.task .task-name {
+    display: block;
+    height: fit-content;
+    width: fit-content;
+    margin-left: o.25rem;
+    font-family: 1rem;
+    color: #353535;
+    word-break: break-all;
+}
+
+.task-name.done {
+    color: #17a017;
+    text-decoration: line-through solid #17a017 0.125rem;
+}
+
+.task .task-buttons {
+    margin-left: auto;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.task-buttons > button {
+    padding: 0.25rem 0.37rem;
+    border-radius: 0.25rem;
+    border: none;
+    cursor: pointer;
+}
+
+.task-buttons button > img {
+    pointer-events: none;
+}
+
+.task-buttons .delete-btn {
+    background-color: #e62c2c;
+}
+
+.task-buttons .done-btn {
+    background-color: #2cbd19;
+}
+/* Fim - Lista de tarefas*/
+
+/* Início - Modal*/
+.modal-overlay {
+    height: 100vh;
+    width: 100%;
+    padding: 1.5rem;
+    background-color: #252525a4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    opacity: 0%;
+    visibility: hidden;
+}
+
+.modal-overlay.active {
+    opacity: 100%;
+    visibility: visible;
+}
+
+.modal-overlay .modal {
+    flex: 1;
+    max-width: 400px;
+    min-width: 284px;
+    background-color: #ebebeb;
+    border-radius: 0.5rem;
+    position: relative;
+    box-shadow: 1px 1px 6px #4b4b4b;
+}
+
+.modal .modal-header {
+    width: 100%;
+    padding: 1rem;
+    background-color: #464646;
+    border-radius: 0.43rem 0.43rem 0 0;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header span {
+    cursor: pointer;
+}
+
+.modal .modal-content {
+    padding: 2rem 1rem;
+    color: #353535;
+    font-size: 1rem;
+    text-align: justify;
+}
+
+.modal .close-modal {
+    display: block;
+    margin: 1rem 0 0 auto;
+    padding: 0.5rem 1rem;
+    background-color: #e62c2c;
+    border: 0.125rem solid #923131;
+    color: #ffffff;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.25s;
+}
+
+.close-modal:hover {
+    background-color: #c21a1a;
+}
+/* Fim- Modal*/
+
+/* CCS Animations*/
+@keyframes slideTask {
+    100% {
+        transform: translateX(0%);
+        opacity: 100%;
+    }
+}
+
+@keyframes deleteTask {
+    0% {
+        transform: translateX(0%);
+        opacity: 100%;
+    }
+    100% {
+        transform: translateX(-10%);
+        opacity: 0%;
+    }
+}
+
+/* Media Queries */
+@media (max-width: 440px) {
+    html {
+        font-size: 120%;
+    }
+
+    .modal-overlay {
+        overflow-x: scroll;
+        justify-content: flex-start;
+    }
+
+    .container {
+        padding: 0rem;
+        justify-content: flex-start;
+    }
+
+    .container .todo-container {
+        max-width: 100%;
+        border-radius: 0rem;
+        min-height: 100vh;
+    }
+
+    .todo-container {
+        min-width: 340px;
+    }
+
+    .todo-container .todo-header {
+        border-radius: 0rem;
+    }
+}
