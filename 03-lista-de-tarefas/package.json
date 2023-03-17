@@ -1,0 +1,18 @@
+{
+  "name": "03-lista-de-tarefas",
+  "version": "1.0.0",
+  "description": "Mini Projeto Front-End destinado à criação de uma lista de tarefas com as seguintes opções:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.30.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.1"
+  }
+}

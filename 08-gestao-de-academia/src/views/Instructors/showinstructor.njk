@@ -1,0 +1,45 @@
+{% extends "../baselayout.njk" %}
+
+{% block title %}
+<title>Instructor | {{instructor.name}}</title>
+{% endblock %}
+
+{% block content %}
+<div class="center-container">
+    <div class="card-container">
+        <div style="background: url({{instructor.avatar}}) no-repeat top center /cover" class="card-image"></div>
+        <div class="card-content">
+            <h3>Detalhes</h3>
+            <div class="item">
+                <div>Instrutor</div>
+                <div>{{instructor.name}}</div>
+            </div>
+            <div class="item">
+                <div>idade</div>
+                <div>{{instructor.age}} Anos</div>
+            </div>
+            <div class="item">
+                <div>Sexo</div>
+                <div>{{"Masculino" if instructor.gender ==="M" else "Feminino"}}</div>
+            </div>
+            <div class="item">
+                <div>Acompanhamento</div>
+                <ul>
+                    {% for service in instructor.services %}
+                    <li>{{service}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="item">
+                <div>Desde</div>
+                <div>{{instructor.sinceDate}}</div>
+            </div>
+            <a href="/instructors/{{instructor.id}}/edition" class="w-100 edit-button">Editar</a>
+        </div>
+    </div>
+</div>
+{% endblock%}
+
+{% block headScripts %}
+{% include "../general-scrips.njk" %}
+{% endblock %}
