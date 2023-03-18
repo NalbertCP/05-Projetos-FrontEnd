@@ -11,7 +11,7 @@ module.exports.invalidRoutes = function (req, res) {
 }
 
 module.exports.handleUserId = async function (req, res, next) {
-    const defaultCookieOptions = { maxAge: 31536000000, sameSite: "strict", httpOnly: true }
+    const defaultCookieOptions = { maxAge: 31536000000, sameSite: "lax", httpOnly: true }
     const dataPath = resolve(process.cwd(), "./data.json")
     const prettyCookies = cookieParser(req.headers.cookie)
     let data

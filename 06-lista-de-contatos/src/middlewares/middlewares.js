@@ -26,7 +26,7 @@ async function shouldUpdateAges(req, res, next) {
 
     res.cookie("ages_updated", "true", {
         maxAge: 86400000,
-        sameSite: "strict",
+        sameSite: "lax",
         httpOnly: true
     })
 
@@ -37,7 +37,7 @@ async function shouldUpdateAges(req, res, next) {
 
 //Validando o id do usuário e criando um novo id se nescessário
 async function handleUserId(req, res, next) {
-    const defaultCookieOptions = { maxAge: 31536000000, sameSite: "strict", httpOnly: true }
+    const defaultCookieOptions = { maxAge: 31536000000, sameSite: "lax", httpOnly: true }
     const dataPath = resolve(process.cwd(), "./data.json")
     const prettyCookies = cookieParser(req.headers.cookie)
     let data
