@@ -1,4 +1,5 @@
 /*Importando dependências*/
+require("dotenv").config()
 const express = require("express")
 const methodOverride = require("method-override")
 const server = express()
@@ -29,6 +30,6 @@ nunjucks.configure(resolve(__dirname, "./views"), {
 server.set("view engine", "njk")
 
 /*Iniciando o servidor*/
-server.listen("3000", () => {
+server.listen(process.env.PORT, () => {
     console.log("Server is running")
 })

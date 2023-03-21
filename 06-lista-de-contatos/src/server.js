@@ -1,4 +1,5 @@
 //Importando as dependências do express, nunjucks e methodoverride
+require("dotenv").config()
 const express = require("express")
 const methodOverride = require("method-override")
 const nunjucks = require("nunjucks")
@@ -18,7 +19,7 @@ server.use(express.static(resolve(__dirname, "../public")))
 server.use(express.urlencoded({ extended: true })) //Habilitando o body parser
 server.use(routes)
 
-//Iniciando o servidor na porta 5000
-server.listen("5000", () => {
+//Iniciando o servidor na porta 3000
+server.listen(process.env.PORT, () => {
     console.log("server is running")
 })
