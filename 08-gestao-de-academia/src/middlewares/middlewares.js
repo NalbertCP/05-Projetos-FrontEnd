@@ -2,6 +2,7 @@ const { resolve } = require("path")
 const { cookieParser, generateHash } = require("../utils/utils.js")
 const { readFile, writeFile } = require("fs").promises
 const { mock } = require("../utils/mock.js")
+require("dotenv").config()
 
 module.exports.invalidRoutes = function (req, res) {
     res.status(404).render("./errors.njk", {
@@ -11,7 +12,14 @@ module.exports.invalidRoutes = function (req, res) {
 }
 
 module.exports.handleUserId = async function (req, res, next) {
-    const defaultCookieOptions = { maxAge: 31536000000, sameSite: "lax", httpOnly: true }
+    const defaultCookieOptions = {
+        maxAge: 31536000000,
+        httpOnly: true,
+        sameSite: process.env.COOKIE_SAME_SITE,
+        domain: process.env.COOKIE_DOMAIN,
+        path: process.env.COOKIE_PATH,
+        secure: process.env.COOKIE_SECURE == "true" ? true : false
+    }
     const dataPath = resolve(process.cwd(), "./data.json")
     const prettyCookies = cookieParser(req.headers.cookie)
     let data

@@ -1,6 +1,7 @@
 const { cookieParser, updateAge, generateHash, getAge } = require("../utils/utils")
 const { resolve } = require("path")
 const fs = require("fs").promises
+require("dotenv").config()
 
 //Middleware para tratar rotas inválidas
 function invalidRoutes(req, res) {
@@ -26,8 +27,11 @@ async function shouldUpdateAges(req, res, next) {
 
     res.cookie("ages_updated", "true", {
         maxAge: 86400000,
-        sameSite: "lax",
-        httpOnly: true
+        httpOnly: true,
+        sameSite: process.env.COOKIE_SAME_SITE,
+        domain: process.env.COOKIE_DOMAIN,
+        path: process.env.COOKIE_PATH,
+        secure: process.env.COOKIE_SECURE == "true" ? true : false
     })
 
     await updateAge(res, data, userId)
@@ -37,7 +41,14 @@ async function shouldUpdateAges(req, res, next) {
 
 //Validando o id do usuário e criando um novo id se nescessário
 async function handleUserId(req, res, next) {
-    const defaultCookieOptions = { maxAge: 31536000000, sameSite: "lax", httpOnly: true }
+    const defaultCookieOptions = {
+        maxAge: 31536000000,
+        httpOnly: true,
+        sameSite: process.env.COOKIE_SAME_SITE,
+        domain: process.env.COOKIE_DOMAIN,
+        path: process.env.COOKIE_PATH,
+        secure: process.env.COOKIE_SECURE == "true" ? true : false
+    }
     const dataPath = resolve(process.cwd(), "./data.json")
     const prettyCookies = cookieParser(req.headers.cookie)
     let data
