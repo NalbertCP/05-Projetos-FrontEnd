@@ -20,9 +20,11 @@ export function renderInstructors(instructors) {
                <span class="person-name">${instructor.name}</span>
             </td>
             <td>
-                ${instructor.services.reduce((acc, service) => {
-                    return (acc += `<span>${service}</span>`)
-                }, "")}
+                <div class="flex services">
+                    ${instructor.services.reduce((acc, service) => {
+                        return (acc += `<span>${service}</span>`)
+                    }, "")}
+                </div>
             </td>
             <td>
                <a class="flex" href="/instructors/${instructor.id}">

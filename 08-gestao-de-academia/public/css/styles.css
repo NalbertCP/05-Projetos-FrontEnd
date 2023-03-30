@@ -447,7 +447,13 @@ tr:last-child td {
     border-bottom: 0;
 }
 
-td:nth-child(2) > span {
+td > .services {
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+td:nth-child(2) span {
     display: inline-block;
     background-color: #f3e849;
     padding: 0.25rem 0.5rem;
@@ -455,7 +461,6 @@ td:nth-child(2) > span {
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin: 0.25rem;
     text-transform: capitalize;
     white-space: nowrap;
 }
@@ -472,7 +477,7 @@ td a {
 }
 
 td a:hover {
-    background-color: #866ed4;
+    background-color: #4b465e;
 }
 
 td a:active {
@@ -500,10 +505,6 @@ tr td > img {
     th,
     td {
         padding: 0.5rem;
-    }
-
-    td > span:last-child {
-        margin-bottom: 0;
     }
 }
 
