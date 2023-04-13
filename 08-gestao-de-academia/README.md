@@ -14,7 +14,7 @@ Projeto Front-End desenvolvido através de um dos Bootcamps encontrados na pági
 -   Cadastro de alunos e instrutores através da rota members/new e instructors/new;
 -   Visualização das informações dos alunos e instrutores pelas rotas members/:id e instructors/id;
 -   Edição das informações dos instrutores e alunos pelas rotas /instructors/:id/edition e /members/:id/edition;
--   Remoção de alunos e instrutores através das rotas instructors/:id (DELETE) e members/:id (DELETE). 
+-   Remoção de alunos e instrutores através das rotas instructors/:id (DELETE) e members/:id (DELETE).
 
 **Obs: ambos os painéis, de alunos e instrutores, contam com um filtro para facilitar a busca pelo nome.**
 
@@ -29,7 +29,7 @@ Projeto Front-End desenvolvido através de um dos Bootcamps encontrados na pági
 4. Abra seu navegador em http://localhost:5000/ para visualizar o projeto.
 ```
 
-## 💻 Stacks utilizadas
+## 💻 Stack utilizada
 
 -   HTML
 -   CSS

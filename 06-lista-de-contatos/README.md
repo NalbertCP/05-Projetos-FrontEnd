@@ -23,7 +23,7 @@ Projeto Front-End dedicado à criação de uma lista de contatos no modelo CRUD,
 
 Após clonar este repositório, navegue até o diretório do projeto pelo seu terminal, baixe as dependências com **npm install**, inicie o projeto com **npm start**, e após, abra seu navegador em **http://localhost:5000/** para visualizar o projeto.
 
-## 💻 Stacks utilizadas
+## 💻 Stack utilizada
 
 -   HTML
 -   CSS

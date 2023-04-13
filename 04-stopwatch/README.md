@@ -19,7 +19,7 @@ funcionalidades do cronômetro:
 
 <img width="850px" src="https://user-images.githubusercontent.com/105606295/196014262-1d28e658-f844-439e-9850-5f348a93aaed.png">
 
-## 💻 Stacks utilizadas
+## 💻 Stack utilizada
 
 -   HTML
 -   CSS

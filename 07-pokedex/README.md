@@ -46,7 +46,7 @@ Siga o passo a passo abaixo caso queira criar uma base dados com uma quantidade 
 
 **Após seguir o passo a passo acima, uma nova base de dados será criada e substituirá a base de dados atual do projeto.**
 
-## 💻 Stacks utilizadas
+## 💻 Stack utilizada
 
 -   HTML
 -   CSS

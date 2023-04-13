@@ -10,7 +10,7 @@ Projeto Front-End criado com objetivo de clonar a Landing Page da Netflix. Abaix
 [Netflix original landing page] 🔗 https://www.netflix.com/br-en/
 ```
 
-## 💻 Stacks utilizadas
+## 💻 Stack utilizada
 
 -   HTML
 -   CSS
