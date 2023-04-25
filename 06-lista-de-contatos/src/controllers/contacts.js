@@ -1,6 +1,6 @@
 //Importando dependências e variáveis
 const fs = require("fs").promises
-const { getAge, sortContacts, getBithDate, cookieParser } = require("../utils/utils.js")
+const { getAge, sortContacts, getBirthDate, cookieParser } = require("../utils/utils.js")
 const { resolve } = require("path")
 
 //Métodos utilizados em routes.js
@@ -32,7 +32,7 @@ async function index(req, res) {
         return value.name.toUpperCase().match(upperName)
     })
 
-    //Renderizando a página not-found em caso de correspodência vazia (array.length === 0)
+    //Renderizando a página not-found em caso de correspondência vazia (array.length === 0)
     if (filteredArray.length < 1) return res.status(404).render("./404-not-found.njk")
 
     return res.render("./Contacts/index.njk", { contacts: sortContacts(filteredArray) })
@@ -90,7 +90,7 @@ async function editContact(req, res) {
 
     //Alterando a propriedade birthStamp do contato para o formato aceito pelo input:date do formulário
     const { birthStamp } = foundContact
-    foundContact.birthDate = getBithDate(birthStamp)
+    foundContact.birthDate = getBirthDate(birthStamp)
 
     return res.render("./Contacts/edit.njk", { contact: foundContact })
 }
@@ -198,7 +198,7 @@ async function put(req, res) {
         age: getAge(birth)
     }
 
-    //Reescrevendo o arqivo data.json com as informações do contato alterada
+    //Reescrevendo o arquivo data.json com as informações do contato alterada
     try {
         await fs.writeFile(dataPath, JSON.stringify(data), { encoding: "utf-8" })
     } catch (error) {
@@ -227,7 +227,7 @@ async function deleteContact(req, res) {
     //Buscando a posição do contato que será deletado
     const foundIndex = data[userId].contacts.findIndex((value) => value.id == deleteId)
 
-    //Enviando um status 404 em caso de conrespondência vazia
+    //Enviando um status 404 em caso de correspondência vazia
     if (foundIndex < 0) {
         res.setHeader("Content-Type", "text/plain")
         return res.status(404).send("Erro 404.\nContact was already deleted.")

@@ -16,7 +16,7 @@ window.onload = async function () {
             await renderElements.main()
         } catch (error) {
             console.log(error)
-            window.alert("Something went wrong. Please reaload the page.")
+            window.alert("Something went wrong. Please reload the page.")
         }
         dataNodes.push.apply(dataNodes, document.querySelectorAll(".person-data"))
         renderElements.activateFilter(dataNodes)

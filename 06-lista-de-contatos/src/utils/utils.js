@@ -44,14 +44,14 @@ function sortContacts(contacts) {
     //Retornando os contatos em ordem alfabética
     return copyContacts
 }
-function getBithDate(birthStamp) {
+function getBirthDate(birthStamp) {
     const birthDate = new Date(birthStamp)
 
     let year = birthDate.getUTCFullYear()
-    let mounth = `0${birthDate.getUTCMonth() + 1}`.slice(-2)
+    let month = `0${birthDate.getUTCMonth() + 1}`.slice(-2)
     let day = `0${birthDate.getUTCDate()}`.slice(-2)
 
-    let dateIso = `${year}-${mounth}-${day}`
+    let dateIso = `${year}-${month}-${day}`
     return dateIso
 }
 function cookieParser(rawCookies) {
@@ -77,4 +77,4 @@ function generateHash(idLength) {
     return id
 }
 
-module.exports = { updateAge, getAge, sortContacts, getBithDate, cookieParser, generateHash }
+module.exports = { updateAge, getAge, sortContacts, getBirthDate, cookieParser, generateHash }

@@ -16,7 +16,7 @@ export function renderInstructors(instructors) {
         return (acc += `
          <tr class="person-data">
             <td>
-               <img alt="${instructor.name} profile picutre" src="${instructor.avatar}">
+               <img alt="${instructor.name} profile picture" src="${instructor.avatar}">
                <span class="person-name">${instructor.name}</span>
             </td>
             <td>
@@ -43,7 +43,7 @@ export function renderMembers(members) {
         return (acc += `
          <tr class="person-data">
             <td>
-               <img alt="${member.name} profile picutre" src="${member.avatar}">
+               <img alt="${member.name} profile picture" src="${member.avatar}">
                <span class="person-name">${member.name}</span>
             </td>
             <td>

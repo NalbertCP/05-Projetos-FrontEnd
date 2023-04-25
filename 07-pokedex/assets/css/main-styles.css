@@ -50,7 +50,7 @@ body::-webkit-scrollbar-thumb {
     height: 100vh;
     background: linear-gradient(#ffffff, rgb(167, 172, 255));
     opacity: 100%;
-    transition: opacity 0.5s, visility 0.1s 0.5s;
+    transition: opacity 0.5s;
 }
 
 .load-overlay.desabled {

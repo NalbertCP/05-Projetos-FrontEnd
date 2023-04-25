@@ -9,7 +9,7 @@ for (let input of formInputs) {
     input.addEventListener("change", validInput)
 }
 
-tellInput.addEventListener("input", fromatPhoneInput)
+tellInput.addEventListener("input", formatPhoneInput)
 stateInput.addEventListener("input", formatStateInput)
 
 //Funções
@@ -19,7 +19,7 @@ function invalidInput() {
 function validInput() {
     this.setCustomValidity("")
 }
-function fromatPhoneInput(event) {
+function formatPhoneInput(event) {
     let length = tellInput.value.length
     tellInput.value = tellInput.value.replace(/\D/g, "").replace(/(\d{2})/, "($1) ")
     tellInput.value = tellInput.value.replace(/(\d{5})/, "$1-")

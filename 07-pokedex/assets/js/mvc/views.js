@@ -27,7 +27,7 @@ export function createFilters(arrayOfTypes) {
 /*Criando os cards e seus componentes*/
 export function createPokemonCards(pokemon, stats) {
     let id = "#" + `00${pokemon.id}`.slice(-3)
-    let nameFormated = `${pokemon.name.charAt(0).toUpperCase()}${pokemon.name.slice(1)}`
+    let nameFormatted = `${pokemon.name.charAt(0).toUpperCase()}${pokemon.name.slice(1)}`
     return `
     <div id="${pokemon.name}" class="shrink-0 card">
         <div class="w-100 flex shrink-0 card-img">
@@ -35,7 +35,7 @@ export function createPokemonCards(pokemon, stats) {
         </div>
         <div class="w-100 card-info">
             <span class="card-number">${id}</span>
-            <div class="pokemon-name">${nameFormated}</div>
+            <div class="pokemon-name">${nameFormatted}</div>
             <div class="types">
                 ${pokemon.type.reduce((acc, type) => {
                     return (acc += `<span class="shrink-0 type ${type}">${type}</span>`)

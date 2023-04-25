@@ -20,7 +20,7 @@ server.use(
 server.use(methodOverride("_method"))
 server.use(routes)
 
-/*conifigurando o nunjucks*/
+/*configurando o nunjucks*/
 nunjucks.configure(resolve(__dirname, "./views"), {
     express: server,
     autoescape: false

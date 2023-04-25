@@ -14,12 +14,12 @@ function getBirthDate(birth) {
     const date = new Date(birth)
 
     const year = date.getUTCFullYear()
-    const mounth = `0${date.getUTCMonth() + 1}`.slice(-2)
+    const month = `0${date.getUTCMonth() + 1}`.slice(-2)
     const day = `0${date.getUTCDate()}`.slice(-2)
 
     return {
-        iso: `${year}-${mounth}-${day}`,
-        memberDate: `${day}/${mounth}`
+        iso: `${year}-${month}-${day}`,
+        memberDate: `${day}/${month}`
     }
 }
 function cookieParser(rawCookies) {

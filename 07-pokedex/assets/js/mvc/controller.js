@@ -28,7 +28,7 @@ async function main() {
 
 /*Renderizando os elementos(nodes DOM) vindos de views.js*/
 function renderViews(data) {
-    desableLoadEffect() //Desabilitando a página de loading
+    disableLoadEffect() //Desabilitando a página de loading
 
     //Renderizando filtros no DOM
     const filtersForm = document.querySelector("form")
@@ -49,7 +49,7 @@ function renderViews(data) {
     views.showCards()
     views.showFilters()
 }
-function desableLoadEffect() {
+function disableLoadEffect() {
     const loadOverlay = document.querySelector(".load-overlay")
     loadOverlay.classList.add("desabled")
     loadOverlay.querySelector(".pokeball-load").style.animationPlayState = "paused"

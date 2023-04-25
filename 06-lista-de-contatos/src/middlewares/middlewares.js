@@ -39,7 +39,7 @@ async function shouldUpdateAges(req, res, next) {
     return next()
 }
 
-//Validando o id do usuário e criando um novo id se nescessário
+//Validando o id do usuário e criando um novo id se necessário
 async function handleUserId(req, res, next) {
     const defaultCookieOptions = {
         maxAge: 31536000000,
