@@ -13,7 +13,7 @@ async function createPokemonDataBase(nodeArray) {
     totalPokemons > 1154 ? (totalPokemons = 1154) : ""
 
     if (!totalPokemons || typeof totalPokemons != "number")
-        return console.log("It's nescessary to especify the total of pokemons as a number.")
+        return console.log("It's necessary to specify the total of pokemons as a number.")
 
     console.log(`Creating a data-base with ${totalPokemons} pokemons...`)
     try {
@@ -25,7 +25,7 @@ async function createPokemonDataBase(nodeArray) {
 
     try {
         await writeFile("./pokemons.json", JSON.stringify(dataBase, null, 4), { encoding: "utf-8" })
-        console.log("Sucess! Check the data base with name 'pokemons.json' in this directory.")
+        console.log("Success! Check the data base with name 'pokemons.json' in this directory.")
         return
     } catch (error) {
         console.log(error.message)
