@@ -6,7 +6,7 @@ const routes = express.Router()
 
 //Declaração das rotas utilizadas em server.js
 routes.use(handleUserId)
-routes.get("/", (req, res) => res.redirect("/contacts"))
+routes.get("/", (req, res) => res.status(301).redirect("/contacts"))
 routes.get("/contacts", shouldUpdateAges, contacts.index)
 routes.get("/contacts/new", contacts.createContact)
 routes.get("/contacts/:id", contacts.get)
