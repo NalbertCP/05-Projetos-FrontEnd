@@ -2,12 +2,24 @@
 require("dotenv").config()
 const express = require("express")
 const methodOverride = require("method-override")
-const server = express()
+const helmet = require("helmet").default
 const routes = require("./routes/routes")
 const nunjucks = require("nunjucks")
 const { resolve } = require("path")
+const server = express()
 
 /*Middlewares*/
+server.use(
+    helmet({
+        contentSecurityPolicy: {
+            directives: {
+                "img-src": "*",
+                "style-src": ["'self'", "https://fonts.googleapis.com", "'unsafe-inline'"],
+                "font-src": ["'self'", "https://fonts.gstatic.com"]
+            }
+        }
+    })
+)
 server.use(express.urlencoded({ extended: true }))
 server.use(
     express.static(resolve(__dirname, "../public"), {
