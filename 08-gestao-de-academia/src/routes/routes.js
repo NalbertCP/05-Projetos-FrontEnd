@@ -13,7 +13,7 @@ routes.use(handleUserId)
 routes.get("/data", api.getData)
 
 /*Rotas de acesso às funcionalidades dos instrutores*/
-routes.get("/", (req, res) => res.status(301).redirect("/instructors"))
+routes.get("/", (req, res) => res.redirect(301, "/instructors"))
 routes.get("/instructors", instructors.index)
 routes.get("/instructors/new", instructors.create)
 routes.get("/instructors/:id", instructors.findInstructor)
