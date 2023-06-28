@@ -21,8 +21,8 @@ module.exports.post = async function (req, res) {
         data = JSON.parse(await readFile(dataPath, { encoding: "utf-8" }))
     } catch (error) {
         return res.status(500).render("./errors.njk", {
-            status: "Error 500",
-            msg: "Server internal error."
+            status: "Erro 500",
+            msg: "Desculpe, tivemos um problema no servidor, tente novamente mais tarde."
         })
     }
 
@@ -30,13 +30,11 @@ module.exports.post = async function (req, res) {
     for (let key of keys) {
         try {
             if (req.body[key] === "")
-                throw new Error(
-                    "Error 422: the user needs to fill all the fields before sending the form."
-                )
+                throw new Error("Erro 422: Por favor, preencha todos os campos do formulário.")
         } catch (error) {
             return res.status(422).render("./errors.njk", {
-                status: "Error 422",
-                msg: "Please fill all the fields before sending the form."
+                status: "Erro 422",
+                msg: "Por favor, preencha todos os campos do formulário."
             })
         }
     }
@@ -65,8 +63,8 @@ module.exports.post = async function (req, res) {
         return res.redirect(`/instructors/${id}`)
     } catch (error) {
         return res.status(500).render("./errors.njk", {
-            status: "Error 500",
-            msg: "Sorry, we're facing some problems in the server."
+            status: "Erro 500",
+            msg: "Desculpe, tivemos um problema no servidor, tente novamente mais tarde."
         })
     }
 }
@@ -81,8 +79,8 @@ module.exports.findInstructor = async function (req, res) {
         data = JSON.parse(await readFile(dataPath, { encoding: "utf-8" }))[userId]
     } catch (error) {
         return res.status(500).render("./errors.njk", {
-            status: "Error 500",
-            msg: "Server internal error."
+            status: "Erro 500",
+            msg: "Desculpe, tivemos um problema no servidor, tente novamente mais tarde."
         })
     }
 
@@ -90,12 +88,12 @@ module.exports.findInstructor = async function (req, res) {
     const foundInstructor = { ...data.instructors.find((value) => value.id == id) }
     try {
         if (Object.keys(foundInstructor).length === 0) {
-            throw new Error("Error 404: the instructor was not found.")
+            throw new Error("Erro 404: Instrutor não encontrado.")
         }
     } catch (error) {
         return res
             .status(404)
-            .render("./errors.njk", { status: "Error 404", msg: "Sorry, instructor not found." })
+            .render("./errors.njk", { status: "Erro 404", msg: "Instrutor não encontrado." })
     }
 
     foundInstructor.age = getAge(Date.now(), foundInstructor.birth)
@@ -113,8 +111,8 @@ module.exports.edit = async function (req, res) {
         data = JSON.parse(await readFile(dataPath, { encoding: "utf-8" }))[userId]
     } catch (error) {
         return res.status(500).render("./errors.njk", {
-            status: "Error 500",
-            msg: "Server internal error."
+            status: "Erro 500",
+            msg: "Desculpe, tivemos um problema no servidor, tente novamente mais tarde."
         })
     }
 
@@ -122,12 +120,12 @@ module.exports.edit = async function (req, res) {
     const foundInstructor = { ...data.instructors.find((value) => value.id == id) }
     try {
         if (Object.keys(foundInstructor).length === 0) {
-            throw new Error("Error 404: the instructor, user is looking for was not found.")
+            throw new Error("Erro 404: Instrutor não encontrado.")
         }
     } catch (error) {
         return res
             .status(404)
-            .render("./errors.njk", { status: "Error 404", msg: "Sorry, instructor not found." })
+            .render("./errors.njk", { status: "Erro 404", msg: "Instrutor não encontrado." })
     }
 
     const { birth } = foundInstructor
@@ -151,8 +149,8 @@ module.exports.put = async function (req, res) {
         data = JSON.parse(await readFile(dataPath, { encoding: "utf-8" }))
     } catch (error) {
         return res.status(500).render("./errors.njk", {
-            status: "Error 500",
-            msg: "Server internal error."
+            status: "Erro 500",
+            msg: "Desculpe, tivemos um problema no servidor, tente novamente mais tarde."
         })
     }
 
@@ -160,13 +158,11 @@ module.exports.put = async function (req, res) {
     for (let key of keys) {
         try {
             if (req.body[key] === "")
-                throw new Error(
-                    "Error 422: the user needs to fill all the fields before sending the form."
-                )
+                throw new Error("Erro 422: Por favor, preencha todos os campos do formulário.")
         } catch (error) {
             return res.status(422).render("./errors.njk", {
-                status: "Error 422",
-                msg: "Please fill all the fields before sending the form."
+                status: "Erro 422",
+                msg: "Por favor, preencha todos os campos do formulário."
             })
         }
     }
@@ -181,12 +177,11 @@ module.exports.put = async function (req, res) {
 
     //Tratando o erro em caso de correspondência vazia para o instrutor
     try {
-        if (!foundInstructor)
-            throw new Error("Error 404: the instructor, user is looking for was not found.")
+        if (!foundInstructor) throw new Error("Erro 404: Instrutor não encontrado.")
     } catch (error) {
         return res
             .status(404)
-            .render("./errors.njk", { status: "Error 404", msg: "Sorry, instructor not found." })
+            .render("./errors.njk", { status: "Erro 404", msg: "Instrutor não encontrado." })
     }
 
     //Atualizando os dados do instrutor
@@ -205,8 +200,8 @@ module.exports.put = async function (req, res) {
         return res.redirect(`instructors/${id}`)
     } catch (error) {
         return res.status(500).render("./errors.njk", {
-            status: "Error 500",
-            msg: "Sorry, we're facing some problems in the server."
+            status: "Erro 500",
+            msg: "Desculpe, tivemos um problema no servidor, tente novamente mais tarde."
         })
     }
 }
@@ -221,19 +216,19 @@ module.exports.delete = async function (req, res) {
         data = JSON.parse(await readFile(dataPath, { encoding: "utf-8" }))
     } catch (error) {
         return res.status(500).render("./errors.njk", {
-            status: "Error 500",
-            msg: "Server internal error."
+            status: "Erro 500",
+            msg: "Desculpe, tivemos um problema no servidor, tente novamente mais tarde."
         })
     }
 
     //Tratando o erro caso o usuário tente excluir o instrutor mais de uma vez
     let foundIndex = data[userId].instructors.findIndex((value) => value.id === id)
     try {
-        if (foundIndex < 0) throw new Error("Error 404: the instrutor was already deleted.")
+        if (foundIndex < 0) throw new Error("Erro 404: Instrutor não encontrado.")
     } catch (error) {
         return res
             .status(404)
-            .render("./errors.njk", { status: "Error 404", msg: "instructor was already deleted." })
+            .render("./errors.njk", { status: "Erro 404", msg: "Instrutor não encontrado." })
     }
 
     data[userId].instructors.splice(foundIndex, 1)
@@ -244,8 +239,8 @@ module.exports.delete = async function (req, res) {
         return res.redirect(`/instructors`)
     } catch (error) {
         return res.status(500).render("./errors.njk", {
-            status: "Error 500",
-            msg: "Sorry, we're facing some problems in the server."
+            status: "Erro 500",
+            msg: "Desculpe, tivemos um problema no servidor, tente novamente mais tarde."
         })
     }
 }

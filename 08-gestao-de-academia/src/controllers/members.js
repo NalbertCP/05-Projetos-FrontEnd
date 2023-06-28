@@ -21,8 +21,8 @@ module.exports.post = async function (req, res) {
         data = JSON.parse(await readFile(dataPath, { encoding: "utf-8" }))
     } catch (error) {
         return res.status(500).render("./errors.njk", {
-            status: "Error 500",
-            msg: "Server internal error."
+            status: "Erro 500",
+            msg: "Desculpe, tivemos um problema no servidor, tente novamente mais tarde."
         })
     }
 
@@ -30,13 +30,11 @@ module.exports.post = async function (req, res) {
     for (let key of keys) {
         try {
             if (req.body[key] === "")
-                throw new Error(
-                    "Error 422: the user needs to fill all the fields before sending the form."
-                )
+                throw new Error("Erro 422: Por favor, preencha todos os campos do formulário.")
         } catch (error) {
             return res.status(422).render("./errors.njk", {
-                status: "Error 422",
-                msg: "Please fill all the fields before sending the form."
+                status: "Erro 422",
+                msg: "Por favor, preencha todos os campos do formulário."
             })
         }
     }
@@ -59,8 +57,8 @@ module.exports.post = async function (req, res) {
         return res.redirect(`/members/${id}`)
     } catch (error) {
         return res.status(500).render("./errors.njk", {
-            status: "Error 500",
-            msg: "Sorry, we're facing some problems in the server."
+            status: "Erro 500",
+            msg: "Desculpe, tivemos um problema no servidor, tente novamente mais tarde."
         })
     }
 }
@@ -75,21 +73,21 @@ module.exports.findMember = async function (req, res) {
         data = JSON.parse(await readFile(dataPath, { encoding: "utf-8" }))[userId]
     } catch (error) {
         return res.status(500).render("./errors.njk", {
-            status: "Error 500",
-            msg: "Server internal error."
+            status: "Erro 500",
+            msg: "Desculpe, tivemos um problema no servidor, tente novamente mais tarde."
         })
     }
 
-    //Buscando o instrutor em data.json com base no id recebido
+    //Buscando o aluno em data.json com base no id recebido
     const foundMember = { ...data.members.find((value) => value.id == id) }
     try {
         if (Object.keys(foundMember).length === 0) {
-            throw new Error("Error 404: the member was not found.")
+            throw new Error("Erro 404: Aluno não encontrado.")
         }
     } catch (error) {
         return res
             .status(404)
-            .render("./errors.njk", { status: "Error 404", msg: "Sorry, member not found." })
+            .render("./errors.njk", { status: "Erro 404", msg: "Aluno não encontrado." })
     }
     foundMember.age = getAge(Date.now(), foundMember.birth)
 
@@ -106,21 +104,22 @@ module.exports.edit = async function (req, res) {
         data = JSON.parse(await readFile(dataPath, { encoding: "utf-8" }))[userId]
     } catch (error) {
         return res.status(500).render("./errors.njk", {
-            status: "Error 500",
-            msg: "Server internal error."
+            status: "Erro 500",
+            msg: "Desculpe, tivemos um problema no servidor, tente novamente mais tarde."
         })
     }
 
-    //Buscando o instrutor em data.json com base no id recebido
+    //Buscando o aluno em data.json com base no id recebido
     const foundMember = data.members.find((value) => value.id == id)
     try {
         if (Object.keys(foundMember).length === 0) {
-            throw new Error("Error 404: the member, user is looking for was not found.")
+            throw new Error("Erro 404: Aluno não encontrado.")
         }
     } catch (error) {
-        return res
-            .status(404)
-            .render("./errors.njk", { status: "Error 404", msg: "Sorry, member not found." })
+        return res.status(404).render("./errors.njk", {
+            status: "Erro 404",
+            msg: "Aluno não encontrado."
+        })
     }
 
     //Atualizando a idade do aluno em caso de aniversário
@@ -145,8 +144,8 @@ module.exports.put = async function (req, res) {
         data = JSON.parse(await readFile(dataPath, { encoding: "utf-8" }))
     } catch (error) {
         return res.status(500).render("./errors.njk", {
-            status: "Error 500",
-            msg: "Server internal error."
+            status: "Erro 500",
+            msg: "Desculpe, tivemos um problema no servidor, tente novamente mais tarde."
         })
     }
 
@@ -154,13 +153,11 @@ module.exports.put = async function (req, res) {
     for (let key of keys) {
         try {
             if (req.body[key] === "")
-                throw new Error(
-                    "Error 422: the user needs to fill all the fields before sending the form."
-                )
+                throw new Error("Erro 422: Por favor, preencha todos os campos do formulário.")
         } catch (error) {
             return res.status(422).render("./errors.njk", {
-                status: "Error 422",
-                msg: "Please fill all the fields before sending the form."
+                status: "Erro 422",
+                msg: "Por favor, preencha todos os campos do formulário."
             })
         }
     }
@@ -174,12 +171,11 @@ module.exports.put = async function (req, res) {
     })
 
     try {
-        if (!foundMember)
-            throw new Error("Error 404: the member, user is looking for was not found.")
+        if (!foundMember) throw new Error("Erro 404: Aluno não encontrado.")
     } catch (error) {
         return res
             .status(404)
-            .render("./errors.njk", { status: "Error 404", msg: "Sorry, member not found." })
+            .render("./errors.njk", { status: "Erro 404", msg: "Aluno não encontrado." })
     }
 
     //Atualizando os dados do aluno
@@ -198,8 +194,8 @@ module.exports.put = async function (req, res) {
         return res.redirect(`members/${id}`)
     } catch (error) {
         return res.status(500).render("./errors.njk", {
-            status: "Error 500",
-            msg: "Sorry, we're facing some problems in the server."
+            status: "Erro 500",
+            msg: "Desculpe, tivemos um problema no servidor, tente novamente mais tarde."
         })
     }
 }
@@ -214,19 +210,19 @@ module.exports.delete = async function (req, res) {
         data = JSON.parse(await readFile(dataPath, { encoding: "utf-8" }))
     } catch (error) {
         return res.status(500).render("./errors.njk", {
-            status: "Error 500",
-            msg: "Server internal error."
+            status: "Erro 500",
+            msg: "Desculpe, tivemos um problema no servidor, tente novamente mais tarde."
         })
     }
 
     //Tratando o erro caso o usuário tente excluir o aluno mais de uma vez
     let foundIndex = data[userId].members.findIndex((value) => value.id === id)
     try {
-        if (foundIndex < 0) throw new Error("Error 404: the member was already deleted.")
+        if (foundIndex < 0) throw new Error("Erro 404: Aluno não encontrado.")
     } catch (error) {
         return res
             .status(404)
-            .render("./errors.njk", { status: "Error 404", msg: "member was already deleted." })
+            .render("./errors.njk", { status: "Erro 404", msg: "Aluno não encontrado." })
     }
 
     data[userId].members.splice(foundIndex, 1)
@@ -237,8 +233,8 @@ module.exports.delete = async function (req, res) {
         return res.redirect("/members")
     } catch (error) {
         return res.status(500).render("./errors.njk", {
-            status: "Error 500",
-            msg: "Sorry, we're facing some problems in the server."
+            status: "Erro 500",
+            msg: "Desculpe, tivemos um problema no servidor, tente novamente mais tarde."
         })
     }
 }
