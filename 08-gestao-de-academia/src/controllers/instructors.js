@@ -8,7 +8,7 @@ module.exports.index = function (req, res) {
     res.render("Instructors/index.njk")
 }
 module.exports.create = function (req, res) {
-    res.render("./Instructors/create")
+    res.render("./Instructors/create.njk")
 }
 module.exports.post = async function (req, res) {
     let data
@@ -98,7 +98,7 @@ module.exports.findInstructor = async function (req, res) {
 
     foundInstructor.age = getAge(Date.now(), foundInstructor.birth)
 
-    return res.render("./Instructors/showinstructor", { instructor: foundInstructor })
+    return res.render("./Instructors/showinstructor.njk", { instructor: foundInstructor })
 }
 module.exports.edit = async function (req, res) {
     let data
