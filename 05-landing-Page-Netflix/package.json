@@ -1,12 +1,11 @@
 {
-	"name": "05.-landing-page---netflix",
+	"name": "landing-page-netflix",
 	"version": "1.0.0",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [],
 	"author": "",
-	"license": "ISC",
 	"devDependencies": {
 		"prettier": "^2.7.1",
 		"eslint": "^8.28.0",

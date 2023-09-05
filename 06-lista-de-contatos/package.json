@@ -15,7 +15,6 @@
         "start": "nodemon --ext js,jsm,html,css,njk ./src/server.js",
         "prod": "pm2 start ./src/server.js && pm2 monit"
     },
-    "license": "LICENSE",
     "dependencies": {
         "dotenv": "^16.0.3",
         "express": "^4.18.1",
