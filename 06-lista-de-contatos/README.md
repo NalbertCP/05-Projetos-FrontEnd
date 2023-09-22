@@ -31,6 +31,6 @@ Após clonar este repositório, navegue até o diretório do projeto pelo seu te
 -   NodeJS
 -   Nunjucks
 
-## 💵 Licença
+## 📝 Licença
 
-**O uso de todos os arquivos deste projeto é limitado apenas a fins de estudos.**
+MIT License © [MIT License ](./LICENSE)

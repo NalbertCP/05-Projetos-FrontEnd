@@ -37,6 +37,6 @@ Projeto Front-End desenvolvido através de um dos Bootcamps encontrados na pági
 -   NodeJS
 -   Nunjucks
 
-## 💵 Licença
+## 📝 Licença
 
-**O uso de todos os arquivos deste projeto é limitado apenas a fins de estudos.**
+MIT License © [MIT License ](./LICENSE)

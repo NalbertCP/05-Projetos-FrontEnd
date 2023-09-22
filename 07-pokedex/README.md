@@ -53,6 +53,6 @@ Siga o passo a passo abaixo caso queira criar uma base dados com uma quantidade 
 -   JavaScript
 -   NodeJS
 
-## 💵 Licença
+## 📝 Licença
 
-**O uso de todos os arquivos deste projeto é limitado apenas a fins de estudos.**
+MIT License © [MIT License ](./LICENSE)

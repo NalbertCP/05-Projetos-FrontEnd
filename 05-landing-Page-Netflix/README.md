@@ -16,6 +16,6 @@ Projeto Front-End criado com objetivo de clonar a Landing Page da Netflix. Abaix
 -   CSS
 -   JavaScript
 
-## 💵 Licença
+## 📝 Licença
 
-**O uso de todos os arquivos deste projeto, incluindo links de medias, é limitado apenas a fins de estudos.**
+MIT License © [MIT License ](./LICENSE)
